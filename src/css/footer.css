@@ -1,0 +1,112 @@
+.footer {
+  padding: 60px 20px;
+  border-top: 1px solid #e5e5e5;
+  background: #ffffff;
+}
+
+.footer-wrapper {
+  max-width: 1320px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* Título */
+.footer-title {
+  font-size: 80px;
+  font-weight: 700;
+  line-height: 72px;
+  letter-spacing: -0.08em;
+  margin: 0;
+}
+
+/* Grid principal */
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+}
+
+/* Brand */
+.footer-brand img {
+  width: 150px;
+  margin-bottom: 16px;
+}
+
+/* Bloques */
+.footer-block h3 {
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  margin-bottom: 12px;
+}
+
+.footer-block p {
+  font-size: 14px;
+  line-height: 20px;
+  margin: 0;
+}
+
+/* Social newtorks */
+
+.footer-social-icons {
+    display: flex;
+    gap: 16px;
+}
+
+.footer-social-icons a {
+    color: #31312D;
+    text-decoration: none;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    transition: opacity 0.2s;
+    font-weight: bold;
+}
+
+.footer-social-icons a:hover {
+    opacity: 0.7;
+}
+
+.footer-social-icons a .icon {
+    width: 100%;
+    height: 100%;
+    stroke: #31312D;
+}
+
+/* Links */
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-links a {
+  font-size: 14px;
+  text-decoration: underline;
+  color: #000;
+}
+
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .footer-title {
+    font-size: 48px;
+    line-height: 1.1;
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
