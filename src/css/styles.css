@@ -278,7 +278,7 @@ body {
     color: #000000;
 }
 
-.cta-btn {
+.cta-btn { 
     padding: 8px 24px;
     font-family: 'Inter', sans-serif;
     font-weight: 400;
@@ -286,7 +286,7 @@ body {
     line-height: 24px;
     text-transform: uppercase;
     color: #FFFFFF;
-    background: #31312D;
+    background: #4D5D3F;
     border: none;
     cursor: pointer;
     display: flex;
