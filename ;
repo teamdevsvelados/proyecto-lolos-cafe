@@ -1,0 +1,46 @@
+[33m8c2beeb[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mpage-contact[m[33m, [m[1;31morigin/devsvelados[m[33m)[m Merge pull request #16 from Antonio-Amaro/about-us
+[33m5c8ca4a[m[33m ([m[1;31morigin/about-us[m[33m)[m fix: add source for using script on icons
+[33m057126b[m style: changes on icons, add animations
+[33m400e049[m Merge pull request #14 from Antonio-Amaro/main
+[33mba40cd1[m feat: this is a test
+[33m2c2f97a[m Merge branch 'devsvelados' of github.com:Antonio-Amaro/proyecto-lolos-cafe into devsvelados
+[33md846cd7[m feat: href tag added to footer and first conflict resolved
+[33meb198f1[m feat: added tag again, I wanna be YOLO, in the night by Ro
+[33m7918413[m feat: added tag again, I wanna be YOLO, in the night by Ro
+[33m50bc8dd[m Merge pull request #13 from Antonio-Amaro/store
+[33m1200542[m[33m ([m[1;31morigin/store[m[33m)[m Merge branch 'devsvelados' into store
+[33mba73de3[m feat: Pruebas
+[33m499951a[m Merge branch 'devsvelados' of github.com:Antonio-Amaro/proyecto-lolos-cafe into devsvelados
+[33m6d2ab2a[m feat: href tag added to footer
+[33mc015c9c[m Merge pull request #12 from Antonio-Amaro/devsvelados
+[33m83a3ce7[m[33m ([m[1;32mdevsvelados[m[33m)[m feat: little change
+[33mc2434b2[m Merge pull request #11 from Antonio-Amaro/devsvelados
+[33m1438a68[m Merge pull request #9 from Antonio-Amaro/readme
+[33m54d1e54[m feat: little change
+[33m45dab93[m feat: added tag again, in the night by Ro
+[33mc09982f[m Merge pull request #10 from Antonio-Amaro/dev-uri
+[33m223d001[m feat: modified README
+[33md49adc6[m[33m ([m[1;31morigin/dev-uri[m[33m)[m Feat: last line on footer added by Uriel
+[33m23aaaa3[m Merge pull request #8 from Antonio-Amaro/page-admin
+[33m1ea3faf[m[33m ([m[1;31morigin/page-admin[m[33m)[m feat: added tag by Ro
+[33med46c80[m Merge pull request #7 from Antonio-Amaro/store
+[33m0bc54c9[m Merge branch 'main' into store
+[33m0ce1edd[m Merge pull request #6 from Antonio-Amaro/page-contact
+[33mdf7a9bb[m feat: Dani collab
+[33m7480e1d[m[33m ([m[1;31morigin/page-contact[m[33m)[m feat: add tag for Fancy
+[33ma7dbda5[m[33m ([m[1;32mmain[m[33m)[m Merge pull request #5 from Antonio-Amaro/about-us
+[33mcc4fd26[m Merge branch 'main' into about-us
+[33ma715065[m style: little change on footer-wrapper
+[33m8247761[m fix: use h3 instead h4 on schedules and direction
+[33m65e69cd[m fix: unnecesary code on styles and changes on footer file
+[33m5621c30[m refactor: footer changes, icons adjusted
+[33m07f636d[m Merge pull request #4 from Antonio-Amaro/about-us
+[33m531bc9b[m refactor: defined project structure
+[33mb15034f[m Merge pull request #2 from Misavalmad/about-us-footer
+[33m160b40a[m Merge pull request #3 from Antonio-Amaro/about-us
+[33me48331e[m refactor:class footer on main footer removed as it's only an example
+[33m7a6476a[m fix: all alt atributes from pictures corrected
+[33m396c281[m fix: third picture alt atribute corrected
+[33m347475a[m Merge pull request #1 from Misavalmad/about-us-footer
+[33mc188235[m feat: past repository archives pasted to this branch
+[33m909a941[m Initial commit
