@@ -13,23 +13,32 @@
     <div id="header-placeholder"></div>
 
     <!-- Page Title -->
-    <section class="page-title">
-        <div class="container">
-            <a href="./signup.html" class="back-btn">←</a>
-            <h1>Registro</h1>
+    <section class="container page-title section-white">
+        <div class="row align-items-center flex-nowrap">
+            
+            <div class="col-auto">
+                <a href="#" class="back-btn">←</a>
+            </div>
+
+            <div class="col-auto d-flex align-items-center">
+                <h1 class="mb-0">Registro</h1>
+            </div>
+
         </div>
     </section>
+
+    <!-- Image Banner Placeholder -->
+    <div class="row registration-banner">
+            <img src="./public/images/coffe.signup.png" alt="Granos de café">
+    </div>
+    
 
     <!-- Registration Section -->
     <section class="registration-section-complete">
         <div class="container">
-            <!-- Image Banner Placeholder -->
-            <div class="registration-banner">
-                <img src="" alt="Granos de café">
-            </div>
 
             <!-- Form -->
-            <div class="registration-form-complete">
+            <div class="col-md-6 offset-md-3 registration-form-complete">
                 <p class="registration-subtitle">Regístrate para obtener beneficios con cada compra</p>
                 
                 <form 
@@ -75,7 +84,7 @@
                     <!-- Gender -->
                     <div class="form-group">
                         <label for="gender">Género</label>
-                        <select id="gender" name="gender" required>
+                        <select class="gender" id="gender" name="gender" required>
                             <option value="">Selecciona</option>
                             <option value="masculino">Masculino</option>
                             <option value="femenino">Femenino</option>
@@ -85,17 +94,22 @@
                     </div>
 
                     <!-- Checkbox Privacy -->
-                    <div class="form-checkbox">
+                    <div class="form-check">
                         <input type="checkbox" id="privacy" name="privacy" required>
                         <label for="privacy">He leído y acepto el <a href="#">aviso de privacidad</a></label>
                     </div>
 
                     <!-- Submit Button -->
-                    <button type="submit" class="btn-submit">REGISTRARME →</button>
+                     <div class="register-btn">
+                        <button class="menu-btn form-btn" type="submit" class="btn-submit">REGISTRARME →</button>
+                     </div>
+                    
                 </form>
 
                 <!-- Login Link -->
-                <p class="login-link">¿Ya tienes una cuenta? <a href="#">Inicia sesión aquí</a></p>
+                 <div class="login-link">
+                     <p>¿Ya tienes una cuenta? <a href="#">Inicia sesión aquí</a></p>
+                 </div>
             </div>
         </div>
     </section>

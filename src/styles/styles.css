@@ -21,6 +21,11 @@ h2 {
     font-size: 32px;
     font-weight: 600;
 }
+
+h3{    
+    font-size: 25px;
+    font-weight: 600;
+}
 p {
     font-size: 18px;
 }
@@ -35,6 +40,12 @@ p {
 .section-padding {
     padding: 100px 0px;
 }
+
+.page-title{
+    margin: 20px;
+    padding: 10px;
+}
+
 .section-colored h2,
 .section-colored p {
     color: #4D5D3F;
@@ -46,6 +57,140 @@ p {
     text-decoration: none;
     line-height: 1;
 }
+
+.img-form{
+    display: block;
+    justify-content: end;
+    max-width: 350px;
+}
+
+.subtitle-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px;
+}
+
+.data{
+    margin-left: 30px;
+    font-size: 18px;
+}
+
+.form-group{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.form-group label{
+    font-size: 20px;
+}
+
+.form-group input{
+    padding-left: 10px;
+}
+
+.form-group p{
+    font-size: 15px;
+}
+.form-check{
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+.form-check input{
+    margin-right: 10px;
+    width: 20px;
+}
+
+.form-check label{
+    font-size: 20px;
+}
+
+.registration-form a{
+    color: #000000;
+
+}
+
+.form-btn{
+    text-align: center;
+}
+
+.form-btn a{
+    text-decoration: none;
+}
+.login-link{
+    margin: 30px;
+}
+.login-link a{
+    text-decoration: underline;
+}
+
+.registration-section-complete{
+    display: flex;
+    flex-direction: column;
+    align-items: center center;
+
+}
+
+.registration-banner{
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.registration-subtitle{
+    font-weight: bold;
+    margin-top: 30px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.subtitle-form p{
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.birth-date-group{
+    margin: 5px;
+}
+
+.date{
+    height: 30px;
+    margin-right: 5px;
+}
+
+.gender{
+    height: 30px;
+}
+
+.form-check a{
+    color: #000000;
+}
+
+.form-group .gender {
+    padding-left: 10px;
+}
+
+.register-btn{
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+}
+
+.login-link{
+    display: flex;
+    justify-content: center;
+}
+
+.login-link p{
+    font-size: 15px;
+}
+.login-link a{
+    color: #000000;
+}
+
 @media (min-width: 768px) {
     .back-btn {
         font-size: 24px;
