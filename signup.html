@@ -37,7 +37,7 @@
                         <!-- Phone -->
                         <div class="form-group">
                             <label for="phone">Número de teléfono o correo electrónico</label>
-                            <input type="text" id="phone" name="phone" placeholder="+52 000 000 0000" required>
+                            <input type="text" id="phone-email" name="identity" placeholder="2211231234 o correo@gmail.com" required>
                         </div>
 
                         <!-- Password -->
@@ -47,6 +47,12 @@
                             <p class="form-help">Mínimo 8 caracteres, incluye letras y números</p>
                         </div>
 
+                        <div class="form-group">
+                            <label for="password">Repite nuevamente la contraseña</label>
+                            <input type="password" id="repeat-password" name="repeat-password" placeholder="Repite tu contraseña" required>
+                            <p class="form-help">Debe coincidir con la contraseña de arriba</p>
+                        </div>
+
                         <!-- Checkbox Privacy -->
                         <div class="form-checkbox">
                             <input type="checkbox" id="privacy" name="privacy" required>
@@ -54,7 +60,7 @@
                         </div>
 
                         <!-- Submit Button -->
-                        <a href="./signupFull.html" class="btn-submit">REGISTRARME →</a>
+                        <a href="./signupFull.html" class="btn-submit">COMPLETA TU REGISTRO →</a>
                     </form>
 
                     <!-- Login Link -->
@@ -70,6 +76,7 @@
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
     <script src="./src/pages/load-components.js"></script>
+    <script src="./src/pages/validation-signup.js"></script>
     <script src="https://animatedicons.co/scripts/embed-animated-icons.js"></script>
 
 </body>
