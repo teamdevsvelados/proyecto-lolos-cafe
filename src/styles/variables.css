@@ -1,3 +1,7 @@
+html {
+    font-size: 62.5%;
+}
+
 :root {
     /* Brand identity colors */
     --color-primary: black;
@@ -16,14 +20,14 @@
 
     /* Font sizes */
     /* Body text scale */
-    --fs-sm: 0.875rem;  /* 14px */
-    --fs-md: 1rem;     /* 16px */
-    --fs-lg: 1.25rem;  /* 20px */
+    --fs-sm: 1.4rem;  /* 14px */
+    --fs-md: 1.6rem;     /* 16px */
+    --fs-lg: 2rem;  /* 20px */
 
     /* Display / hero section scale */
-    --fs-display-sm: 2.5rem;   /* 40px */
-    --fs-display-md: 3.5rem;   /* 56px */
-    --fs-display-lg: 4.5rem;   /* 72px */
+    --fs-display-sm: 4rem;   /* 40px */
+    --fs-display-md: 5.6rem;   /* 56px */
+    --fs-display-lg: 7.2rem;   /* 72px */
 
     /* Spacing */
     --space-sm: 8px;

@@ -1,0 +1,80 @@
+:root {
+    /* Brand identity colors */
+    --color-primary: #000000;
+    --color-secondary: #4D5D3F;
+    --color-accent: #9F9172;
+
+    /* Neutral colors */
+    --color-text: #000000;
+    --color-muted: #454540;
+    --color-bg: #ffffff;
+    --color-surface-alt: #DED8CC;
+
+    /* Typographies */
+    --font-primary: 'Inter', sans-serif;
+    --font-display: 'Montserrat', sans-serif;
+
+    /* Spacing */
+    --space-sm: 8px;
+    --space-md: 16px;
+    --space-lg: 32px;
+
+    /* -----------------------------
+        Typography tokens
+        MOBILE default / xs
+    -------------------------------- */
+
+    --fs-h1: 3.2rem;  /* 32px */
+    --fs-h2: 2.4rem;  /* 24px */
+    --fs-h3: 2rem;    /* 20px */
+    --fs-h4: 1.6rem;  /* 16px */
+    --fs-body: 1.4rem;/* 14px */
+
+    /* Scale tokens (for components) */
+    --fs-sm: 1.4rem;  /* 14px */
+    --fs-md: 1.6rem;  /* 16px */
+    --fs-lg: 2rem;    /* 20px */
+
+    /* Display / hero section scale */
+    --fs-display-sm: 4rem;     /* 40px */
+    --fs-display-md: 5.6rem;   /* 56px */
+    --fs-display-lg: 7.2rem;   /* 72px */
+
+    /* Line heights */
+    --lh-heading: 1.15;
+    --lh-body: 1.6;
+
+    /* Letter spacing (must be tighter for display and headings) */
+    --ls-h1: -0.03em;
+    --ls-h2: -0.025em;
+    --ls-h3: -0.02em;
+    --ls-h4: -0.015em;
+    --ls-body: -0.01em;
+}
+
+    /* -----------------------------
+        TABLET (Bootstrap md >= 768px)
+    -------------------------------- */
+
+@media (min-width: 768px) {
+    :root {
+        --fs-h1: 4.8rem;   /* 48px */
+        --fs-h2: 4rem;     /* 40px */
+        --fs-h3: 3.2rem;   /* 32px */
+        --fs-h4: 2.4rem;   /* 24px */
+        --fs-body: 1.6rem; /* 16px */
+    }
+}
+
+    /* -----------------------------
+    DESKTOP (Bootstrap lg >= 992px)
+    -------------------------------- */
+@media (min-width: 992px) {
+    :root {
+        --fs-h1: 5.6rem;   /* 56px */
+        --fs-h2: 4.8rem;   /* 48px */
+        --fs-h3: 3.2rem;   /* 32px */
+        --fs-h4: 2.4rem;   /* 24px */
+        --fs-body: 2rem;   /* 20px */
+    }
+}
