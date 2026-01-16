@@ -13,29 +13,39 @@
     <div id="header-placeholder"></div>
 
     <!-- Page Title -->
-    <section class="page-title">
-        <div class="container">
-            <a href="./signup.html" class="back-btn">←</a>
-            <h1>Registro</h1>
+    <section class="container page-title section-white">
+        <div class="row align-items-center flex-nowrap">
+            
+            <div class="col-auto">
+                <a href="#" class="back-btn">←</a>
+            </div>
+
+            <div class="col-auto d-flex align-items-center">
+                <h1 class="mb-0">Registro</h1>
+            </div>
+
         </div>
     </section>
+
+    <!-- Image Banner Placeholder -->
+    <div class="row registration-banner">
+            <img src="./public/images/coffe.signup.png" alt="Granos de café">
+    </div>
+    
 
     <!-- Registration Section -->
     <section class="registration-section-complete">
         <div class="container">
-            <!-- Image Banner Placeholder -->
-            <div class="registration-banner">
-                <img src="" alt="Granos de café">
-            </div>
 
             <!-- Form -->
-            <div class="registration-form-complete">
+            <div class="col-md-6 offset-md-3 registration-form-complete">
                 <p class="registration-subtitle">Regístrate para obtener beneficios con cada compra</p>
                 
                 <form 
-  action="https://formspree.io/f/xzddzgdp"
-  method="POST"
-  enctype="multipart/form-data"> <!-- Conexión con formspree -->
+                action="https://formspree.io/f/xzddzgdp"
+                method="POST"
+                enctype="multipart/form-data"> 
+            <!-- Conexión con formspree -->
                     <!-- Name -->
                     <div class="form-group">
                         <label for="name">Nombre</label>
@@ -63,8 +73,8 @@
                     <!-- Birth Date -->
                     <div class="form-group">
                         <label>Fecha de nacimiento</label>
-                        <div class="birth-date-group">
-                            <select id="day" name="day" required>
+                        <div class="birth-date-group row align-items-center">
+                            <select class="col date" id="day" name="day" required>
                                 <option value="">Día</option>
                                 <option value="01">01</option>
                                 <option value="02">02</option>
@@ -99,7 +109,7 @@
                                 <option value="31">31</option>
                             </select>
 
-                            <select id="month" name="month" required>
+                            <select class="col date" id="month" name="month" required>
                                 <option value="">Mes</option>
                                 <option value="Enero">Enero</option>
                                 <option value="Febrero">Febrero</option>
@@ -115,7 +125,7 @@
                                 <option value="Diciembre">Diciembre</option>
                             </select>
 
-                            <select id="year" name="year" required>
+                            <select class="col date" id="year" name="year" required>
                                 <option value="">Año</option>
                                 <option value="1990">1990</option>
                                 <option value="1991">1991</option>
@@ -143,7 +153,7 @@
                     <!-- Gender -->
                     <div class="form-group">
                         <label for="gender">Género</label>
-                        <select id="gender" name="gender" required>
+                        <select class="gender" id="gender" name="gender" required>
                             <option value="">Selecciona</option>
                             <option value="masculino">Masculino</option>
                             <option value="femenino">Femenino</option>
@@ -153,17 +163,22 @@
                     </div>
 
                     <!-- Checkbox Privacy -->
-                    <div class="form-checkbox">
+                    <div class="form-check">
                         <input type="checkbox" id="privacy" name="privacy" required>
                         <label for="privacy">He leído y acepto el <a href="#">aviso de privacidad</a></label>
                     </div>
 
                     <!-- Submit Button -->
-                    <button type="submit" class="btn-submit">REGISTRARME →</button>
+                     <div class="register-btn">
+                        <button class="menu-btn form-btn" type="submit" class="btn-submit">REGISTRARME →</button>
+                     </div>
+                    
                 </form>
 
                 <!-- Login Link -->
-                <p class="login-link">¿Ya tienes una cuenta? <a href="#">Inicia sesión aquí</a></p>
+                 <div class="login-link">
+                     <p>¿Ya tienes una cuenta? <a href="#">Inicia sesión aquí</a></p>
+                 </div>
             </div>
         </div>
     </section>
