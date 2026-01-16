@@ -55,6 +55,11 @@
     gap: 16px;
 }
 
+.footer-social-icons img:hover {
+  transform: rotate(5deg) scale(1.05);
+  transition: all 300ms;
+}
+
 .footer-social-icons a {
     color: #31312D;
     text-decoration: none;
