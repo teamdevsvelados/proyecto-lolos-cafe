@@ -16,11 +16,11 @@
     <section class="container page-title section-white mx-auto">
         <div class="row align-items-center flex-nowrap">
             
-            <div class="col-auto">
+            <div class="col-1 d-flex aling-content-lg-end">
                 <a href="#" class="back-btn">←</a>
             </div>
 
-            <div class="col-auto d-flex align-items-center">
+            <div class="col-10 d-flex align-content-lg-start">
                 <h1 class="mb-0">Registro</h1>
             </div>
 
@@ -30,15 +30,24 @@
 
     <!-- Registration Section -->
 
-    <section class="container registration-section section-padding">
-        <div class="row registration-content justify-content-center">
+    <section class="container registration-section">
+        <div class="row justify-content-center registration-content">
             <!-- Image Placeholder -->
-            <div class="col-6 mb-3 mb-md-0 d-none d-md-flex img-form">
+            <div class="col-4 mb-3 mb-md-0 d-none d-md-flex img-form">
                     <img src="./public/images/coffe-signup1.jpg" alt="Café" class="img-fluid">
             </div>
 
             <!-- Form -->
-            <div class="col-12 col-md-6 registration-form">
+            <div class="col-4 registration-form ">
+                <div class="subtitle-form">
+                    <p>Regístrate para obtener beneficios con cada compra</p>
+                </div>
+                <form class="data">
+                    <!-- Phone -->
+                    <div class="form-group">
+                        <label for="phone">Número de teléfono o correo electrónico</label>
+                        <input type="text" id="phone" name="phone" placeholder="+52 000 000 0000" required>
+                    </div>
 
                 <!-- Form -->
                 <div class="registration-form">

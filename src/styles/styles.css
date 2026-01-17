@@ -191,6 +191,10 @@ p {
     color: #000000;
 }
 
+.registration-section{
+    margin-bottom: 50px;
+}
+
 @media (min-width: 768px) {
     .back-btn {
         font-size: 24px;
