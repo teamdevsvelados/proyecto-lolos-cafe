@@ -1,0 +1,42 @@
+.page-signup .img-form {
+  max-width: 35rem;
+}
+
+.page-signup .subtitle-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 3rem 0;
+  text-align: center;
+}
+
+.page-signup .data {
+  margin-left: 3rem;
+}
+
+.page-signup .registration-banner {
+  padding: 0 3rem;
+}
+
+.page-signup .registration-subtitle {
+  font-weight: 700;
+  margin-top: 3rem;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.page-signup .register-btn {
+  display: flex;
+  justify-content: center;
+  padding-top: 1rem;
+}
+
+.page-signup .login-link {
+  display: flex;
+  justify-content: center;
+  margin: 3rem 0;
+}
+
+.page-signup .login-link a {
+  text-decoration: underline;
+}

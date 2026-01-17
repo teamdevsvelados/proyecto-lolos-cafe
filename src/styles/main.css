@@ -4,13 +4,16 @@
 
 @import url('./base/_global.css');
 
-/* @import url('./layout/_header.css'); */
-/* @import url('./layout/_footer.css'); */
+@import url('./layout/_header.css');
+@import url('./layout/_footer.css');
 
-/* @import url('./components/_buttons.css') */
+@import url('./components/_buttons.css');
+@import url('./components/_utilities.css');
+
+@import url('./components/_forms.css'); 
 /* @import url('./components/_cards.css') */
-/* @import url('./components/_forms.css') */
 
+@import url('./pages/signup.css');
 /* @import url('./pages/home.css'); */
 /* @import url('./pages/menu.css'); */
 /* @import url('./pages/about.css'); */
