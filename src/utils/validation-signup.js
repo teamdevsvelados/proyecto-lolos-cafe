@@ -28,49 +28,49 @@ document.querySelector('.btn-submit').addEventListener('click', function(e) {
     
     // Validate email or phone
     if (!isEmail && !isPhone) {
-        alert("Please enter a valid email address or phone number");
+        alert("Por favor ingresa un email o número de teléfono válido");
         input.focus();
         return false;
     }
     
     // Validate password length
     if (passwordValue.length < 8) {
-        alert("Password must be at least 8 characters long");
+        alert("La contraseña debe tener al menos 8 caracteres");
         password.focus();
         return false;
     }
     
     // Validate that password contains only letters and numbers
     if (!/^[A-Za-z0-9]+$/.test(passwordValue)) {
-        alert("Password can only contain letters and numbers");
+        alert("La contraseña sólo pueden contener letras y números");
         password.focus();
         return false;
     }
     
     // Validate that password contains at least one letter
     if (!/[A-Za-z]/.test(passwordValue)) {
-        alert("Password must contain at least one letter");
+        alert("La contraseña debe contener al menos una letra");
         password.focus();
         return false;
     }
     
     // Validate that password contains at least one number
     if (!/\d/.test(passwordValue)) {
-        alert("Password must contain at least one number");
+        alert("La contraseña debe contener al menos un número");
         password.focus();
         return false;
     }
     
     // Validate password match
     if (password.value !== repeatPassword.value) {
-        alert("Passwords do not match");
+        alert("Las contraseñas no coinciden");
         repeatPassword.focus();
         return false;
     }
 
     // Validate privacy checkbox
     if (!privacyCheckbox.checked) {
-        alert("You must accept the privacy notice");
+        alert("Debes aceptar el aviso de privacidad");
         privacyCheckbox.focus();
         return false;
     }
@@ -83,7 +83,7 @@ document.querySelector('.btn-submit').addEventListener('click', function(e) {
     console.log("Data saved for complete form");
     
     // Redirect to complete form
-    window.location.href = "./signupFull.html";
+    window.location.href = "./signup-full.html";
     
     return true;
 });

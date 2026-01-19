@@ -1,0 +1,82 @@
+:root {
+    /* Brand identity colors */
+    --color-primary: #000000;
+    --color-secondary: #4D5D3F;
+    --color-accent: #9F9172;
+
+    /* Neutral colors */
+    --color-text: #000000;
+    --color-muted: #454540;
+    --color-bg: #ffffff;
+    --color-surface-alt: #DED8CC;
+
+    /* Typographies */
+    --font-primary: 'Inter', sans-serif;
+    --font-display: 'Montserrat', sans-serif;
+
+    /* Spacing */
+    --space-sm: 8px;
+    --space-md: 16px;
+    --space-lg: 32px;
+
+    /* -----------------------------
+        Typography tokens
+        MOBILE default / xs
+    -------------------------------- */
+
+    --fs-h1: 1.75rem;     /* 28px */
+    --fs-h2: 1.375rem;    /* 22px */
+    --fs-h3: 1.125rem;    /* 18px */
+    --fs-body: 1rem;      /* 16px */
+
+    /* Scale tokens (for components) */
+    --fs-sm: .875rem;  /* 14px */
+    --fs-md: 1rem;  /* 16px */
+    --fs-lg: 1.25rem;    /* 20px */
+
+    /* Display / hero section scale */
+    --fs-display-sm: 2.5rem;     /* 40px */
+    --fs-display-md: 3.5rem;   /* 56px */
+    --fs-display-lg: 4.5rem;   /* 72px */
+
+    /* Form tokens */
+    --fs-label: var(--fs-sm);
+    --fs-input: var(--fs-md);
+    --fs-help:  var(--fs-sm);
+
+    /* Line heights */
+    --lh-heading: 1.15;
+    --lh-body: 1.6;
+
+    /* Letter spacing (must be tighter for display and headings) */
+    --ls-h1: -0.03em;
+    --ls-h2: -0.025em;
+    --ls-h3: -0.02em;
+    --ls-h4: -0.015em;
+    --ls-body: -0.01em;
+}
+
+    /* -----------------------------
+        TABLET (Bootstrap md >= 768px)
+    -------------------------------- */
+
+@media (min-width: 768px) {
+    :root {
+        --fs-h1: 2rem;     /* 32px */
+        --fs-h2: 1.75rem;  /* 28px */
+        --fs-h3: 1.25rem;  /* 20px */
+        --fs-body: 1rem;   /* 16px */
+    }
+}
+
+    /* -----------------------------
+    DESKTOP (Bootstrap lg >= 992px)
+    -------------------------------- */
+@media (min-width: 992px) {
+    :root {
+        --fs-h1: 2rem;         /* 32px */
+        --fs-h2: 1.75rem;      /* 28px */
+        --fs-h3: 1.5rem;       /* 24px */
+        --fs-body: 1.125rem;   /* 18px */
+    }
+}

@@ -35,24 +35,24 @@ form.addEventListener('submit', function(event) {
     
     // Name validation
     if (!username.value.trim()) {
-        alert("Name field is required");
+        alert("Campo nombre es requerido");
         username.focus();
         return false;
     }
     if (!expRegName.test(username.value)) {
-        alert("Name field accepts letters and spaces only.");
+        alert("Campo nombre acepta letras y espacios únicamente");
         username.focus();
         return false;
     }
     
     // Last name validation
     if (!lastName.value.trim()) {
-        alert("Last name field is required");
+        alert("Campo apellido es requerido");
         lastName.focus();
         return false;
     }
     if (!expRegLastName.test(lastName.value)) {
-        alert("Last name field accepts letters and spaces only.");
+        alert("Campo apellido acepta letras y números únicamente");
         lastName.focus();
         return false;
     }
@@ -62,14 +62,14 @@ form.addEventListener('submit', function(event) {
     const isPhoneValid = expRegPhone.test(phone.value);
     
     if (!isEmailValid && !isPhoneValid) {
-        alert("Please provide a valid email address or phone number.");
+        alert("Por favor indique un número o correo válido");
         !email.value ? email.focus() : phone.focus();
         return false;
     }
     
     if (email.value && phone.value) {
         if (!isEmailValid || !isPhoneValid) {
-            alert("One of the contact fields is not valid.");
+            alert("Uno de los campos de contacto no es válido");
             !isEmailValid ? email.focus() : phone.focus();
             return false;
         }
@@ -77,14 +77,14 @@ form.addEventListener('submit', function(event) {
     
     // Date validation
     if (!birthdate.value) {
-        alert("Date of birth is required");
+        alert("El campo cumpleaños es requerido");
         birthdate.focus();
         return false;
     }
     
     // Gender validation
     if (!genre.value) {
-        alert("Gender field is required");
+        alert("Campo género es requerido");
         genre.focus();
         return false;
     }
@@ -92,13 +92,13 @@ form.addEventListener('submit', function(event) {
     // Privacy checkbox validation
     const privacyCheckbox = document.getElementById('privacy');
     if (!privacyCheckbox.checked) {
-        alert("You must accept the privacy notice");
+        alert("Debes aceptar el aviso de privacidad.");
         privacyCheckbox.focus();
         return false;
     }
     
     // If everything is valid
-    alert("Registration successful and submitted!");
+    alert("¡Registro exitoso y enviado!.");
     
     // Clear localStorage after success
     localStorage.removeItem('userData');

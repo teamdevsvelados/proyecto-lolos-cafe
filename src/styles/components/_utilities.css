@@ -1,0 +1,20 @@
+/* Utilities */
+.section-colored {
+    background-color: #E6E6E4;
+}
+.section-white {
+    background-color: #FFFFFF;
+}
+.section-padding {
+    padding: 100px 0px;
+}
+
+.page-title{
+    margin: 20px;
+    padding: 10px;
+}
+
+.section-colored h2,
+.section-colored p {
+    color: #4D5D3F;
+}

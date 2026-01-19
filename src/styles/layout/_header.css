@@ -1,0 +1,88 @@
+/* Header */
+.header {
+    background: #FFFFFF;
+    border-bottom: 1px solid #9CA3AF;
+    padding: 24px 0;
+}
+
+.header .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+@media (min-width: 768px) {
+    .header .container {
+        gap: 20px;
+    }
+}
+.navbar-brand img {
+    height: 20px;
+}
+@media (min-width: 768px) {
+    .navbar-brand img {
+        height: 25px;
+    }
+}
+.nav-link {
+    color: #000000;
+}
+/* Header Icon Buttons */
+.menu-btn {
+    padding: 6px 10px;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    line-height: 20px;
+    text-transform: uppercase;
+    color: #31312D;
+    background: transparent;
+    border: 2px solid #31312D;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+}
+@media (min-width: 768px) {
+    .menu-btn {
+        padding: 8px 12px;
+        font-size: 18px;
+    }
+}
+.menu-btn:hover {
+    background: #31312D;
+    color: #FFFFFF;
+}
+.icon-btn {
+    width: 24px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    transition: opacity 0.2s;
+}
+.icon-btn:hover {
+    opacity: 0.7;
+}
+.icon-btn .icon {
+    width: 100%;
+    height: 100%;
+}
+.icon{
+  transition: transform 0.35s ease;
+  transform-origin: center;
+}
+.icon:hover {
+  transform: scale(0.85) rotate(12deg);
+}
+.icon-animated {
+  width: 30px;
+  height: 30px;
+  display: inline-flex;     
+  align-items: center;
+}
