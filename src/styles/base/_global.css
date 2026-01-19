@@ -1,0 +1,44 @@
+html {
+    font-size: 100%;
+}
+
+/* -----------------------------
+    Typography
+-------------------------------- */
+
+h1,
+h2,
+h3,
+h4 {
+    margin: 0 0 0.5em;
+    font-weight: 700;
+    line-height: var(--lh-heading);
+}
+
+h1 {
+    font-family: var(--font-display);
+    font-size: var(--fs-h1);
+    letter-spacing: var(--ls-h1);
+}
+
+h2 {
+    font-size: var(--fs-h2);
+    letter-spacing: var(--ls-h2);
+}
+
+h3 {
+    font-size: var(--fs-h3);
+    letter-spacing: var(--ls-h3);
+}
+
+h4 {
+    font-size: var(--fs-h4);
+    letter-spacing: var(--ls-h4);
+}
+
+p {
+    margin: 0 0 1em;
+    font-size: var(--fs-body);
+    line-height: var(--lh-body);
+    letter-spacing: var(--ls-body);
+}

@@ -1,7 +1,7 @@
 .footer {
   padding: 60px 20px;
   border-top: 1px solid #e5e5e5;
-  background: #ffffff;
+  background: var(--color-bg);
 }
 
 .footer-wrapper {
@@ -36,7 +36,7 @@
 
 /* Bloques */
 .footer-block h3 {
-  font-size: 24px;
+  font-size: var(--fs-h4);
   font-weight: 600;
   letter-spacing: -0.04em;
   margin-bottom: 12px;
@@ -48,11 +48,19 @@
   margin: 0;
 }
 
-/* Social newtorks */
+/* Social media */
 
 .footer-social-icons {
     display: flex;
     gap: 16px;
+}
+
+.footer-social-icons img {
+    transition: transform 300ms;
+}
+
+.footer-social-icons img:hover {
+  transform: rotate(5deg) scale(1.05);
 }
 
 .footer-social-icons a {
@@ -88,7 +96,7 @@
 .footer-links a {
   font-size: 14px;
   text-decoration: underline;
-  color: #000;
+  color: var(--color-primary);
 }
 
 
