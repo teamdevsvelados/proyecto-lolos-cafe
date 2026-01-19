@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro - Lolo's Café</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="./src/styles/main.css">
+    <link rel="stylesheet" href="/src/styles/main.css">
 </head>
 <body class="page-signup page-signup-step1">
     <!-- Header -->
@@ -33,7 +33,7 @@
         <div class="row justify-content-center registration-content">
             <!-- Image Placeholder -->
             <div class="col-4 mb-3 mb-md-0 d-none d-md-flex img-form">
-                    <img src="./public/images/coffe-signup1.jpg" alt="Café" class="img-fluid">
+                    <img src="/public/images/coffe-signup1.jpg" alt="Café" class="img-fluid">
             </div>
 
             <!-- Form -->
@@ -45,7 +45,7 @@
                     <!-- Phone -->
                     <div class="form-group">
                         <label for="phone">Número de teléfono o correo electrónico</label>
-                        <input type="text" id="phone" name="phone" placeholder="+52 000 000 0000" required>
+                        <input type="text" id="phone-email" name="phone" placeholder="2211231234 o correo@gmail.com" required>
                     </div>
 
 
@@ -70,7 +70,7 @@
 
                     <!-- Step 2 Button -->
                     <div class="form-btn">
-                        <a href="./signupFull.html" class="menu-btn btn-submit">COMPLETA TU REGISTRO →</a>                    
+                        <a href="/pages/signupFull.html" class="menu-btn btn-submit">COMPLETA TU REGISTRO →</a>                    
                     </div>
                 </form>
 
@@ -85,8 +85,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
-    <script src="./src/js/load-components.js"></script>
-    <script src="./src/js/validation-signup.js"></script>
+    <script src="/src/utils/load-components.js"></script>
+    <script src="/src/utils/validation-signup.js"></script>
     <script src="https://animatedicons.co/scripts/embed-animated-icons.js"></script>
 
 </body>
