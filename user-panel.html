@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="/src/styles/main.css"/>
+    <link rel="stylesheet" href="./src/styles/layout/_footer.css">
+</head>
+<body>
+    <!-- Header -->
+    <div id="header-placeholder"></div>
+
+    <!-- Page Title -->
+    <section class="container page-title section-white">
+        <div class="row align-items-center flex-nowrap">
+            
+            <div class="col-auto">
+                <a href="#" class="back-btn">←</a>
+            </div>
+
+            <div class="col-auto d-flex align-items-center">
+                <h1 class="mb-0">¡Hola, Juan!</h1>
+            </div>
+
+        </div>
+    </section>
+
+    <!--User Profile-->
+
+    <section class="container">
+        <div class="row justify-content-center align-items-center text-center">
+            <!-- User -->
+            <div class="col-12 col-md-3">
+                <img 
+                    src="./public/images/user.jpg"
+                    alt="user-profile"
+                    class="img-fluid rounded-circle d-inline-block"
+                    style="max-width: 150px;"
+                >
+            </div>
+
+            <!-- User Description -->
+            <div class="col-12 col-md-3">
+                <h4>Juan Pérez</h4>
+                <p>Miembro desde enero, 2026.</p>
+            </div>
+
+            <!-- Edit Icon -->
+            <div class="col-12 col-md-1">
+                <a href="#" title="Editar perfil" class="d-inline-block">
+                    <img 
+                        src="./public/icons/edit.svg"
+                        alt="Edit Profile Icon"
+                        class="img-fluid"
+                        style="max-width: 25px;"
+                    >
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Loyalty Card Info -->
+    <section class="container m-3">
+        <div class="row justify-content-center">
+            <div class="col-10 col-md-8">
+                <h2>Tarjeta de lealtad</h2>
+                <p>
+                    Cada vez que nos eliges, estás más cerca de un regalo. 
+                    Cada compra en tienda o en línea suma una visita automáticamente.
+                    Aquí puedes ver tu progreso y cuántas tazas te faltan para tu bebida gratis.
+                    Completa 8 visitas y disfruta tu próxima bebida sin costo.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Points Section -->
+    <section class="container my-5">
+        <div class="row justify-content-center align-items-center">
+            <!-- Text -->
+            <div class="col-10 col-md-4 text-center">
+                <p>
+                    Estás a <strong class="display-4">6</strong> bebidas de obtener tu bebida gratis
+                </p>
+            </div>
+
+            <!-- Points Card -->
+            <div class="col-12 col-md-8">
+                <div class="row g-3 justify-content-center">
+
+                    <div class="col-6 col-sm-3 col-md-3">
+                        <img src="./public/images/loyalty-point.jpg" class="img-fluid rounded-circle" alt="loyalty-point">
+                    </div>
+                    <div class="col-6 col-sm-3 col-md-3">
+                        <img src="./public/images/loyalty-point.jpg" class="img-fluid rounded-circle" alt="loyalty-point">
+                    </div>
+                    <div class="col-6 col-sm-3 col-md-3">
+                        <img src="./public/images/loyalty-section.jpg" class="img-fluid rounded-circle" alt="loyalty-section">
+                    </div>
+                    <div class="col-6 col-sm-3 col-md-3">
+                        <img src="./public/images/loyalty-section.jpg" class="img-fluid rounded-circle" alt="loyalty-section">
+                    </div>
+                    <div class="col-6 col-sm-3 col-md-3">
+                        <img src="./public/images/loyalty-section.jpg" class="img-fluid rounded-circle" alt="loyalty-section">
+                    </div>
+                    <div class="col-6 col-sm-3 col-md-3">
+                        <img src="./public/images/loyalty-section.jpg" class="img-fluid rounded-circle" alt="loyalty-section">
+                    </div>
+                    <div class="col-6 col-sm-3 col-md-3">
+                        <img src="./public/images/loyalty-section.jpg" class="img-fluid rounded-circle" alt="loyalty-section">
+                    </div>
+                    <div class="col-6 col-sm-3 col-md-3">
+                        <img src="./public/images/loyalty-section.jpg" class="img-fluid rounded-circle" alt="loyalty-section">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-10 col-md-8 registration-form-complete">
+                <h2 class="mb-4">Tus Datos</h2>
+                
+                <form 
+                    action="https://formspree.io/f/xzddzgdp"
+                    method="POST"
+                    enctype="multipart/form-data"
+                    name="registration-form-complete"
+                    accept-charset="utf-8"
+                > 
+                    <!-- Name -->
+                    <div class="form-group mb-3">
+                        <label for="name" class="form-label">Nombre</label>
+                        <input type="text" id="name" name="name" placeholder="Sergio" class="form-control" required>
+                    </div>
+
+                    <!-- Last Name -->
+                    <div class="form-group mb-3">
+                        <label for="last-name" class="form-label">Apellido</label>
+                        <input type="text" id="last-name" name="last-name" placeholder="Pérez" class="form-control" required>
+                    </div>
+
+                    <!-- Phone -->
+                    <div class="form-group mb-3">
+                        <label for="phone" class="form-label">Número de teléfono</label>
+                        <input type="tel" id="phone" name="phone" placeholder="2211231234" class="form-control" required>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="form-group mb-3">
+                        <label for="email" class="form-label">Correo electrónico</label>
+                        <input type="email" id="email" name="email" placeholder="email@ejemplo.com" class="form-control" required>
+                    </div>
+
+                    <!-- Birth Date -->
+                    <div class="form-group mb-3">
+                        <label for="birthdate" class="form-label">Fecha de nacimiento</label>
+                        <input type="date" id="birthdate" name="birthdate" class="form-control" required>
+                    </div>
+
+                    <!-- Gender -->
+                    <div class="form-group mb-3">
+                        <label for="gender" class="form-label">Género</label>
+                        <select id="gender" name="gender" class="form-select" required>
+                            <option value="">Selecciona</option>
+                            <option value="masculino">Masculino</option>
+                            <option value="femenino">Femenino</option>
+                            <option value="otro">Otro</option>
+                            <option value="prefiero-no">Prefiero no responder</option>
+                        </select>
+                    </div>
+
+                    <!-- Saved Addresses -->
+                    <h3 class="mb-3">Direcciones Guardadas</h3>
+                    
+                    <div class="form-group mb-3">
+                        <label for="home-adress" class="form-label">Casa</label>
+                        <input type="text" id="home-adress" name="home-adress" placeholder="Calle, número. Referencia." class="form-control">
+                    </div>
+                    
+                    <div class="form-group mb-5">
+                        <label for="business-adress" class="form-label">Oficina</label>
+                        <input type="text" id="business-adress" name="business-adress" placeholder="Calle, número. Referencia." class="form-control">
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="register-btn">
+                        <a href="#" class="form-btn menu-btn">ELIMINAR CUENTA</a>                    
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <script src="./src/utils/load-components.js"></script>
+    <script src="https://animatedicons.co/scripts/embed-animated-icons.js"></script>
+</body>
+</html>
