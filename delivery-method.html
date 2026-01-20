@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delivery Method</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="/src/styles/layout/_header.css" />
+    <link rel="stylesheet" href="/src/styles/layout/_footer.css" />
+</head>
+
+<body>
+    <!-- Header -->
+    <div id="header-placeholder"></div>
+
+    <!-- Aquí va el contenido de la página bbs-->
+
+    <main class="container my-5">
+        <div class="row g-5">
+            <div class="col-12 col-lg-8">
+
+                <div class="d-flex align-items-center mb-4">
+                    <!-- TODO: Link the future page of "arma tu bebida" when the page is done -->
+                    <a href="#" class="text-decoration-none text-dark me-3 fs-4">
+                        <i class="bi bi-arrow-left"></i> &larr;
+                    </a>
+                    <h2 class="fw-bold m-0">Forma de entrega</h2>
+                </div>
+
+                <div class="gap-3 mb-4 d-flex justify-content-center" role="group">
+                    <button type="button" class="btn btn-outline-dark px-4 py-2 rounded-0" data-bs-toggle="collapse"
+                        data-bs-target="#formPickUpOnSite" aria-expanded="false"
+                        aria-controls="formPickUpOnSite">
+                        RECOGER EN TIENDA
+                    </button>
+
+                    <button type="button" class="btn btn-outline-dark px-4 py-2 rounded-0" data-bs-toggle="collapse"
+                        data-bs-target="#FormDelivery" aria-expanded="false" aria-controls="FormDelivery">
+                        ENTREGA A DOMICILIO
+                    </button>
+                </div>
+
+                <div id="formGroups">
+
+                    <div class="collapse mt-4" id="formPickUpOnSite" data-bs-parent="#formGroups">
+                        <div class="card card-body border-0 p-0">
+
+                            <div class="text-center mb-3">
+                                <a href="./signup-full.html" class="text-dark fw-bold">Inicia sesión</a> y obtén beneficios <br> o <br>
+                                Continua sin cuenta
+                            </div>
+
+                            <form>
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="inputNombre" placeholder="Juan Perez">
+                                    <label for="inputNombre">Nombre</label>
+                                </div>
+
+                                <div class="form-floating mb-3">
+                                    <input type="tel" class="form-control" id="inputTel" placeholder="+52 000 000">
+                                    <label for="inputTel">Número de teléfono</label>
+                                </div>
+
+                                <div class="d-flex justify-content-end">
+                                    <button type="button" class="btn btn-dark px-5 py-2 rounded-0"
+                                        data-bs-toggle="modal" data-bs-target="#modalExito">
+                                        ENVIAR PEDIDO
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="collapse mt-4" id="FormDelivery" data-bs-parent="#formGroups">
+                        <div class="card card-body border-0 p-0">
+
+                            <div class="text-center mb-3">
+                                <a href="./signup-full.html" class="text-dark fw-bold">Inicia sesión</a> y obtén beneficios <br> o <br>
+                                Continua sin cuenta
+                            </div>
+
+                            <form>
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="inputNombre" placeholder="Juan Perez">
+                                    <label for="inputNombre">Nombre</label>
+                                </div>
+
+                                <div class="form-floating mb-3">
+                                    <input type="tel" class="form-control" id="inputTel" placeholder="+52 000 000">
+                                    <label for="inputTel">Número de teléfono</label>
+                                </div>
+
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="inputDireccion"
+                                        placeholder="Calle y número">
+                                    <label for="inputDireccion">Dirección</label>
+                                </div>
+
+                                <div class="form-floating mb-5">
+                                    <input type="text" class="form-control" id="inputRef" placeholder="Referencias">
+                                    <label for="inputRef">Referencias</label>
+                                </div>
+
+                                <div class="d-flex justify-content-end">
+                                    <button type="button" class="btn btn-dark px-5 py-2 rounded-0"
+                                        data-bs-toggle="modal" data-bs-target="#modalExito">
+                                        ENVIAR PEDIDO
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <aside class="col-12 col-lg-4 border-start">
+                <div class="p-3">
+                    <h3 class="fw-bold mb-4"><i class="bi bi-cart"></i> Tu orden</h3>
+
+                    <div class="d-flex mb-3 align-items-center position-relative">
+                        <img src="./public/images/delivery-method/delivery-method-red-drink-presentation.jpg" alt="Bebida Roja" class="me-3 rounded" width="200">
+                        <span
+                            class="position-absolute top-0 start-0 translate-middle badge rounded-pill bg-secondary">1</span>
+                        <div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex mb-5 align-items-center position-relative">
+                        <img src="./public/images/delivery-method/delivery-method-coffe-presentation.jpg" alt="Latte" class="me-3 rounded" width="200">
+                        <span
+                            class="position-absolute top-0 start-0 translate-middle badge rounded-pill bg-secondary">2</span>
+                    </div>
+
+                    <div class="mt-5 pt-5 text-end">
+                        <h4 class="fw-bold">Subtotal $0.00</h4>
+                    </div>
+                </div>
+            </aside>
+
+
+        </div>
+    </main>
+
+    <div class="modal fade" id="modalExito" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content text-center p-4">
+
+                <div class="modal-body">
+                    <h3 class="fw-bold mb-3">¡Pedido confirmado con éxito!</h3>
+
+                    <div class="mb-3">
+                        <img src="public\images\delivery-method\coffee.svg"
+                            height="80">
+                    </div>
+
+                    <p class="mb-1">Recibimos tu pedido correctamente</p>
+                    <p class="text-muted small mb-4">Te contactaremos cuando esté listo o en camino.</p>
+
+                    <p class="small text-muted">
+                        Si deseas cancelar tu pedido o hacer una modificación, contáctanos a
+                        <a href="tel:6981123417" class="text-decoration-underline text-dark fw-bold">698 112
+                            3417</a>
+                    </p>
+
+                    <button type="button" class="btn btn-dark w-100 rounded-0 mt-3" data-bs-dismiss="modal">
+                        VOLVER AL MENÚ &larr;
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--  -->
+
+    <!-- Footer -->
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <script src="/src/utils/load-components.js"></script>
+    <script src="/src/utils/validation-signup.js"></script>
+    <script src="https://animatedicons.co/scripts/embed-animated-icons.js"></script>
+</body>
+
+</html>
