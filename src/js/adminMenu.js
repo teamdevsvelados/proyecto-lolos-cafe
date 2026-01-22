@@ -27,3 +27,5 @@ function btnAddItem(e) {
 
     addItem(productName, productPrice, productCategory, productDescription)
 }
+
+
