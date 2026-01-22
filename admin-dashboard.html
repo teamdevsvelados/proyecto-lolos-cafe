@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración - Lolo's Café</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="/src/styles/main.css"/>
+</head>
+
+<body>
+    <!-- Header -->
+    <div id="header-placeholder"></div>
+
+    <!-- Aquí va el contenido de la página bbs-->
+    <main class="row container-fluid mx-auto">
+        <section class="admin-sidebar-container col-3 p-3 border-end">
+            <div class="py-5 px-3">
+                <a href="/" class="navbar-brand">
+                    <img src="/public/logos/loloscafe-vector.svg" class="mb-3" alt="Lolo's Café Logo">
+                </a>
+                <h3>Admin</h3>
+            </div>
+
+            <div class="nav-admin-sidebar px-3">
+                <ul class="navbar-nav mx-auto mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact.html">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about-us.html">Gestión de productos</a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="dashboard-admin col-9 p-3 container">
+            <div class="header-dashboard pt-5 px-5 pb-1">
+                <h3>Bienvenido</h3>
+                <p>Visualiza el resumen de las operaciones del día</p>
+            </div>
+            <div class="row column-gap-2 px-5 py-4">
+                    <div class="col">
+                        <h4>Ventas del día</h4>
+                        <div class="d-flex justify-content-between">
+                            <img src="/public/icons/cellphone-icon.svg" class="card-dashboard-icon" alt="">
+                            <span>5</span>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <h4>Nuevos</h4>
+                        <div class="d-flex justify-content-between">
+                            <img src="/public/icons/cellphone-icon.svg" class="card-dashboard-icon" alt="">
+                            <span>5</span>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <h4>En preparación</h4>
+                        <div class="d-flex justify-content-between">
+                            <img src="/public/icons/cellphone-icon.svg" class="card-dashboard-icon" alt="">
+                            <span>5</span>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <h4>Finalizados</h4>
+                        <div class="d-flex justify-content-between">
+                            <img src="/public/icons/cellphone-icon.svg" class="card-dashboard-icon" alt="">
+                            <span>5</span>
+                        </div>
+                    </div>
+            </div>
+            <div class="row pb-4 column-gap-2 p-5">
+                <div class="col">
+                    <div class="d-flex gap-2">
+                        <img src="/public/icons/cellphone-icon.svg" class="card-dashboard-icon" alt="">
+                        <h3>Más vendidos</h3>
+                    </div>
+                    <div>
+                        <div style="grid-template-columns: 1fr 2fr 2fr;" class="d-grid">
+                            <span class="col">1</span>
+                            <p class="col">Tisana</p>
+                            <p class="col"><span>143</span> vendidos</p>
+                        </div>
+                        <div style="grid-template-columns: 1fr 2fr 2fr;" class="d-grid">
+                            <span class="col">1</span>
+                            <p class="col">Tisana</p>
+                            <p class="col"><span>143</span> vendidos</p>
+                        </div>
+                        <div style="grid-template-columns: 1fr 2fr 2fr;" class="d-grid">
+                            <span class="col">1</span>
+                            <p class="col">Tisana</p>
+                            <p class="col"><span>143</span> vendidos</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="d-flex gap-2">
+                        <img src="/public/icons/cellphone-icon.svg" class="card-dashboard-icon" alt="">
+                        <h3>Historial de pedidos</h3>
+                    </div>
+                    <div>
+                        <div style="grid-template-columns: 1fr 2fr;" class="d-grid">
+                            <span class="col">#41242</span>
+                            <p class="col text-end">Tisana</p>
+                        </div>
+                        <div style="grid-template-columns: 1fr 2fr;" class="d-grid">
+                            <span class="col">#41242</span>
+                            <p class="col text-end">Tisana</p>
+                        </div>
+                        <div style="grid-template-columns: 1fr 2fr;" class="d-grid">
+                            <span class="col">#41242</span>
+                            <p class="col text-end">Tisana</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <script src="/src/js/load-components.js"></script>
+    <script src="https://animatedicons.co/scripts/embed-animated-icons.js"></script>
+
+</body>
+</html>
