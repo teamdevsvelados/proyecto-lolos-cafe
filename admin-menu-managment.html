@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sobre Nosotros - Lolo's Café</title>
+    <title>Administración del Menú - Lolo's Café</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
@@ -28,15 +28,16 @@
                 <!-- Sidebar navigation -->
                 <nav class="nav-admin-sidebar px-3">
                     <ul class="navbar-nav mx-auto mb-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="#">Dashboard</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Productos</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Gestión de pedidos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/">Dashboard</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/contact.html">Productos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/about-us.html">Gestión de pedidos</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">Usuarios</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">Menú</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">Configuración</a></li>
                     </ul>
                 </nav>
             </section>
+
             <!-- Main content -->
             <section class="dashboard-admin col-12 col-md-10 p-3">
                 <!-- Page header: title, search, export -->
@@ -84,7 +85,7 @@
                         <!-- Add new item -->
                         <div class="col-12 col-md-2 d-flex justify-content-md-end">
                             <button type="button" class="btn btn-outline-dark rounded-0 w-100 w-md-auto"
-                                data-bs-toggle="modal" data-bs-target="#modalBebida">
+                                data-bs-toggle="modal" data-bs-target="#modal-drink">
                                 AGREGAR +
                             </button>
                         </div>
@@ -95,7 +96,7 @@
                     <div class="row g-4">
                         <!-- Product card -->
                         <div class="col-6 col-sm-4 col-md-3 mb-4 drink">
-                            <div class="card" data-bs-toggle="modal" data-bs-target="#modalBebida"
+                            <div class="card" data-bs-toggle="modal" data-bs-target="#modal-drink"
                                 style="cursor: pointer;">
                                 <p class="new-drink col-12 text-center pt-1 pb-0">Nuevo</p>
                                 <img src="/public/images/index/pay-lotus.png" class="card-img-top" alt="Pay Lotus">
@@ -109,7 +110,7 @@
                         </div>
                         <!-- Product card -->
                         <div class="col-6 col-sm-4 col-md-3 mb-4 drink">
-                            <div class="card" data-bs-toggle="modal" data-bs-target="#modalBebida"
+                            <div class="card" data-bs-toggle="modal" data-bs-target="#modal-drink"
                                 style="cursor: pointer;">
                                 <p class="new-drink col-12 text-center pt-1 pb-0">Nuevo</p>
                                 <img src="/public/images/index/rol-de-canela.png" class="card-img-top"
@@ -124,7 +125,7 @@
                         </div>
                         <!-- Product card -->
                         <div class="col-6 col-sm-4 col-md-3 mb-4 drink">
-                            <div class="card" data-bs-toggle="modal" data-bs-target="#modalBebida"
+                            <div class="card" data-bs-toggle="modal" data-bs-target="#modal-drink"
                                 style="cursor: pointer;">
                                 <p class="new-drink col-12 text-center pt-1 pb-0">Nuevo</p>
                                 <img src="/public/images/index/pay-lotus.png" class="card-img-top" alt="Pay Lotus">
@@ -138,7 +139,7 @@
                         </div>
                         <!-- Product card -->
                         <div class="col-6 col-sm-4 col-md-3 mb-4 drink">
-                            <div class="card" data-bs-toggle="modal" data-bs-target="#modalBebida"
+                            <div class="card" data-bs-toggle="modal" data-bs-target="#modal-drink"
                                 style="cursor: pointer;">
                                 <p class="new-drink col-12 text-center pt-1 pb-0">Nuevo</p>
                                 <img src="/public/images/index/cheescake.png" class="card-img-top" alt="Cheesecake">
@@ -153,18 +154,21 @@
                     </div>
                 </div>
                 <!-- New product modal -->
-                <div class="modal fade" id="modalBebida" tabindex="-1" aria-hidden="true">
-                    <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
-                            <div class="modal-body p-4">
-                                <!-- Modal header -->
-                                <div class="d-flex align-items-center mb-4">
-                                    <button type="button" class="btn border-0 p-0 me-2" data-bs-dismiss="modal"
-                                        aria-label="Cerrar">
-                                        <i class="bi bi-arrow-left fs-4"></i>
-                                    </button>
-                                    <h3 class="mb-0">Nuevo producto</h3>
-                                </div>
+                <div class="modal fade" id="modal-drink" tabindex="-1" aria-hidden="true">
+                    <form id="product-form">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-body p-4">
+
+                                    <!-- Modal header -->
+                                    <div class="d-flex align-items-center mb-4">
+                                        <button type="button" class="btn border-0 p-0 me-2" data-bs-dismiss="modal">
+                                        <!-- <button type="button" class="btn border-0 p-0 me-2" data-bs-dismiss="modal" aria-label="Cerrar"> -->
+                                            <i class="bi bi-arrow-left fs-4"></i>
+                                        </button>
+                                        <h3 class="mb-0">Agregar / Editar producto</h3>
+                                    </div>
+
                                 <!-- ========== Image selector (dropzone + preview) ========== -->
                                 <div class="row">
                                     <div class="col-md-4">
@@ -223,26 +227,16 @@
                                     <div class="col-md-8 align-items-start">
                                         <!-- Product name -->
                                         <div class="mb-2">
-                                            <label for="prodName" class="form-label"><strong>Nombre</strong></label>
-                                            <input type="text" id="prodName" class="form-control"
+                                            <label for="product-title" class="form-label"><strong>Nombre</strong></label>
+                                            <input type="text" id="product-title" class="form-control"
                                                 placeholder="Ej. Capuchino" value="" required />
                                         </div>
-                                        <!-- Product price -->
-                                        <div class="mb-2">
-                                            <label for="prodPrice" class="form-label"><strong>Precio</strong></label>
-                                            <div class="input-group">
-                                                <span class="input-group-text">$</span>
-                                                <input type="number" id="prodPrice" class="form-control"
-                                                    placeholder="0.00" step="0.01" min="0" inputmode="decimal"
-                                                    required />
-                                            </div>
-                                            <div class="form-text">Usa punto para decimales. Ej. 45.50</div>
-                                        </div>
+                                        
                                         <!-- Product description -->
                                         <div class="mb-2">
-                                            <label for="prodDesc"
+                                            <label for="product-description"
                                                 class="form-label"><strong>Descripción</strong></label>
-                                            <textarea id="prodDesc" class="form-control" rows="2"
+                                            <textarea id="product-description" class="form-control" rows="2"
                                                 placeholder="Descripción del producto que explica los ingredientes básicos."
                                                 required></textarea>
                                         </div>
@@ -253,8 +247,43 @@
                                                 Marcar como <strong>PROMO</strong>
                                             </label>
                                         </div>
+                                        <!-- Active -->
+                                        <div class="form-check mb-3">
+                                            <input class="form-check-input" type="checkbox" id="product-active" checked>
+                                            <label class="form-check-label" for="product-active">Producto activo</label>
+                                        </div>
                                     </div>
                                 </div>
+                                
+                                <!-- Choose if you add a dessert or drink -->
+                                <fieldset class="mb-4">
+                                    <legend class="h5 fw-bold mb-2">Tipo de producto</legend>
+                                    <div class="d-flex gap-4">
+                                        <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="product-type" value="drink" checked>
+                                        <label class="form-check-label">Bebida</label>
+                                        </div>
+                                        <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="product-type" value="dessert">
+                                        <label class="form-check-label">Postre</label>
+                                        </div>
+                                    </div>
+                                </fieldset>
+
+                                <div id="drink-section">
+                                    <label class="form-label"><strong>Sección</strong></label>
+                                    <!-- <select class="form-select mb-3"> -->
+                                        <select id="product-section" class="form-select mb-3">
+                                        <option>Con café</option>
+                                        <option>Sin café</option>
+                                        <option>Postres</option>
+                                    </select>
+                                </div>
+
+
+
+
+
                                 <!-- Product selection option 2×2 -->
                                 <div class="container-fluid pt-1 px-0">
                                     <div class="row g-4">
@@ -267,21 +296,21 @@
                                                         <div class="ps-1 mt-2">
                                                             <div class="form-check mb-2">
                                                                 <input class="form-check-input" type="checkbox"
-                                                                    name="temperaturas[]" id="temp-caliente"
+                                                                    name="temperatures[]" id="temp-caliente"
                                                                     value="Caliente" checked>
                                                                 <label class="form-check-label"
                                                                     for="temp-caliente">Caliente</label>
                                                             </div>
                                                             <div class="form-check mb-2">
                                                                 <input class="form-check-input" type="checkbox"
-                                                                    name="temperaturas[]" id="temp-rocas"
+                                                                    name="temperatures[]" id="temp-rocas"
                                                                     value="A las rocas">
                                                                 <label class="form-check-label" for="temp-rocas">A las
                                                                     rocas</label>
                                                             </div>
                                                             <div class="form-check mb-2">
                                                                 <input class="form-check-input" type="checkbox"
-                                                                    name="temperaturas[]" id="temp-frappe"
+                                                                    name="temperatures[]" id="temp-frappe"
                                                                     value="Frappé">
                                                                 <label class="form-check-label"
                                                                     for="temp-frappe">Frappé</label>
@@ -292,7 +321,7 @@
                                             </div>
                                         </div>
                                         <!-- Sizes -->
-                                        <div class="col-12 col-lg-6">
+                                        <!-- <div class="col-12 col-lg-6">
                                             <div class="card border-0 shadow-sm h-100">
                                                 <div class="card-body">
                                                     <fieldset>
@@ -327,7 +356,39 @@
                                                     </fieldset>
                                                 </div>
                                             </div>
+                                        </div> -->
+                                        
+                                        <div class="col-12 col-lg-6">
+                                            <div class="card border-0 shadow-sm h-100">
+                                                <div class="card-body">
+                                                    <fieldset>
+                                                        <legend class="h5 fw-bold mb-2">Precios por tamaño</legend>
+                                                            <!-- CH -->
+                                                        <div class="form-check d-flex align-items-center mb-2">
+                                                            <input class="form-check-input me-2 size-check" type="checkbox" id="size-ch" data-target="price-ch">
+                                                            <label class="form-check-label me-3" for="size-ch">CH</label>
+                                                            <input type="number" class="form-control w-50 d-none"
+                                                                id="price-ch" name="price_ch" placeholder="$0.00" min="0" step="0.01">
+                                                        </div>
+                                                        <!-- M -->
+                                                        <div class="form-check d-flex align-items-center mb-2">
+                                                            <input class="form-check-input me-2 size-check" type="checkbox" id="size-m" data-target="price-m">
+                                                            <label class="form-check-label me-3" for="size-m">M</label>
+                                                            <input type="number" class="form-control w-50 d-none"
+                                                                id="price-m" name="price_m" placeholder="$0.00" min="0" step="0.01">
+                                                        </div>
+                                                        <!-- G -->
+                                                        <div class="form-check d-flex align-items-center">
+                                                            <input class="form-check-input me-2 size-check" type="checkbox" id="size-g" data-target="price-g">
+                                                            <label class="form-check-label me-3" for="size-g">G</label>
+                                                            <input type="number" class="form-control w-50 d-none"
+                                                                id="price-g" name="price_g" placeholder="$0.00" min="0" step="0.01">
+                                                        </div>
+                                                    </fieldset>
+                                                </div>
+                                            </div>
                                         </div>
+
                                         <!-- Milk types  -->
                                         <div class="col-12 col-lg-6">
                                             <div class="card border-0 shadow-sm h-100">
@@ -444,14 +505,7 @@
                                 </div>
                                 <!-- Additional notes -->
                                 <hr class="m-4">
-                                <div class="row">
-                                    <div class="col-11 mx-auto m-2 text-center">
-                                        <h5 class="fw-bold"><i class="bi bi-pencil"></i> Notas adicionales</h5>
-                                        <p class="text-muted small">Algo específico?</p>
-                                        <textarea class="form-control bg-light border-0 mx-auto" rows="3"
-                                            placeholder="Escribe aquí..." style="max-width: 900px;"></textarea>
-                                    </div>
-                                </div>
+                            
                                 <!-- Centered button -->
                                 <div class="row m-4">
                                     <div class="col-10 mx-auto d-flex justify-content-center">
@@ -463,10 +517,11 @@
                             </div><!-- /modal-body -->
                         </div><!-- /modal-content -->
                     </div><!-- /modal-dialog -->
-                </div><!-- /modal -->
-            </section>
-        </div>
-    </main>
+                </form>
+            </div><!-- /modal -->
+        </section>
+    </div>
+</main>
 
     <!-- Bootstrap Bundle (with Popper) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
@@ -477,23 +532,13 @@
     <script src="https://animatedicons.co/scripts/embed-animated-icons.js"></script>
 
     <!-- Components loader -->
-    <script src="/src/utils/load-components.js"></script>
+    <script src="/src/js/load-components.js"></script>
 
     <!-- Admin-specific JS -->
     <script src="/src/js/admin-menu-managment.js" defer></script>
 
-</body>
-</html>
-
-    <!-- Footer -->
-    <div id="footer-placeholder"></div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-        crossorigin="anonymous"></script>
-    <script src="/src/js/load-components.js"></script>
+    <!-- Logic forms  -->
     <script src="/src/js/adminMenu.js" type="module"></script>
-    <script src="https://animatedicons.co/scripts/embed-animated-icons.js"></script>
 
 </body>
 </html>

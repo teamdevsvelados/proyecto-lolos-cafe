@@ -37,29 +37,65 @@ export class ProductsController {
     localStorage.setItem(ID_KEY, String(this.currentId));
   }
 
-  loadFromStorage() {
-    const storedProducts = JSON.parse(localStorage.getItem(PRODUCTS_KEY)) || [];
-    const storedId = Number(localStorage.getItem(ID_KEY)) || 0;
+  // loadFromStorage() {
+  //   const storedProducts = JSON.parse(localStorage.getItem(PRODUCTS_KEY)) || [];
+  //   const storedId = Number(localStorage.getItem(ID_KEY)) || 0;
 
-    this.currentId = storedId;
+  //   this.currentId = storedId;
 
-    this.products = storedProducts.map(p => {
-      // Drinks have "section"
-      if (p.section !== undefined) {
-        return new DrinkProduct(
-          p.id,
-          p.title,
-          p.description,
-          p.image,
-          p.isActive,
-          p.section,
-          p.sizes,
-          p.temperatures,
-          p.milks,
-          p.toppings
-        );
-      }
+  //   this.products = storedProducts.map(p => {
+  //     // Drinks have "section"
+  //     if (p.section !== undefined) {
+  //       return new DrinkProduct(
+  //         p.id,
+  //         p.title,
+  //         p.description,
+  //         p.image,
+  //         p.isActive,
+  //         p.section,
+  //         p.sizes,
+  //         p.temperatures,
+  //         p.milks,
+  //         p.extras
+  //       );
+  //     }
 
+  //     return new DessertProduct(
+  //       p.id,
+  //       p.title,
+  //       p.description,
+  //       p.image,
+  //       p.isActive,
+  //       p.unitPrice,
+  //       p.slicePrice
+  //     );
+  //   });
+  // }
+
+
+loadFromStorage() {
+  const storedProducts = JSON.parse(localStorage.getItem(PRODUCTS_KEY)) || [];
+  const storedId = Number(localStorage.getItem(ID_KEY)) || 0;
+
+  this.currentId = storedId;
+
+  this.products = storedProducts.map(p => {
+    // Si tiene la propiedad "type" (nueva versión)
+    if (p.type === "drink") {
+      return new DrinkProduct(
+        p.id,
+        p.title,
+        p.description,
+        p.image,
+        p.isActive,
+        p.section,
+        p.sizes,
+        p.temperatures,
+        p.milks,
+        p.extras,
+        p.isPromo || false
+      );
+    } else if (p.type === "dessert") {
       return new DessertProduct(
         p.id,
         p.title,
@@ -67,10 +103,40 @@ export class ProductsController {
         p.image,
         p.isActive,
         p.unitPrice,
-        p.slicePrice
+        p.slicePrice,
+        p.isPromo || false
       );
-    });
-  }
+    }
+    
+    // Para compatibilidad con versiones anteriores (sin propiedad type)
+    if (p.section !== undefined) {
+      return new DrinkProduct(
+        p.id,
+        p.title,
+        p.description,
+        p.image,
+        p.isActive,
+        p.section,
+        p.sizes,
+        p.temperatures,
+        p.milks,
+        p.extras,
+        p.isPromo || false
+      );
+    }
+
+    return new DessertProduct(
+      p.id,
+      p.title,
+      p.description,
+      p.image,
+      p.isActive,
+      p.unitPrice,
+      p.slicePrice,
+      p.isPromo || false
+    );
+  });
+}
 
   deleteProduct(id) {
     this.products = this.products.filter(p => p.id !== id);
