@@ -1,3 +1,4 @@
+// controllers/productController.js
 import { DrinkProduct, DessertProduct } from "../models/Product.js";
 
 const PRODUCTS_KEY = "products";
@@ -44,7 +45,36 @@ export class ProductsController {
     this.currentId = storedId;
 
     this.products = storedProducts.map(p => {
-      // Drinks have "section"
+      // Si tiene la propiedad "type" (nueva versión)
+      if (p.type === "drink") {
+        return new DrinkProduct(
+          p.id,
+          p.title,
+          p.description,
+          p.image,
+          p.isActive,
+          p.section,
+          p.sizes,
+          p.temperatures,
+          p.milks,
+          p.extras,
+          p.isPromo || false
+        );
+      } else if (p.type === "dessert") {
+        return new DessertProduct(
+          p.id,
+          p.title,
+          p.description,
+          p.image,
+          p.isActive,
+          p.price || p.unitPrice || 0,
+          p.isPromo || false,
+          p.category || "Postres",
+          p.slicePrice || 0
+        );
+      }
+      
+      // Para compatibilidad con versiones anteriores (sin propiedad type)
       if (p.section !== undefined) {
         return new DrinkProduct(
           p.id,
@@ -56,18 +86,22 @@ export class ProductsController {
           p.sizes,
           p.temperatures,
           p.milks,
-          p.toppings
+          p.extras,
+          p.isPromo || false
         );
       }
 
+      // Asumir que es un postre antiguo
       return new DessertProduct(
         p.id,
         p.title,
         p.description,
         p.image,
         p.isActive,
-        p.unitPrice,
-        p.slicePrice
+        p.unitPrice || p.slicePrice || 0,
+        p.isPromo || false,
+        "Postres",
+        p.slicePrice || 0
       );
     });
   }
@@ -85,10 +119,20 @@ export class ProductsController {
     return product.isActive;
   }
 
-  updateProduct(id, newData) {
-    const product = this.products.find(p => p.id === id);
-    if (!product) return;
-    Object.assign(product, newData); 
+  // MÉTODO ACTUALIZADO PARA MANEJAR CAMBIOS DE TIPO
+  updateProduct(id, newProductData) {
+    const index = this.products.findIndex(p => p.id === id);
+    if (index === -1) return null;
+    
+    // Reemplazar el producto completo
+    this.products[index] = newProductData;
     this.saveToStorage();
+    
+    return this.products[index];
+  }
+
+  // NUEVO MÉTODO: Verificar si un producto existe
+  getProductById(id) {
+    return this.products.find(p => p.id === id);
   }
 }
