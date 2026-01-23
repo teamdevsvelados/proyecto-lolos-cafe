@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Administración del Menú - Lolo's Café</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="/src/styles/main.css" />
+  </head>
+
+  <body>
+    <!-- Header -->
+    <div id="header-placeholder"></div>
+
+    <!-- Aquí va el contenido de la página bbs-->
+    <main class="row container-fluid mx-auto">
+      <section class="admin-sidebar-container col-3 p-3 border-end">
+        <div class="py-5 px-3">
+          <a href="/" class="navbar-brand">
+            <img src="/public/logos/loloscafe-vector.svg" class="mb-3" alt="Lolo's Café Logo"/>
+          </a>
+          <h3>Admin</h3>
+        </div>
+
+        <div class="nav-admin-sidebar px-3">
+          <ul class="navbar-nav mx-auto mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/contact.html">Productos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about-us.html">Gestión de productos</a>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="dashboard-admin col-9 p-3 container">
+        <div class="header-dashboard pt-5 px-5 pb-1">
+          <h3>Gestión de productos</h3>
+        </div>
+        <div class="d-flex justify-content-between align-items-center px-5 pt-3">
+          <div>
+            <p class="mb-0 text-muted">
+              Agrega, edita, activa/desactiva y elimina productos del menú.
+            </p>
+          </div>
+
+          <button id="open-modal" class="btn btn-primary">
+            Agregar producto
+          </button>
+        </div>
+
+        <hr class="mx-5" />
+
+        <div id="products-container" class="px-5 pb-5 row row-cols-1 row-cols-md-2 g-3"></div>
+
+        <div class="row pb-4 column-gap-2 p-5">
+          <div class="col">
+            <div class="d-flex gap-2">
+              <img src="/public/icons/cellphone-icon.svg" class="card-dashboard-icon" alt=""/>
+              <h3>Más vendidos</h3>
+            </div>
+            <div>
+              <div style="grid-template-columns: 1fr 2fr 2fr" class="d-grid">
+                <span class="col">1</span>
+                <p class="col">Tisana</p>
+                <p class="col"><span>143</span> vendidos</p>
+              </div>
+              <div style="grid-template-columns: 1fr 2fr 2fr" class="d-grid">
+                <span class="col">2</span>
+                <p class="col">Latte</p>
+                <p class="col"><span>98</span> vendidos</p>
+              </div>
+              <div style="grid-template-columns: 1fr 2fr 2fr" class="d-grid">
+                <span class="col">3</span>
+                <p class="col">Chocoflan</p>
+                <p class="col"><span>77</span> vendidos</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="d-flex gap-2">
+              <img src="/public/icons/cellphone-icon.svg" class="card-dashboard-icon" alt=""/>
+              <h3>Historial de pedidos</h3>
+            </div>
+            <div>
+              <div style="grid-template-columns: 1fr 2fr" class="d-grid">
+                <span class="col">#41242</span>
+                <p class="col text-end">Tisana</p>
+              </div>
+              <div style="grid-template-columns: 1fr 2fr" class="d-grid">
+                <span class="col">#41243</span>
+                <p class="col text-end">Latte</p>
+              </div>
+              <div style="grid-template-columns: 1fr 2fr" class="d-grid">
+                <span class="col">#41244</span>
+                <p class="col text-end">Chocoflan</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- MODAL -->
+  <dialog id="product-modal" class="p-0 border-0 rounded-3">
+    <form id="product-form" method="dialog" class="p-4" style="min-width:320px; max-width:720px">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h4 class="mb-0">Agregar / editar producto</h4>
+        <button type="button" id="close-modal-x" class="btn btn-outline-secondary btn-sm">✕</button>
+      </div>
+
+      <h5 class="mt-3">Información general</h5>
+
+      <div class="mb-3">
+        <label class="form-label">Imagen</label>
+        <input type="file" id="product-image-input" class="form-control" accept="image/*"/>
+        <img id="product-image-preview" src="" alt="Preview" class="mt-2 img-fluid rounded" style="max-width:150px; display:none"/>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Título</label>
+        <input type="text" id="product-title" class="form-control" required/>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Descripción</label>
+        <textarea id="product-description" class="form-control" rows="3" required></textarea>
+      </div>
+
+      <div class="form-check mb-4">
+        <input class="form-check-input" type="checkbox" id="product-active" checked/>
+        <label class="form-check-label" for="product-active">Activo</label>
+      </div>
+
+      <h5>Tipo de producto</h5>
+      <div class="d-flex gap-3 mb-3">
+        <label class="form-check">
+          <input class="form-check-input" type="radio" name="product-type" value="drink" checked/>
+          <span class="form-check-label">Bebida</span>
+        </label>
+        <label class="form-check">
+          <input class="form-check-input" type="radio" name="product-type" value="dessert"/>
+          <span class="form-check-label">Postre</span>
+        </label>
+      </div>
+
+      <!-- BEBIDA -->
+      <div id="drink-fields">
+        <h6>Bebida</h6>
+
+        <div class="mb-3">
+          <label class="form-label">Sección</label>
+          <select id="product-section" class="form-select">
+            <option value="Con café">Con café</option>
+            <option value="Sin café">Sin café</option>
+            <option value="Postres">Postres</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Toppings</label>
+          <div class="d-flex flex-wrap gap-2">
+            <label class="form-check"><input class="form-check-input" type="checkbox" name="toppings" value="Shot de espresso"/> Shot de espresso</label>
+            <label class="form-check"><input class="form-check-input" type="checkbox" name="toppings" value="Jarabe saborizante"/> Jarabe saborizante</label>
+            <label class="form-check"><input class="form-check-input" type="checkbox" name="toppings" value="Tapioca"/> Tapioca</label>
+            <label class="form-check"><input class="form-check-input" type="checkbox" name="toppings" value="Nieve de vainilla"/> Nieve de vainilla</label>
+            <label class="form-check"><input class="form-check-input" type="checkbox" name="toppings" value="Foam"/> Foam</label>
+            <label class="form-check"><input class="form-check-input" type="checkbox" name="toppings" value="Cheese foam"/> Cheese foam</label>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Tipos de leche</label>
+          <div class="d-flex flex-wrap gap-2">
+            <label class="form-check"><input class="form-check-input" type="checkbox" name="milk" value="Regular"/> Regular</label>
+            <label class="form-check"><input class="form-check-input" type="checkbox" name="milk" value="Deslactosada"/> Deslactosada</label>
+            <label class="form-check"><input class="form-check-input" type="checkbox" name="milk" value="Deslactosada light"/> Deslactosada light</label>
+            <label class="form-check"><input class="form-check-input" type="checkbox" name="milk" value="Almendras"/> Almendras</label>
+            <label class="form-check"><input class="form-check-input" type="checkbox" name="milk" value="Soya"/> Soya</label>
+            <label class="form-check"><input class="form-check-input" type="checkbox" name="milk" value="Coco"/> Coco</label>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Temperatura</label>
+          <div class="d-flex flex-wrap gap-2">
+            <label class="form-check"><input class="form-check-input" type="checkbox" name="temperature" value="Caliente"/> Caliente</label>
+            <label class="form-check"><input class="form-check-input" type="checkbox" name="temperature" value="Frío"/> Frío</label>
+            <label class="form-check"><input class="form-check-input" type="checkbox" name="temperature" value="Frappé"/> Frappé</label>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Precios por tamaño</label>
+          <div class="row g-2">
+            <div class="col"><input class="form-control" type="number" data-size="Chico" placeholder="Chico"/></div>
+            <div class="col"><input class="form-control" type="number" data-size="Mediano" placeholder="Mediano"/></div>
+            <div class="col"><input class="form-control" type="number" data-size="Grande" placeholder="Grande"/></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- POSTRE -->
+      <div id="dessert-fields">
+        <h6>Postre</h6>
+        <div class="mb-3"><label class="form-label">Precio por unidad</label><input class="form-control" type="number" id="unit-price"/></div>
+        <div class="mb-3"><label class="form-label">Precio por rebanada</label><input class="form-control" type="number" id="slice-price"/></div>
+      </div>
+
+      <div class="d-flex justify-content-end gap-2 mt-4">
+        <button type="submit" class="btn btn-success">Guardar</button>
+        <button type="button" id="close-modal" class="btn btn-outline-secondary">Cancelar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  <script src="/src/js/load-components.js"></script>
+  <script src="/src/js/adminMenu.js" type="module"></script>
+  <script src="https://animatedicons.co/scripts/embed-animated-icons.js"></script>
+</body>
+</html>
