@@ -76,7 +76,7 @@
                 </div>
                 <!-- Product grid -->
                 <div class="container-fluid pt-5">
-                    <div class="row g-4">
+                    <div class="row g-4" id="products-container">
                         <!-- Product card -->
                         <div class="col-6 col-sm-4 col-md-3 mb-4 drink">
                             <div class="card" data-bs-toggle="modal" data-bs-target="#modal-drink"
@@ -474,13 +474,12 @@
     <script src="https://animatedicons.co/scripts/embed-animated-icons.js"></script>
 
     <!-- Components loader -->
-    <script src="/src/js/loadComponents.js"></script>
-
-    <!-- Admin-specific JS -->
-    <script src="/src/js/adminMenu.ui.js" defer></script>
+    <script type="module" src="/src/js/utils/loadComponents.js"></script>
+    <!-- Admin-specific JS
+    <script src="/src/js/adminMenu.ui.js" defer></script> -->
 
     <!-- Logic forms  -->
-    <script src="/src/js/adminMenu.controller.js" type="module"></script>
+    <script type="module" src="/src/js/admin/main.js"></script>
 
 </body>
 </html>

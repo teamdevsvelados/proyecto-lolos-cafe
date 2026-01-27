@@ -48,7 +48,7 @@ export function validateDrinkForm() {
   
   if (!hasValidSize && !hasSizeSelected) {
     isValid = false;
-    errors.push("Selecciona al menos un tamaño con precio válido (> 0)");
+    errors.push("Selecciona al menos un tamaño con precio válido, (mayor que 0)");
   }
   
   // 3. Validar tipos de leche
@@ -83,7 +83,7 @@ export function validateDessertForm() {
   
   if (isNaN(price) || price <= 0) {
     isValid = false;
-    errors.push("Debes ingresar un precio válido (> 0) para el postre");
+    errors.push("Debes ingresar un precio válido (mayor que 0) para el postre");
   }
   
   if (!isNaN(slicePrice) && slicePrice < 0) {
