@@ -1,6 +1,6 @@
 // adminMenu.js — fix for editing desserts only
-import { ProductsController } from "./controllers/productController.js";
-import { DrinkProduct, DessertProduct } from "./models/Product.js";
+import { ProductsController } from "../controllers/productController.js";
+import { DrinkProduct, DessertProduct } from "../models/Product.js";
 
 const controller = new ProductsController();
 let editingProductId = null;

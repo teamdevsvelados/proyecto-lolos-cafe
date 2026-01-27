@@ -1,4 +1,4 @@
-import { addItem } from "./controllers/productController.js";
+import { addItem } from "../controllers/productController.js";
 
 const alertMessage = document.querySelector('#alert-message')
 
