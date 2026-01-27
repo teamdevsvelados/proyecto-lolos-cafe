@@ -12,7 +12,7 @@
   gap: 40px;
 }
 
-/* Título */
+/* Title */
 .footer-title {
   font-size: 80px;
   font-weight: 700;
@@ -21,7 +21,7 @@
   margin: 0;
 }
 
-/* Grid principal */
+/* Main grid */
 .footer-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -34,7 +34,7 @@
   margin-bottom: 16px;
 }
 
-/* Bloques */
+/* Blocks */
 .footer-block h3 {
   font-size: var(--fs-h4);
   font-weight: 600;

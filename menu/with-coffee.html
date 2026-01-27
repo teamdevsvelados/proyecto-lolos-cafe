@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menú - Con Café</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="stylesheet" href="/src/styles/main.css" />
+<!-- Optional for visualization -->
+<style>
+  .card img {
+    display: block;
+    margin: 0 auto;
+    max-width: 70%;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+  }
+
+  .card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2)
+  }
+
+  /* General style for navigation button group */
+  .custom-nav-group .btn {
+    border-color: #333;
+    color: #333;
+    font-weight: 500;
+    padding: 10px 0;
+  }
+
+  /* Style when the button is selected */
+  .custom-nav-group .btn-check:checked+.btn {
+    background-color: #2D2D2A !important;
+    border-color: #2D2D2A !important;
+    color: white !important;
+  }
+
+  .custom-nav-group .btn:focus {
+    box-shadow: none;
+  }
+
+  .top-buttons {
+    padding: 20px 20px 40px 20px;
+  }
+</style>
+</head>
+
+<body>
+<div id="header-placeholder"></div>
+<main>
+  <header>
+    <div class="container">
+      <div class="row align-items-center my-0 ms-n2 g-3">
+        <div class="col-auto ms-n5">
+          <a href="/menu.html" class="back-btn">←</a>
+        </div>
+        <div class="col-auto d-flex align-items-center">
+          <h1 class="mb-0">Nuestro menú</h1>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+    <div class="d-flex w-100 text-center top-buttons container" >
+      <a href="/menu/with-coffee.html" class="flex-fill btn btn-dark rounded-0">CON CAFÉ</a>
+      <a href="/menu/without-coffee.html" class="flex-fill btn btn-outline-dark rounded-0">SIN CAFÉ</a>
+      <a href="/menu/desserts.html" class="flex-fill btn btn-outline-dark rounded-0">POSTRES</a>
+    </div>
+
+
+
+    <!-- Section -->
+
+
+
+    <section class="hot-drinks">
+
+
+      <div class="container container-fluid d-flex justify-content-around flex-wrap">
+        <div class="row">
+
+          <!-- Drinks -->
+          <div class="col-6 col-md-4 col-lg-3 mb-4 drink">
+            <div class="card" data-bs-toggle="modal" data-bs-target="#modalBebida" style="cursor: pointer;">
+              <p class="new-drink col-12 text-end"> Nuevo </p>
+              <img src="/public/images/index/carrousel-pic-5.png" class="card-img-top" alt="...">
+              <div class="card-body row">
+                <p class="card-title col-6">Matcha</p>
+                <p class="price col-6 text-end"> $5.99</p>
+                <p class="card-text">Lorem ipsum dolor sit amet consectetur, ant facilis ullam enim, doloribus
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 col-md-4 col-lg-3 mb-4 drink">
+            <div class="card" data-bs-toggle="modal" data-bs-target="#modalBebida" style="cursor: pointer;">
+              <p class="new-drink col-12 text-end"> Nuevo </p>
+              <img src="/public/images/index/carrousel-pic-1.png" class="card-img-top" alt="...">
+              <div class="card-body row">
+                <p class="card-title col-6">Matcha</p>
+                <p class="price col-6 text-end"> $5.99</p>
+                <p class="card-text">Lorem ipsum dolor sit amet consectetur, ant facilis ullam enim, doloribus
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 col-md-4 col-lg-3 mb-4 drink">
+            <div class="card" data-bs-toggle="modal" data-bs-target="#modalBebida" style="cursor: pointer;">
+              <p class="new-drink col-12 text-end"> Nuevo </p>
+              <img src="/public/images/index/carrousel-pic-2.png" class="card-img-top" alt="...">
+              <div class="card-body row">
+                <p class="card-title col-6">Matcha</p>
+                <p class="price col-6 text-end"> $5.99</p>
+                <p class="card-text">Lorem ipsum dolor sit amet consectetur, ant facilis ullam enim, doloribus
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 col-md-4 col-lg-3 mb-4 drink">
+            <div class="card" data-bs-toggle="modal" data-bs-target="#modalBebida" style="cursor: pointer;">
+              <p class="new-drink col-12 text-end"> Nuevo </p>
+              <img src="/public/images/index/carrousel-pic-3.png" class="card-img-top" alt="...">
+              <div class="card-body row">
+                <p class="card-title col-6">Matcha</p>
+                <p class="price col-6 text-end"> $5.99</p>
+                <p class="card-text">Lorem ipsum dolor sit amet consectetur, ant facilis ullam enim, doloribus
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 col-md-4 col-lg-3 mb-4 drink">
+            <div class="card" data-bs-toggle="modal" data-bs-target="#modalBebida" style="cursor: pointer;">
+              <p class="new-drink col-12 text-end"> Nuevo </p>
+              <img src="/public/images/index/carrousel-pic-4.png" class="card-img-top" alt="...">
+              <div class="card-body row">
+                <p class="card-title col-6">Matcha</p>
+                <p class="price col-6 text-end"> $5.99</p>
+                <p class="card-text">Lorem ipsum dolor sit amet consectetur, ant facilis ullam enim, doloribus
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 col-md-4 col-lg-3 mb-4 drink">
+            <div class="card" data-bs-toggle="modal" data-bs-target="#modalBebida" style="cursor: pointer;">
+              <p class="new-drink col-12 text-end"> Nuevo </p>
+              <img src="/public/images/index/carrousel-pic-5.png" class="card-img-top" alt="...">
+              <div class="card-body row">
+                <p class="card-title col-6">Matcha</p>
+                <p class="price col-6 text-end"> $5.99</p>
+                <p class="card-text">Lorem ipsum dolor sit amet consectetur, ant facilis ullam enim, doloribus
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+
+      <!-- Modal included -->
+      <div class="modal fade" id="modalBebida" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+
+
+            <!-- Modal header -->
+            <div class="modal-body p-4">
+              <div class="d-flex align-items-center mb-4">
+                <button type="button" class="btn border-0 p-0 me-2" data-bs-dismiss="modal">
+                  <i class="bi bi-arrow-left fs-4"></i> </button>
+                <h3 class="mb-0">Arma tu bebida</h3>
+              </div>
+
+              <div class="row align-items-start">
+                <div class="col-md-5 text-center">
+                  <img src="/public/images/index/carrousel-pic-5.png" class="img-fluid" style="max-height: 250px;">
+                </div>
+                <div class="col-md-7">
+                  <h4 class="fw-bold mb-1">Nombre del producto</h4>
+                  <p class="fw-bold text-muted mb-1">$0.00</p>
+                  <p class="text-secondary small">Description del producto que explica los ingredientes básicos.</p>
+                  <span class="badge bg-success opacity-75 mt-2">☆ NUEVO</span> <!-- This seems unnecessary -->
+                </div>
+              </div>
+
+              <!-- Select temp -->
+
+              <hr class="my-4">
+
+              <div class="col-12">
+                <h5 class="fw-bold">Temperatura</h5>
+                <div class="ps-4 mt-2">
+                  <div class="form-check mb-2">
+                    <input class="form-check-input" type="radio" name="temp" id="caliente" checked>
+                    <label class="form-check-label" for="caliente">Caliente</label>
+                  </div>
+                  <div class="form-check mb-2">
+                    <input class="form-check-input" type="radio" name="temp" id="rocas">
+                    <label class="form-check-label" for="rocas">A las rocas</label>
+                  </div>
+                  <div class="form-check mb-2">
+                    <input class="form-check-input" type="radio" name="temp" id="frappe">
+                    <label class="form-check-label" for="frappe">Frappé</label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Select size -->
+              <hr class="my-4">
+
+              <div class="col-12">
+                <h5 class="fw-bold"><i class="bi bi-cup-hot"></i> Tamaño</h5>
+                <div class="ps-4 mt-2">
+                  <div class="form-check mb-2">
+                    <input class="form-check-input" type="radio" name="size" id="chico" checked>
+                    <label class="form-check-label" for="chico">Chico (14 oz.) ($0)</label>
+                  </div>
+                  <div class="form-check mb-2">
+                    <input class="form-check-input" type="radio" name="size" id="mediano" checked>
+                    <label class="form-check-label" for="mediano">Mediano (16 oz.) ($0)</label>
+                  </div>
+                  <div class="form-check mb-2">
+                    <input class="form-check-input" type="radio" name="size" id="grande" checked>
+                    <label class="form-check-label" for="grande">Grande (20 oz.) ($0)</label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Selec Milk -->
+              <hr class="my-4">
+
+              <div class="col-12">
+                <h5 class="fw-bold"><i class="bi bi-cup-hot"></i> Tipo de leche</h5>
+                <div class="ps-4 mt-2">
+                  <div class="form-check mb-2">
+                    <input class="form-check-input" type="radio" name="milk" id="regular" checked>
+                    <label class="form-check-label" for="regular">Regular </label>
+                  </div>
+                  <div class="form-check mb-2">
+                    <input class="form-check-input" type="radio" name="milk" id="deslactosada">
+                    <label class="form-check-label" for="deslactosada">Deslactosada</label>
+                  </div>
+                  <div class="form-check mb-2">
+                    <input class="form-check-input" type="radio" name="milk" id="light">
+                    <label class="form-check-label" for="light"> Light</label>
+                  </div>
+                  <div class="form-check mb-2">
+                    <input class="form-check-input" type="radio" name="milk" id="almendras">
+                    <label class="form-check-label" for="almendras"> Almendras</label>
+                  </div>
+
+                  <div class="form-check mb-2">
+                    <input class="form-check-input" type="radio" name="milk" id="soya">
+                    <label class="form-check-label" for="soya"> Soya</label>
+                  </div>
+                  <div class="form-check mb-2">
+                    <input class="form-check-input" type="radio" name="milk" id="coco">
+                    <label class="form-check-label" for="coco"> Coco</label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Selec extras -->
+              <hr class="my-4">
+
+              <div class="col-12">
+                <h5 class="fw-bold"><i class="bi bi-cup-hot"></i> Extras</h5>
+                <div class="ps-4 mt-2">
+                  <div class="form-check mb-2">
+                    <input class="form-check-input" type="radio" name="extra" id="noextra" checked>
+                    <label class="form-check-label" for="noextra">Sin extras </label>
+                  </div>
+                  <div class="form-check mb-2">
+                    <input class="form-check-input" type="radio" name="extra" id="expresso" checked>
+                    <label class="form-check-label" for="expresso">Shot de expresso</label>
+                  </div>
+                  <div class="form-check mb-2">
+                    <input class="form-check-input" type="radio" name="extra" id="jarabe" checked>
+                    <label class="form-check-label" for="jarabe"> Shot de jarabe saborizante</label>
+                  </div>
+                  <div class="form-check mb-2">
+                    <input class="form-check-input" type="radio" name="extra" id="tapioca" checked>
+                    <label class="form-check-label" for="tapioca"> Tapioca </label>
+                  </div>
+                  <div class="form-check mb-2">
+                    <input class="form-check-input" type="radio" name="extra" id="vainilla" checked>
+                    <label class="form-check-label" for="vainilla"> Nieve de vainilla </label>
+                  </div>
+                  <div class="form-check mb-2">
+                    <input class="form-check-input" type="radio" name="extra" id="foam" checked>
+                    <label class="form-check-label" for="foam"> Foam </label>
+                  </div>
+                  <div class="form-check mb-2">
+                    <input class="form-check-input" type="radio" name="extra" id="chessefoam" checked>
+                    <label class="form-check-label" for="chessefoam"> Cheese foam </label>
+                  </div>
+                </div>
+              </div>
+
+
+              <!-- Extra notes -->
+
+              <hr class="my-4">
+
+              <div class="col-12">
+                <h5 class="fw-bold"><i class="bi bi-pencil"></i> Notas adicionales</h5>
+                <p class="text-muted small ps-4">Cuéntanos si tu pedido tiene alguna indicación especial</p>
+                <div class="ps-4">
+                  <textarea class="form-control bg-light border-0" rows="2" placeholder="Escribe aquí..."></textarea>
+                </div>
+              </div>
+
+              <!-- Purchase confirmation -->
+
+              <div class="modal-footer border-0 d-flex justify-content-between">
+                <div class="d-flex align-items-center border rounded">
+                  <button class="btn btn-sm">-</button>
+                  <span class="px-3">1</span>
+                  <button class="btn btn-sm">+</button>
+                </div>
+                <div class="row">
+                  <span class="me-3 fw-bold col-12 text-end">Total: $0.00</span>
+                  <button class="btn btn-dark px-4 py-2 col-3 align-self-end">Agregar más productos</button>
+                  <button class="btn btn-dark px-4 py-2 col-3 align-self-end">Confirmar pedido</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+  </main>
+  <div id="footer-placeholder"></div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  <script src="/src/js/loadComponents.js"></script>
+  <script src="https://animatedicons.co/scripts/embed-animated-icons.js"></script>
+</body>
+
+</html>
