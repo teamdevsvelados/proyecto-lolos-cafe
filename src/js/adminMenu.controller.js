@@ -1,4 +1,4 @@
-// adminMenu.js — fix for editing desserts only
+// adminMenu.controller.js — versión corregida con validaciones completas
 import { ProductsController } from "./controllers/productController.js";
 import { DrinkProduct, DessertProduct } from "./models/Product.js";
 
@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const container = document.querySelector(".row.g-4");
 
   // Modal buttons
-  const modalFooter = document.querySelector('.modal .row.m-4');
+  const modalFooter = document.querySelector('.row.m-4');
   
   // LOAD FROM STORAGE
   controller.loadFromStorage();
@@ -92,14 +92,158 @@ document.addEventListener("DOMContentLoaded", () => {
     drinkOptionsSection.style.display = "block";
   }
 
-  // SUBMIT FORM — adjusted to fix issues
+  // SUBMIT FORM — with complete validation
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
     await handleFormSubmit();
   });
 
-  // Function to handle form submission — fixed
+  // Function to validate drink form
+  function validateDrinkForm() {
+    const type = document.querySelector('input[name="product-type"]:checked').value;
+    
+    if (type !== "drink") return true; // Skip validation for desserts
+    
+    let isValid = true;
+    let errorMessages = [];
+    
+    // 1. Validate temperatures (at least one selected)
+    const temperatureChecks = document.querySelectorAll('input[name="temperatures[]"]:checked');
+    if (temperatureChecks.length === 0) {
+      isValid = false;
+      errorMessages.push("Selecciona al menos una temperatura");
+    }
+    
+    // 2. Validate sizes and prices (at least one size with price > 0)
+    const sizeCheckboxes = ['size-ch', 'size-m', 'size-g'];
+    let hasValidSize = false;
+    
+    sizeCheckboxes.forEach(sizeId => {
+      const check = document.getElementById(sizeId);
+      const priceInput = document.getElementById(check?.dataset.target);
+      
+      if (check?.checked && priceInput) {
+        const price = parseFloat(priceInput.value);
+        
+        if (isNaN(price)) {
+          isValid = false;
+          errorMessages.push("Debes indicar el precio correspondiente al tamaño de la bebida");
+        } else if (price < 0) {
+          isValid = false;
+          errorMessages.push("El precio no puede ser menor que 0");
+        } else if (price > 0) {
+          hasValidSize = true;
+        }
+      }
+    });
+    
+    if (!hasValidSize && (document.getElementById('size-ch')?.checked || 
+                          document.getElementById('size-m')?.checked || 
+                          document.getElementById('size-g')?.checked)) {
+      isValid = false;
+      if (!errorMessages.includes("Debes indicar el precio correspondiente al tamaño de la bebida")) {
+        errorMessages.push("Debes indicar el precio correspondiente al tamaño de la bebida");
+      }
+    }
+    
+    if (!hasValidSize && !errorMessages.includes("Debes indicar el precio correspondiente al tamaño de la bebida")) {
+      isValid = false;
+      errorMessages.push("Selecciona al menos un tamaño con precio válido (> 0)");
+    }
+    
+    // 3. Validate milk types (at least one selected)
+    const milkChecks = document.querySelectorAll('input[name="milks[]"]:checked');
+    if (milkChecks.length === 0) {
+      isValid = false;
+      errorMessages.push("Selecciona al menos un tipo de leche");
+    }
+    
+    // 4. Validate extras (at least one selected - "Sin extras" counts as a selection)
+    const extraChecks = document.querySelectorAll('input[name="extras[]"]:checked');
+    if (extraChecks.length === 0) {
+      isValid = false;
+      errorMessages.push("Indica si deseas algún extra y cuál");
+    }
+    
+    // 5. Basic validations
+    const title = document.getElementById("product-title").value.trim();
+    const description = document.getElementById("product-description").value.trim();
+    
+    if (!title) {
+      isValid = false;
+      errorMessages.push("El nombre del producto es obligatorio");
+    }
+    
+    if (!description) {
+      isValid = false;
+      errorMessages.push("La descripción del producto es obligatoria");
+    }
+    
+    // Show errors if any
+    if (!isValid) {
+      alert("Errores en el formulario:\n\n" + errorMessages.join("\n"));
+    }
+    
+    return isValid;
+  }
+  
+  // Function to validate dessert form
+  function validateDessertForm() {
+    const type = document.querySelector('input[name="product-type"]:checked').value;
+    
+    if (type !== "dessert") return true;
+    
+    let isValid = true;
+    let errorMessages = [];
+    
+    const price = parseFloat(document.getElementById("dessert-price").value);
+    const slicePriceInput = document.getElementById("dessert-slice-price");
+    const slicePrice = slicePriceInput ? parseFloat(slicePriceInput.value) : 0;
+    
+    if (isNaN(price) || price <= 0) {
+      isValid = false;
+      errorMessages.push("Debes ingresar un precio válido (> 0) para el postre");
+    }
+    
+    if (!isNaN(slicePrice) && slicePrice < 0) {
+      isValid = false;
+      errorMessages.push("El precio por rebanada no puede ser negativo");
+    }
+    
+    // Basic validations
+    const title = document.getElementById("product-title").value.trim();
+    const description = document.getElementById("product-description").value.trim();
+    
+    if (!title) {
+      isValid = false;
+      errorMessages.push("El nombre del producto es obligatorio");
+    }
+    
+    if (!description) {
+      isValid = false;
+      errorMessages.push("La descripción del producto es obligatoria");
+    }
+    
+    if (!isValid) {
+      alert("Errores en el formulario:\n\n" + errorMessages.join("\n"));
+    }
+    
+    return isValid;
+  }
+
+  // Function to handle form submission — with validation
   async function handleFormSubmit() {
+    const type = document.querySelector('input[name="product-type"]:checked').value;
+    
+    // Validate based on product type
+    if (type === "drink" && !validateDrinkForm()) {
+      return;
+    }
+    
+    if (type === "dessert" && !validateDessertForm()) {
+      return;
+    }
+    
     // Validate image
     const imageFile = imageInput.files[0];
     let imageData = "";
@@ -125,32 +269,29 @@ document.addEventListener("DOMContentLoaded", () => {
     const isActive = document.getElementById("product-active").checked;
     const type = document.querySelector('input[name="product-type"]:checked').value;
 
-    // Basic validations
-    if (!title || !description) {
-      alert("Por favor completa todos los campos obligatorios");
-      return;
-    }
-
-    // EDIT MODE - Main fix for desserts
+    // EDIT MODE
     if (editingProductId) {
       // Find the existing product
       const existingProductIndex = controller.products.findIndex(p => p.id === editingProductId);
       
       if (existingProductIndex !== -1) {
         if (type === "drink") {
-          // Actualizar bebida existente
+          // Update existing drink
           const section = document.getElementById("product-section").value;
 
-          // Obtener tamaños y precios
+          // Get sizes and prices
           const sizes = {};
           if (document.getElementById("size-ch").checked) {
-            sizes.chico = parseFloat(document.getElementById("price-ch").value) || 0;
+            const price = parseFloat(document.getElementById("price-ch").value) || 0;
+            sizes.chico = price;
           }
           if (document.getElementById("size-m").checked) {
-            sizes.mediano = parseFloat(document.getElementById("price-m").value) || 0;
+            const price = parseFloat(document.getElementById("price-m").value) || 0;
+            sizes.mediano = price;
           }
           if (document.getElementById("size-g").checked) {
-            sizes.grande = parseFloat(document.getElementById("price-g").value) || 0;
+            const price = parseFloat(document.getElementById("price-g").value) || 0;
+            sizes.grande = price;
           }
 
           // Temperatures
@@ -187,7 +328,7 @@ document.addEventListener("DOMContentLoaded", () => {
           controller.products[existingProductIndex] = updatedDrink;
           
         } else {
-          // Update existing dessert — key fix here
+          // Update existing dessert
           const category = document.getElementById("dessert-category").value;
           const price = parseFloat(document.getElementById("dessert-price").value) || 0;
           const slicePrice = parseFloat(document.getElementById("dessert-slice-price").value) || 0;
@@ -251,13 +392,28 @@ document.addEventListener("DOMContentLoaded", () => {
       // Get sizes and prices
       const sizes = {};
       if (document.getElementById("size-ch").checked) {
-        sizes.chico = parseFloat(document.getElementById("price-ch").value) || 0;
+        const price = parseFloat(document.getElementById("price-ch").value) || 0;
+        if (price <= 0) {
+          alert("El precio para tamaño CH debe ser mayor a 0");
+          return;
+        }
+        sizes.chico = price;
       }
       if (document.getElementById("size-m").checked) {
-        sizes.mediano = parseFloat(document.getElementById("price-m").value) || 0;
+        const price = parseFloat(document.getElementById("price-m").value) || 0;
+        if (price <= 0) {
+          alert("El precio para tamaño M debe ser mayor a 0");
+          return;
+        }
+        sizes.mediano = price;
       }
       if (document.getElementById("size-g").checked) {
-        sizes.grande = parseFloat(document.getElementById("price-g").value) || 0;
+        const price = parseFloat(document.getElementById("price-g").value) || 0;
+        if (price <= 0) {
+          alert("El precio para tamaño G debe ser mayor a 0");
+          return;
+        }
+        sizes.grande = price;
       }
 
       // Validate at least one size is selected
@@ -392,7 +548,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
     
-    // Reset temperature, milk, and extras checkboxes
+    // Reset temperature, milk, and extras checkboxes with defaults
     document.querySelectorAll('input[name="temperatures[]"]').forEach(input => {
       input.checked = false;
     });
@@ -547,7 +703,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // RENDER CARD - Keeping what works
+  // RENDER CARD
   function renderCard(product) {
     const col = document.createElement("div");
     col.className = "col-6 col-sm-4 col-md-3 mb-4";
