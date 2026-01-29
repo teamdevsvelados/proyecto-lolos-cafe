@@ -8,7 +8,7 @@
  * Cafe location coordinates
  * These coordinates determine which menu items are displayed based on weather
  */
-const CAFE_LOCATION = {
+const cafeLocation = {
     latitude: 26.268723209022,
     longitude: -109.04000175228389
 };
@@ -21,7 +21,7 @@ const CAFE_LOCATION = {
 async function fetchWeatherData() {
     try {
         // Build the API URL with cafe's fixed coordinates
-        const url = `https://api.open-meteo.com/v1/forecast?latitude=${CAFE_LOCATION.latitude}&longitude=${CAFE_LOCATION.longitude}&current=temperature_2m,weather_code,wind_speed_10m&timezone=auto`;
+        const url = `https://api.open-meteo.com/v1/forecast?latitude=${cafeLocation.latitude}&longitude=${cafeLocation.longitude}&current=temperature_2m,weather_code,wind_speed_10m&timezone=auto`;
         
         const response = await fetch(url);
         
