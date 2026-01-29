@@ -76,7 +76,7 @@
                 </div>
                 <!-- Product grid -->
                 <div class="container-fluid pt-5">
-                    <div class="row g-4">
+                    <div class="row g-4" id="products-container">
                         <!-- Product card -->
                         <div class="col-6 col-sm-4 col-md-3 mb-4 drink">
                             <div class="card" data-bs-toggle="modal" data-bs-target="#modal-drink"
@@ -263,10 +263,6 @@
                                     </select>
                                 </div>
 
-
-
-
-
                                 <!-- Product selection option 2×2 -->
                                 <div class="container-fluid pt-1 px-0">
                                     <div class="row g-4">
@@ -303,43 +299,6 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- Sizes -->
-                                        <!-- <div class="col-12 col-lg-6">
-                                            <div class="card border-0 shadow-sm h-100">
-                                                <div class="card-body">
-                                                    <fieldset>
-                                                        <legend class="h5 fw-bold mb-2"><i class="bi bi-cup-hot"></i>
-                                                            Tamaños</legend>
-                                                        <div class="ps-1 mt-2">
-                                                            <div class="form-check mb-2">
-                                                                <input class="form-check-input" type="checkbox"
-                                                                    name="sizes[]" id="size-chico"
-                                                                    value="Chico (14 oz.)">
-                                                                <label class="form-check-label" for="size-chico">Chico
-                                                                    (14 oz.)</label>
-                                                                <small class="text-muted ms-1">($0)</small>
-                                                            </div>
-                                                            <div class="form-check mb-2">
-                                                                <input class="form-check-input" type="checkbox"
-                                                                    name="sizes[]" id="size-mediano"
-                                                                    value="Mediano (16 oz.)">
-                                                                <label class="form-check-label"
-                                                                    for="size-mediano">Mediano (16 oz.)</label>
-                                                                <small class="text-muted ms-1">($0)</small>
-                                                            </div>
-                                                            <div class="form-check mb-2">
-                                                                <input class="form-check-input" type="checkbox"
-                                                                    name="sizes[]" id="size-grande"
-                                                                    value="Grande (20 oz.)">
-                                                                <label class="form-check-label" for="size-grande">Grande
-                                                                    (20 oz.)</label>
-                                                                <small class="text-muted ms-1">($0)</small>
-                                                            </div>
-                                                        </div>
-                                                    </fieldset>
-                                                </div>
-                                            </div>
-                                        </div> -->
                                         
                                         <div class="col-12 col-lg-6">
                                             <div class="card border-0 shadow-sm h-100">
@@ -515,13 +474,12 @@
     <script src="https://animatedicons.co/scripts/embed-animated-icons.js"></script>
 
     <!-- Components loader -->
-    <script src="/src/js/loadComponents.js"></script>
-
-    <!-- Admin-specific JS -->
-    <script src="/src/js/adminMenu.ui.js" defer></script>
+    <script type="module" src="/src/js/utils/loadComponents.js"></script>
+    <!-- Admin-specific JS
+    <script src="/src/js/adminMenu.ui.js" defer></script> -->
 
     <!-- Logic forms  -->
-    <script src="/src/js/adminMenu.controller.js" type="module"></script>
+    <script type="module" src="/src/js/admin/main.js"></script>
 
 </body>
 </html>
