@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración - Lolo's Café</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="/src/styles/main.css" />
+</head>
+
+<body>
+    <!-- Header -->
+    <!-- TODO on HEADER: redirect on the arrow of Menu to the correspond last visit page -->
+    <div id="header-placeholder"></div>
+
+    <!-- Here goes the content-->
+    <main class="row container-fluid mx-auto">
+        <section class="admin-sidebar-container col-3 p-3 border-end">
+            <div class="py-5 px-3">
+                <a href="/admin-panel.html" class="navbar-brand pb-2">
+                    <img src="/public/logos/loloscafe-vector.svg" class="mb-3" alt="Lolo's Café Logo">
+                </a>
+                <h3>Administrador</h3>
+            </div>
+
+            <div class="nav-admin-sidebar px-3">
+                <ul class="navbar-nav mx-auto mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admin-panel.html">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Gestión de pedidos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/user-panel.html">Usuarios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/menu.html" target="_blank" rel="opener noreferrer">Menú</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Configuración</a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Dashboard Title Content -->
+        <section class="dashboard-admin col-9 p-3 container">
+            <div class="header-dashboard pt-5 px-5 pb-1 d-flex justify-content-between align-items-start">
+                <div>
+                    <h3>Bienvenido</h3>
+                    <p>Resumen de las operaciones del día</p>
+                </div>
+                <div>
+                    <p id="current-date" class="text-muted"></p>
+                </div>
+            </div>
+
+            <!-- Dashboard Cards Info for Users -->
+            <div class="row g-3 px-5 py-4">
+
+                <div class="col-12 col-md-3">
+                    <div
+                        class="p-3 bg-white border border-secondary border-opacity-50 h-100 d-flex flex-column justify-content-between">
+                        <h6 class="fw-bold">Ventas del día</h6>
+                        <div class="d-flex justify-content-between align-items-end mt-3">
+                            <img src="/public/icons/total-day-sells-icon.svg" width="50" alt="icon">
+                            <span class="fw-bold fs-5">$00.00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-3">
+                    <div class="p-3 bg-body-secondary border-0 h-100 d-flex flex-column justify-content-between">
+                        <h6 class="fw-bold">Nuevos</h6>
+                        <div class="d-flex justify-content-between align-items-end mt-3">
+                            <img src="/public/icons/new-orders-icon.svg" width="50" alt="icon">
+                            <span class="fw-bold fs-5">3</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-3">
+                    <div class="p-3 bg-body-secondary border-0 h-100 d-flex flex-column justify-content-between">
+                        <h6 class="fw-bold">En preparación</h6>
+                        <div class="d-flex justify-content-between align-items-end mt-3">
+                            <img src="/public/icons/preparation-orders-icon.svg" width="50" alt="icon">
+                            <span class="fw-bold fs-5">3</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-3">
+                    <div class="p-3 bg-body-secondary border-0 h-100 d-flex flex-column justify-content-between">
+                        <h6 class="fw-bold">Finalizados</h6>
+                        <div class="d-flex justify-content-between align-items-end mt-3">
+                            <img src="/public/icons/finished-coffe-order-icon.svg" width="50" alt="icon">
+                            <span class="fw-bold fs-5">1</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Dashboard Statistics Info - Productos más vendidos -->
+            <div class="container py-4 px-5">
+                <div class="row mb-5">
+                    <div class="col-12">
+                        <div class="d-flex align-items-center gap-2 mb-2">
+                            <img src="/public/icons/favorite-lolos-products.svg" class="card-dashboard-icon"
+                                alt="Small Flame of fire-icon">
+                            <h5 class="m-0 fw-bold">Más vendidos</h5>
+                        </div>
+
+                        <p class="mb-2 text-muted">Semana</p>
+
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Producto</th>
+                                        <th scope="col" class="text-end">Vendidos</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>Café Latte</td>
+                                        <td class="text-end">143</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">2</th>
+                                        <td>Espresso</td>
+                                        <td class="text-end">120</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">3</th>
+                                        <td>Cold brew</td>
+                                        <td class="text-end">98</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">4</th>
+                                        <td>Chai Latte</td>
+                                        <td class="text-end">60</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">5</th>
+                                        <td>Chiimango</td>
+                                        <td class="text-end">53</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">6</th>
+                                        <td>Pay de Queso</td>
+                                        <td class="text-end">16</td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Dashboard Statistics Info - Historial de Pedidos -->
+                    <div class="row mt-4">
+                        <div class="col-12">
+                            <div class="d-flex align-items-center gap-2 mb-2">
+                                <img src="/public/icons/orders-history-icon.svg" class="card-dashboard-icon"
+                                    alt="Small Flame of fire-icon">
+                                <h5 class="m-0 fw-bold">Historial de Pedidos</h5>
+                            </div>
+
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Numero de Pedido</th>
+                                            <th scope="col" class="text-end">Cliente</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">#5</th>
+                                            <td class="text-end">Juan Rosas</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">#120</th>
+                                            <td class="text-end">Fabian Castellanos</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">#75</th>
+                                            <td class="text-end">Elizabeth Duran</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">#98</th>
+                                            <td class="text-end">Javier Blake</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">#114</th>
+                                            <td class="text-end">Hector Arredondo</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">#20</th>
+                                            <td class="text-end">Jose Madero</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <script src="/src/utils/load-components.js"></script>
+    <script src="/src/utils/current-date.js"></script>
+    <script src="/src/js/load-components.js"></script>
+    <script src="https://animatedicons.co/scripts/embed-animated-icons.js"></script>
+</body>
+
+</html>
