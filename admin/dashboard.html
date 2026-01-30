@@ -11,201 +11,186 @@
 
   <body>
     <!-- Header -->
-    <div id="header-placeholder"></div>
+    <!-- <div id="header-placeholder"></div> -->
 
-    <!-- Content -->
+   <!-- Content -->
     <main class="row container-fluid mx-auto">
       <section id="sidebar-placeholder" class="admin-sidebar-container col-3 p-3 border-end">
-        
       </section>
-
-      <section class="dashboard-admin col-9 p-3 container">
-        <div class="header-dashboard pt-5 px-5 pb-1">
-          <h3>Gestión de productos</h3>
-        </div>
-        <div class="d-flex justify-content-between align-items-center px-5 pt-3">
-          <div>
-            <p class="mb-0 text-muted">
-              Agrega, edita, activa/desactiva y elimina productos del menú.
-            </p>
-          </div>
-
-          <button id="open-modal" class="btn btn-primary">
-            Agregar producto
-          </button>
-        </div>
-
-        <hr class="mx-5" />
-
-        <div id="products-container" class="px-5 pb-5 row row-cols-1 row-cols-md-2 g-3"></div>
-
-        <div class="row pb-4 column-gap-2 p-5">
-          <div class="col">
-            <div class="d-flex gap-2">
-              <img src="/public/icons/cellphone-icon.svg" class="card-dashboard-icon" alt=""/>
-              <h3>Más vendidos</h3>
+      <!-- Dashboard Title Content -->
+        <section class="dashboard-admin col-9 p-3 container">
+            <div class="header-dashboard pt-5 px-5 pb-1 d-flex justify-content-between align-items-start">
+                <div>
+                    <h3>Bienvenido</h3>
+                    <p>Resumen de las operaciones del día</p>
+                </div>
+                <div>
+                    <p id="current-date" class="text-muted"></p>
+                </div>
             </div>
-            <div>
-              <div style="grid-template-columns: 1fr 2fr 2fr" class="d-grid">
-                <span class="col">1</span>
-                <p class="col">Tisana</p>
-                <p class="col"><span>143</span> vendidos</p>
-              </div>
-              <div style="grid-template-columns: 1fr 2fr 2fr" class="d-grid">
-                <span class="col">2</span>
-                <p class="col">Latte</p>
-                <p class="col"><span>98</span> vendidos</p>
-              </div>
-              <div style="grid-template-columns: 1fr 2fr 2fr" class="d-grid">
-                <span class="col">3</span>
-                <p class="col">Chocoflan</p>
-                <p class="col"><span>77</span> vendidos</p>
-              </div>
-            </div>
-          </div>
 
-          <div class="col">
-            <div class="d-flex gap-2">
-              <img src="/public/icons/cellphone-icon.svg" class="card-dashboard-icon" alt=""/>
-              <h3>Historial de pedidos</h3>
+            <!-- Dashboard Cards Info for Users -->
+            <div class="row g-3 px-5 py-4">
+
+                <div class="col-12 col-md-3">
+                    <div
+                        class="p-3 bg-white border border-secondary border-opacity-50 h-100 d-flex flex-column justify-content-between">
+                        <h6 class="fw-bold">Ventas del día</h6>
+                        <div class="d-flex justify-content-between align-items-end mt-3">
+                            <img src="/public/icons/total-day-sells-icon.svg" width="50" alt="icon">
+                            <span class="fw-bold fs-5">$00.00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-3">
+                    <div class="p-3 bg-body-secondary border-0 h-100 d-flex flex-column justify-content-between">
+                        <h6 class="fw-bold">Nuevos</h6>
+                        <div class="d-flex justify-content-between align-items-end mt-3">
+                            <img src="/public/icons/new-orders-icon.svg" width="50" alt="icon">
+                            <span class="fw-bold fs-5">3</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-3">
+                    <div class="p-3 bg-body-secondary border-0 h-100 d-flex flex-column justify-content-between">
+                        <h6 class="fw-bold">En preparación</h6>
+                        <div class="d-flex justify-content-between align-items-end mt-3">
+                            <img src="/public/icons/preparation-orders-icon.svg" width="50" alt="icon">
+                            <span class="fw-bold fs-5">3</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-3">
+                    <div class="p-3 bg-body-secondary border-0 h-100 d-flex flex-column justify-content-between">
+                        <h6 class="fw-bold">Finalizados</h6>
+                        <div class="d-flex justify-content-between align-items-end mt-3">
+                            <img src="/public/icons/finished-coffe-order-icon.svg" width="50" alt="icon">
+                            <span class="fw-bold fs-5">1</span>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-            <div>
-              <div style="grid-template-columns: 1fr 2fr" class="d-grid">
-                <span class="col">#41242</span>
-                <p class="col text-end">Tisana</p>
-              </div>
-              <div style="grid-template-columns: 1fr 2fr" class="d-grid">
-                <span class="col">#41243</span>
-                <p class="col text-end">Latte</p>
-              </div>
-              <div style="grid-template-columns: 1fr 2fr" class="d-grid">
-                <span class="col">#41244</span>
-                <p class="col text-end">Chocoflan</p>
-              </div>
+
+            <!-- Dashboard Statistics Info - Productos más vendidos -->
+            <div class="container py-4 px-5">
+                <div class="row mb-5">
+                    <div class="col-12">
+                        <div class="d-flex align-items-center gap-2 mb-2">
+                            <img src="/public/icons/favorite-lolos-products.svg" class="card-dashboard-icon"
+                                alt="Small Flame of fire-icon">
+                            <h5 class="m-0 fw-bold">Más vendidos</h5>
+                        </div>
+
+                        <p class="mb-2 text-muted">Semana</p>
+
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Producto</th>
+                                        <th scope="col" class="text-end">Vendidos</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>Café Latte</td>
+                                        <td class="text-end">143</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">2</th>
+                                        <td>Espresso</td>
+                                        <td class="text-end">120</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">3</th>
+                                        <td>Cold brew</td>
+                                        <td class="text-end">98</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">4</th>
+                                        <td>Chai Latte</td>
+                                        <td class="text-end">60</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">5</th>
+                                        <td>Chiimango</td>
+                                        <td class="text-end">53</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">6</th>
+                                        <td>Pay de Queso</td>
+                                        <td class="text-end">16</td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Dashboard Statistics Info - Historial de Pedidos -->
+                    <div class="row mt-4">
+                        <div class="col-12">
+                            <div class="d-flex align-items-center gap-2 mb-2">
+                                <img src="/public/icons/orders-history-icon.svg" class="card-dashboard-icon"
+                                    alt="Small Flame of fire-icon">
+                                <h5 class="m-0 fw-bold">Historial de Pedidos</h5>
+                            </div>
+
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Numero de Pedido</th>
+                                            <th scope="col" class="text-end">Cliente</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">#5</th>
+                                            <td class="text-end">Juan Rosas</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">#120</th>
+                                            <td class="text-end">Fabian Castellanos</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">#75</th>
+                                            <td class="text-end">Elizabeth Duran</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">#98</th>
+                                            <td class="text-end">Javier Blake</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">#114</th>
+                                            <td class="text-end">Hector Arredondo</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">#20</th>
+                                            <td class="text-end">Jose Madero</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </section>
+        </section>  
     </main>
 
-    <!-- MODAL -->
-  <dialog id="product-modal" class="p-0 border-0 rounded-3">
-    <form id="product-form" method="dialog" class="p-4" style="min-width:320px; max-width:720px">
-      <div class="d-flex justify-content-between align-items-center mb-3">
-        <h4 class="mb-0">Agregar / editar producto</h4>
-        <button type="button" id="close-modal-x" class="btn btn-outline-secondary btn-sm">✕</button>
-      </div>
-
-      <h5 class="mt-3">Información general</h5>
-
-      <div class="mb-3">
-        <label class="form-label">Imagen</label>
-        <input type="file" id="product-image-input" class="form-control" accept="image/*"/>
-        <img id="product-image-preview" src="" alt="Preview" class="mt-2 img-fluid rounded" style="max-width:150px; display:none"/>
-      </div>
-
-      <div class="mb-3">
-        <label class="form-label">Título</label>
-        <input type="text" id="product-title" class="form-control" required/>
-      </div>
-
-      <div class="mb-3">
-        <label class="form-label">Descripción</label>
-        <textarea id="product-description" class="form-control" rows="3" required></textarea>
-      </div>
-
-      <div class="form-check mb-4">
-        <input class="form-check-input" type="checkbox" id="product-active" checked/>
-        <label class="form-check-label" for="product-active">Activo</label>
-      </div>
-
-      <h5>Tipo de producto</h5>
-      <div class="d-flex gap-3 mb-3">
-        <label class="form-check">
-          <input class="form-check-input" type="radio" name="product-type" value="drink" checked/>
-          <span class="form-check-label">Bebida</span>
-        </label>
-        <label class="form-check">
-          <input class="form-check-input" type="radio" name="product-type" value="dessert"/>
-          <span class="form-check-label">Postre</span>
-        </label>
-      </div>
-
-      <!-- BEBIDA -->
-      <div id="drink-fields">
-        <h6>Bebida</h6>
-
-        <div class="mb-3">
-          <label class="form-label">Sección</label>
-          <select id="product-section" class="form-select">
-            <option value="Con café">Con café</option>
-            <option value="Sin café">Sin café</option>
-            <option value="Postres">Postres</option>
-          </select>
-        </div>
-
-        <div class="mb-3">
-          <label class="form-label">Toppings</label>
-          <div class="d-flex flex-wrap gap-2">
-            <label class="form-check"><input class="form-check-input" type="checkbox" name="toppings" value="Shot de espresso"/> Shot de espresso</label>
-            <label class="form-check"><input class="form-check-input" type="checkbox" name="toppings" value="Jarabe saborizante"/> Jarabe saborizante</label>
-            <label class="form-check"><input class="form-check-input" type="checkbox" name="toppings" value="Tapioca"/> Tapioca</label>
-            <label class="form-check"><input class="form-check-input" type="checkbox" name="toppings" value="Nieve de vainilla"/> Nieve de vainilla</label>
-            <label class="form-check"><input class="form-check-input" type="checkbox" name="toppings" value="Foam"/> Foam</label>
-            <label class="form-check"><input class="form-check-input" type="checkbox" name="toppings" value="Cheese foam"/> Cheese foam</label>
-          </div>
-        </div>
-
-        <div class="mb-3">
-          <label class="form-label">Tipos de leche</label>
-          <div class="d-flex flex-wrap gap-2">
-            <label class="form-check"><input class="form-check-input" type="checkbox" name="milk" value="Regular"/> Regular</label>
-            <label class="form-check"><input class="form-check-input" type="checkbox" name="milk" value="Deslactosada"/> Deslactosada</label>
-            <label class="form-check"><input class="form-check-input" type="checkbox" name="milk" value="Deslactosada light"/> Deslactosada light</label>
-            <label class="form-check"><input class="form-check-input" type="checkbox" name="milk" value="Almendras"/> Almendras</label>
-            <label class="form-check"><input class="form-check-input" type="checkbox" name="milk" value="Soya"/> Soya</label>
-            <label class="form-check"><input class="form-check-input" type="checkbox" name="milk" value="Coco"/> Coco</label>
-          </div>
-        </div>
-
-        <div class="mb-3">
-          <label class="form-label">Temperatura</label>
-          <div class="d-flex flex-wrap gap-2">
-            <label class="form-check"><input class="form-check-input" type="checkbox" name="temperature" value="Caliente"/> Caliente</label>
-            <label class="form-check"><input class="form-check-input" type="checkbox" name="temperature" value="Frío"/> Frío</label>
-            <label class="form-check"><input class="form-check-input" type="checkbox" name="temperature" value="Frappé"/> Frappé</label>
-          </div>
-        </div>
-
-        <div class="mb-3">
-          <label class="form-label">Precios por tamaño</label>
-          <div class="row g-2">
-            <div class="col"><input class="form-control" type="number" data-size="Chico" placeholder="Chico"/></div>
-            <div class="col"><input class="form-control" type="number" data-size="Mediano" placeholder="Mediano"/></div>
-            <div class="col"><input class="form-control" type="number" data-size="Grande" placeholder="Grande"/></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- POSTRE -->
-      <div id="dessert-fields">
-        <h6>Postre</h6>
-        <div class="mb-3"><label class="form-label">Precio por unidad</label><input class="form-control" type="number" id="unit-price"/></div>
-        <div class="mb-3"><label class="form-label">Precio por rebanada</label><input class="form-control" type="number" id="slice-price"/></div>
-      </div>
-
-      <div class="d-flex justify-content-end gap-2 mt-4">
-        <button type="submit" class="btn btn-success">Guardar</button>
-        <button type="button" id="close-modal" class="btn btn-outline-secondary">Cancelar</button>
-      </div>
-    </form>
-  </dialog>
-
-  <div id="footer-placeholder"></div>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-  <script type="module" src="/src/js/utils/loadComponents.js"></script>
-  <script src="/src/js/adminMenu.js" type="module"></script>
-  <script src="https://animatedicons.co/scripts/embed-animated-icons.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <script src="/src/js/utils/loadComponents.js"></script>
+    <script src="/src/js/utils/currentDate.js"></script>
+    <script src="/src/js/utils/adminMenu.js" type="module"></script>
+    <script src="https://animatedicons.co/scripts/embed-animated-icons.js"></script>
 </body>
 </html>
