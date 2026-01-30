@@ -20,8 +20,6 @@
     <!-- Content -->
 
     <main class="container my-5">
-        <div class="row g-5">
-            <div class="col-12 col-lg-8">
 
                 <div class="d-flex align-items-center mb-4">
                     <!-- TODO: Link the future page of "arma tu bebida" when the page is done -->
@@ -30,6 +28,41 @@
                     </a>
                     <h2 class="fw-bold m-0">Forma de entrega</h2>
                 </div>
+
+
+                <div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow-sm border-0">
+        <div class="card-header bg-white py-3">
+          <h4 class="fw-bold mb-0 text-uppercase" style="letter-spacing: 1px;">Resumen de tu Orden</h4>
+        </div>
+        <div class="card-body">
+          <div id="listaFinal" class="mb-4"></div>
+          
+          <hr>
+          
+          <div class="d-flex justify-content-between align-items-center mt-3">
+            <span class="text-muted">Subtotal</span>
+            <span id="subtotalFinal" class="fw-bold">$0.00</span>
+          </div>
+          <div class="d-flex justify-content-between align-items-center mb-4">
+            <span class="fs-5 fw-bold">Total a Pagar</span>
+            <span id="totalFinal" class="fs-4 fw-bold text-success">$0.00</span>
+          </div>
+          
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
 
                 <div class="gap-3 mb-4 d-flex justify-content-center" role="group">
                     <button type="button" class="btn btn-outline-dark px-4 py-2 rounded-0" data-bs-toggle="collapse"
@@ -116,32 +149,6 @@
                     </div>
                 </div>
             </div>
-            <aside class="col-12 col-lg-4 border-start">
-                <div class="p-3">
-                    <h3 class="fw-bold mb-4"><i class="bi bi-cart"></i> Tu orden</h3>
-
-                    <div class="d-flex mb-3 align-items-center position-relative">
-                        <img src="./public/images/delivery-method/delivery-method-red-drink-presentation.jpg" alt="Bebida Roja" class="me-3 rounded" width="200">
-                        <span
-                            class="position-absolute top-0 start-0 translate-middle badge rounded-pill bg-secondary">1</span>
-                        <div>
-                        </div>
-                    </div>
-
-                    <div class="d-flex mb-5 align-items-center position-relative">
-                        <img src="./public/images/delivery-method/delivery-method-coffe-presentation.jpg" alt="Latte" class="me-3 rounded" width="200">
-                        <span
-                            class="position-absolute top-0 start-0 translate-middle badge rounded-pill bg-secondary">2</span>
-                    </div>
-
-                    <div class="mt-5 pt-5 text-end">
-                        <h4 class="fw-bold">Subtotal $0.00</h4>
-                    </div>
-                </div>
-            </aside>
-
-
-        </div>
     </main>
 
     <div class="modal fade" id="modalExito" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
@@ -152,7 +159,7 @@
                     <h3 class="fw-bold mb-3">¡Pedido confirmado con éxito!</h3>
 
                     <div class="mb-3">
-                        <img src="public\images\delivery-method\coffee.svg"
+                        <img src="/public/images/delivery-method/coffee.svg"
                             height="80">
                     </div>
 
@@ -184,6 +191,85 @@
     <script type="module" src="/src/js/utils/loadComponents.js"></script>
     <script src="/src/utils/validationSignup.js"></script>
     <script src="https://animatedicons.co/scripts/embed-animated-icons.js"></script>
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', () => {
+  // Obtenemos los datos guardados
+  const datos = localStorage.getItem('carrito_final');
+
+  if (datos) {
+    const productosParaPagar = JSON.parse(datos);
+    console.log("Datos recibidos con éxito:", productosParaPagar);
+    
+    // Ahora puedes usar 'productosParaPagar' para llenar tu nueva interfaz
+  } else {
+    console.error("No se encontraron productos en el carrito.");
+  }
+});
+    </script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const listaFinal = document.getElementById('listaFinal');
+  const totalFinal = document.getElementById('totalFinal');
+  const subtotalFinal = document.getElementById('subtotalFinal');
+
+  // 1. Recuperar los datos de LocalStorage
+  const datos = localStorage.getItem('carrito_final');
+
+  if (datos) {
+    const productos = JSON.parse(datos);
+    let totalAcumulado = 0;
+
+    listaFinal.innerHTML = ''; // Limpiar por si acaso
+
+    // 2. Pintar cada producto
+    productos.forEach(item => {
+      const subtotalItem = item.precio * item.cantidad;
+      totalAcumulado += subtotalItem;
+
+      listaFinal.innerHTML += `
+        <div class="d-flex align-items-center justify-content-between py-3 border-bottom">
+          <div class="d-flex align-items-center gap-3">
+            <img src="${item.imagen}" alt="${item.nombre}" style="width: 70px; height: 70px; object-fit: contain;" class="rounded bg-light">
+            <div>
+              <h6 class="mb-0 fw-bold">${item.nombre}</h6>
+              <small class="text-muted">${item.size} x ${item.cantidad}</small>
+              ${item.notas ? `<p class="mb-0 small text-muted font-italic">Nota: ${item.notas}</p>` : ''}
+            </div>
+          </div>
+          <div class="text-end">
+            <span class="fw-bold">$${subtotalItem.toFixed(2)}</span>
+          </div>
+        </div>
+      `;
+    });
+
+    // 3. Actualizar los totales
+    subtotalFinal.innerText = `$${totalAcumulado.toFixed(2)}`;
+    totalFinal.innerText = `$${totalAcumulado.toFixed(2)}`;
+
+  } else {
+    // Si no hay datos, mostrar mensaje de error o redirigir
+    listaFinal.innerHTML = `
+      <div class="text-center py-5">
+        <i class="bi bi-cart-x fs-1 text-muted"></i>
+        <p class="mt-2">No encontramos productos en tu orden.</p>
+        <a href="index.html" class="btn btn-outline-dark btn-sm">Volver al menú</a>
+      </div>
+    `;
+  }
+});
+
+function procesarPago() {
+    alert("¡Pedido procesado con éxito!");
+    // Aquí podrías limpiar el carrito si ya terminó la compra
+    // localStorage.removeItem('carrito_final');
+}
+
+</script>
 </body>
 
 </html>
