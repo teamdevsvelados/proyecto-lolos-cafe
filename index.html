@@ -39,21 +39,35 @@
     <div class="container hero">
       <div class="row align-items-center">
 
-        <div class="col-md-6 text-center tex-md-start">
-          <h1 class="fw-bold">Buen café, sin vueltas</h1>
-          <p class="fs-4">La dosis perfecta de <strong>energía</strong> para tu día.</p>
-          <a href="/menu.html" class="btn btn-dark px-4 mt-3">MENÚ →</a>
+        <!-- Weather -->
+        <div class="col-12 mt-4 d-flex justify-content-end align-items-center weather-row">
+          <img class="me-1" id="weather-icon" src="/public/images/hero-banner/icon-weather/cloudy.png" alt="Clima" width="32">
+          <span id="weather-temp" class="ms-2"> -- °C </span>
+          <p class="mb-0 ms-3">Valle de Carrizo</p>
         </div>
+
         <!-- Hero Image -->
         <div class="col-md-6 text-center">
-          <img src="/public/images/index/hero.png" class="img-fluid" alt="Bebidas de la cafetería">
+          <img
+            id="hero-image"
+            src="/public/images/hero-banner/lolos-banner-temp.png"
+            class="img-fluid"
+            alt="Bebidas de la cafetería"
+          >
+        </div>
+
+        <!-- Hero Text -->
+        <div class="col-md-6 text-center text-md-start">
+          <h1 id="hero-title" class="fw-bold fs-1">Todo tipo de bebida para tu mood</h1>
+          <p id="hero-text" class="fs-4">
+            Siente el clima perfecto mientras disfrutas de nuestra selección de bebidas calientes y refrescantes.
+          </p>
+          <a href="/menu.html" class="btn btn-dark px-4 mt-3">EXPLORA NUESTRO MENÚ →</a>
         </div>
 
       </div>
     </div>
   </section>
-
-
 
 
   <!-- Carousel Drinks -->
@@ -318,6 +332,13 @@
     crossorigin="anonymous"></script>
   <script type="module" src="/src/js/utils/loadComponents.js"></script>
   <script src="https://animatedicons.co/scripts/embed-animated-icons.js"></script>
+  <script src="/src/js/services/weatherService.js"></script>
+  <script src="/src/js/services/weatherHeroBanner.js"></script>
+
+
+
+
 </body>
+
 
 </html>
