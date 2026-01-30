@@ -8,68 +8,283 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
   <link rel="stylesheet" href="/src/styles/main.css" />
-<!-- Optional for visualization -->
-<style>
-  .card img {
-    display: block;
-    margin: 0 auto;
-    max-width: 70%;
-    height: auto;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    display: flex;
-  }
+  <!-- Optional for visualization -->
+  <style>
+    .card img {
+      display: block;
+      margin: 0 auto;
+      max-width: 70%;
+      height: auto;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      display: flex;
+    }
 
-  .card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
 
-  .card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2)
-  }
 
-  /* General style for navigation button group */
-  .custom-nav-group .btn {
-    border-color: #333;
-    color: #333;
-    font-weight: 500;
-    padding: 10px 0;
-  }
+    .card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
 
-  /* Style when the button is selected */
-  .custom-nav-group .btn-check:checked+.btn {
-    background-color: #2D2D2A !important;
-    border-color: #2D2D2A !important;
-    color: white !important;
-  }
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2)
+    }
 
-  .custom-nav-group .btn:focus {
-    box-shadow: none;
-  }
+    /* General style for navigation button group */
+    .custom-nav-group .btn {
+      border-color: #333;
+      color: #333;
+      font-weight: 500;
+      padding: 10px 0;
+    }
 
-  .top-buttons {
-    padding: 20px 20px 40px 20px;
-  }
-</style>
+    /* Style when the button is selected */
+    .custom-nav-group .btn-check:checked+.btn {
+      background-color: #2D2D2A !important;
+      border-color: #2D2D2A !important;
+      color: white !important;
+    }
+
+    .custom-nav-group .btn:focus {
+      box-shadow: none;
+    }
+
+    .top-buttons {
+      padding: 20px 20px 40px 20px;
+    }
+
+    /* Style del carrito */
+
+    .modal-dialog-end {
+      position: fixed;
+      right: 0;
+      margin: 0;
+      height: 100%;
+    }
+
+    .modal-full-height {
+      height: 100%;
+    }
+
+    #modalCarrito .modal-content {
+      height: 100%;
+      border-radius: 0;
+    }
+
+    /* Estilo para los botones oscuros de la imagen */
+    .btn-custom-dark {
+      background-color: #000000 !important;
+      color: white !important;
+      border: none;
+      border-radius: 4px;
+      /* Bordes ligeramente redondeados como en la captura */
+      font-size: 0.85rem;
+    }
+
+    .btn-custom-dark:hover {
+      background-color: #4a473f !important;
+    }
+
+    /* Estilo para el selector de cantidad (+ 0 -) */
+    .quantity-selector .btn {
+      background-color: #f0f0ed;
+      color: #000000;
+      font-weight: bold;
+    }
+
+    .quantity-selector .form-control {
+      background-color: #ffffff;
+      font-weight: bold;
+    }
+
+
+    /* ================================================= */
+    /* 1. ESTRUCTURA DEL SIDEBAR (MODAL CARRITO)         */
+    /* ================================================= */
+
+    /* Hace que el modal se comporte como una barra lateral derecha */
+    .modal-full-height {
+      margin: 0;
+      margin-left: auto;
+      height: 100%;
+    }
+
+    .modal-full-height .modal-content {
+      height: 100vh;
+      border-radius: 0;
+      border: none;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Ancho del sidebar en pantallas grandes */
+    @media (min-width: 992px) {
+      #modalCarrito .modal-dialog {
+        max-width: 450px;
+      }
+    }
+
+    /* ================================================= */
+    /* 2. DISEÑO DE LOS ITEMS DEL CARRITO                */
+    /* ================================================= */
+
+    #cartItems {
+      padding: 10px;
+    }
+
+    /* Contenedor de cada producto */
+    #cartItems .d-flex {
+      padding: 1.5rem 0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    /* Imágenes de los productos (Más grandes) */
+    #cartItems img {
+      width: 100px !important;
+      height: 100px !important;
+      object-fit: contain;
+      background-color: #f8f9fa;
+      padding: 10px;
+      border-radius: 15px;
+      border: 1px solid #eee;
+    }
+
+    /* Tipografía y Textos */
+    #cartItems strong {
+      font-size: 1.25rem;
+      color: #1a1a1a;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    #cartItems .text-muted {
+      font-size: 1rem;
+      margin-bottom: 5px;
+    }
+
+    #cartItems .fw-bold.mt-1 {
+      font-size: 1.15rem;
+      color: #000000;
+      /* Color carbón de tu referencia */
+    }
+
+    /* Botón de eliminar (Basura) */
+    #cartItems .text-danger {
+      font-size: 1.2rem;
+      transition: transform 0.2s ease;
+    }
+
+    #cartItems .text-danger:hover {
+      transform: scale(1.1);
+    }
+
+    /* ================================================= */
+    /* 3. FOOTER DEL CARRITO (TOTAL Y BOTÓN)             */
+    /* ================================================= */
+
+    #modalCarrito .modal-footer {
+      padding: 2rem;
+      background-color: #fff;
+      border-top: 2px solid #f8f9fa;
+      box-shadow: 0 -10px 20px rgba(0, 0, 0, 0.02);
+    }
+
+    /* Texto del Total */
+    #modalCarrito .fw-bold.mb-2 span:first-child {
+      font-size: 1.2rem;
+      color: #666;
+    }
+
+    #cartTotal {
+      font-size: 2rem !important;
+      font-weight: 800;
+      color: #000;
+      letter-spacing: -1px;
+    }
+
+    /* Botón Finalizar / Continuar */
+    .btn-custom-dark {
+      background-color: #000000 !important;
+      /* Gris muy oscuro de la imagen */
+      color: white !important;
+      border: none;
+      padding: 1.2rem !important;
+      font-size: 1.1rem !important;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-custom-dark:hover {
+      background-color: #000 !important;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Estilo para el selector de cantidad (+ y -) en el modal principal */
+    .quantity-selector {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .quantity-selector .btn {
+      background-color: #f8f9fa;
+      border: none;
+      font-size: 1.2rem;
+      padding: 0.5rem 1rem;
+    }
+
+    .quantity-selector input {
+      border: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    /* Permite el scroll interno en el cuerpo del carrito */
+    #modalCarrito .modal-body {
+      overflow-y: auto;
+      /* Activa el scroll vertical */
+      max-height: calc(100vh - 200px);
+      /* Ajusta la altura restando header y footer */
+      flex-grow: 1;
+      /* Empuja el footer hacia abajo */
+    }
+
+    /* Opcional: Estilizar la barra de scroll para que se vea más limpia */
+    #modalCarrito .modal-body::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    #modalCarrito .modal-body::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    #modalCarrito .modal-body::-webkit-scrollbar-thumb {
+      background: #000000;
+      border-radius: 10px;
+    }
+  </style>
 </head>
 
 <body>
-<div id="header-placeholder"></div>
-<main>
-  <header>
-    <div class="container">
-      <div class="row align-items-center my-0 ms-n2 g-3">
-        <div class="col-auto ms-n5">
-          <a href="/menu.html" class="back-btn">←</a>
-        </div>
-        <div class="col-auto d-flex align-items-center">
-          <h1 class="mb-0">Nuestro menú</h1>
+  <div id="header-placeholder"></div>
+  <main>
+    <header>
+      <div class="container">
+        <div class="row align-items-center my-0 ms-n2 g-3">
+          <div class="col-auto ms-n5">
+            <a href="/menu.html" class="back-btn">←</a>
+          </div>
+          <div class="col-auto d-flex align-items-center">
+            <h1 class="mb-0">Nuestro menú</h1>
+          </div>
         </div>
       </div>
-    </div>
-  </header>
+    </header>
 
 
 
@@ -82,249 +297,516 @@
 
 
 
-    <!-- Section -->
-
-    <section class="hot-drinks">
 
 
-      <div class="container container-fluid d-flex justify-content-around flex-wrap">
-        <div class="row">
+    <!-- Desserts -->
+    <div class="container container-fluid d-flex justify-content-around flex-wrap">
+      <div class="row">
 
-          <!-- Drinks -->
-          <div class="col-6 col-md-4 col-lg-3 mb-4 drink" class="drink">
-            <div class="card" data-bs-toggle="modal" data-bs-target="#modalBebida" style="cursor: pointer;">
-              <p class="new-drink col-12 text-end"> Nuevo </p>
-              <img src="/public/images/index/pay-lotus.png" class="card-img-top" alt="...">
-              <div class="card-body row">
-                <p class="card-title col-6">Matcha</p>
-                <p class="price col-6 text-end"> $5.99</p>
-                <p class="card-text">Lorem ipsum dolor sit amet consectetur, ant facilis ullam enim, doloribus
-                </p>
+        <!-- Pay Lotus -->
+        <div class="col-6 col-md-4 col-lg-3 mb-4 dessert" >
+
+
+          <div class="card h-100" data-bs-toggle="modal" data-bs-target="#modalPostres" data-nombre="Pay Lotus"
+            data-precio="75.00"
+            data-descripcion="Crujiente base de galleta con el inconfundible toque acaramelado Lotus."
+            data-imagen="/public/images/basic-menu/desserts/paylotus.webp">
+
+
+            <div class="p-2 text-end">
+              <span class="badge bg-light text-dark fw-light" style="font-size: 1rem;">Nuevo</span>
+            </div>
+            <div class="img-container">
+              <img src="/public/images/basic-menu/desserts/paylotus.webp" class="card-img-top"
+                alt="Imagen de pay lotus">
+            </div>
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <h6 class="card-title mb-0 fw-bold">Pay Lotus </h6>
+                <span class="price fw-bold">$75.00</span>
               </div>
+              <p class="card-text text-muted" style="font-size: 1rem;">
+                Crujiente base de galleta con el inconfundible toque acaramelado Lotus.
+              </p>
             </div>
           </div>
+        </div>
 
-          <div class="col-6 col-md-4 col-lg-3 mb-4 drink" class="drink">
-            <div class="card" data-bs-toggle="modal" data-bs-target="#modalBebida" style="cursor: pointer;">
-              <p class="new-drink col-12 text-end"> Nuevo </p>
-              <img src="/public/images/index/rol-de-canela.png" class="card-img-top" alt="...">
-              <div class="card-body row">
-                <p class="card-title col-6">Matcha</p>
-                <p class="price col-6 text-end"> $5.99</p>
-                <p class="card-text">Lorem ipsum dolor sit amet consectetur, ant facilis ullam enim, doloribus
-                </p>
+        <!-- Cheescake Tortuga -->
+        <div class="col-6 col-md-4 col-lg-3 mb-4 dessert" >
+
+
+          <div class="card h-100" data-bs-toggle="modal" data-bs-target="#modalPostres" data-nombre="Cheescake Tortuga"
+            data-precio="65.00" data-descripcion="Cremoso queso con chocolate, caramelo y trozos de nuez pecana."
+            data-imagen="/public/images/basic-menu/desserts/cheesecaketortuga.webp">
+
+
+
+            <div class="p-2 text-end">
+              <span class="badge bg-light text-dark fw-light" style="font-size: 1rem;">Nuevo</span>
+            </div>
+            <div class="img-container">
+              <img src="/public/images/basic-menu/desserts/cheesecaketortuga.webp" class="card-img-top"
+                alt="Imagen de cheescake tortuga">
+            </div>
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <h6 class="card-title mb-0 fw-bold">Cheescake Tortuga </h6>
+                <span class="price fw-bold">$65.00</span>
               </div>
+              <p class="card-text text-muted" style="font-size: 1rem;">
+                Cremoso queso con chocolate, caramelo y trozos de nuez pecana.
+              </p>
             </div>
           </div>
+        </div>
 
-          <div class="col-6 col-md-4 col-lg-3 mb-4 drink" class="drink">
-            <div class="card" data-bs-toggle="modal" data-bs-target="#modalBebida" style="cursor: pointer;">
-              <p class="new-drink col-12 text-end"> Nuevo </p>
-              <img src="/public/images/index/pay-lotus.png" class="card-img-top" alt="...">
-              <div class="card-body row">
-                <p class="card-title col-6">Matcha</p>
-                <p class="price col-6 text-end"> $5.99</p>
-                <p class="card-text">Lorem ipsum dolor sit amet consectetur, ant facilis ullam enim, doloribus
-                </p>
+
+        <!-- Pastel de Zanahoria -->
+        <div class="col-6 col-md-4 col-lg-3 mb-4 dessert" >
+
+          <div class="card h-100" data-bs-toggle="modal" data-bs-target="#modalPostres"
+            data-nombre="Pastel de Zanahoria" data-precio="65.00"
+            data-descripcion="Esponjoso bizcocho especiado con betún de queso crema artesanal."
+            data-imagen="/public/images/basic-menu/desserts/pastelzanahoria.webp">
+
+
+
+
+            <div class="p-2 text-end">
+              <span class="badge bg-light text-dark fw-light" style="font-size: 1rem;">Nuevo</span>
+            </div>
+            <div class="img-container">
+              <img src="/public/images/basic-menu/desserts/pastelzanahoria.webp" class="card-img-top"
+                alt="Imagen de pastel de zanahoria">
+            </div>
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <h6 class="card-title mb-0 fw-bold">Pastel de Zanahoria </h6>
+                <span class="price fw-bold">$65.00</span>
               </div>
+              <p class="card-text text-muted" style="font-size: 1rem;">
+                Esponjoso bizcocho especiado con betún de queso crema artesanal.
+              </p>
             </div>
           </div>
+        </div>
 
-          <div class="col-6 col-md-4 col-lg-3 mb-4 drink" class="drink">
-            <div class="card" data-bs-toggle="modal" data-bs-target="#modalBebida" style="cursor: pointer;">
-              <p class="new-drink col-12 text-end"> Nuevo </p>
-              <img src="/public/images/index/cheescake.png" class="card-img-top" alt="...">
-              <div class="card-body row">
-                <p class="card-title col-6">Matcha</p>
-                <p class="price col-6 text-end"> $5.99</p>
-                <p class="card-text">Lorem ipsum dolor sit amet consectetur, ant facilis ullam enim, doloribus
-                </p>
+
+        <!-- Chocoflan -->
+        <div class="col-6 col-md-4 col-lg-3 mb-4 dessert" >
+
+          <div class="card h-100" data-bs-toggle="modal" data-bs-target="#modalPostres" data-nombre="Chocoflan"
+            data-precio="65.00" data-descripcion="La combinación perfecta entre pastel de chocolate y flan napolitano."
+            data-imagen="/public/images/basic-menu/desserts/chocoflan.webp">
+
+
+            <div class="p-2 text-end">
+              <span class="badge bg-light text-dark fw-light" style="font-size: 1rem;">Nuevo</span>
+            </div>
+            <div class="img-container">
+              <img src="/public/images/basic-menu/desserts/chocoflan.webp" class="card-img-top"
+                alt="Imagen de chocoflan">
+            </div>
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <h6 class="card-title mb-0 fw-bold">Chocoflan </h6>
+                <span class="price fw-bold">$65.00</span>
               </div>
+              <p class="card-text text-muted" style="font-size: 1rem;">
+                La combinación perfecta entre pastel de chocolate y flan napolitano.
+              </p>
             </div>
           </div>
+        </div>
+
+
+        <!-- Tres Leches -->
+        <div class="col-6 col-md-4 col-lg-3 mb-4 dessert" >
+          <div class="card h-100" data-bs-toggle="modal" data-bs-target="#modalPostres" data-nombre="Tres Leches"
+            data-precio="65.00"
+            data-descripcion="Clásico irresistible, suave y profundamente bañado en nuestra mezcla secreta."
+            data-imagen="/public/images/basic-menu/desserts/tresleches.webp">
 
 
 
+            <div class="p-2 text-end">
+              <span class="badge bg-light text-dark fw-light" style="font-size: 1rem;">Nuevo</span>
+            </div>
+            <div class="img-container">
+              <img src="/public/images/basic-menu/desserts/tresleches.webp" class="card-img-top"
+                alt="Imagen de tres leches">
+            </div>
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <h6 class="card-title mb-0 fw-bold">Tres Leches </h6>
+                <span class="price fw-bold">$65.00</span>
+              </div>
+              <p class="card-text text-muted" style="font-size: 1rem;">
+                Clásico irresistible, suave y profundamente bañado en nuestra mezcla secreta.
+              </p>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Pay de Limón -->
+        <div class="col-6 col-md-4 col-lg-3 mb-4 dessert" >
+
+          <div class="card h-100" data-bs-toggle="modal" data-bs-target="#modalPostres" data-nombre="Pay de Limón"
+            data-precio="75.00" data-descripcion="El equilibrio ideal entre frescura cítrica y un toque dulce."
+            data-imagen="/public/images/basic-menu/desserts/paydelimon.webp">
+
+
+
+            <div class="p-2 text-end">
+              <span class="badge bg-light text-dark fw-light" style="font-size: 1rem;">Nuevo</span>
+            </div>
+            <div class="img-container">
+              <img src="/public/images/basic-menu/desserts/paydelimon.webp" class="card-img-top"
+                alt="Imagen de pay de limón">
+            </div>
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <h6 class="card-title mb-0 fw-bold">Pay de Limón </h6>
+                <span class="price fw-bold">$75.00</span>
+              </div>
+              <p class="card-text text-muted" style="font-size: 1rem;">
+                El equilibrio ideal entre frescura cítrica y un toque dulce.
+              </p>
+            </div>
+          </div>
+        </div>
+
+
+
+      </div>
+    </div>
+
+
+
+    <!-- Modal included -->
+    <div class="modal fade" id="modalPostres" tabindex="-1">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <!-- Modal header -->
+          <div class="modal-body p-4">
+            <div class="d-flex align-items-center mb-4">
+              <button type="button" class="btn border-0 p-0 me-2" data-bs-dismiss="modal">
+                <i class="bi bi-arrow-left fs-4"></i>
+              </button>
+              <h3 class="mb-0" id="m-header-titulo">Personaliza tu postre</h3>
+            </div>
+
+            <div class="row align-items-start">
+              <div class="col-md-5 text-center">
+                <img src="" id="m-imagen" class="img-fluid" style="max-height: 250px;">
+              </div>
+              <div class="col-md-7">
+                <h4 class="fw-bold mb-1" id="m-nombre">Nombre</h4>
+                <p class="fw-bold text-muted mb-1" id="m-precio">$0.00</p>
+                <p class="text-secondary small" id="m-descripcion">Descripción...</p>
+              </div>
+            </div>
+
+
+            <!-- Select size -->
+            <hr class="my-4">
+            <div class="col-12">
+              <h5 class="fw-bold"><i class="bi bi-cup-hot"></i> Tamaño</h5>
+              <div class="ps-4 mt-2">
+                <div class="form-check mb-2">
+                  <input class="form-check-input" type="radio" name="size" id="rebanda" checked>
+                  <label class="form-check-label" for="rebanda">Rebanada($0)</label>
+                </div>
+                <div class="form-check mb-2">
+                  <input class="form-check-input" type="radio" name="size" id="completo" checked>
+                  <label class="form-check-label" for="completo">Entero ($0)</label>
+                </div>
+              </div>
+            </div>
+            <!-- Extra notes -->
+            <hr class="my-4">
+            <div class="col-12">
+              <h5 class="fw-bold"><i class="bi bi-pencil"></i> Notas adicionales</h5>
+              <p class="text-muted small ps-4">Cuéntanos si tu pedido tiene alguna indicación especial</p>
+              <div class="ps-4">
+                <textarea class="form-control bg-light border-0" rows="2" placeholder="Escribe aquí..."></textarea>
+              </div>
+            </div>
+            <!-- Purchase confirmation -->
+            <div class="modal-footer border-0 p-4 pt-0">
+              <div class="d-flex justify-content-between align-items-center w-100 mb-4">
+                <div class="input-group quantity-selector" style="width: 140px;">
+                  <button class="btn btn-outline-secondary border-secondary-subtle" type="button"
+                    id="btn-menos">−</button>
+                  <input type="text" id="input-cantidad" class="form-control text-center border-secondary-subtle"
+                    value="1" readonly>
+                  <button class="btn btn-outline-secondary border-secondary-subtle" type="button"
+                    id="btn-mas">+</button>
+                </div>
+                <div class="text-end">
+                  <span class="fw-bold me-2">Total</span>
+                  <span class="fw-bold fs-5" id="modal-total-dinamico">$ 0.00</span>
+                </div>
+              </div>
+
+              <div class="d-flex gap-2 w-100">
+                <button class="btn btn-custom-dark w-100 py-3 text-uppercase fw-semibold" data-bs-dismiss="modal">
+                  Agregar más productos
+                </button>
+                <button class="btn btn-custom-dark w-100 py-3 text-uppercase fw-semibold" id="btnAgregarCarrito">
+                  Continuar
+                </button>
+              </div>
+            </div>
+
+
+          </div>
         </div>
       </div>
+    </div>
+  </main>
 
 
+  <!-- Sidebar Carrito -->
+  <div class="modal fade" id="modalCarrito" tabindex="-1">
+    <div class="modal-dialog modal-dialog-end modal-full-height">
+      <div class="modal-content">
 
-      <!-- Modal included -->
-      <div class="modal fade" id="modalBebida" tabindex="-1">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content">
+        <!-- Header -->
+        <div class="modal-header">
+          <h5 class="modal-title">
+            <i class="bi bi-cart"></i> Tu pedido
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
 
-
-            <!-- Modal header -->
-            <div class="modal-body p-4">
-              <div class="d-flex align-items-center mb-4">
-                <button type="button" class="btn border-0 p-0 me-2" data-bs-dismiss="modal">
-                  <i class="bi bi-arrow-left fs-4"></i> </button>
-                <h3 class="mb-0">Arma tu bebida</h3>
-              </div>
-
-              <div class="row align-items-start">
-                <div class="col-md-5 text-center">
-                  <img src="/public/images/index/carrousel-pic-5.png" class="img-fluid" style="max-height: 250px;">
-                </div>
-                <div class="col-md-7">
-                  <h4 class="fw-bold mb-1">Nombre del producto</h4>
-                  <p class="fw-bold text-muted mb-1">$0.00</p>
-                  <p class="text-secondary small">Description del producto que explica los ingredientes básicos.</p>
-                  <span class="badge bg-success opacity-75 mt-2">☆ NUEVO</span> <!-- This seems unnecessary -->
-                </div>
-              </div>
-
-              <!-- Select temp -->
-
-              <hr class="my-4">
-
-              <div class="col-12">
-                <h5 class="fw-bold">Temperatura</h5>
-                <div class="ps-4 mt-2">
-                  <div class="form-check mb-2">
-                    <input class="form-check-input" type="radio" name="temp" id="caliente" checked>
-                    <label class="form-check-label" for="caliente">Caliente</label>
-                  </div>
-                  <div class="form-check mb-2">
-                    <input class="form-check-input" type="radio" name="temp" id="rocas">
-                    <label class="form-check-label" for="rocas">A las rocas</label>
-                  </div>
-                  <div class="form-check mb-2">
-                    <input class="form-check-input" type="radio" name="temp" id="frappe">
-                    <label class="form-check-label" for="frappe">Frappé</label>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Select size -->
-              <hr class="my-4">
-
-              <div class="col-12">
-                <h5 class="fw-bold"><i class="bi bi-cup-hot"></i> Tamaño</h5>
-                <div class="ps-4 mt-2">
-                  <div class="form-check mb-2">
-                    <input class="form-check-input" type="radio" name="size" id="chico" checked>
-                    <label class="form-check-label" for="chico">Chico (14 oz.) ($0)</label>
-                  </div>
-                  <div class="form-check mb-2">
-                    <input class="form-check-input" type="radio" name="size" id="mediano" checked>
-                    <label class="form-check-label" for="mediano">Mediano (16 oz.) ($0)</label>
-                  </div>
-                  <div class="form-check mb-2">
-                    <input class="form-check-input" type="radio" name="size" id="grande" checked>
-                    <label class="form-check-label" for="grande">Grande (20 oz.) ($0)</label>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Selec Milk -->
-              <hr class="my-4">
-
-              <div class="col-12">
-                <h5 class="fw-bold"><i class="bi bi-cup-hot"></i> Tipo de leche</h5>
-                <div class="ps-4 mt-2">
-                  <div class="form-check mb-2">
-                    <input class="form-check-input" type="radio" name="milk" id="regular" checked>
-                    <label class="form-check-label" for="regular">Regular </label>
-                  </div>
-                  <div class="form-check mb-2">
-                    <input class="form-check-input" type="radio" name="milk" id="deslactosada">
-                    <label class="form-check-label" for="deslactosada">Deslactosada</label>
-                  </div>
-                  <div class="form-check mb-2">
-                    <input class="form-check-input" type="radio" name="milk" id="light">
-                    <label class="form-check-label" for="light"> Light</label>
-                  </div>
-                  <div class="form-check mb-2">
-                    <input class="form-check-input" type="radio" name="milk" id="almendras">
-                    <label class="form-check-label" for="almendras"> Almendras</label>
-                  </div>
-
-                  <div class="form-check mb-2">
-                    <input class="form-check-input" type="radio" name="milk" id="soya">
-                    <label class="form-check-label" for="soya"> Soya</label>
-                  </div>
-                  <div class="form-check mb-2">
-                    <input class="form-check-input" type="radio" name="size" id="coco">
-                    <label class="form-check-label" for="coco"> Coco</label>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Selec extras -->
-              <hr class="my-4">
-
-              <div class="col-12">
-                <h5 class="fw-bold"><i class="bi bi-cup-hot"></i> Extras</h5>
-                <div class="ps-4 mt-2">
-                  <div class="form-check mb-2">
-                    <input class="form-check-input" type="radio" name="extra" id="noextra" checked>
-                    <label class="form-check-label" for="noextra">Sin extras </label>
-                  </div>
-                  <div class="form-check mb-2">
-                    <input class="form-check-input" type="radio" name="extra" id="expresso" checked>
-                    <label class="form-check-label" for="expresso">Shot de expresso</label>
-                  </div>
-                  <div class="form-check mb-2">
-                    <input class="form-check-input" type="radio" name="extra" id="jarabe" checked>
-                    <label class="form-check-label" for="jarabe"> Shot de jarabe saborizante</label>
-                  </div>
-                  <div class="form-check mb-2">
-                    <input class="form-check-input" type="radio" name="extra" id="tapioca" checked>
-                    <label class="form-check-label" for="tapioca"> Tapioca </label>
-                  </div>
-                  <div class="form-check mb-2">
-                    <input class="form-check-input" type="radio" name="extra" id="vainilla" checked>
-                    <label class="form-check-label" for="vainilla"> Nieve de vainilla </label>
-                  </div>
-                  <div class="form-check mb-2">
-                    <input class="form-check-input" type="radio" name="extra" id="foam" checked>
-                    <label class="form-check-label" for="foam"> Foam </label>
-                  </div>
-                  <div class="form-check mb-2">
-                    <input class="form-check-input" type="radio" name="extra" id="chessefoam" checked>
-                    <label class="form-check-label" for="chessefoam"> Cheese foam </label>
-                  </div>
-                </div>
-              </div>
-
-
-              <!-- Extra notes -->
-
-              <hr class="my-4">
-
-              <div class="col-12">
-                <h5 class="fw-bold"><i class="bi bi-pencil"></i> Notas adicionales</h5>
-                <p class="text-muted small ps-4">Cuéntanos si tu pedido tiene alguna indicación especial</p>
-                <div class="ps-4">
-                  <textarea class="form-control bg-light border-0" rows="2" placeholder="Escribe aquí..."></textarea>
-                </div>
-              </div>
-
-              <!-- Purchase confirmation -->
-
-              <div class="modal-footer border-0 d-flex justify-content-between">
-                <div class="d-flex align-items-center border rounded">
-                  <button class="btn btn-sm">-</button>
-                  <span class="px-3">1</span>
-                  <button class="btn btn-sm">+</button>
-                </div>
-                <div class="row">
-                  <span class="me-3 fw-bold col-12 text-end">Total: $0.00</span>
-                  <button class="btn btn-dark px-4 py-2 col-3 align-self-end">Agregar más productos</button>
-                  <button class="btn btn-dark px-4 py-2 col-3 align-self-end">Confirmar pedido</button>
-                </div>
-              </div>
-            </div>
+        <!-- Body -->
+        <div class="modal-body">
+          <div id="cartItems" class="d-flex flex-column gap-3">
+            <!-- Items dinámicos -->
           </div>
         </div>
-  </main>
+
+        <!-- Footer -->
+        <div class="modal-footer flex-column">
+          <div class="w-100 d-flex justify-content-between fw-bold mb-2">
+            <span>Total</span>
+            <span id="cartTotal">$0.00</span>
+          </div>
+          <button id="btnFinalizarPedido" class="btn btn-dark w-100 py-3 text-uppercase fw-bold">
+            Finalizar pedido
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+
   <div id="footer-placeholder"></div>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
   <script type="module" src="/src/js/utils/loadComponents.js"></script>
   <script src="https://animatedicons.co/scripts/embed-animated-icons.js"></script>
+
+  <script> /* Este es para que se puedan agregar el número de articulos en el modal */
+    document.addEventListener('DOMContentLoaded', function () {
+      const btnMas = document.getElementById('btn-mas');
+      const btnMenos = document.getElementById('btn-menos');
+      const inputCantidad = document.getElementById('input-cantidad');
+
+      // Función para aumentar
+      btnMas.addEventListener('click', function () {
+        let valorActual = parseInt(inputCantidad.value);
+        inputCantidad.value = valorActual + 1;
+        // Aquí podrías llamar a una función para actualizar el precio total
+      });
+
+      // Función para disminuir
+      btnMenos.addEventListener('click', function () {
+        let valorActual = parseInt(inputCantidad.value);
+        if (valorActual > 1) { // Evita que baje de 1
+          inputCantidad.value = valorActual - 1;
+          // Aquí podrías llamar a una función para actualizar el precio total
+        }
+      });
+    });
+
+  </script>
+
+
+  <script>
+    /* ======= Helpers ======= */
+    const cart = [];
+
+    function safeText(el) {
+      return el ? el.innerText.trim() : '';
+    }
+
+    function updateCartCount() {
+      const countEl = document.getElementById('cartCount');
+      if (countEl) countEl.innerText = cart.length;
+    }
+
+    function renderCart() {
+      const cartItems = document.getElementById('cartItems');
+      const cartTotal = document.getElementById('cartTotal');
+      if (!cartItems || !cartTotal) return;
+
+      cartItems.innerHTML = '';
+      let totalGeneral = 0;
+
+      cart.forEach((item, index) => {
+        const subtotal = item.precio * item.cantidad;
+        totalGeneral += subtotal;
+
+        cartItems.innerHTML += `
+          <div class="d-flex align-items-center gap-3 border-bottom pb-3">
+            <img src="${item.imagen}" alt="${item.nombre}" style="width: 65px; height: 65px; object-fit: contain;" class="bg-light rounded">
+            
+            <div class="flex-grow-1">
+              <div class="d-flex justify-content-between align-items-start">
+                <div>
+                  <strong class="d-block">${item.nombre}</strong>
+                  <div class="small text-muted">${item.size || 'Porción'} x ${item.cantidad}</div>
+                  ${item.notas ? `<div class="small text-info mt-1 italic">"${item.notas}"</div>` : ''}
+                </div>
+                <button class="btn btn-sm text-danger p-0" data-remove-index="${index}">
+                  <i class="bi bi-trash"></i>
+                </button>
+              </div>
+              <div class="fw-bold mt-1">$${subtotal.toFixed(2)}</div>
+            </div>
+          </div>
+        `;
+      });
+
+      cartTotal.innerText = `$${totalGeneral.toFixed(2)}`;
+      updateCartCount();
+    }
+
+    /* ======= Event delegation para abrir carrito y remover ======= */
+    document.addEventListener('click', (e) => {
+      const openBtn = e.target.closest('#btnOpenCart');
+      if (openBtn) {
+        e.preventDefault();
+        const modalCarritoEl = document.getElementById('modalCarrito');
+        if (modalCarritoEl) bootstrap.Modal.getOrCreateInstance(modalCarritoEl).show();
+        return;
+      }
+
+      const removeBtn = e.target.closest('[data-remove-index]');
+      if (removeBtn) {
+        const idx = Number(removeBtn.getAttribute('data-remove-index'));
+        if (!Number.isNaN(idx)) {
+          cart.splice(idx, 1);
+          renderCart();
+        }
+      }
+    });
+
+    /* ======= Agregar producto desde modalPostres ======= */
+    document.addEventListener('click', (e) => {
+      const addBtn = e.target.closest('#btnAgregarCarrito');
+      if (!addBtn) return;
+
+      e.preventDefault();
+
+      // Recolecta datos usando los IDs que pusimos anteriormente
+      const nombre = safeText(document.getElementById('m-nombre')) || 'Producto';
+      const precioText = safeText(document.getElementById('m-precio')) || '$0.00';
+      const precio = Number(precioText.replace(/[^0-9.]/g, '')) || 0;
+
+      // CAPTURA DE IMAGEN Y CANTIDAD
+      const imagen = document.getElementById('m-imagen').src;
+      const cantidad = parseInt(document.getElementById('input-cantidad').value) || 1;
+
+      // Captura la presentación (Rebanada/Entero)
+      const sizeLabel = document.querySelector('input[name="size"]:checked')?.nextElementSibling?.innerText || '';
+
+      const notas = document.querySelector('#modalPostres textarea').value;
+
+      const producto = {
+        nombre,
+        precio,
+        imagen,
+        cantidad,
+        size: sizeLabel,
+        notas: notas
+      };
+
+      cart.push(producto);
+      renderCart();
+
+      // Cerrar modal y abrir carrito
+      const modalPostresEl = document.getElementById('modalPostres');
+      if (modalPostresEl) bootstrap.Modal.getOrCreateInstance(modalPostresEl).hide();
+
+      const modalCarritoEl = document.getElementById('modalCarrito');
+      if (modalCarritoEl) bootstrap.Modal.getOrCreateInstance(modalCarritoEl).show();
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      updateCartCount();
+    });
+  </script>
+
+
+
+  <script> /* Personalización del postre en el modal */
+
+    const modalPostres = document.getElementById('modalPostres');
+
+    modalPostres.addEventListener('show.bs.modal', function (event) {
+      // 1. Identificar qué card disparó el evento
+      const card = event.relatedTarget;
+
+      // 2. Extraer los datos de los atributos data- de la card
+      const nombre = card.getAttribute('data-nombre');
+      const precio = card.getAttribute('data-precio');
+      const descripcion = card.getAttribute('data-descripcion');
+      const imagen = card.getAttribute('data-imagen');
+
+      // 3. Inyectar los datos en los elementos del modal
+      document.getElementById('m-header-titulo').textContent = `Personaliza tu ${nombre}`;
+      document.getElementById('m-nombre').textContent = nombre;
+      document.getElementById('m-precio').textContent = `$${precio}`;
+      document.getElementById('m-descripcion').textContent = descripcion;
+      document.getElementById('m-imagen').src = imagen;
+
+      // 4. Resetear la cantidad a 1 y el total al precio base al abrir
+      document.getElementById('input-cantidad').value = 1;
+      document.getElementById('modal-total-dinamico').textContent = `$${precio}`;
+    });
+  </script>
+
+
+  <script> /* Para que lo del sidebar se guarda */
+
+    document.addEventListener('click', (e) => {
+      // Detecta el click en el botón de Finalizar pedido
+      const btnFinalizar = e.target.closest('#btnFinalizarPedido');
+      if (!btnFinalizar) return;
+
+      // 1. Verificamos que el carrito (el array 'cart') no esté vacío
+      if (cart.length === 0) {
+        alert("Agrega al menos un producto para continuar.");
+        return;
+      }
+
+      // 2. Guardamos los productos en la memoria del navegador
+      localStorage.setItem('carrito_final', JSON.stringify(cart));
+
+      // 3. Redirigimos a tu otra página (Cambia el nombre por el tuyo)
+      window.location.href = 'delivery-method.html';
+    });
+  </script>
 </body>
 
 </html>
