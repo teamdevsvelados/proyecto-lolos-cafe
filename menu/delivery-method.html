@@ -237,6 +237,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <div>
               <h6 class="mb-0 fw-bold">${item.nombre}</h6>
               <small class="text-muted">${item.size} x ${item.cantidad}</small>
+              ${item.notas ? `<p class="mb-0 small text-muted font-italic">Nota: ${item.notas}</p>` : ''}
             </div>
           </div>
           <div class="text-end">

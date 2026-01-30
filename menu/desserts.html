@@ -675,6 +675,7 @@
                 <div>
                   <strong class="d-block">${item.nombre}</strong>
                   <div class="small text-muted">${item.size || 'Porción'} x ${item.cantidad}</div>
+                  ${item.notas ? `<div class="small text-info mt-1 italic">"${item.notas}"</div>` : ''}
                 </div>
                 <button class="btn btn-sm text-danger p-0" data-remove-index="${index}">
                   <i class="bi bi-trash"></i>
@@ -729,12 +730,15 @@
       // Captura la presentación (Rebanada/Entero)
       const sizeLabel = document.querySelector('input[name="size"]:checked')?.nextElementSibling?.innerText || '';
 
+      const notas = document.querySelector('#modalPostres textarea').value;
+
       const producto = {
         nombre,
         precio,
         imagen,
         cantidad,
-        size: sizeLabel
+        size: sizeLabel,
+        notas: notas
       };
 
       cart.push(producto);
