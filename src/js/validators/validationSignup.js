@@ -17,7 +17,10 @@ input.addEventListener('input', (e) => {
 });
 
 // Initial form validation when clicking "COMPLETE YOUR REGISTRATION"
-document.querySelector('.btn-submit').addEventListener('click', function(e) {
+const form = document.querySelector('form');
+
+form.addEventListener('submit', function(e) {
+
 
     e.preventDefault();
     
@@ -74,6 +77,20 @@ document.querySelector('.btn-submit').addEventListener('click', function(e) {
         privacyCheckbox.focus();
         return false;
     }
+
+    // USER MODEL JSON ===
+const usuario = {
+    nombreCompleto: "", // se completa en el siguiente formulario
+    telefono: isPhone ? value : "",
+    email: isEmail ? value : "",
+    password: password.value
+};
+
+console.log("Modelo de usuario:", usuario);
+
+// Save full user model
+localStorage.setItem('usuario', JSON.stringify(usuario));
+
     
     // Save data for next form
     localStorage.setItem('userData', value);
@@ -83,7 +100,6 @@ document.querySelector('.btn-submit').addEventListener('click', function(e) {
     console.log("Data saved for complete form");
     
     // Redirect to complete form
-    window.location.href = "./signup/details.html";
-    
-    return true;
+    form.submit();
+
 });
