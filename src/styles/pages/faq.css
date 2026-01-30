@@ -1,0 +1,52 @@
+.accordion-button::after {
+  display: none;
+}
+
+.accordion-button,
+.accordion-button:not(.collapsed),
+.accordion-button:focus {
+  color: inherit;
+  background: transparent;
+  box-shadow: none;
+}
+
+.accordion-collapse {
+  border-top: none;
+}
+
+.accordion-button {
+  background: transparent;
+  box-shadow: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+}
+
+.accordion-button i.bi {
+  transition: transform .2s ease;
+}
+
+.accordion-button:not(.collapsed) i.bi {
+  transform: rotate(45deg);
+}
+
+.accordion-button::after {
+  display: none;
+}
+
+.accordion-body {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.accordion-button:hover {
+  opacity: .85;
+}
+
+/* removes divider line for the last faq */
+.accordion-item:last-child {
+  border-bottom: none !important;
+}
