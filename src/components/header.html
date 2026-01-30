@@ -30,16 +30,23 @@
                             stroke-linecap="round" />
                     </svg>
                 </a>
-                <a href="#" class="icon-btn">
+
+
+                <a href="#" class="icon-btn position-relative" id="btnOpenCart">
                     <animated-icons class="icon-animated"
                         src="https://animatedicons.co/get-icon?name=Cart&style=minimalistic&token=46475390-3e9d-4ccd-9834-a94888682feb"
                         trigger="loop-on-hover"
                         attributes='{"variationThumbColour":"#FFFFFF","variationName":"Normal","variationNumber":1,"numberOfGroups":1,"backgroundIsGroup":false,"strokeWidth":2.5,"defaultColours":{"group-1":"#000000","background":"#FFFFFF"}}'>
                     </animated-icons>
+                    <span id="cartCount"
+                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                        0 </span>
                 </a>
+
+
+
             </div>
-            <button class="navbar-toggler ml-auto" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarMain">
+            <button class="navbar-toggler ml-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
                 <span class="navbar-toggler-icon"></span>
             </button><!-- Hamburger button -->
         </div>
