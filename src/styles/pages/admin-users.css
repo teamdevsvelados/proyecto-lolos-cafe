@@ -1,0 +1,100 @@
+.nav-top-buttons {
+  display: flex;
+  gap: 0;
+}
+
+.nav-top-buttons .nav-item {
+  flex: 1 1 0;
+}
+
+.nav-top-buttons .nav-link {
+  border: 1px solid #222;
+  border-radius: 0 !important;
+  color: #222;
+  width: 100%;
+  letter-spacing: 0.3px;
+  font-weight: 600;
+}
+
+.nav-top-buttons .nav-item + .nav-item .nav-link {
+  border-left: 0;
+}
+
+.nav-top-buttons .nav-link.active,
+.nav-top-buttons .nav-link[aria-selected="true"] {
+  background: #222;
+  color: #fff !important;
+  border-color: #222 !important;
+}
+
+.users-search .form-control {
+  border-radius: 0;
+  padding-left: 2.25rem;
+  height: 42px;
+}
+
+.users-search .search-icon {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #6c757d;
+}
+
+.users-table thead th {
+  background: #efefef !important;
+  border-bottom: 0;
+  color: #000;
+  font-weight: 600;
+}
+
+.users-table td,
+.users-table th {
+  vertical-align: middle;
+}
+
+.users-table .icon-col {
+  width: 44px;
+  text-align: center;
+}
+
+.users-table .avatar {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #bbb;
+  color: #000;
+  opacity: 0.9;
+}
+
+.users-table .gear {
+  color: #000;
+  opacity: 0.7;
+}
+
+.page-title {
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.card-clean {
+  border: 1px solid #e9ecef;
+  border-radius: 0.25rem;
+  overflow: hidden;
+}
+
+.modal-content {
+  border-radius: 0;
+}
+
+.modal .form-control,
+.modal .form-select {
+  border-radius: 0;
+}
+
+.users-bar .nav-top-buttons {
+  flex: 0 0 auto;
+}
