@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Configuración - Lolo's Café (Admin)</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="/src/styles/main.css" />
+
+</head>
+
+<body>
+    <!-- Header -->
+    <div id="header-placeholder"></div>
+
+    <main class="container-fluid">
+        <div class="row g-0">
+            <!-- Sidebar -->
+            <section id="sidebar-placeholder" class="admin-sidebar-container col-12 col-md-2 p-2 border-end min-vh-100">
+            </section>
+
+            <!-- Main content -->
+            <section class="dashboard-admin col-12 col-md-10 p-3">
+                <!-- Page header -->
+                <div class="header-dashboard pt-3 px-0 pb-1">
+                    <div class="row align-items-center g-3">
+                        <div class="col-12 col-md-8">
+                            <h3 class="mb-1">Configuración</h3>
+                            <p class="mb-0">Gestiona configuraciones generales</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sub-menus -->
+                <div class="pt-4">
+                    <ul class="nav segmented w-100 justify-content-start nav-top-buttons" role="tablist">
+                        <li class="nav-item flex-fill" role="presentation">
+                            <button class="nav-link btn btn-outline-dark rounded-0 w-100 active" id="tab-info"
+                                data-bs-toggle="tab" data-bs-target="#pane-info" type="button" role="tab"
+                                aria-controls="pane-info" aria-selected="true">
+                                <i class="bi bi-card-list"></i> Información
+                            </button>
+                        </li>
+                        <li class="nav-item flex-fill" role="presentation">
+                            <button class="nav-link btn btn-outline-dark rounded-0 w-100" id="tab-hours"
+                                data-bs-toggle="tab" data-bs-target="#pane-hours" type="button" role="tab"
+                                aria-controls="pane-hours" aria-selected="false">
+                                <i class="bi bi-clock"></i> Horarios
+                            </button>
+                        </li>
+                        <li class="nav-item flex-fill" role="presentation">
+                            <button class="nav-link btn btn-outline-dark rounded-0 w-100" id="tab-notifs"
+                                data-bs-toggle="tab" data-bs-target="#pane-notifs" type="button" role="tab"
+                                aria-controls="pane-notifs" aria-selected="false">
+                                <i class="bi bi-bell"></i> Notificaciones
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Tabs content -->
+                <div class="tab-content py-4">
+                    <!-- ====== Información (all fields required) ====== -->
+                    <div class="tab-pane fade show active" id="pane-info" role="tabpanel" aria-labelledby="tab-info">
+                        <div class="card card-settings shadow-sm">
+                            <div class="card-body p-4">
+                                <h5 class="fw-bold mb-2"><i class="bi bi-card-list me-1"></i> Información del negocio
+                                </h5>
+                                <p class="text-muted small mb-4">Llena todos los campos. Todos son obligatorios.</p>
+                                <form id="form-info" novalidate>
+                                    <div class="row g-3">
+                                        <div class="col-12 col-md-6">
+                                            <label for="biz-name" class="form-label">
+                                                <i class="bi bi-shop"></i><strong>Nombre</strong>
+                                            </label>
+                                            <input id="biz-name" class="form-control" placeholder="Lolo’s Café"
+                                                required>
+                                            <div class="invalid-feedback">Campo requerido.</div>
+                                        </div>
+
+                                        <div class="col-12 col-md-6">
+                                            <label for="biz-email" class="form-label">
+                                                <i class="bi bi-envelope"></i><strong>Correo</strong>
+                                            </label>
+                                            <input id="biz-email" type="email" class="form-control"
+                                                placeholder="contacto@lolos.cafe" required>
+                                            <div class="invalid-feedback">Ingresa un correo válido.</div>
+                                        </div>
+
+                                        <div class="col-12 col-md-6">
+                                            <label for="phone-1" class="form-label">
+                                                <i class="bi bi-telephone"></i><strong>Teléfono 1</strong>
+                                            </label>
+                                            <input id="phone-1" class="form-control" inputmode="tel"
+                                                placeholder="55 1234 5678" required>
+                                            <div class="invalid-feedback">Campo requerido.</div>
+                                        </div>
+
+                                        <div class="col-12 col-md-6">
+                                            <label for="phone-2" class="form-label">
+                                                <i class="bi bi-telephone"></i><strong>Teléfono 2</strong>
+                                            </label>
+                                            <input id="phone-2" class="form-control" inputmode="tel"
+                                                placeholder="55 0000 0000" required>
+                                            <div class="invalid-feedback">Campo requerido.</div>
+                                        </div>
+
+                                        <div class="col-12">
+                                            <label for="address" class="form-label">
+                                                <i class="bi bi-geo-alt"></i><strong>Dirección</strong>
+                                            </label>
+                                            <input id="address" class="form-control"
+                                                placeholder="Calle, número, colonia, ciudad" required>
+                                            <div class="invalid-feedback">Campo requerido.</div>
+                                        </div>
+
+                                        <div class="col-12 col-md-6">
+                                            <label for="website" class="form-label">
+                                                <i class="bi bi-globe"></i><strong>Sitio web</strong>
+                                            </label>
+                                            <input id="website" type="url" class="form-control"
+                                                placeholder="https://tu-sitio.com" required>
+                                            <div class="invalid-feedback">Ingresa una URL válida (ej. https://...).
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12 col-md-6">
+                                            <label for="instagram" class="form-label">
+                                                <i class="bi bi-instagram"></i><strong>Instagram</strong>
+                                            </label>
+                                            <input id="instagram" type="url" class="form-control"
+                                                placeholder="https://instagram.com/tu_cafe" required>
+                                            <div class="invalid-feedback">Ingresa una URL válida.</div>
+                                        </div>
+
+                                        <div class="col-12">
+                                            <label for="notes" class="form-label">
+                                                <i class="bi bi-sticky"></i><strong>Notas o mensaje para la web</strong>
+                                            </label>
+                                            <textarea id="notes" class="form-control" rows="2"
+                                                placeholder="Mensaje corto visible en la página." required></textarea>
+                                            <div class="invalid-feedback">Campo requerido.</div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="save-bar mt-3 text-end">
+                            <button id="save-info" class="btn btn-dark rounded-0">
+                                GUARDAR CAMBIOS <i class="bi bi-arrow-clockwise ms-1"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- ====== Horarios  ====== -->
+                    <div class="tab-pane fade" id="pane-hours" role="tabpanel" aria-labelledby="tab-hours">
+                        <div class="card card-settings shadow-sm">
+                            <div class="card-body p-4">
+                                <h5 class="fw-bold mb-3"><i class="bi bi-clock me-1"></i> Horarios de atención</h5>
+                                <p class="text-muted small mb-3">Define un horario único por día. Si un día está
+                                    cerrado, desactiva el switch.</p>
+
+                                <!-- Day-by-day hours table -->
+                                <form id="form-horarios" novalidate>
+                                    <div class="table-responsive">
+                                        <table class="table align-middle mb-0" id="tabla-horarios">
+                                            <thead class="table-light">
+                                                <tr>
+                                                    <th style="width: 28%">Día</th>
+                                                    <th style="width: 14%">Abierto</th>
+                                                    <th style="width: 29%">Apertura</th>
+                                                    <th style="width: 29%">Cierre</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <!-- Populated by JS -->
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                    <div class="d-flex flex-wrap gap-2 mt-3">
+                                        <button type="button" id="btn-copiar-lunes"
+                                            class="btn btn-outline-dark btn-sm rounded-0">
+                                            Copiar Lunes a todos
+                                        </button>
+                                        <button type="button" id="btn-cerrar-todos"
+                                            class="btn btn-outline-secondary btn-sm rounded-0">
+                                            Marcar todos como cerrados
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="save-bar mt-3 text-end">
+                            <button id="save-hours" class="btn btn-dark rounded-0">
+                                GUARDAR CAMBIOS <i class="bi bi-arrow-clockwise ms-1"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- ====== Notifications (simple alerts) ====== -->
+                    <div class="tab-pane fade" id="pane-notifs" role="tabpanel" aria-labelledby="tab-notifs">
+                        <div class="card card-settings shadow-sm">
+                            <div class="card-body p-4">
+                                <h5 class="fw-bold mb-1"><i class="bi bi-bell me-1"></i> Alertas</h5>
+                                <p class="text-muted small mb-4">Horarios de atención al público</p>
+
+                                <!-- Three simple switches -->
+                                <form id="form-notifs" class="small" novalidate>
+                                    <div class="row align-items-center gy-4">
+                                        <div class="col-12 col-md-8">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span class="fw-semibold">Stock bajo</span>
+                                                <div class="form-check form-switch m-0">
+                                                    <input class="form-check-input" type="checkbox" id="notif-stock" />
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12 col-md-8">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span class="fw-semibold">Promociones por vencer</span>
+                                                <div class="form-check form-switch m-0">
+                                                    <input class="form-check-input" type="checkbox" id="notif-promos" />
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12 col-md-8">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span class="fw-semibold">Nuevos pedidos</span>
+                                                <div class="form-check form-switch m-0">
+                                                    <input class="form-check-input" type="checkbox" id="notif-orders" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="save-bar mt-3 text-end">
+                            <button id="save-notifs" class="btn btn-dark rounded-0">
+                                GUARDAR CAMBIOS <i class="bi bi-check-circle ms-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Save confirmation toast -->
+                <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+                    <div id="saveToast" class="toast align-items-center text-bg-dark border-0" role="alert"
+                        aria-live="assertive" aria-atomic="true">
+                        <div class="d-flex">
+                            <div class="toast-body">Cambios guardados correctamente.</div>
+                            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                                aria-label="Cerrar"></button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Bootstrap Bundle  -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+
+    <!-- Animated icons -->
+    <script src="https://animatedicons.co/scripts/embed-animated-icons.js"></script>
+
+    <!-- Components loader (header/sidebar) -->
+    <script type="module" src="/src/js/utils/loadComponents.js"></script>
+
+    <!-- Page-specific logic (kept inline to make this a single-file example) -->
+    <script type="module" src="/src/js/admin/configuration.js"></script>
+
+</body>
+
+</html>

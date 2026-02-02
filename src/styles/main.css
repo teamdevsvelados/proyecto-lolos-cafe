@@ -22,3 +22,6 @@
 
 @import url('./pages/contact.css');
 /* @import url('./pages/contact.css */
+@import url('./pages/admin-users.css');
+@import url('./pages/admin-configuration.css');
+@import url('./pages/admin-orders.css');
