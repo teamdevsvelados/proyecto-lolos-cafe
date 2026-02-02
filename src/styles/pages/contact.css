@@ -1,0 +1,15 @@
+    .active-day {
+      background-color: #5A6B43 !important;
+      color: #ffffff;
+      border-radius: 0; 
+      font-weight: 500;
+    }
+
+    .effect-contact {
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
+    }
+
+    .effect-contact:hover {
+      transform: translateY(-8px);/
+    }
