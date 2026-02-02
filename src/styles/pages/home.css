@@ -1,0 +1,75 @@
+.hero-index h1 {
+    font-size: var(--fs-display-sm);
+}
+@media (min-width: 992px) {
+    .hero-index h1 {
+        font-size: var(--fs-display-md);
+    }
+}
+.dessert-index {
+    transition: transform 400ms;
+}
+.dessert-index:hover {
+    transform: scale(1.02);
+    transition: transform 400ms;
+}
+.dessert-index-green {
+    background-color: var(--color-secondary);
+    color: white;
+}
+.dessert-index-white {
+    background-color: var(--color-bg);
+}
+.log-in h2 {
+    color: #4f5d3a;
+}
+.login-index {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+}
+.carousel {
+border: 5px;
+display: flex;
+overflow-x: auto;
+}
+.carousel::-webkit-scrollbar {
+display: none;
+}
+.card-carousel {
+    /* flex: 0 0 5em; */
+    height: 100%;
+    width: 200px;
+    border: none;
+    font-size: 3rem;
+    text-align: center;
+    align-content: center;
+}
+@media (min-width: 768px) {
+    .card-carousel {
+        height: 100%;
+        width: 250px;
+    }
+}
+.card-carousel img {
+    height: 200px;
+    width: 200px;
+    object-fit: contain;
+}
+@media (min-width: 768px) {
+    .card-carousel img {
+        height: 250px;
+        width: 250px;
+    }
+}
+.group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    animation: spin 15s infinite linear;
+}
+@keyframes spin {
+    from {translate: 0;}
+    to {translate: -100%;}
+} 

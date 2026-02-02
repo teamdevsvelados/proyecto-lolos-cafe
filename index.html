@@ -3,30 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sobre Nosotros - Lolo's Café</title>
+  <title>Inicio - Lolo's Café</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
   <link rel="stylesheet" href="/src/styles/main.css" />
 
-  <!-- Temporal styles -->
-   <style>
-.btn{
-  background-color: #5a6b43;
-  border: none;
-  border-radius: 0;
-  color: white;
-}
-.hero a {
-  background-color: #000000;
-  border: none;
-  border-radius: 0;
-  color: white;
-}
-
-.log-in h2 {
-  color: #4f5d3a;
-}
-   </style>
 </head>
 
 <body>
@@ -34,19 +15,17 @@
   <div id="header-placeholder"></div>
 
   <!-- Hero -->
-  <section class="hero-banner">
-    <div class="container hero">
+  <section class="hero-banner section-colored section-padding">
+    <div class="container hero-index">
+      <!-- Weather -->
+      <div class="col-12 my-4 d-flex justify-content-end align-items-center weather-row">
+        <img class="me-1" id="weather-icon" src="/public/images/hero-banner/icon-weather/cloudy.png" alt="Clima" width="32">
+        <span id="weather-temp" class="ms-2"> -- °C </span>
+        <p class="mb-0 ms-3">Valle de Carrizo</p>
+      </div>
       <div class="row align-items-center">
-
-        <!-- Weather -->
-        <div class="col-12 mt-4 d-flex justify-content-end align-items-center weather-row">
-          <img class="me-1" id="weather-icon" src="/public/images/hero-banner/icon-weather/cloudy.png" alt="Clima" width="32">
-          <span id="weather-temp" class="ms-2"> -- °C </span>
-          <p class="mb-0 ms-3">Valle de Carrizo</p>
-        </div>
-
         <!-- Hero Image -->
-        <div class="col-md-6 text-center">
+        <div class="col-12 col-md-6 text-center d-flex justify-content-center">
           <img
             id="hero-image"
             src="/public/images/hero-banner/lolos-banner-temp.png"
@@ -56,189 +35,168 @@
         </div>
 
         <!-- Hero Text -->
-        <div class="col-md-6 text-center text-md-start">
-          <h1 id="hero-title" class="fw-bold fs-1">Todo tipo de bebida para tu mood</h1>
+        <div class="col-12 col-md-6 text-center text-md-start">
+          <h1 id="hero-title">Todo tipo de bebida para tu mood</h1>
           <p id="hero-text" class="fs-4">
             Siente el clima perfecto mientras disfrutas de nuestra selección de bebidas calientes y refrescantes.
           </p>
-          <a href="/menu.html" class="btn btn-dark px-4 mt-3">EXPLORA NUESTRO MENÚ →</a>
+          <div>
+            <a href="/menu.html" class="cta-btn-secondary mt-3">EXPLORA NUESTRO MENÚ →</a>
+          </div>
         </div>
 
       </div>
     </div>
   </section>
 
-
   <!-- Carousel Drinks -->
-
-<style>
-  .carousel {
-    margin: 50px;
-    width: 90%;
-    border: 5px;
-    display: flex;
-    overflow-x: auto;
-  }
-
-  .carousel::-webkit-scrollbar {
-    display: none;
-  }
-
-  .card {
-    flex: 0 0 5em;
-    height: 5em;
-    padding: 1em;
-    border: none;
-    font-size: 3rem;
-    text-align: center;
-    align-content: center;
-  }
-
-  .group {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1em;
-    animation: spin 8s infinite linear;
-  }
-
-@keyframes spin {
-  from {translate: 0;}
-  to {translate: -100%;}
-}
-
-</style>
-
-  <!-- Carousel Drinks -->
-<section class="carousel">
+<section class="section-padding">
     <div class="container">
-      <h3 class="mb-4">Los <strong><u>favoritos</u></strong> de la temporada</h3>
-
-<div class="carousel">
-
-      <div class="group">
-
-        <div class="card">
-          <img src="/public/images/index/carrousel-pic-1.png" class="img-fluid" >
-        </div>
-
-        <div class="card">
-          <img src="/public/images/index/carrousel-pic-2.png" class="img-fluid">
-        </div>
-        
-        <div class="card">
-          <img src="/public/images/index/carrousel-pic-3.png" class="img-fluid" >
-        </div>
-        
-        <div class="card">
-          <img src="/public/images/index/carrousel-pic-4.png" class="img-fluid">
-        </div>
-        
-        <div class="card">
-          <img src="/public/images/index/carrousel-pic-5.png" class="img-fluid">
-        </div>
-      </div>
-
-      <div aria-hidden class="group">
-
-        <div class="card">
-          <img src="/public/images/index/carrousel-pic-1.png" class="img-fluid" >
-        </div>
-
-        <div class="card">
-          <img src="/public/images/index/carrousel-pic-2.png" class="img-fluid">
-        </div>
-        
-        <div class="card">
-          <img src="/public/images/index/carrousel-pic-3.png" class="img-fluid" >
-        </div>
-        
-        <div class="card">
-          <img src="/public/images/index/carrousel-pic-4.png" class="img-fluid">
-        </div>
-        
-        <div class="card">
-          <img src="/public/images/index/carrousel-pic-5.png" class="img-fluid">
-        </div>
-      </div>
+        <h2 class="text-center mb-5">Los favoritos de la temporada</h2>
     </div>
-</div>
+    
+    <div class="carousel">
+        <div class="group">
+            <div class="card-carousel">
+                <img src="/public/images/index/carrousel-pic-1.png" class="img-fluid">
+                <p>Nombre</p>
+            </div>
+
+            <div class="card-carousel">
+                <img src="/public/images/index/carrousel-pic-2.png" class="img-fluid">
+                <p>Nombre</p>
+            </div>
+            
+            <div class="card-carousel">
+                <img src="/public/images/index/carrousel-pic-3.png" class="img-fluid">
+                <p>Nombre</p>
+            </div>
+            
+            <div class="card-carousel">
+                <img src="/public/images/index/carrousel-pic-4.png" class="img-fluid">
+                <p>Nombre</p>
+            </div>
+            
+            <div class="card-carousel">
+                <img src="/public/images/index/carrousel-pic-5.png" class="img-fluid">
+                <p>Nombre</p>
+            </div>
+        </div>
+
+        <div aria-hidden class="group">
+            <div class="card-carousel">
+                <img src="/public/images/index/carrousel-pic-1.png" class="img-fluid">
+                <p>Nombre</p>
+            </div>
+
+            <div class="card-carousel">
+                <img src="/public/images/index/carrousel-pic-2.png" class="img-fluid">
+                <p>Nombre</p>
+            </div>
+            
+            <div class="card-carousel">
+                <img src="/public/images/index/carrousel-pic-3.png" class="img-fluid">
+                <p>Nombre</p>
+            </div>
+            
+            <div class="card-carousel">
+                <img src="/public/images/index/carrousel-pic-4.png" class="img-fluid">
+                <p>Nombre</p>
+            </div>
+            
+            <div class="card-carousel">
+                <img src="/public/images/index/carrousel-pic-5.png" class="img-fluid">
+                <p>Nombre</p>
+            </div>
+        </div>
+    </div>
 </section>
 
   <!-- About Us -->
-  <section class="py-5 bg-light">
-    <div class="container">
-      <div class="row align-items-center">
+   <section class="section-padding section-colored">
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-12 col-md-6 mb-3 mb-md-0">
+                    <div class="section-content">
+                        <h2 class="section-title mb-4">Sobre nosotros.
+                        </h2>
+                        <p>
+                          En Lolo’s café creemos en los espacios que se sienten como en casa y
+                          en las bebidas preparadas con cuidado.
+                        </p>
+                        <p>
+                          Cada café, postre y detalle está pensado para que cada visita se
+                          disfrute sin prisas.
+                        </p>
+                        <a href="/about-us.html" class="cta-btn mt-3"  style="display: inline-block;">
+                          Conoce nuestra historia →
+                        </a>
+                    </div>
+                </div>
 
-        <div class="col-md-6">
-          <h2>Sobre nosotros</h2>
-          <p>
-            En Lolo’s café creemos en los espacios que se sienten como en casa y
-            en las bebidas preparadas con cuidado.
-          </p>
-          <p>
-            Cada café, postre y detalle está pensado para que cada visita se
-            disfrute sin prisas.
-          </p>
-          <a href="/about-us.html" class="btn btn-outline-dark mt-3">
-            Conoce nuestra historia →
-          </a>
+                <div class="col-12 col-md-6">
+                    <div class="section-image d-flex justify-content-center">
+                        <img src="/public/images/index/about-us.png" style="max-height: 600px;" alt="Elaboración de café" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+
         </div>
-
-        <div class="col-md-6 text-center">
-          <img src="/public/images/index/about-us.png" class="img-fluid">
-        </div>
-
-      </div>
-    </div>
-  </section>
+    </section>
 
 
   <!-- Desserts -->
 
-  <section class="py-5">
+  <section class="section-padding">
     <div class="container">
       <h2 class="mb-2">Nuestros postres</h2>
       <p class="mb-4">Pensados para acompañar tu bebida favorita.</p>
 
-      <div class="row g-4 dessert-index">
-        <div class="col-md-4">
-          <div class="card h-100">
-            <img src="/public/images/index/cheescake.png" class="card-img-top">
-            <div class="card-body">
-              <h3>INTENSO, <br>CREMOSO, <br>SIN DISCULPAS</h3>
-              <p>No te vayas sin probar nuestro Cheesecake Vasco.</p>
+      <div class="row g-4">
+        <div class="col-md-4 dessert-index">
+          <a href="/menu/desserts.html">
+            <div class="card h-100 rounded-0 p-3 p-md-2 dessert-index-green">
+              <img src="/public/images/index/cheescake.png" class="card-img-top rounded-0">
+              <div class="card-body px-0">
+                <h3>INTENSO, <br>CREMOSO, <br>SIN DISCULPAS</h3>
+                <p>No te vayas sin probar nuestro Cheesecake Vasco.</p>
+              </div>
             </div>
-          </div>
+          </a>
         </div>
 
         <div class="col-md-4 dessert-index">
-          <div class="card h-100">
-            <img src="/public/images/index/pay-lotus.png" class="card-img-top">
-            <div class="card-body">
-              <h3>DULCE, <br>ESPECIADO, <br>ADICTIVO</h3>
-              <p>Date el gusto con nustro Pay Lotus.</p>
+          <a href="/menu/desserts.html">
+            <div class="card h-100 rounded-0 p-3 p-md-2 dessert-index-white">
+              <img src="/public/images/index/pay-lotus.png" class="card-img-top rounded-0">
+              <div class="card-body px-0">
+                <h3>DULCE, <br>ESPECIADO, <br>ADICTIVO</h3>
+                <p>Date el gusto con nustro Pay Lotus.</p>
+              </div>
             </div>
-          </div>
+          </a>
         </div>
 
         <div class="col-md-4 dessert-index">
-          <div class="card h-100">
-            <img src="/public/images/index/rol-de-canela.png" class="card-img-top">
-            <div class="card-body">
-              <h3>SUAVE, <br>IRRESISTIBLE, <br>BIEN HECHO</h3>
-              <p>Nuestro rol de canela es ideal para acompañar tu café.</p>
+          <a href="/menu/desserts.html">
+            <div class="card h-100 rounded-0 p-3 p-md-2 dessert-index-green">
+              <img src="/public/images/index/rol-de-canela.png" class="card-img-top rounded-0">
+              <div class="card-body px-0">
+                <h3>SUAVE, <br>IRRESISTIBLE, <br>BIEN HECHO</h3>
+                <p>Nuestro rol de canela es ideal para acompañar tu café.</p>
+              </div>
             </div>
-          </div>
+          </a>
         </div>
+        
       </div>
     </div>
   </section>
 
   <!-- Reviews -->
 
-  <!-- About Us -->
-  <section class="py-5 bg-light">
+  <!-- Experiences -->
+  <section class="section-colored section-padding">
     <div class="container">
       <div class="row align-items-center">
 
@@ -264,9 +222,9 @@
   </section>
 
 <!-- Login -->
-<section class="py-5 bg-white log-in">
+<section class="section-padding bg-white log-in login-index">
   <div class="container">
-    <div class="row justify-content-center text-center">
+    <div class="row justify-content-center align-items-center text-center">
 
       <div class="col-12 col-md-8 col-lg-6">
         <h2 class="fw-bold mb-3">Vuelve, disfruta y gana.</h2>
@@ -276,7 +234,7 @@
           gratis, como un beneficio por elegirnos.
         </p>
 
-        <a href="/signup/signup.html" class="btn">
+        <a href="/signup.html" class="cta-btn">
           REGÍSTRATE AHORA →
         </a>
       </div>
