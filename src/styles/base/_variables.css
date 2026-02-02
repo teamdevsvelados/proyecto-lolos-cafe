@@ -74,8 +74,8 @@
     -------------------------------- */
 @media (min-width: 992px) {
     :root {
-        --fs-h1: 2rem;         /* 32px */
-        --fs-h2: 1.75rem;      /* 28px */
+        --fs-h1: 2rem;       /* 32px */
+        --fs-h2: 2.375rem;         /* 32px */
         --fs-h3: 1.5rem;       /* 24px */
         --fs-body: 1.125rem;   /* 18px */
     }
