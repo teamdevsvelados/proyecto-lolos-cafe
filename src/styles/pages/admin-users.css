@@ -9,7 +9,7 @@
 
 .nav-top-buttons .nav-link {
   border: 1px solid #222;
-  border-radius: 0 !important;
+  border-radius: 0 ;
   color: #222;
   width: 100%;
   letter-spacing: 0.3px;
@@ -23,8 +23,8 @@
 .nav-top-buttons .nav-link.active,
 .nav-top-buttons .nav-link[aria-selected="true"] {
   background: #222;
-  color: #fff !important;
-  border-color: #222 !important;
+  color: #fff ;
+  border-color: #222 ;
 }
 
 .users-search .form-control {
@@ -42,7 +42,7 @@
 }
 
 .users-table thead th {
-  background: #efefef !important;
+  background: #efefef ;
   border-bottom: 0;
   color: #000;
   font-weight: 600;
