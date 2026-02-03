@@ -14,21 +14,21 @@ import { getWeather } from "../services/weatherService.js";
 
     if (temperature < 12) {
       iconElement.src = "/public/images/hero-banner/icon-weather/cold.png";
-      heroImage.src = "/public/images/hero-banner/lolos-banner-cold.png";
+      heroImage.src = "/public/images/hero-banner/lolos-banner-cold.webp";
       heroTitle.textContent = "Un abrazo en cada sorbo";
       heroText.textContent = "Cafés y bebidas calientes pensadas para reconfortar, entrar en calor y acompañar los días fríos.";
     }
     
     else if (temperature >= 12 && temperature < 25) {
       iconElement.src = "/public/images/hero-banner/icon-weather/cloudy.png";
-      heroImage.src = "/public/images/hero-banner/lolos-banner-temp.png";
+      heroImage.src = "/public/images/hero-banner/lolos-banner-temp.webp";
       heroTitle.textContent = "Todo tipo de bebida para tu mood";
       heroText.textContent = "Siente el clima perfecto mientras disfrutas de nuestra selección de bebidas calientes y refrescantes.";
     } 
     
     else {
       iconElement.src = "/public/images/hero-banner/icon-weather/sun.png";
-      heroImage.src = "/public/images/hero-banner/lolos-banner-sun.png";
+      heroImage.src = "/public/images/hero-banner/lolos-banner-sun.webp";
       heroTitle.textContent = "El plan perfecto para los días de calor";
       heroText.textContent = "Frappés y bebidas a las rocas pensadas para refrescarte al instante y acompañar cualquier momento del día.";
     }
