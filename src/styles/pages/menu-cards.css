@@ -1,4 +1,4 @@
-.card img {
+.products .card img {
     display: block;
     margin: 0 auto;
     max-width: 70%;
@@ -9,47 +9,47 @@
     display: flex;
 }
 
-.card {
+.products .card {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.card:hover {
+.products .card:hover {
     transform: translateY(-10px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2)
 }
 
 /* General style for navigation button group */
-.custom-nav-group .btn {
+.products.custom-nav-group .btn {
     border-color: #333;
     color: #333;
     font-weight: 500;
     padding: 10px 0;
 }
 
-.top-buttons { /* Space in the top */
+.products.top-buttons { /* Space in the top */
     padding: 20px 20px 40px 20px;
 }
 
 /* Style del carrito */
 
-.modal-dialog-end {
+.products .modal-dialog-end {
     position: fixed;
     right: 0;
     margin: 0;
     height: 100%;
 }
 
-.modal-full-height {
+.products .modal-full-height {
     height: 100%;
 }
 
-#modalCarrito .modal-content {
+.products #modalCarrito .modal-content {
     height: 100%;
     border-radius: 0;
 }
 
 /* Estilo para los botones oscuros de la imagen */
-.btn-custom-dark {
+.products.btn-custom-dark {
     background-color: #000000 !important;
     color: white !important;
     border: none;
@@ -58,38 +58,38 @@
     font-size: 0.85rem;
 }
 
-.btn-custom-dark:hover {
+.products .btn-custom-dark:hover {
     background-color: #4a473f !important;
 }
 
 /* Estilo para el selector de cantidad (+ 0 -) */
-.quantity-selector .btn {
+.products .quantity-selector .btn {
     background-color: #f0f0ed;
     color: #000000;
     font-weight: bold;
 }
 
-.quantity-selector .form-control {
+.products .quantity-selector .form-control {
     background-color: #ffffff;
     font-weight: bold;
 }
 
 
 /* Estilo para el selector de cantidad (+ y -) en el modal principal */
-.quantity-selector {
+.products .quantity-selector {
     border: 1px solid #ddd;
     border-radius: 8px;
     overflow: hidden;
 }
 
-.quantity-selector .btn {
+.products .quantity-selector .btn {
     background-color: #f8f9fa;
     border: none;
     font-size: 1.2rem;
     padding: 0.5rem 1rem;
 }
 
-.quantity-selector input {
+.products .quantity-selector input {
     border: none;
     font-weight: bold;
     font-size: 1.1rem;

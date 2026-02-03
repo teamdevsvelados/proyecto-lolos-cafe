@@ -19,12 +19,21 @@ function renderCart() {
     const cartTotal = document.getElementById('cartTotal');
     if (!cartItems || !cartTotal) return;
 
+
     cartItems.innerHTML = '';
     let totalGeneral = 0;
 
     cart.forEach((item, index) => {
         const subtotal = item.precio * item.cantidad;
         totalGeneral += subtotal;
+    
+    
+    const detalles = [
+  item.size,
+  item.temperatura,
+  item.leche,
+  item.extra
+].filter(v => v && v.trim() !== '' && v !== 'Sin extras');
 
         cartItems.innerHTML += `
         <div class="d-flex align-items-center gap-3 border-bottom pb-3">
@@ -34,7 +43,8 @@ function renderCart() {
             <div class="d-flex justify-content-between align-items-start">
                 <div>
                 <strong class="d-block">${item.nombre}</strong>
-                <div class="small text-muted">${item.size || 'Porción'} x ${item.cantidad}</div>
+                <div class="small text-muted">${detalles.length ? detalles.join(' · ') : 'Porción'} · x${item.cantidad}     </div>
+
                 ${item.notas ? `<div class="small text-info mt-1 italic">"${item.notas}"</div>` : ''}
                 </div>
                 <button class="btn btn-sm text-danger p-0" data-remove-index="${index}">
@@ -78,33 +88,61 @@ document.addEventListener('click', (e) => {
 
     e.preventDefault();
 
+    const modal = addBtn.closest('.modal');
+    
+
     // Recolecta datos usando los IDs que pusimos anteriormente
-    const nombre = safeText(document.getElementById('m-nombre')) || 'Producto';
-    const precioText = safeText(document.getElementById('m-precio')) || '$0.00';
+    const nombre = safeText(modal.querySelector('#m-nombre, #modalTitle')) || 'Producto';
+    const precioText = safeText(modal.querySelector('#m-precio, #modalPrice')) || '$0.00';
     const precio = Number(precioText.replace(/[^0-9.]/g, '')) || 0;
 
+
     // CAPTURA DE IMAGEN Y CANTIDAD
-    const imagen = document.getElementById('m-imagen').src;
-    const cantidad = parseInt(document.getElementById('input-cantidad').value) || 1;
+    const imagen = modal.querySelector('#m-imagen, #modalImg')?.src || '';
+
+    const cantidad = parseInt(modal.querySelector('#input-cantidad')?.value) || 1;
+
+
 
     // Captura la presentación (Rebanada/Entero)
-    const sizeLabel = document.querySelector('input[name="size"]:checked')?.nextElementSibling?.innerText || '';
+    const sizeLabel = modal.querySelector('input[name="size"]:checked')
+        ?.nextElementSibling?.innerText || '';
 
-    const notas = document.querySelector('#modalPostres textarea').value;
+
+    const notas =     modal.querySelector('textarea')?.value || '';
+    
+    const temperatura = modal.querySelector('input[name="temp"]:checked')
+  ?.nextElementSibling?.innerText || null;
+
+const leche = modal.querySelector('input[name="milk"]:checked')
+  ?.nextElementSibling?.innerText || null;
+
+const extra = modal.querySelector('input[name="extra"]:checked')
+  ?.nextElementSibling?.innerText || null;
+
+
+
 
     const producto = {
         nombre,
-        precio,
-        imagen,
-        cantidad,
-        size: sizeLabel,
-        notas: notas
+  precio,
+  imagen,
+  cantidad,
+  size: sizeLabel,
+  temperatura,
+  leche,
+  extra,
+  notas
+
     };
 
     const existente = cart.find(item =>
     item.nombre === producto.nombre &&
-    item.size === producto.size &&
-    item.notas === producto.notas
+  item.size === producto.size &&
+  item.temperatura === producto.temperatura &&
+  item.leche === producto.leche &&
+  item.extra === producto.extra &&
+  item.notas === producto.notas
 );
 
 if (existente) {
@@ -117,8 +155,8 @@ if (existente) {
     renderCart();
 
     // Cerrar modal y abrir carrito
-    const modalPostresEl = document.getElementById('modalPostres');
-    if (modalPostresEl) bootstrap.Modal.getOrCreateInstance(modalPostresEl).hide();
+    bootstrap.Modal.getOrCreateInstance(modal).hide();
+
 
     const modalCarritoEl = document.getElementById('modalCarrito');
     if (modalCarritoEl) bootstrap.Modal.getOrCreateInstance(modalCarritoEl).show();
