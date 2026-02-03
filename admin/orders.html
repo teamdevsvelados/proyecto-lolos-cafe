@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pedidos - Lolo's Café (Admin)</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        crossorigin="anonymous">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+  <!-- (Opcional) CSS del sitio -->
+  <link rel="stylesheet" href="/src/styles/main.css" />
+
+  <style>
+  </style>
+</head>
+
+<body>
+  <!-- Header / Sidebar  -->
+  <div id="header-placeholder"></div>
+
+  <main class="container-fluid">
+    <div class="row g-0">
+      <section id="sidebar-placeholder" class="col-12 col-md-2 p-2 border-end min-vh-100"></section>
+
+      <!-- Content -->
+      <section class="col-12 col-md-10 p-3">
+        <!-- Title bar -->
+        <div class="d-flex justify-content-between align-items-start mb-2">
+          <div>
+            <h3 class="page-title ms-0 ps-0 mb-0 align-items-start">Pedidos</h3>
+            <p class="page-subtitle mb-0">Control de las órdenes del día</p>
+          </div>
+          <div class="toolbar">
+            <input id="searchBox" class="form-control form-control-sm" type="search" placeholder="Buscar por cliente, código o artículo…">
+          </div>
+        </div>
+
+        <!-- ===== Board: NUEVOS ===== -->
+        <div class="board mb-4">
+          <div class="section-header">
+            <span>Nuevos</span>
+            <span class="section-counter" id="count-new">0</span>
+          </div>
+          <div class="section-divider"></div>
+          <div class="board-card">
+            <div class="orders-head d-none d-sm-grid">
+              <div>#</div>
+              <div>Cliente</div>
+              <div>Artículos</div>
+              <div>Hora</div>
+              <div></div>
+            </div>
+            <div id="list-new" class="p-2">
+              <!-- rows injected here -->
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== Board: EN PREPARACIÓN ===== -->
+        <div class="board mb-4">
+          <div class="section-header">
+            <span>En Preparación</span>
+            <span class="section-counter" id="count-prep">0</span>
+          </div>
+          <div class="section-divider"></div>
+          <div class="board-card">
+            <div class="orders-head d-none d-sm-grid">
+              <div>#</div>
+              <div>Cliente</div>
+              <div>Artículos</div>
+              <div>Hora</div>
+              <div></div>
+            </div>
+            <div id="list-prep" class="p-2">
+              <!-- rows injected here -->
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== Board: FINALIZADOS ===== -->
+        <div class="board mb-4">
+          <div class="section-header">
+            <span>Finalizados</span>
+            <span class="section-counter" id="count-done">0</span>
+          </div>
+          <div class="section-divider"></div>
+          <div class="board-card">
+            <div class="orders-head d-none d-sm-grid">
+              <div>#</div>
+              <div>Cliente</div>
+              <div>Artículos</div>
+              <div>Hora</div>
+              <div></div>
+            </div>
+            <div id="list-done" class="p-2">
+              <!-- rows injected here -->
+            </div>
+          </div>
+        </div>
+      </section>
+      
+    </div>
+  </main>
+
+  <!-- ===================== Deatails MODAL ===================== -->
+  <div class="modal fade" id="orderDetailModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header border-0">
+          <div>
+            <h5 class="modal-title" id="odmCustomer">Cliente</h5>
+            <small id="odmCode" class="text-muted">#000000</small>
+          </div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+
+        <div class="modal-body pt-0">
+          <!-- Order meta -->
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <small class="text-muted" id="odmType">Pedido para recolección / llevar</small>
+            <small class="text-muted" id="odmPlacedAt">--:--</small>
+          </div>
+
+          <!-- Items table -->
+          <div class="table-responsive">
+            <table class="table mb-0">
+              <tbody id="odmItems">
+                <!-- items -->
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td class="text-end fw-bold" colspan="2">Total:</td>
+                  <td class="text-end fw-bold price" id="odmTotal">$0.00</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+
+          <!-- Dynamic actions by status -->
+          <div class="d-flex justify-content-between mt-3" id="odmActions">
+            <!-- filled by JS -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1056">
+    <div id="feedbackToast" class="toast text-bg-dark border-0" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body" id="toastMsg">Hecho.</div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Cerrar"></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+          crossorigin="anonymous"></script>
+  <!-- Animated icons and loader -->
+  <script src="https://animatedicons.co/scripts/embed-animated-icons.js"></script>
+  <!-- Header/Sidebar -->
+  <script type="module" src="/src/js/utils/loadComponents.js"></script>
+
+  <script type="module" src="/src/js/admin/orders.js"></script>
+</body>
+</html>
