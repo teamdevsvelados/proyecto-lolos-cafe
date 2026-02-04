@@ -190,3 +190,21 @@ document.addEventListener('DOMContentLoaded', () => {
     renderCart();
     ensureCartCountUpdated();
 });
+
+// Also render cart when modal is shown to ensure it's always in sync
+const cartModal = document.getElementById('modalCarrito');
+if (cartModal) {
+    cartModal.addEventListener('show.bs.modal', () => {
+        renderCart();
+    });
+} else {
+    // If modal doesn't exist yet, wait for it to be added to DOM
+    setTimeout(() => {
+        const modal = document.getElementById('modalCarrito');
+        if (modal) {
+            modal.addEventListener('show.bs.modal', () => {
+                renderCart();
+            });
+        }
+    }, 500);
+}

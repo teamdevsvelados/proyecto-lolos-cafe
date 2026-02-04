@@ -1,6 +1,16 @@
 const modal = document.getElementById('modalDrinks');
 let basePrice = 0;
 
+function updateModalTotal() {
+  const inputCantidad = modal.querySelector('#input-cantidad');
+  const cartTotalEl = modal.querySelector('#cartTotal') || modal.querySelector('#modal-total-dinamico');
+  if (!inputCantidad || !cartTotalEl) return;
+  
+  const cantidad = parseInt(inputCantidad.value) || 1;
+  const total = basePrice * cantidad;
+  cartTotalEl.textContent = `$ ${total.toFixed(2)}`;
+}
+
 modal.addEventListener('show.bs.modal', (event) => {
   const card = event.relatedTarget;
 
@@ -14,7 +24,7 @@ modal.addEventListener('show.bs.modal', (event) => {
   const modalPrice = modal.querySelector('#modalPrice');
   const modalDescription = modal.querySelector('#modalDescription');
   const modalBadge = modal.querySelector('#modalBadge');
-  const cartTotalEl = modal.querySelector('#cartTotal');
+  const cartTotalEl = modal.querySelector('#cartTotal') || modal.querySelector('#modal-total-dinamico');
   const inputCantidad = modal.querySelector('#input-cantidad');
 
   modalImg.src = product.image;
@@ -34,17 +44,10 @@ modal.addEventListener('show.bs.modal', (event) => {
   updateModalTotal();
 });
 
-function updateModalTotal() {
-  const inputCantidad = modal.querySelector('#input-cantidad');
-  const cartTotalEl = modal.querySelector('#cartTotal');
-  const cantidad = parseInt(inputCantidad.value) || 1;
-  const total = basePrice * cantidad;
-  cartTotalEl.textContent = `$ ${total.toFixed(2)}`;
-}
-
-const btnMas = modal.querySelector('#btn-mas');
-const btnMenos = modal.querySelector('#btn-menos');
-
-if (btnMas) btnMas.addEventListener('click', updateModalTotal);
-if (btnMenos) btnMenos.addEventListener('click', updateModalTotal);
+// Use event delegation for quantity buttons
+modal.addEventListener('click', (e) => {
+  if (e.target.closest('#btn-mas') || e.target.closest('#btn-menos')) {
+    setTimeout(updateModalTotal, 10);
+  }
+});
 
