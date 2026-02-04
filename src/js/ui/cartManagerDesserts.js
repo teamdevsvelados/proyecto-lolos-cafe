@@ -2,8 +2,20 @@
 from a modal, merging duplicates by increasing quantity, rendering cart items, 
 calculating subtotals and the total amount, updating the cart counter, 
 removing items, and opening/closing Bootstrap modals using event delegation.
+It also persists the cart in localStorage to maintain state across page navigations.
  */
-export const cart = [];
+
+// Initialize cart from localStorage or empty array
+function loadCartFromStorage() {
+    const stored = localStorage.getItem('carrito_temporal');
+    return stored ? JSON.parse(stored) : [];
+}
+
+export const cart = loadCartFromStorage();
+
+function saveCartToStorage() {
+    localStorage.setItem('carrito_temporal', JSON.stringify(cart));
+}
 
 function safeText(el) {
     return el ? el.innerText.trim() : '';
@@ -11,7 +23,18 @@ function safeText(el) {
 
 function updateCartCount() {
     const countEl = document.getElementById('cartCount');
-    if (countEl) countEl.innerText = cart.length;
+    if (countEl) {
+        countEl.innerText = cart.length;
+    }
+}
+
+function ensureCartCountUpdated() {
+    const countEl = document.getElementById('cartCount');
+    if (countEl) {
+        updateCartCount();
+    } else {
+        setTimeout(ensureCartCountUpdated, 100);
+    }
 }
 
 function renderCart() {
@@ -58,7 +81,7 @@ function renderCart() {
     });
 
     cartTotal.innerText = `$${totalGeneral.toFixed(2)}`;
-    updateCartCount();
+    ensureCartCountUpdated();
 }
 
 /* ======= Event delegation para abrir carrito y remover ======= */
@@ -76,6 +99,7 @@ document.addEventListener('click', (e) => {
         const idx = Number(removeBtn.getAttribute('data-remove-index'));
         if (!Number.isNaN(idx)) {
             cart.splice(idx, 1);
+            saveCartToStorage();
             renderCart();
         }
     }
@@ -151,7 +175,7 @@ if (existente) {
     cart.push(producto);
 }
 
-
+saveCartToStorage();
     renderCart();
 
     // Cerrar modal y abrir carrito
@@ -163,5 +187,24 @@ if (existente) {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-    updateCartCount();
+    renderCart();
+    ensureCartCountUpdated();
 });
+
+// Also render cart when modal is shown to ensure it's always in sync
+const cartModal = document.getElementById('modalCarrito');
+if (cartModal) {
+    cartModal.addEventListener('show.bs.modal', () => {
+        renderCart();
+    });
+} else {
+    // If modal doesn't exist yet, wait for it to be added to DOM
+    setTimeout(() => {
+        const modal = document.getElementById('modalCarrito');
+        if (modal) {
+            modal.addEventListener('show.bs.modal', () => {
+                renderCart();
+            });
+        }
+    }, 500);
+}
