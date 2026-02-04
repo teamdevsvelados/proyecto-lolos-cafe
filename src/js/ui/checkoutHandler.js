@@ -19,6 +19,7 @@ document.addEventListener('click', (e) => {
   }
 
   localStorage.setItem('carrito_final', JSON.stringify(cart));
+  localStorage.removeItem('carrito_temporal');
   window.location.href = 'delivery-method.html';
 });
 
