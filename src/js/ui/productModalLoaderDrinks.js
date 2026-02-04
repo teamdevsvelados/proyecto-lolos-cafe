@@ -1,20 +1,31 @@
 const modal = document.getElementById('modalDrinks');
+let basePrice = 0;
+
+function updateModalTotal() {
+  const inputCantidad = modal.querySelector('#input-cantidad');
+  const cartTotalEl = modal.querySelector('#cartTotal') || modal.querySelector('#modal-total-dinamico');
+  if (!inputCantidad || !cartTotalEl) return;
+  
+  const cantidad = parseInt(inputCantidad.value) || 1;
+  const total = basePrice * cantidad;
+  cartTotalEl.textContent = `$ ${total.toFixed(2)}`;
+}
 
 modal.addEventListener('show.bs.modal', (event) => {
-  // 👇 ESTE es el elemento que disparó el modal
   const card = event.relatedTarget;
 
   if (!card || !card.classList.contains('product-card')) return;
 
   const product = JSON.parse(card.dataset.product);
+  basePrice = Number(product.price);
 
   const modalImg = modal.querySelector('#modalImg');
   const modalTitle = modal.querySelector('#modalTitle');
   const modalPrice = modal.querySelector('#modalPrice');
   const modalDescription = modal.querySelector('#modalDescription');
   const modalBadge = modal.querySelector('#modalBadge');
-  const modalTotal = modal.querySelector('#modalTotal');
-  const qtyValue = modal.querySelector('#qtyValue');
+  const cartTotalEl = modal.querySelector('#cartTotal') || modal.querySelector('#modal-total-dinamico');
+  const inputCantidad = modal.querySelector('#input-cantidad');
 
   modalImg.src = product.image;
   modalImg.alt = product.name;
@@ -29,8 +40,14 @@ modal.addEventListener('show.bs.modal', (event) => {
     modalBadge.classList.add('d-none');
   }
 
-  qtyValue.textContent = '1';
-  modalTotal.textContent = `Total: $${Number(product.price).toFixed(2)}`;
-  modalTotal.dataset.basePrice = product.price;
+  inputCantidad.value = '1';
+  updateModalTotal();
+});
+
+// Use event delegation for quantity buttons
+modal.addEventListener('click', (e) => {
+  if (e.target.closest('#btn-mas') || e.target.closest('#btn-menos')) {
+    setTimeout(updateModalTotal, 10);
+  }
 });
 
