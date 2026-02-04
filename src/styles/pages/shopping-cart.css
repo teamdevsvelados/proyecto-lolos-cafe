@@ -33,7 +33,7 @@
 }
 
 /* Imágenes de los productos (Más grandes) */
-.products#cartItems img {
+.products #cartItems img {
     width: 100px;
     height: 100px;
     object-fit: contain;
@@ -93,7 +93,7 @@
 }
 
 /* Botón Finalizar / Continuar */
-.products .btn-custom-dark-s {
+.products .btn-custom-dark {
     background-color: #000000;
     /* Gris muy oscuro de la imagen */
     color: white;
@@ -107,7 +107,7 @@
     transition: all 0.3s ease;
 }
 
-.products .btn-custom-dark-s:hover {
+.products .btn-custom-dark:hover {
     background-color: #000;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }

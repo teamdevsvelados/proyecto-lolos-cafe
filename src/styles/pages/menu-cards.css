@@ -19,7 +19,7 @@
 }
 
 /* General style for navigation button group */
-.products.custom-nav-group .btn {
+.products .custom-nav-group .btn {
     border-color: #333;
     color: #333;
     font-weight: 500;
