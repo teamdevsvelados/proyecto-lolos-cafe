@@ -1,0 +1,138 @@
+/* Hace que el modal se comporte como una barra lateral derecha */
+.products .modal-full-height {
+    margin: 0;
+    margin-left: auto;
+    height: 100%;
+}
+
+.products .modal-full-height .modal-content {
+    height: 100vh;
+    border-radius: 0;
+    border: none;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Ancho del sidebar en pantallas grandes */
+@media (min-width: 992px) {
+    #modalCarrito .modal-dialog {
+        max-width: 450px;
+    }
+}
+
+/* ITEMS DENTRO DEL CARRITO  */
+
+.products #cartItems {
+    padding: 10px;
+}
+
+/* Contenedor de cada producto */
+.products #cartItems .d-flex {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+/* Imágenes de los productos (Más grandes) */
+.products #cartItems img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    background-color: #f8f9fa;
+    padding: 10px;
+    border-radius: 15px;
+    border: 1px solid #eee;
+}
+
+/* Tipografía y Textos */
+.products #cartItems strong {
+    font-size: 1.25rem;
+    color: #1a1a1a;
+    display: block;
+    margin-bottom: 2px;
+}
+
+.products #cartItems .text-muted {
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+.products #cartItems .fw-bold.mt-1 {
+    font-size: 1.15rem;
+    color: #000000;
+}
+
+/* Botón de eliminar (Basura) */
+.products #cartItems .text-danger {
+    font-size: 1.2rem;
+    transition: transform 0.2s ease;
+}
+
+.products #cartItems .text-danger:hover {
+    transform: scale(1.1);
+}
+
+/* 3. FOOTER DEL CARRITO (TOTAL Y BOTÓN)             */
+.products #modalCarrito .modal-footer {
+    padding: 2rem;
+    background-color: #fff;
+    border-top: 2px solid #f8f9fa;
+    box-shadow: 0 -10px 20px rgba(0, 0, 0, 0.02);
+}
+
+/* Texto del Total */
+.products #modalCarrito .fw-bold.mb-2 span:first-child {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+.products#cartTotal {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #000;
+    letter-spacing: -1px;
+}
+
+/* Botón Finalizar / Continuar */
+.products .btn-custom-dark {
+    background-color: #000000;
+    /* Gris muy oscuro de la imagen */
+    color: white;
+    border: none;
+    padding: 1.2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.products .btn-custom-dark:hover {
+    background-color: #000;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Permite el scroll interno en el cuerpo del carrito */
+.products #modalCarrito .modal-body {
+    overflow-y: auto;
+    /* Activa el scroll vertical */
+    max-height: calc(100vh - 200px);
+    /* Ajusta la altura restando header y footer */
+    flex-grow: 1;
+    /* Empuja el footer hacia abajo */
+}
+
+/* Opcional: Estilizar la barra de scroll para que se vea más limpia */
+.products #modalCarrito .modal-body::-webkit-scrollbar {
+    width: 6px;
+}
+
+.products #modalCarrito .modal-body::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.products #modalCarrito .modal-body::-webkit-scrollbar-thumb {
+    background: #000000;
+    border-radius: 10px;
+}

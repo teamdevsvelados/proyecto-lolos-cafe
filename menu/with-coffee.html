@@ -5,57 +5,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Menú - Con Café</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
   <link rel="stylesheet" href="/src/styles/main.css" />
-<!-- Optional for visualization -->
-<style>
-  .card img {
-    display: block;
-    margin: 0 auto;
-    max-width: 70%;
-    height: auto;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    display: flex;
-  }
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
 
-  .card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-
-  .card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2)
-  }
-
-  /* General style for navigation button group */
-  .custom-nav-group .btn {
-    border-color: #333;
-    color: #333;
-    font-weight: 500;
-    padding: 10px 0;
-  }
-
-  /* Style when the button is selected */
-  .custom-nav-group .btn-check:checked+.btn {
-    background-color: #2D2D2A !important;
-    border-color: #2D2D2A !important;
-    color: white !important;
-  }
-
-  .custom-nav-group .btn:focus {
-    box-shadow: none;
-  }
-
-  .top-buttons {
-    padding: 20px 20px 40px 20px;
-  }
-</style>
 </head>
 
-<body>
+<body class="products">
 <div id="header-placeholder"></div>
 <main>
   <header>
@@ -74,7 +31,7 @@
 
 
 
-    <div class="d-flex w-100 text-center top-buttons container" >
+    <div class="d-flex w-100 text-center top-buttons-menu container" >
       <a href="/menu/with-coffee.html" class="flex-fill btn btn-dark rounded-0">CON CAFÉ</a>
       <a href="/menu/without-coffee.html" class="flex-fill btn btn-outline-dark rounded-0">SIN CAFÉ</a>
       <a href="/menu/desserts.html" class="flex-fill btn btn-outline-dark rounded-0">POSTRES</a>
@@ -84,23 +41,24 @@
     
 
       <!-- Coffee drinks -->
-    <div class="container container-fluid d-flex justify-content-around flex-wrap">
+    <div class="container d-flex justify-content-around flex-wrap">
       <div class="row">
 
         <!-- Affogato -->
-        <div class="col-6 col-md-4 col-lg-3 mb-4 drink" class="drink">
-
-          <div class="card h-100" data-bs-toggle="modal" data-bs-target="#modalPostres" data-nombre="Pay Lotus"
-            data-precio="75.00"
-            data-descripcion="Crujiente base de galleta con el inconfundible toque acaramelado Lotus."
-            data-imagen="/public/images/basic-menu/with-coffee/affogato.webp">
-
+        <div class="col-6 col-md-4 col-lg-3 mb-4 drink" >
+          <div class="card h-100 product-card" data-bs-toggle="modal" data-bs-target="#modalDrinks" data-product='{
+      "name": "Affogato",
+      "price": "75.00",
+      "description": "Bebida helada con crema de chocolate y café espresso.",
+      "image": "/public/images/basic-menu/with-coffee/affogato.webp",
+      "badge": "Nuevo"
+    }'>
             <div class="p-2 text-end">
               <span class="badge bg-light text-dark fw-light" style="font-size: 1rem;">Nuevo</span>
             </div>
             <div class="img-container">
               <img src="/public/images/basic-menu/with-coffee/affogato.webp" class="card-img-top"
-                alt="Imagen de pay lotus">
+                alt="Imagen de affogato">
             </div>
             <div class="card-body">
               <div class="d-flex justify-content-between align-items-start mb-2">
@@ -108,19 +66,23 @@
                 <span class="price fw-bold">$75.00</span>
               </div>
               <p class="card-text text-muted" style="font-size: 1rem;">
-                Crujiente base de galleta con el inconfundible toque acaramelado Lotus.
+                Bebida helada con crema de chocolate y café espresso.
               </p>
             </div>
           </div>
         </div>
 
         <!-- Americano -->
-        <div class="col-6 col-md-4 col-lg-3 mb-4 drink" class="drink">
+        <div class="col-6 col-md-4 col-lg-3 mb-4 drink">
 
 
-          <div class="card h-100" data-bs-toggle="modal" data-bs-target="#modalPostres" data-nombre="Cheescake Tortuga"
-            data-precio="65.00" data-descripcion="Cremoso queso con chocolate, caramelo y trozos de nuez pecana."
-            data-imagen="/public/images/basic-menu/with-coffee/americano.webp">
+          <div class="card h-100 product-card" data-bs-toggle="modal" data-bs-target="#modalDrinks" data-product='{
+      "name": "Americano",
+      "price": "65.00",
+      "description": "Café espresso con agua caliente.",
+      "image": "/public/images/basic-menu/with-coffee/americano.webp",
+      "badge": "Nuevo"
+    }'>
 
             <div class="p-2 text-end">
               <span class="badge bg-light text-dark fw-light" style="font-size: 1rem;">Nuevo</span>
@@ -135,21 +97,22 @@
                 <span class="price fw-bold">$65.00</span>
               </div>
               <p class="card-text text-muted" style="font-size: 1rem;">
-                Cremoso queso con chocolate, caramelo y trozos de nuez pecana.
+                Café espresso con agua caliente.
               </p>
             </div>
           </div>
         </div>
 
+          <!-- Americano Limon -->
+        <div class="col-6 col-md-4 col-lg-3 mb-4 drink" >
 
-        <!-- Americano Limon -->
-        <div class="col-6 col-md-4 col-lg-3 mb-4 drink" class="drink">
-
-          <div class="card h-100" data-bs-toggle="modal" data-bs-target="#modalPostres"
-            data-nombre="Pastel de Zanahoria" data-precio="65.00"
-            data-descripcion="Esponjoso bizcocho especiado con betún de queso crema artesanal."
-            data-imagen="/public/images/basic-menu/desserts/pastelzanahoria.webp">
-
+          <div class="card h-100 product-card" data-bs-toggle="modal" data-bs-target="#modalDrinks" data-product='{
+      "name": "Americano Limón",
+      "price": "65.00",
+      "description": "Un café americano que combina la intensidad del espresso con un toque cítrico de limón.",
+      "image": "/public/images/basic-menu/with-coffee/americanolimon.webp",
+      "badge": "Nuevo"
+    }'>
 
             <div class="p-2 text-end">
               <span class="badge bg-light text-dark fw-light" style="font-size: 1rem;">Nuevo</span>
@@ -164,20 +127,22 @@
                 <span class="price fw-bold">$65.00</span>
               </div>
               <p class="card-text text-muted" style="font-size: 1rem;">
-                Esponjoso bizcocho especiado con betún de queso crema artesanal.
+                Un café americano que combina la intensidad del espresso con un toque cítrico de limón.
               </p>
             </div>
           </div>
         </div>
 
-
         <!-- Coldbrew -->
-        <div class="col-6 col-md-4 col-lg-3 mb-4 drink" class="drink">
+        <div class="col-6 col-md-4 col-lg-3 mb-4 drink" >
 
-          <div class="card h-100" data-bs-toggle="modal" data-bs-target="#modalPostres" data-nombre="Chocoflan"
-            data-precio="65.00" data-descripcion="La combinación perfecta entre pastel de chocolate y flan napolitano."
-            data-imagen="/public/images/basic-menu/with-coffee/coldbrew.webp">
-
+          <div class="card h-100 product-card" data-bs-toggle="modal" data-bs-target="#modalDrinks" data-product='{
+      "name": "Coldbrew",
+      "price": "65.00",
+      "description": "Café frío preparado con granos molidos y agua fría durante varias horas.",
+      "image": "/public/images/basic-menu/with-coffee/coldbrew.webp",
+      "badge": "Nuevo"
+    }'>
 
             <div class="p-2 text-end">
               <span class="badge bg-light text-dark fw-light" style="font-size: 1rem;">Nuevo</span>
@@ -192,20 +157,21 @@
                 <span class="price fw-bold">$65.00</span>
               </div>
               <p class="card-text text-muted" style="font-size: 1rem;">
-                La combinación perfecta entre pastel de chocolate y flan napolitano.
+                Café frío preparado con granos molidos y agua fría durante varias horas.
               </p>
             </div>
           </div>
         </div>
 
-
-        <!-- Dirty Chai -->
-        <div class="col-6 col-md-4 col-lg-3 mb-4 drink" class="drink">
-          <div class="card h-100" data-bs-toggle="modal" data-bs-target="#modalPostres" data-nombre="Tres Leches"
-            data-precio="65.00"
-            data-descripcion="Clásico irresistible, suave y profundamente bañado en nuestra mezcla secreta."
-            data-imagen="/public/images/basic-menu/with-coffee/dirtychai.webp">
-
+         <!-- Dirty Chai -->
+        <div class="col-6 col-md-4 col-lg-3 mb-4 drink" >
+          <div class="card h-100 product-card" data-bs-toggle="modal" data-bs-target="#modalDrinks" data-product='{
+      "name": "Dirty Chai",
+      "price": "65.00",
+      "description": "Un café con leche y especias que combina la intensidad del espresso con un toque de sabor especial.",
+      "image": "/public/images/basic-menu/with-coffee/dirtychai.webp",
+      "badge": "Nuevo"
+    }'>
 
 
             <div class="p-2 text-end">
@@ -221,19 +187,22 @@
                 <span class="price fw-bold">$65.00</span>
               </div>
               <p class="card-text text-muted" style="font-size: 1rem;">
-                Clásico irresistible, suave y profundamente bañado en nuestra mezcla secreta.
+                Un café con leche y especias que combina la intensidad del espresso con un toque de sabor especial.
               </p>
             </div>
           </div>
         </div>
 
+         <!-- Espresso -->
+        <div class="col-6 col-md-4 col-lg-3 mb-4 drink" >
 
-        <!-- Espresso -->
-        <div class="col-6 col-md-4 col-lg-3 mb-4 drink" class="drink">
-
-          <div class="card h-100" data-bs-toggle="modal" data-bs-target="#modalPostres" data-nombre="Pay de Limón"
-            data-precio="75.00" data-descripcion="El equilibrio ideal entre frescura cítrica y un toque dulce."
-            data-imagen="/public/images/basic-menu/with-coffee/espresso.webp">
+          <div class="card h-100 product-card" data-bs-toggle="modal" data-bs-target="#modalDrinks" data-product='{
+      "name": "Espresso",
+      "price": "75.00",
+      "description": "Espresso puro y concentrado, servido en una taza pequeña.",
+      "image": "/public/images/basic-menu/with-coffee/espresso.webp",
+      "badge": "Nuevo"
+    }'>
 
 
 
@@ -250,19 +219,22 @@
                 <span class="price fw-bold">$75.00</span>
               </div>
               <p class="card-text text-muted" style="font-size: 1rem;">
-                El equilibrio ideal entre frescura cítrica y un toque dulce.
+                Espresso puro y concentrado, servido en una taza pequeña.
               </p>
             </div>
           </div>
         </div>
 
-          <!-- Latte -->
-        <div class="col-6 col-md-4 col-lg-3 mb-4 drink" class="drink">
+         <!-- Latte -->
+        <div class="col-6 col-md-4 col-lg-3 mb-4 drink" >
 
-          <div class="card h-100" data-bs-toggle="modal" data-bs-target="#modalPostres" data-nombre="Pay de Limón"
-            data-precio="75.00" data-descripcion="El equilibrio ideal entre frescura cítrica y un toque dulce."
-            data-imagen="/public/images/basic-menu/with-coffee/latte.webp">
-
+          <div class="card h-100 product-card" data-bs-toggle="modal" data-bs-target="#modalDrinks" data-product='{
+      "name": "Latte",
+      "price": "75.00",
+      "description": "Ideal para quienes buscan una bebida suave y cremosa con un toque de sabor intenso.",
+      "image": "/public/images/basic-menu/with-coffee/latte.webp",
+      "badge": "Nuevo"
+    }'>
 
 
             <div class="p-2 text-end">
@@ -278,17 +250,21 @@
                 <span class="price fw-bold">$75.00</span>
               </div>
               <p class="card-text text-muted" style="font-size: 1rem;">
-                El equilibrio ideal entre frescura cítrica y un toque dulce.
+                Ideal para quienes buscan una bebida suave y cremosa con un toque de sabor intenso.
               </p>
             </div>
           </div>
         </div>
 
-          <!-- Latte Avellana -->
-        <div class="col-6 col-md-4 col-lg-3 mb-4 drink" class="drink">
-          <div class="card h-100" data-bs-toggle="modal" data-bs-target="#modalPostres" data-nombre="Pay de Limón"
-            data-precio="75.00" data-descripcion="El equilibrio ideal entre frescura cítrica y un toque dulce."
-            data-imagen="/public/images/basic-menu/with-coffee/latteavellana.webp">
+        <!-- Latte Avellana -->
+        <div class="col-6 col-md-4 col-lg-3 mb-4 drink" >
+          <div class="card h-100 product-card" data-bs-toggle="modal" data-bs-target="#modalDrinks" data-product='{
+      "name": "Latte Avellana",
+      "price": "75.00",
+      "description": "Ideal para quienes buscan una bebida suave y cremosa con un toque de sabor intenso y avellanas.",
+      "image": "/public/images/basic-menu/with-coffee/latteavellana.webp",
+      "badge": "Nuevo"
+    }'>
             <div class="p-2 text-end">
               <span class="badge bg-light text-dark fw-light" style="font-size: 1rem;">Nuevo</span>
             </div>
@@ -302,17 +278,21 @@
                 <span class="price fw-bold">$75.00</span>
               </div>
               <p class="card-text text-muted" style="font-size: 1rem;">
-                El equilibrio ideal entre frescura cítrica y un toque dulce.
+                Ideal para quienes buscan una bebida suave y cremosa con un toque de sabor intenso y avellanas.
               </p>
             </div>
           </div>
         </div>
 
-          <!-- Latte Caramelo Machiatto -->
-        <div class="col-6 col-md-4 col-lg-3 mb-4 drink" class="drink">
-          <div class="card h-100" data-bs-toggle="modal" data-bs-target="#modalPostres" data-nombre="Pay de Limón"
-            data-precio="75.00" data-descripcion="El equilibrio ideal entre frescura cítrica y un toque dulce."
-            data-imagen="/public/images/basic-menu/with-coffee/lattecaramelomachiatto.webp">
+        <!-- Latte Caramelo Machiatto -->
+        <div class="col-6 col-md-4 col-lg-3 mb-4 drink" >
+          <div class="card h-100 product-card" data-bs-toggle="modal" data-bs-target="#modalDrinks" data-product='{
+      "name": "Latte Caramelo Machiatto",
+      "price": "75.00",
+      "description": "Ideal para quienes buscan una bebida suave y cremosa con un toque de sabor intenso y caramelo.",
+      "image": "/public/images/basic-menu/with-coffee/lattecaramelomachiatto.webp",
+      "badge": "Nuevo"
+    }'>
             <div class="p-2 text-end">
               <span class="badge bg-light text-dark fw-light" style="font-size: 1rem;">Nuevo</span>
             </div>
@@ -326,17 +306,21 @@
                 <span class="price fw-bold">$75.00</span>
               </div>
               <p class="card-text text-muted" style="font-size: 1rem;">
-                El equilibrio ideal entre frescura cítrica y un toque dulce.
+                Ideal para quienes buscan una bebida suave y cremosa con un toque de sabor intenso y caramelo.
               </p>
             </div>
           </div>
         </div>
 
-          <!-- Latte coco -->
-        <div class="col-6 col-md-4 col-lg-3 mb-4 drink" class="drink">
-          <div class="card h-100" data-bs-toggle="modal" data-bs-target="#modalPostres" data-nombre="Pay de Limón"
-            data-precio="75.00" data-descripcion="El equilibrio ideal entre frescura cítrica y un toque dulce."
-            data-imagen="/public/images/basic-menu/with-coffee/lattecoco.webp">
+        <!-- Latte coco -->
+        <div class="col-6 col-md-4 col-lg-3 mb-4 drink" >
+          <div class="card h-100 product-card" data-bs-toggle="modal" data-bs-target="#modalDrinks" data-product='{
+      "name": "Latte Coco",
+      "price": "75.00",
+      "description": "Ideal para quienes buscan una bebida suave y cremosa con un toque de sabor intenso y coco.",
+      "image": "/public/images/basic-menu/with-coffee/lattecoco.webp",
+      "badge": "Nuevo"
+    }'>
             <div class="p-2 text-end">
               <span class="badge bg-light text-dark fw-light" style="font-size: 1rem;">Nuevo</span>
             </div>
@@ -350,17 +334,21 @@
                 <span class="price fw-bold">$75.00</span>
               </div>
               <p class="card-text text-muted" style="font-size: 1rem;">
-                El equilibrio ideal entre frescura cítrica y un toque dulce.
+                Ideal para quienes buscan una bebida suave y cremosa con un toque de sabor intenso y coco.
               </p>
             </div>
           </div>
         </div>
 
-          <!-- Latte Crema Avellana -->
-        <div class="col-6 col-md-4 col-lg-3 mb-4 drink" class="drink">
-          <div class="card h-100" data-bs-toggle="modal" data-bs-target="#modalPostres" data-nombre="Pay de Limón"
-            data-precio="75.00" data-descripcion="El equilibrio ideal entre frescura cítrica y un toque dulce."
-            data-imagen="/public/images/basic-menu/with-coffee/lattecremaavellana.webp">
+         <!-- Latte Crema Avellana -->
+        <div class="col-6 col-md-4 col-lg-3 mb-4 drink" >
+          <div class="card h-100 product-card" data-bs-toggle="modal" data-bs-target="#modalDrinks" data-product='{
+      "name": "Latte Crema de Avellanas",
+      "price": "75.00",
+      "description": "Ideal para quienes buscan una bebida suave y cremosa con un toque de sabor intenso y crema de avellanas.",
+      "image": "/public/images/basic-menu/with-coffee/lattecremaavellana.webp",
+      "badge": "Nuevo"
+    }'>
             <div class="p-2 text-end">
               <span class="badge bg-light text-dark fw-light" style="font-size: 1rem;">Nuevo</span>
             </div>
@@ -374,17 +362,21 @@
                 <span class="price fw-bold">$75.00</span>
               </div>
               <p class="card-text text-muted" style="font-size: 1rem;">
-                El equilibrio ideal entre frescura cítrica y un toque dulce.
+                Ideal para quienes buscan una bebida suave y cremosa con un toque de sabor intenso y crema de avellanas.
               </p>
             </div>
           </div>
         </div>
 
-          <!-- Latte Crema Irlandesa -->
-        <div class="col-6 col-md-4 col-lg-3 mb-4 drink" class="drink">
-          <div class="card h-100" data-bs-toggle="modal" data-bs-target="#modalPostres" data-nombre="Pay de Limón"
-            data-precio="75.00" data-descripcion="El equilibrio ideal entre frescura cítrica y un toque dulce."
-            data-imagen="/public/images/basic-menu/with-coffee/lattecremairlandesa.webp">
+         <!-- Latte Crema Irlandesa -->
+        <div class="col-6 col-md-4 col-lg-3 mb-4 drink" >
+          <div class="card h-100 product-card" data-bs-toggle="modal" data-bs-target="#modalDrinks" data-product='{
+      "name": "Latte Crema Irlandesa",
+      "price": "75.00",
+      "description": "Ideal para quienes buscan una bebida suave y cremosa con un toque de sabor intenso y crema irlandesa.",
+      "image": "/public/images/basic-menu/with-coffee/lattecremairlandesa.webp",
+      "badge": "Nuevo"
+    }'>
             <div class="p-2 text-end">
               <span class="badge bg-light text-dark fw-light" style="font-size: 1rem;">Nuevo</span>
             </div>
@@ -398,17 +390,21 @@
                 <span class="price fw-bold">$75.00</span>
               </div>
               <p class="card-text text-muted" style="font-size: 1rem;">
-                El equilibrio ideal entre frescura cítrica y un toque dulce.
+                Ideal para quienes buscan una bebida suave y cremosa con un toque de sabor intenso y crema irlandesa.
               </p>
             </div>
           </div>
         </div>
 
-           <!-- Latte Miel Canela -->
-        <div class="col-6 col-md-4 col-lg-3 mb-4 drink" class="drink">
-          <div class="card h-100" data-bs-toggle="modal" data-bs-target="#modalPostres" data-nombre="Pay de Limón"
-            data-precio="75.00" data-descripcion="El equilibrio ideal entre frescura cítrica y un toque dulce."
-            data-imagen="/public/images/basic-menu/with-coffee/lattemielcanela.webp">
+        <!-- Latte Miel Canela -->
+        <div class="col-6 col-md-4 col-lg-3 mb-4 drink" >
+          <div class="card h-100 product-card" data-bs-toggle="modal" data-bs-target="#modalDrinks" data-product='{
+      "name": "Latte Miel Canela",
+      "price": "75.00",
+      "description": "Ideal para quienes buscan una bebida suave y cremosa con un toque de sabor intenso y miel de canela.",
+      "image": "/public/images/basic-menu/with-coffee/lattemielcanela.webp",
+      "badge": "Nuevo"
+    }'>
             <div class="p-2 text-end">
               <span class="badge bg-light text-dark fw-light" style="font-size: 1rem;">Nuevo</span>
             </div>
@@ -422,17 +418,21 @@
                 <span class="price fw-bold">$75.00</span>
               </div>
               <p class="card-text text-muted" style="font-size: 1rem;">
-                El equilibrio ideal entre frescura cítrica y un toque dulce.
+                Ideal para quienes buscan una bebida suave y cremosa con un toque de sabor intenso y miel de canela.
               </p>
             </div>
           </div>
         </div>
 
-           <!-- Latte Moka -->
-        <div class="col-6 col-md-4 col-lg-3 mb-4 drink" class="drink">
-          <div class="card h-100" data-bs-toggle="modal" data-bs-target="#modalPostres" data-nombre="Pay de Limón"
-            data-precio="75.00" data-descripcion="El equilibrio ideal entre frescura cítrica y un toque dulce."
-            data-imagen="/public/images/basic-menu/with-coffee/lattemoka.webp">
+        <!-- Latte Moka -->
+        <div class="col-6 col-md-4 col-lg-3 mb-4 drink" >
+          <div class="card h-100 product-card" data-bs-toggle="modal" data-bs-target="#modalDrinks" data-product='{
+      "name": "Latte Moka",
+      "price": "75.00",
+      "description": "Ideal para quienes buscan una bebida suave y cremosa con un toque de sabor intenso y moka.",
+      "image": "/public/images/basic-menu/with-coffee/lattemoka.webp",
+      "badge": "Nuevo"
+    }'>
             <div class="p-2 text-end">
               <span class="badge bg-light text-dark fw-light" style="font-size: 1rem;">Nuevo</span>
             </div>
@@ -446,17 +446,21 @@
                 <span class="price fw-bold">$75.00</span>
               </div>
               <p class="card-text text-muted" style="font-size: 1rem;">
-                El equilibrio ideal entre frescura cítrica y un toque dulce.
+                Ideal para quienes buscan una bebida suave y cremosa con un toque de sabor intenso y moka.
               </p>
             </div>
           </div>
         </div>
 
-           <!-- Latte Moka Blanco -->
-        <div class="col-6 col-md-4 col-lg-3 mb-4 drink" class="drink">
-          <div class="card h-100" data-bs-toggle="modal" data-bs-target="#modalPostres" data-nombre="Pay de Limón"
-            data-precio="75.00" data-descripcion="El equilibrio ideal entre frescura cítrica y un toque dulce."
-            data-imagen="/public/images/basic-menu/with-coffee/lattemokablanco.webp">
+        <!-- Latte Moka Blanco -->
+        <div class="col-6 col-md-4 col-lg-3 mb-4 drink" >
+          <div class="card h-100 product-card" data-bs-toggle="modal" data-bs-target="#modalDrinks" data-product='{
+      "name": "Latte Moka Blanco",
+      "price": "75.00",
+      "description": "Ideal para quienes buscan una bebida suave y cremosa con un toque de sabor intenso y moka blanco.",
+      "image": "/public/images/basic-menu/with-coffee/lattemokablanco.webp",
+      "badge": "Nuevo"
+    }'>
             <div class="p-2 text-end">
               <span class="badge bg-light text-dark fw-light" style="font-size: 1rem;">Nuevo</span>
             </div>
@@ -470,17 +474,21 @@
                 <span class="price fw-bold">$75.00</span>
               </div>
               <p class="card-text text-muted" style="font-size: 1rem;">
-                El equilibrio ideal entre frescura cítrica y un toque dulce.
+                Ideal para quienes buscan una bebida suave y cremosa con un toque de sabor intenso y moka blanco.
               </p>
             </div>
           </div>
         </div>
 
-           <!-- Latte Tres Leche -->
-        <div class="col-6 col-md-4 col-lg-3 mb-4 drink" class="drink">
-          <div class="card h-100" data-bs-toggle="modal" data-bs-target="#modalPostres" data-nombre="Pay de Limón"
-            data-precio="75.00" data-descripcion="El equilibrio ideal entre frescura cítrica y un toque dulce."
-            data-imagen="/public/images/basic-menu/with-coffee/lattetresleches.webp">
+        <!-- Latte Tres Leche -->
+        <div class="col-6 col-md-4 col-lg-3 mb-4 drink" >
+          <div class="card h-100 product-card" data-bs-toggle="modal" data-bs-target="#modalDrinks" data-product='{
+      "name": "Latte Tres Leches",
+      "price": "75.00",
+      "description": "Ideal para quienes buscan una bebida suave y cremosa con un toque de sabor intenso y tres leches.",
+      "image": "/public/images/basic-menu/with-coffee/lattetresleches.webp",
+      "badge": "Nuevo"
+    }'>
             <div class="p-2 text-end">
               <span class="badge bg-light text-dark fw-light" style="font-size: 1rem;">Nuevo</span>
             </div>
@@ -494,17 +502,21 @@
                 <span class="price fw-bold">$75.00</span>
               </div>
               <p class="card-text text-muted" style="font-size: 1rem;">
-                El equilibrio ideal entre frescura cítrica y un toque dulce.
+                Ideal para quienes buscan una bebida suave y cremosa con un toque de sabor intenso y tres leches.
               </p>
             </div>
           </div>
         </div>
 
-           <!-- Latte Vainilla -->
-        <div class="col-6 col-md-4 col-lg-3 mb-4 drink" class="drink">
-          <div class="card h-100" data-bs-toggle="modal" data-bs-target="#modalPostres" data-nombre="Pay de Limón"
-            data-precio="75.00" data-descripcion="El equilibrio ideal entre frescura cítrica y un toque dulce."
-            data-imagen="/public/images/basic-menu/with-coffee/lattevainilla.webp">
+         <!-- Latte Vainilla -->
+        <div class="col-6 col-md-4 col-lg-3 mb-4 drink" >
+          <div class="card h-100 product-card" data-bs-toggle="modal" data-bs-target="#modalDrinks" data-product='{
+      "name": "Latte Vainilla",
+      "price": "75.00",
+      "description": "Ideal para quienes buscan una bebida suave y cremosa con un toque de sabor intenso y vainilla.",
+      "image": "/public/images/basic-menu/with-coffee/lattevainilla.webp",
+      "badge": "Nuevo"
+    }'>
             <div class="p-2 text-end">
               <span class="badge bg-light text-dark fw-light" style="font-size: 1rem;">Nuevo</span>
             </div>
@@ -518,196 +530,248 @@
                 <span class="price fw-bold">$75.00</span>
               </div>
               <p class="card-text text-muted" style="font-size: 1rem;">
-                El equilibrio ideal entre frescura cítrica y un toque dulce.
+                Ideal para quienes buscan una bebida suave y cremosa con un toque de sabor intenso y vainilla.
               </p>
             </div>
           </div>
         </div>
-
-
-
       </div>
     </div>
 
+     <!-- Modal included -->
+    <div class="modal fade" id="modalDrinks" tabindex="-1">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
 
 
-      <!-- Modal included -->
-      <div class="modal fade" id="modalBebida" tabindex="-1">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-
-
-            <!-- Modal header -->
-            <div class="modal-body p-4">
-              <div class="d-flex align-items-center mb-4">
-                <button type="button" class="btn border-0 p-0 me-2" data-bs-dismiss="modal">
-                  <i class="bi bi-arrow-left fs-4"></i> </button>
-                <h3 class="mb-0">Arma tu bebida</h3>
+          <!-- Modal header -->
+          <div class="modal-body p-4">
+            <div class="d-flex align-items-center mb-4">
+              <button type="button" class="btn border-0 p-0 me-2" data-bs-dismiss="modal">
+                <i class="bi bi-arrow-left fs-4"></i> </button>
+              <h3 class="mb-0">Arma tu bebida</h3>
+            </div>
+            <!-- Product Info -->
+            <div class="row align-items-start">
+              <div class="col-md-5 text-center">
+                <img id="modalImg" class="img-fluid" style="max-height: 250px;" alt="Información de la bebida">
               </div>
-
-              <div class="row align-items-start">
-                <div class="col-md-5 text-center">
-                  <img src="/public/images/index/carrousel-pic-5.png" class="img-fluid" style="max-height: 250px;">
-                </div>
-                <div class="col-md-7">
-                  <h4 class="fw-bold mb-1">Nombre del producto</h4>
-                  <p class="fw-bold text-muted mb-1">$0.00</p>
-                  <p class="text-secondary small">Description del producto que explica los ingredientes básicos.</p>
-                  <span class="badge bg-success opacity-75 mt-2">☆ NUEVO</span> <!-- This seems unnecessary -->
-                </div>
+              <div class="col-md-7">
+                <h4 id="modalTitle" class="fw-bold mb-1"></h4>
+                <p id="modalPrice" class="fw-bold text-muted mb-1"></p>
+                <p id="modalDescription" class="text-secondary small"></p>
+                <span id="modalBadge" class="badge bg-success opacity-75 mt-2 d-none"></span>
               </div>
+            </div>
 
-              <!-- Select temp -->
 
-              <hr class="my-4">
-
-              <div class="col-12">
-                <h5 class="fw-bold">Temperatura</h5>
-                <div class="ps-4 mt-2">
-                  <div class="form-check mb-2">
-                    <input class="form-check-input" type="radio" name="temp" id="caliente" checked>
-                    <label class="form-check-label" for="caliente">Caliente</label>
-                  </div>
-                  <div class="form-check mb-2">
-                    <input class="form-check-input" type="radio" name="temp" id="rocas">
-                    <label class="form-check-label" for="rocas">A las rocas</label>
-                  </div>
-                  <div class="form-check mb-2">
-                    <input class="form-check-input" type="radio" name="temp" id="frappe">
-                    <label class="form-check-label" for="frappe">Frappé</label>
-                  </div>
+            <!-- Select temp -->
+            <hr class="my-4">
+            <div class="col-12">
+              <h5 class="fw-bold">Temperatura</h5>
+              <div class="ps-4 mt-2">
+                <div class="form-check mb-2">
+                  <input class="form-check-input" type="radio" name="temp" id="caliente" checked>
+                  <label class="form-check-label" for="caliente">Caliente</label>
                 </div>
-              </div>
-
-              <!-- Select size -->
-              <hr class="my-4">
-
-              <div class="col-12">
-                <h5 class="fw-bold"><i class="bi bi-cup-hot"></i> Tamaño</h5>
-                <div class="ps-4 mt-2">
-                  <div class="form-check mb-2">
-                    <input class="form-check-input" type="radio" name="size" id="chico" checked>
-                    <label class="form-check-label" for="chico">Chico (14 oz.) ($0)</label>
-                  </div>
-                  <div class="form-check mb-2">
-                    <input class="form-check-input" type="radio" name="size" id="mediano" checked>
-                    <label class="form-check-label" for="mediano">Mediano (16 oz.) ($0)</label>
-                  </div>
-                  <div class="form-check mb-2">
-                    <input class="form-check-input" type="radio" name="size" id="grande" checked>
-                    <label class="form-check-label" for="grande">Grande (20 oz.) ($0)</label>
-                  </div>
+                <div class="form-check mb-2">
+                  <input class="form-check-input" type="radio" name="temp" id="rocas">
+                  <label class="form-check-label" for="rocas">A las rocas</label>
                 </div>
-              </div>
-
-              <!-- Selec Milk -->
-              <hr class="my-4">
-
-              <div class="col-12">
-                <h5 class="fw-bold"><i class="bi bi-cup-hot"></i> Tipo de leche</h5>
-                <div class="ps-4 mt-2">
-                  <div class="form-check mb-2">
-                    <input class="form-check-input" type="radio" name="milk" id="regular" checked>
-                    <label class="form-check-label" for="regular">Regular </label>
-                  </div>
-                  <div class="form-check mb-2">
-                    <input class="form-check-input" type="radio" name="milk" id="deslactosada">
-                    <label class="form-check-label" for="deslactosada">Deslactosada</label>
-                  </div>
-                  <div class="form-check mb-2">
-                    <input class="form-check-input" type="radio" name="milk" id="light">
-                    <label class="form-check-label" for="light"> Light</label>
-                  </div>
-                  <div class="form-check mb-2">
-                    <input class="form-check-input" type="radio" name="milk" id="almendras">
-                    <label class="form-check-label" for="almendras"> Almendras</label>
-                  </div>
-
-                  <div class="form-check mb-2">
-                    <input class="form-check-input" type="radio" name="milk" id="soya">
-                    <label class="form-check-label" for="soya"> Soya</label>
-                  </div>
-                  <div class="form-check mb-2">
-                    <input class="form-check-input" type="radio" name="milk" id="coco">
-                    <label class="form-check-label" for="coco"> Coco</label>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Selec extras -->
-              <hr class="my-4">
-
-              <div class="col-12">
-                <h5 class="fw-bold"><i class="bi bi-cup-hot"></i> Extras</h5>
-                <div class="ps-4 mt-2">
-                  <div class="form-check mb-2">
-                    <input class="form-check-input" type="radio" name="extra" id="noextra" checked>
-                    <label class="form-check-label" for="noextra">Sin extras </label>
-                  </div>
-                  <div class="form-check mb-2">
-                    <input class="form-check-input" type="radio" name="extra" id="expresso" checked>
-                    <label class="form-check-label" for="expresso">Shot de expresso</label>
-                  </div>
-                  <div class="form-check mb-2">
-                    <input class="form-check-input" type="radio" name="extra" id="jarabe" checked>
-                    <label class="form-check-label" for="jarabe"> Shot de jarabe saborizante</label>
-                  </div>
-                  <div class="form-check mb-2">
-                    <input class="form-check-input" type="radio" name="extra" id="tapioca" checked>
-                    <label class="form-check-label" for="tapioca"> Tapioca </label>
-                  </div>
-                  <div class="form-check mb-2">
-                    <input class="form-check-input" type="radio" name="extra" id="vainilla" checked>
-                    <label class="form-check-label" for="vainilla"> Nieve de vainilla </label>
-                  </div>
-                  <div class="form-check mb-2">
-                    <input class="form-check-input" type="radio" name="extra" id="foam" checked>
-                    <label class="form-check-label" for="foam"> Foam </label>
-                  </div>
-                  <div class="form-check mb-2">
-                    <input class="form-check-input" type="radio" name="extra" id="chessefoam" checked>
-                    <label class="form-check-label" for="chessefoam"> Cheese foam </label>
-                  </div>
-                </div>
-              </div>
-
-
-              <!-- Extra notes -->
-
-              <hr class="my-4">
-
-              <div class="col-12">
-                <h5 class="fw-bold"><i class="bi bi-pencil"></i> Notas adicionales</h5>
-                <p class="text-muted small ps-4">Cuéntanos si tu pedido tiene alguna indicación especial</p>
-                <div class="ps-4">
-                  <textarea class="form-control bg-light border-0" rows="2" placeholder="Escribe aquí..."></textarea>
-                </div>
-              </div>
-
-              <!-- Purchase confirmation -->
-
-              <div class="modal-footer border-0 d-flex justify-content-between">
-                <div class="d-flex align-items-center border rounded">
-                  <button class="btn btn-sm">-</button>
-                  <span class="px-3">1</span>
-                  <button class="btn btn-sm">+</button>
-                </div>
-                <div class="row">
-                  <span class="me-3 fw-bold col-12 text-end">Total: $0.00</span>
-                  <button class="btn btn-dark px-4 py-2 col-3 align-self-end">Agregar más productos</button>
-                  <button class="btn btn-dark px-4 py-2 col-3 align-self-end">Confirmar pedido</button>
+                <div class="form-check mb-2">
+                  <input class="form-check-input" type="radio" name="temp" id="frappe">
+                  <label class="form-check-label" for="frappe">Frappé</label>
                 </div>
               </div>
             </div>
+
+            <!-- Select size -->
+            <hr class="my-4">
+            <div class="col-12">
+              <h5 class="fw-bold"><i class="bi bi-cup-hot"></i> Tamaño</h5>
+              <div class="ps-4 mt-2">
+                <div class="form-check mb-2">
+                  <input class="form-check-input" type="radio" name="size" id="chico" checked>
+                  <label class="form-check-label" for="chico">Chico (14 oz.) ($0)</label>
+                </div>
+                <div class="form-check mb-2">
+                  <input class="form-check-input" type="radio" name="size" id="mediano">
+                  <label class="form-check-label" for="mediano">Mediano (16 oz.) ($0)</label>
+                </div>
+                <div class="form-check mb-2">
+                  <input class="form-check-input" type="radio" name="size" id="grande">
+                  <label class="form-check-label" for="grande">Grande (20 oz.) ($0)</label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Selec Milk -->
+            <hr class="my-4">
+
+            <div class="col-12">
+              <h5 class="fw-bold"><i class="bi bi-cup-hot"></i> Tipo de leche</h5>
+              <div class="ps-4 mt-2">
+                <div class="form-check mb-2">
+                  <input class="form-check-input" type="radio" name="milk" id="regular" checked>
+                  <label class="form-check-label" for="regular">Regular </label>
+                </div>
+                <div class="form-check mb-2">
+                  <input class="form-check-input" type="radio" name="milk" id="deslactosada">
+                  <label class="form-check-label" for="deslactosada">Deslactosada</label>
+                </div>
+                <div class="form-check mb-2">
+                  <input class="form-check-input" type="radio" name="milk" id="light">
+                  <label class="form-check-label" for="light"> Light</label>
+                </div>
+                <div class="form-check mb-2">
+                  <input class="form-check-input" type="radio" name="milk" id="almendras">
+                  <label class="form-check-label" for="almendras"> Almendras</label>
+                </div>
+
+                <div class="form-check mb-2">
+                  <input class="form-check-input" type="radio" name="milk" id="soya">
+                  <label class="form-check-label" for="soya"> Soya</label>
+                </div>
+                <div class="form-check mb-2">
+                  <input class="form-check-input" type="radio" name="milk" id="coco">
+                  <label class="form-check-label" for="coco"> Coco</label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Selec extras -->
+            <hr class="my-4">
+            <div class="col-12">
+              <h5 class="fw-bold"><i class="bi bi-cup-hot"></i> Extras</h5>
+              <div class="ps-4 mt-2">
+                <div class="form-check mb-2">
+                  <input class="form-check-input" type="radio" name="extra" id="noextra" checked>
+                  <label class="form-check-label" for="noextra">Sin extras</label>
+                </div>
+                <div class="form-check mb-2">
+                  <input class="form-check-input" type="radio" name="extra" id="expresso">
+                  <label class="form-check-label" for="expresso">Shot de espresso</label>
+                </div>
+                <div class="form-check mb-2">
+                  <input class="form-check-input" type="radio" name="extra" id="jarabe">
+                  <label class="form-check-label" for="jarabe">Shot de jarabe saborizante</label>
+                </div>
+                <div class="form-check mb-2">
+                  <input class="form-check-input" type="radio" name="extra" id="tapioca">
+                  <label class="form-check-label" for="tapioca">Tapioca</label>
+                </div>
+                <div class="form-check mb-2">
+                  <input class="form-check-input" type="radio" name="extra" id="vainilla">
+                  <label class="form-check-label" for="vainilla">Nieve de vainilla</label>
+                </div>
+                <div class="form-check mb-2">
+                  <input class="form-check-input" type="radio" name="extra" id="foam">
+                  <label class="form-check-label" for="foam">Foam</label>
+                </div>
+                <div class="form-check mb-2">
+                  <input class="form-check-input" type="radio" name="extra" id="cheesefoam">
+                  <label class="form-check-label" for="cheesefoam">Cheese foam</label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Extra notes -->
+
+            <hr class="my-4">
+            <div class="col-12">
+              <h5 class="fw-bold"><i class="bi bi-pencil"></i> Notas adicionales</h5>
+              <p class="text-muted small ps-4">
+                Cuéntanos si tu pedido tiene alguna indicación especial
+              </p>
+              <div class="ps-4">
+                <textarea id="modalNotes" class="form-control bg-light border-0" rows="2"
+                  placeholder="Escribe aquí..."></textarea>
+              </div>
+            </div>
+
+            <!-- Purchase confirmation -->
+
+            <div class="modal-footer border-0 p-4 pt-0">
+              <div class="d-flex justify-content-between align-items-center w-100 mb-4">
+                <div class="input-group quantity-selector" style="width: 140px;">
+                  <button class="btn btn-outline-secondary border-secondary-subtle" type="button"
+                    id="btn-menos">−</button>
+                  <input type="text" id="input-cantidad" class="form-control text-center border-secondary-subtle"
+                    value="1" readonly>
+                  <button class="btn btn-outline-secondary border-secondary-subtle" type="button"
+                    id="btn-mas">+</button>
+                </div>
+                <div class="text-end">
+                  <span class="fw-bold me-2">Total</span>
+                  <span class="fw-bold fs-5" id="modal-total-dinamico">$ 0.00</span>
+                </div>
+              </div>
+
+              <div class="d-flex gap-2 w-100">
+                <button class="cta-btn-secondary w-100 text-uppercase" data-bs-dismiss="modal">
+                  Agregar más productos
+                </button>
+                <button class="cta-btn-secondary w-100 text-uppercase " id="btnAgregarCarrito">
+                  Continuar
+                </button>
+              </div>
+            </div>
+
           </div>
         </div>
+      </div>
+    </div>
+     <!-- Sidebar Shopping Cart -->
+  <div class="modal fade" id="modalCarrito" tabindex="-1">
+    <div class="modal-dialog modal-dialog-end modal-full-height">
+      <div class="modal-content">
+
+        <!-- Header -->
+        <div class="modal-header">
+          <h5 class="modal-title">
+            <i class="bi bi-cart"></i> Tu pedido
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+
+        <!-- Body -->
+        <div class="modal-body">
+          <div id="cartItems" class="d-flex flex-column gap-3">
+            <!-- Items dinámicos -->
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="modal-footer flex-column">
+          <div class="w-100 d-flex justify-content-between fw-bold mb-2">
+            <span>Total</span>
+            <span id="cartTotal">$0.00</span>
+          </div>
+          <button id="btnFinalizarPedido" type="button" class="btn btn-dark w-100 py-3 text-uppercase fw-bold">
+            Finalizar pedido
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
 
   </main>
   <div id="footer-placeholder"></div>
   
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
   <script type="module" src="/src/js/utils/loadComponents.js"></script>
+  <script type="module" src="/src/js/utils/cartSync.js"></script>
   <script src="https://animatedicons.co/scripts/embed-animated-icons.js"></script>
+  
+  
+  <script type="module" src="/src/js/controllers/modalProductQuantity.js"></script>
+  <script type="module" src="/src/js/ui/cartManagerDesserts.js"></script>
+  <script type="module" src="/src/js/ui/checkoutHandler.js"></script>
+  <script type="module" src="/src/js/ui/productModalLoaderDrinks.js"></script>
+
+
 </body>
 
 </html>

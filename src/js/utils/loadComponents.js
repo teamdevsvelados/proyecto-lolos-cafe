@@ -19,3 +19,11 @@ fetch('/src/components/sidebar-nav.html')
             sidebar.innerHTML = html
         }
     });
+fetch('/src/components/cart-modal.html')
+    .then(response => response.text())
+    .then(html => {
+        const body = document.body;
+        const cartModalDiv = document.createElement('div');
+        cartModalDiv.innerHTML = html;
+        body.appendChild(cartModalDiv.firstElementChild);
+    });
