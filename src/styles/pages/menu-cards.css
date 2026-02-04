@@ -49,9 +49,9 @@
 }
 
 /* Estilo para los botones oscuros de la imagen */
-.products.btn-custom-dark {
-    background-color: #000000 !important;
-    color: white !important;
+.products .btn-custom-dark {
+    background-color: #000000;
+    color: white;
     border: none;
     border-radius: 4px;
     /* Bordes ligeramente redondeados como en la captura */
@@ -59,7 +59,7 @@
 }
 
 .products .btn-custom-dark:hover {
-    background-color: #4a473f !important;
+    background-color: #4a473f;
 }
 
 /* Estilo para el selector de cantidad (+ 0 -) */
