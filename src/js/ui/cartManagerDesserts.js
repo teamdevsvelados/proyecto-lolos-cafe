@@ -116,13 +116,13 @@ document.addEventListener('click', (e) => {
     
 
     // Recolecta datos usando los IDs que pusimos anteriormente
-    const nombre = safeText(modal.querySelector('#m-nombre, #modalTitle')) || 'Producto';
-    const precioText = safeText(modal.querySelector('#m-precio, #modalPrice')) || '$0.00';
+    const nombre = safeText(modal.querySelector('#modalTitle')) || 'Producto';
+    const precioText = safeText(modal.querySelector('#modal-total-dinamico')) || '$0.00';
     const precio = Number(precioText.replace(/[^0-9.]/g, '')) || 0;
 
 
     // CAPTURA DE IMAGEN Y CANTIDAD
-    const imagen = modal.querySelector('#m-imagen, #modalImg')?.src || '';
+    const imagen = modal.querySelector('#modalImg')?.src || '';
 
     const cantidad = parseInt(modal.querySelector('#input-cantidad')?.value) || 1;
 
@@ -133,7 +133,7 @@ document.addEventListener('click', (e) => {
         ?.nextElementSibling?.innerText || '';
 
 
-    const notas =     modal.querySelector('textarea')?.value || '';
+    const notas = modal.querySelector('textarea')?.value || '';
     
     const temperatura = modal.querySelector('input[name="temp"]:checked')
   ?.nextElementSibling?.innerText || null;

@@ -38,6 +38,7 @@
     --fs-sm: .875rem;  /* 14px */
     --fs-md: 1rem;  /* 16px */
     --fs-lg: 1.25rem;    /* 20px */
+    --fs-xl: 1.5rem; /* 24px */
 
     /* Display / hero section scale */
     --fs-display-sm: 2.5rem;     /* 40px */

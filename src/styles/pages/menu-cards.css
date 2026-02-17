@@ -8,11 +8,10 @@
     text-align: center;
     display: flex;
 }
-
 .products .card {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
 }
-
 .products .card:hover {
     transform: translateY(-10px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2)
@@ -72,25 +71,75 @@
 .products .quantity-selector .form-control {
     background-color: #ffffff;
     font-weight: bold;
+    min-width: 20px;
 }
-
-
 /* Estilo para el selector de cantidad (+ y -) en el modal principal */
 .products .quantity-selector {
     border: 1px solid #ddd;
     border-radius: 8px;
     overflow: hidden;
+    width: 30%;
 }
 
 .products .quantity-selector .btn {
     background-color: #f8f9fa;
     border: none;
     font-size: 1.2rem;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem;
 }
 
 .products .quantity-selector input {
     border: none;
     font-weight: bold;
     font-size: 1.1rem;
+}
+/* Customization modal */
+#modalDrinks .modal-footer,
+#modalPostres .modal-footer {
+  background-color: rgba(255,255,255,.90);
+  border-top: 1px solid #c7c8c9;
+}
+
+#modalDrinks #modalPrice,
+#modalPostres #modalPrice,
+#modalDrinks #m-precio,
+#modalPostres #m-precio {
+  font-size: var(--fs-lg);
+}
+#modalDrinks #modalDescription,
+#modalPostres #modalDescription,
+#modalDrinks #m-descripcion,
+#modalPostres #m-descripcion {
+  font-size: var(--fs-md);
+}
+@media (min-width: 998px) {
+    #modalDrinks #modalPrice,
+    #modalPostres #modalPrice,
+    #modalDrinks #m-precio,
+    #modalPostres #m-precio {
+        font-size: var(--fs-xl);
+    }
+    #modalDrinks #modalDescription,
+    #modalPostres #modalDescription,
+    #modalDrinks #m-descripcion,
+    #modalPostres #m-descripcion {
+        font-size: 1.125rem;
+    }
+}
+#modalDrinks .text-end,
+#modalPostres .text-end {
+    font-size: var(--fs-lg);
+}
+@media (min-width: 576px) {
+    #modalDrinks .text-end,
+    #modalPostres .text-end {
+        font-size: var(--fs-xl);
+    }
+}
+.cancel-btn {
+    background-color: white;
+    color: black;
+}
+.cancel-btn:hover {
+    background-color: #c7c8c9;
 }

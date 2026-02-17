@@ -80,13 +80,12 @@
 }
 
 /* Texto del Total */
-.products #modalCarrito .fw-bold.mb-2 span:first-child {
-    font-size: 1.2rem;
-    color: #666;
+.cart-total #labelTotal {
+    font-size: var(--fs-xl);
 }
 
-.products#cartTotal {
-    font-size: 2rem;
+.products #cartTotal {
+    font-size: var(--fs-xl);
     font-weight: 800;
     color: #000;
     letter-spacing: -1px;
