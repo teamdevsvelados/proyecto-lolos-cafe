@@ -42,7 +42,7 @@ function renderMenu() {
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-start mb-2">
                                 <h6 class="card-title mb-0 fw-bold">${product.name}</h6>
-                                <span class="price fw-bold">$${ Number(product.priceByTemperature.hot ? product.priceByTemperature.hot.ch : product.priceByTemperature.frappe.md).toFixed(2)}</span>
+                                <span class="price fw-bold">$${ Number(product.priceByTemperature.hot?.ch || product.priceByTemperature.frappe?.md || product.priceByTemperature.frappe?.lg).toFixed(2)}</span>
                             </div>
                             <p class="card-text text-muted small">${product.description}</p>
                         </div>
