@@ -105,7 +105,7 @@ document.addEventListener('click', (e) => {
     }
 });
 
-/* ======= Agregar producto desde modalPostres ======= */
+/* ======= Agregar producto desde modal ======= */
 document.addEventListener('click', (e) => {
     const addBtn = e.target.closest('#btnAgregarCarrito');
     if (!addBtn) return;
