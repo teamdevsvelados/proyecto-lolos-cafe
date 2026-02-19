@@ -125,16 +125,48 @@ const deleteUserBtn = document.getElementById("deleteUserBtn");
 // --------------------------
 // Storage helpers
 // --------------------------
+const url = `http://localhost:8080/api/v1/users`;
 function loadFromStorage() {
   try {
     const raw = localStorage.getItem(LS_KEY);
-    
+    console.log("Loaded from storage:", raw);
     return raw ? JSON.parse(raw) : null;
   } catch (e) {
     console.warn("Failed to parse localStorage", e);
     return null;
   }
 }
+
+const usersInfo = document.getElementById('usersApi');
+
+function fetchFromAPI() {
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      if (data.length === 0) {
+                usersInfo.innerHTML = `<p>No hay usuarios registrados.</p>`;
+                return;
+      }
+                let renderUsers = `<h3>Usuarios registrados:</h3>`;
+                data.forEach(user => {
+                    renderUsers  += `
+                    <div style="margin-bottom: 1rem; padding: 0.5rem; border: 1px solid #ccc; border-radius: 5px;">
+                        <p><strong>Nombre de usuario:</strong> ${user.nameOf}</p>
+                        <p><strong>Correo electrónico:</strong> ${user.email}</p>
+                        <p><strong>Estado de usuario:</strong> ${user.available ? "Disponible" : "No disponible"}</p>
+                    </div>
+                `;
+            });
+            usersInfo.innerHTML = renderUsers;
+      })
+    
+    .catch(error => {
+      usersInfo.innerHTML = `<p>Error al cargar los usuarios.</p>`;
+      console.error(error);
+    });
+}
+
+
 function saveToStorage() {
   localStorage.setItem(LS_KEY, JSON.stringify(DATA));
 }
@@ -376,3 +408,5 @@ deleteUserBtn.addEventListener("click", () => {
 // Initial render
 // --------------------------
 renderAll();
+fetchFromAPI();
+
