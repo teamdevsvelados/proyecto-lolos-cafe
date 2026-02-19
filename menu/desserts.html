@@ -12,347 +12,35 @@
   
 </head>
 
-<body class="products">
+<body class="products desserts">
   <div id="header-placeholder"></div>
-  <main>
-    <header>
-      <div class="container">
-        <div class="row align-items-center my-0 ms-n2 g-3">
-          <div class="col-auto ms-n5">
-            <a href="/menu.html" class="back-btn">←</a>
-          </div>
-          <div class="col-auto d-flex align-items-center">
-            <h1 class="mb-0">Nuestro menú</h1>
+  <main data-category="desserts">
+    <div class="categories-tabs">
+      <header>
+        <div class="container">
+          <div class="row align-items-center my-0 ms-n2 g-3">
+            <div class="col-auto ms-n5">
+              <a href="/menu.html" class="back-btn">←</a>
+            </div>
+            <div class="col-auto d-flex align-items-center">
+              <h1 class="mb-0">Nuestro menú</h1>
+            </div>
           </div>
         </div>
+      </header>
+      
+      <div class="d-flex w-100 text-center top-buttons-menu container">
+        <a href="/menu/with-coffee.html" class="flex-fill btn btn-outline-dark rounded-0">CON CAFÉ</a>
+        <a href="/menu/without-coffee.html" class="flex-fill btn btn-outline-dark rounded-0">SIN CAFÉ</a>
+        <a href="/menu/desserts.html" class="flex-fill btn btn-dark rounded-0">POSTRES</a>
       </div>
-    </header>
-    <!-- Selection Bar -->
-    <div class="d-flex w-100 text-center top-buttons-menu container">
-      <a href="/menu/with-coffee.html" class="flex-fill btn btn-outline-dark rounded-0">CON CAFÉ</a>
-      <a href="/menu/without-coffee.html" class="flex-fill btn btn-outline-dark rounded-0">SIN CAFÉ</a>
-      <a href="/menu/desserts.html" class="flex-fill btn btn-dark rounded-0">POSTRES</a>
     </div>
 
     <!-- Desserts -->
     <div class="container d-flex justify-content-around flex-wrap">
-      <div class="row">
 
-        <!-- Brownie -->
-        <div class="col-6 col-md-4 col-lg-3 mb-4 dessert">
-
-          <div class="card h-100" data-bs-toggle="modal" data-bs-target="#modalPostres" data-nombre="Brownie"
-            data-precio="65.00" data-descripcion="Cremoso queso con chocolate, caramelo y trozos de nuez pecana."
-            data-imagen="/public/images/basic-menu/desserts/brownie.webp">
-
-            <div class="p-2 text-end">
-              <span class="badge bg-light text-dark fw-light" style="font-size: 1rem;">Nuevo</span>
-            </div>
-            <div class="img-container">
-              <img src="/public/images/basic-menu/desserts/brownie.webp" class="card-img-top" alt="Imagen de brownie">
-            </div>
-            <div class="card-body">
-              <div class="d-flex justify-content-between align-items-start mb-2">
-                <h6 class="card-title mb-0 fw-bold">Brownie </h6>
-                <span class="price fw-bold">$65.00</span>
-              </div>
-              <p class="card-text text-muted" style="font-size: 1rem;">
-                Cremoso queso con chocolate, caramelo y trozos de nuez pecana.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Cheesecake Vasco -->
-        <div class="col-6 col-md-4 col-lg-3 mb-4 dessert">
-
-          <div class="card h-100" data-bs-toggle="modal" data-bs-target="#modalPostres" data-nombre="Cheesecake Vasco"
-            data-precio="75.00" data-descripcion="Cremoso queso con chocolate, caramelo y trozos de nuez pecana."
-            data-imagen="/public/images/basic-menu/desserts/cheesecakevasco.webp">
-
-            <div class="p-2 text-end">
-              <span class="badge bg-light text-dark fw-light" style="font-size: 1rem;">Nuevo</span>
-            </div>
-            <div class="img-container">
-              <img src="/public/images/basic-menu/desserts/cheesecakevasco.webp" class="card-img-top"
-                alt="Imagen de cheesecake vasco">
-            </div>
-            <div class="card-body">
-              <div class="d-flex justify-content-between align-items-start mb-2">
-                <h6 class="card-title mb-0 fw-bold">Cheesecake Vasco </h6>
-                <span class="price fw-bold">$75.00</span>
-              </div>
-              <p class="card-text text-muted" style="font-size: 1rem;">
-                Cremoso queso con chocolate, caramelo y trozos de nuez pecana.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Cheesecake de Queso -->
-        <div class="col-6 col-md-4 col-lg-3 mb-4 dessert">
-
-          <div class="card h-100" data-bs-toggle="modal" data-bs-target="#modalPostres"
-            data-nombre="Cheesecake de Queso" data-precio="75.00"
-            data-descripcion="Cremoso queso con chocolate, caramelo y trozos de nuez pecana."
-            data-imagen="/public/images/basic-menu/desserts/cheesecakequeso.webp">
-
-            <div class="p-2 text-end">
-              <span class="badge bg-light text-dark fw-light" style="font-size: 1rem;">Nuevo</span>
-            </div>
-            <div class="img-container">
-              <img src="/public/images/basic-menu/desserts/cheesecakequeso.webp" class="card-img-top"
-                alt="Imagen de cheesecake de queso">
-            </div>
-            <div class="card-body">
-              <div class="d-flex justify-content-between align-items-start mb-2">
-                <h6 class="card-title mb-0 fw-bold">Cheesecake de Queso </h6>
-                <span class="price fw-bold">$75.00</span>
-              </div>
-              <p class="card-text text-muted" style="font-size: 1rem;">
-                Cremoso queso con chocolate, caramelo y trozos de nuez pecana.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Cheesecake Tortuga -->
-        <div class="col-6 col-md-4 col-lg-3 mb-4 dessert">
-
-          <div class="card h-100" data-bs-toggle="modal" data-bs-target="#modalPostres" data-nombre="Cheesecake Tortuga"
-            data-precio="65.00" data-descripcion="Cremoso queso con chocolate, caramelo y trozos de nuez pecana."
-            data-imagen="/public/images/basic-menu/desserts/cheesecaketortuga.webp">
-
-            <div class="p-2 text-end">
-              <span class="badge bg-light text-dark fw-light" style="font-size: 1rem;">Nuevo</span>
-            </div>
-            <div class="img-container">
-              <img src="/public/images/basic-menu/desserts/cheesecaketortuga.webp" class="card-img-top"
-                alt="Imagen de cheescake tortuga">
-            </div>
-            <div class="card-body">
-              <div class="d-flex justify-content-between align-items-start mb-2">
-                <h6 class="card-title mb-0 fw-bold">Cheesecake Tortuga </h6>
-                <span class="price fw-bold">$65.00</span>
-              </div>
-              <p class="card-text text-muted" style="font-size: 1rem;">
-                Cremoso queso con chocolate, caramelo y trozos de nuez pecana.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Chocoflan -->
-        <div class="col-6 col-md-4 col-lg-3 mb-4 dessert">
-
-          <div class="card h-100" data-bs-toggle="modal" data-bs-target="#modalPostres" data-nombre="Chocoflan"
-            data-precio="65.00" data-descripcion="La combinación perfecta entre pastel de chocolate y flan napolitano."
-            data-imagen="/public/images/basic-menu/desserts/chocoflan.webp">
-
-            <div class="p-2 text-end">
-              <span class="badge bg-light text-dark fw-light" style="font-size: 1rem;">Nuevo</span>
-            </div>
-            <div class="img-container">
-              <img src="/public/images/basic-menu/desserts/chocoflan.webp" class="card-img-top"
-                alt="Imagen de chocoflan">
-            </div>
-            <div class="card-body">
-              <div class="d-flex justify-content-between align-items-start mb-2">
-                <h6 class="card-title mb-0 fw-bold">Chocoflan </h6>
-                <span class="price fw-bold">$65.00</span>
-              </div>
-              <p class="card-text text-muted" style="font-size: 1rem;">
-                La combinación perfecta entre pastel de chocolate y flan napolitano.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Galleta Red Velvet -->
-        <div class="col-6 col-md-4 col-lg-3 mb-4 dessert">
-
-          <div class="card h-100" data-bs-toggle="modal" data-bs-target="#modalPostres" data-nombre="Galleta Red Velvet"
-            data-precio="65.00" data-descripcion="Galleta de chocolate con crema de vainilla y trozos de nuez."
-            data-imagen="/public/images/basic-menu/desserts/galletaredvelvet.webp">
-
-            <div class="p-2 text-end">
-              <span class="badge bg-light text-dark fw-light" style="font-size: 1rem;">Nuevo</span>
-            </div>
-            <div class="img-container">
-              <img src="/public/images/basic-menu/desserts/galletaredvelvet.webp" class="card-img-top"
-                alt="Imagen de galleta red velvet">
-            </div>
-            <div class="card-body">
-              <div class="d-flex justify-content-between align-items-start mb-2">
-                <h6 class="card-title mb-0 fw-bold">Galleta Red Velvet </h6>
-                <span class="price fw-bold">$65.00</span>
-              </div>
-              <p class="card-text text-muted" style="font-size: 1rem;">
-                Galleta de chocolate con crema de vainilla y trozos de nuez.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Pastel de Zanahoria -->
-        <div class="col-6 col-md-4 col-lg-3 mb-4 dessert">
-
-          <div class="card h-100" data-bs-toggle="modal" data-bs-target="#modalPostres"
-            data-nombre="Pastel de Zanahoria" data-precio="65.00"
-            data-descripcion="Esponjoso bizcocho especiado con betún de queso crema artesanal."
-            data-imagen="/public/images/basic-menu/desserts/pastelzanahoria.webp">
-
-            <div class="p-2 text-end">
-              <span class="badge bg-light text-dark fw-light" style="font-size: 1rem;">Nuevo</span>
-            </div>
-            <div class="img-container">
-              <img src="/public/images/basic-menu/desserts/pastelzanahoria.webp" class="card-img-top"
-                alt="Imagen de pastel de zanahoria">
-            </div>
-            <div class="card-body">
-              <div class="d-flex justify-content-between align-items-start mb-2">
-                <h6 class="card-title mb-0 fw-bold">Pastel de Zanahoria </h6>
-                <span class="price fw-bold">$65.00</span>
-              </div>
-              <p class="card-text text-muted" style="font-size: 1rem;">
-                Esponjoso bizcocho especiado con betún de queso crema artesanal.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Pay de Limón -->
-        <div class="col-6 col-md-4 col-lg-3 mb-4 dessert">
-          <div class="card h-100" data-bs-toggle="modal" data-bs-target="#modalPostres" data-nombre="Pay de Limón"
-            data-precio="75.00" data-descripcion="El equilibrio ideal entre frescura cítrica y un toque dulce."
-            data-imagen="/public/images/basic-menu/desserts/paydelimon.webp">
-            <div class="p-2 text-end">
-              <span class="badge bg-light text-dark fw-light" style="font-size: 1rem;">Nuevo</span>
-            </div>
-            <div class="img-container">
-              <img src="/public/images/basic-menu/desserts/paydelimon.webp" class="card-img-top"
-                alt="Imagen de pay de limón">
-            </div>
-            <div class="card-body">
-              <div class="d-flex justify-content-between align-items-start mb-2">
-                <h6 class="card-title mb-0 fw-bold">Pay de Limón </h6>
-                <span class="price fw-bold">$75.00</span>
-              </div>
-              <p class="card-text text-muted" style="font-size: 1rem;">
-                El equilibrio ideal entre frescura cítrica y un toque dulce.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Pay Lotus -->
-        <div class="col-6 col-md-4 col-lg-3 mb-4 dessert">
-
-          <div class="card h-100" data-bs-toggle="modal" data-bs-target="#modalPostres" data-nombre="Pay Lotus"
-            data-precio="75.00"
-            data-descripcion="Crujiente base de galleta con el inconfundible toque acaramelado Lotus."
-            data-imagen="/public/images/basic-menu/desserts/paylotus.webp">
-
-            <div class="p-2 text-end">
-              <span class="badge bg-light text-dark fw-light" style="font-size: 1rem;">Nuevo</span>
-            </div>
-            <div class="img-container">
-              <img src="/public/images/basic-menu/desserts/paylotus.webp" class="card-img-top"
-                alt="Imagen de pay lotus">
-            </div>
-            <div class="card-body">
-              <div class="d-flex justify-content-between align-items-start mb-2">
-                <h6 class="card-title mb-0 fw-bold">Pay Lotus </h6>
-                <span class="price fw-bold">$75.00</span>
-              </div>
-              <p class="card-text text-muted" style="font-size: 1rem;">
-                Crujiente base de galleta con el inconfundible toque acaramelado Lotus.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Rol con Topping -->
-        <div class="col-6 col-md-4 col-lg-3 mb-4 dessert">
-
-          <div class="card h-100" data-bs-toggle="modal" data-bs-target="#modalPostres" data-nombre="Rol con Topping"
-            data-precio="75.00"
-            data-descripcion="Crujiente base de galleta con el inconfundible toque acaramelado Lotus."
-            data-imagen="/public/images/basic-menu/desserts/rolcontopping.webp">
-
-            <div class="p-2 text-end">
-              <span class="badge bg-light text-dark fw-light" style="font-size: 1rem;">Nuevo</span>
-            </div>
-            <div class="img-container">
-              <img src="/public/images/basic-menu/desserts/rolcontopping.webp" class="card-img-top"
-                alt="Imagen de rol con topping">
-            </div>
-            <div class="card-body">
-              <div class="d-flex justify-content-between align-items-start mb-2">
-                <h6 class="card-title mb-0 fw-bold">Rol con Topping </h6>
-                <span class="price fw-bold">$75.00</span>
-              </div>
-              <p class="card-text text-muted" style="font-size: 1rem;">
-                Relleno de crema de leche con topping de frutas frescas.
-            </div>
-          </div>
-        </div>
-
-        <!-- Rol de Canela -->
-        <div class="col-6 col-md-4 col-lg-3 mb-4 dessert">
-
-          <div class="card h-100" data-bs-toggle="modal" data-bs-target="#modalPostres" data-nombre="Rol de Canela"
-            data-precio="75.00"
-            data-descripcion="Crujiente base de galleta con el inconfundible toque acaramelado Lotus."
-            data-imagen="/public/images/basic-menu/desserts/roldecanela.webp">
-
-            <div class="p-2 text-end">
-              <span class="badge bg-light text-dark fw-light" style="font-size: 1rem;">Nuevo</span>
-            </div>
-            <div class="img-container">
-              <img src="/public/images/basic-menu/desserts/roldecanela.webp" class="card-img-top"
-                alt="Imagen de rol de canela">
-            </div>
-            <div class="card-body">
-              <div class="d-flex justify-content-between align-items-start mb-2">
-                <h6 class="card-title mb-0 fw-bold">Rol de Canela </h6>
-                <span class="price fw-bold">$75.00</span>
-              </div>
-              <p class="card-text text-muted" style="font-size: 1rem;">
-                Relleno de crema de leche con topping de canela.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Tres Leches -->
-        <div class="col-6 col-md-4 col-lg-3 mb-4 dessert">
-          
-          <div class="card h-100" data-bs-toggle="modal" data-bs-target="#modalPostres" data-nombre="Tres Leches"
-            data-precio="65.00"
-            data-descripcion="Clásico irresistible, suave y profundamente bañado en nuestra mezcla secreta."
-            data-imagen="/public/images/basic-menu/desserts/tresleches.webp">
-
-            <div class="p-2 text-end">
-              <span class="badge bg-light text-dark fw-light" style="font-size: 1rem;">Nuevo</span>
-            </div>
-            <div class="img-container">
-              <img src="/public/images/basic-menu/desserts/tresleches.webp" class="card-img-top"
-                alt="Imagen de tres leches">
-            </div>
-            <div class="card-body">
-              <div class="d-flex justify-content-between align-items-start mb-2">
-                <h6 class="card-title mb-0 fw-bold">Tres Leches </h6>
-                <span class="price fw-bold">$65.00</span>
-              </div>
-              <p class="card-text text-muted" style="font-size: 1rem;">
-                Clásico irresistible, suave y profundamente bañado en nuestra mezcla secreta.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+      <!-- products injected with js -->
+      <div id="products-container" class="row"></div>
 
 
     <!-- Modal -->
@@ -361,50 +49,44 @@
         <div class="modal-content">
           <!-- Modal header -->
           <div class="modal-body p-4">
-            <div class="d-flex align-items-center mb-4">
-              <button type="button" class="btn border-0 p-0 me-2" data-bs-dismiss="modal">
-                <i class="bi bi-arrow-left fs-4"></i>
-              </button>
+            <div class="d-flex align-items-center justify-content-between mb-4">
               <h3 class="mb-0" id="m-header-titulo">Personaliza tu postre</h3>
+              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
-            <div class="row align-items-start">
+            <div class="row align-items-center">
               <div class="col-md-5 text-center">
-                <img src="" id="m-imagen" class="img-fluid" style="max-height: 250px;">
+                <img src="" id="modalImg" class="img-fluid mx-auto" style="max-height: 250px;">
               </div>
               <div class="col-md-7">
-                <h4 class="fw-bold mb-1" id="m-nombre">Nombre</h4>
-                <p class="fw-bold text-muted mb-1" id="m-precio">$0.00</p>
-                <p class="text-secondary small" id="m-descripcion">Descripción...</p>
+                <h3 class="fw-bold mb-1" id="modalTitle"></h3>
+                <p class="fw-bold text-muted mb-1" id="modalPrice"></p>
+                <p class="text-secondary small" id="modalDescription"></p>
+                <span id="modalBadge" class="badge bg-success opacity-75 mt-2 d-none"></span>
               </div>
             </div>
+
             <!-- Select size -->
             <hr class="my-4">
             <div class="col-12">
-              <h5 class="fw-bold"><i class="bi bi-cup-hot"></i> Tamaño</h5>
-              <div class="ps-4 mt-2">
-                <div class="form-check mb-2">
-                  <input class="form-check-input" type="radio" name="size" id="rebanda" checked>
-                  <label class="form-check-label" for="rebanda">Rebanada($0)</label>
-                </div>
-                <div class="form-check mb-2">
-                  <input class="form-check-input" type="radio" name="size" id="completo" checked>
-                  <label class="form-check-label" for="completo">Entero ($0)</label>
-                </div>
+              <h5 class="fw-bold"><i class="bi bi-cup-hot me-2"></i>Tamaño</h5>
+              <div id="size-options" class="ps-4 mt-2">
+                <!-- options injected with js -->
               </div>
             </div>
+
             <!-- Extra notes -->
             <hr class="my-4">
-            <div class="col-12">
-              <h5 class="fw-bold"><i class="bi bi-pencil"></i> Notas adicionales</h5>
+            <div class="col-12 mb-5">
+              <h5 class="fw-bold"><i class="bi bi-pencil me-2"></i>Notas adicionales</h5>
               <p class="text-muted small ps-4">Cuéntanos si tu pedido tiene alguna indicación especial</p>
               <div class="ps-4">
                 <textarea class="form-control bg-light border-0" rows="2" placeholder="Escribe aquí..."></textarea>
               </div>
             </div>
             <!-- Purchase confirmation -->
-            <div class="modal-footer border-0 p-4 pt-0">
+            <div class="modal-footer p-4 position-sticky bottom-0">
               <div class="d-flex justify-content-between align-items-center w-100 mb-4">
-                <div class="input-group quantity-selector" style="width: 140px;">
+                <div class="input-group quantity-selector">
                   <button class="btn btn-outline-secondary border-secondary-subtle" type="button"
                     id="btn-menos">−</button>
                   <input type="text" id="input-cantidad" class="form-control text-center border-secondary-subtle"
@@ -412,18 +94,18 @@
                   <button class="btn btn-outline-secondary border-secondary-subtle" type="button"
                     id="btn-mas">+</button>
                 </div>
-                <div class="text-end">
+                <div class="text-end p-2">
                   <span class="fw-bold me-2">Total</span>
-                  <span class="fw-bold fs-5" id="modal-total-dinamico">$ 0.00</span>
+                  <span class="fw-bold" id="modal-total-dinamico">$ 0.00</span>
                 </div>
               </div>
 
               <div class="d-flex gap-2 w-100">
-                <button class="cta-btn-secondary w-100 text-uppercase" data-bs-dismiss="modal">
-                  Agregar más productos
+                <button class="cta-btn-secondary w-100 text-uppercase cancel-btn" data-bs-dismiss="modal">
+                  Cancelar
                 </button>
                 <button class="cta-btn-secondary w-100 text-uppercase " id="btnAgregarCarrito">
-                  Continuar
+                  Agregar
                 </button>
               </div>
             </div>
@@ -454,13 +136,16 @@
         </div>
 
         <!-- Footer -->
-        <div class="modal-footer flex-column">
+        <div class="modal-footer flex-column cart-total">
           <div class="w-100 d-flex justify-content-between fw-bold mb-2">
-            <span>Total</span>
+            <span id="labelTotal">Total</span>
             <span id="cartTotal">$0.00</span>
           </div>
-          <button id="btnFinalizarPedido" type="button" class="btn btn-dark w-100 py-3 text-uppercase fw-bold">
+          <button id="btnFinalizarPedido" type="button" class="cta-btn-secondary w-100">
             Finalizar pedido
+          </button>
+          <button type="button" class="cta-btn-secondary cancel-btn w-100" data-bs-dismiss="modal">
+            Agregar más productos
           </button>
         </div>
 
@@ -476,10 +161,10 @@
   <script type="module" src="/src/js/utils/cartSync.js"></script>
   <script src="https://animatedicons.co/scripts/embed-animated-icons.js"></script>
   
-  <script type="module" src="/src/js/controllers/modalProductQuantity.js"></script>
   <script type="module" src="/src/js/ui/cartManagerDesserts.js"></script>
   <script type="module" src="/src/js/ui/checkoutHandler.js"></script>
-  <script type="module" src="/src/js/ui/productModalLoaderDesserts.js"></script>
+  <script type="module" src="/src/js/ui/productModalLoader.js"></script>
+  <script type="module" src="/src/js/ui/menuProducts.js"></script>
 
 </body>
 
