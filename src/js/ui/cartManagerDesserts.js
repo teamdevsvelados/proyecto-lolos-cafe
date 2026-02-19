@@ -117,7 +117,7 @@ document.addEventListener('click', (e) => {
 
     // Recolecta datos usando los IDs que pusimos anteriormente
     const nombre = safeText(modal.querySelector('#modalTitle')) || 'Producto';
-    const precioText = safeText(modal.querySelector('#modal-total-dinamico')) || '$0.00';
+    const precioText = safeText(modal.querySelector('#modalPrice')) || '$0.00';
     const precio = Number(precioText.replace(/[^0-9.]/g, '')) || 0;
 
 

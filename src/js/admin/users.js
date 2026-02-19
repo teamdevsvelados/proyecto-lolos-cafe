@@ -128,6 +128,7 @@ const deleteUserBtn = document.getElementById("deleteUserBtn");
 function loadFromStorage() {
   try {
     const raw = localStorage.getItem(LS_KEY);
+    
     return raw ? JSON.parse(raw) : null;
   } catch (e) {
     console.warn("Failed to parse localStorage", e);
