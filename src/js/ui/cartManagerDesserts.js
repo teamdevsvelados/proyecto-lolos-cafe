@@ -49,14 +49,14 @@ function renderCart() {
     cart.forEach((item, index) => {
         const subtotal = item.precio * item.cantidad;
         totalGeneral += subtotal;
-    
-    
-    const detalles = [
-  item.size,
-  item.temperatura,
-  item.leche,
-  item.extra
-].filter(v => v && v.trim() !== '' && v !== 'Sin extras');
+
+
+        const detalles = [
+            item.size,
+            item.temperatura,
+            item.leche,
+            item.extra
+        ].filter(v => v && v.trim() !== '' && v !== 'Sin extras');
 
         cartItems.innerHTML += `
         <div class="d-flex align-items-center gap-3 border-bottom pb-3">
@@ -113,11 +113,11 @@ document.addEventListener('click', (e) => {
     e.preventDefault();
 
     const modal = addBtn.closest('.modal');
-    
+
 
     // Recolecta datos usando los IDs que pusimos anteriormente
     const nombre = safeText(modal.querySelector('#modalTitle')) || 'Producto';
-    const precioText = safeText(modal.querySelector('#modal-total-dinamico')) || '$0.00';
+    const precioText = safeText(modal.querySelector('#modalPrice')) || '$0.00';
     const precio = Number(precioText.replace(/[^0-9.]/g, '')) || 0;
 
 
@@ -134,48 +134,48 @@ document.addEventListener('click', (e) => {
 
 
     const notas = modal.querySelector('textarea')?.value || '';
-    
+
     const temperatura = modal.querySelector('input[name="temp"]:checked')
-  ?.nextElementSibling?.innerText || null;
+        ?.nextElementSibling?.innerText || null;
 
-const leche = modal.querySelector('input[name="milk"]:checked')
-  ?.nextElementSibling?.innerText || null;
+    const leche = modal.querySelector('input[name="milk"]:checked')
+        ?.nextElementSibling?.innerText || null;
 
-const extra = modal.querySelector('input[name="extra"]:checked')
-  ?.nextElementSibling?.innerText || null;
+    const extra = modal.querySelector('input[name="extra"]:checked')
+        ?.nextElementSibling?.innerText || null;
 
 
 
 
     const producto = {
         nombre,
-  precio,
-  imagen,
-  cantidad,
-  size: sizeLabel,
-  temperatura,
-  leche,
-  extra,
-  notas
+        precio,
+        imagen,
+        cantidad,
+        size: sizeLabel,
+        temperatura,
+        leche,
+        extra,
+        notas
 
     };
 
     const existente = cart.find(item =>
-    item.nombre === producto.nombre &&
-  item.size === producto.size &&
-  item.temperatura === producto.temperatura &&
-  item.leche === producto.leche &&
-  item.extra === producto.extra &&
-  item.notas === producto.notas
-);
+        item.nombre === producto.nombre &&
+        item.size === producto.size &&
+        item.temperatura === producto.temperatura &&
+        item.leche === producto.leche &&
+        item.extra === producto.extra &&
+        item.notas === producto.notas
+    );
 
-if (existente) {
-    existente.cantidad += producto.cantidad;
-} else {
-    cart.push(producto);
-}
+    if (existente) {
+        existente.cantidad += producto.cantidad;
+    } else {
+        cart.push(producto);
+    }
 
-saveCartToStorage();
+    saveCartToStorage();
     renderCart();
 
     // Cerrar modal y abrir carrito
