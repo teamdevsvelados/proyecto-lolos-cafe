@@ -7,116 +7,309 @@
     <title>Sobre Nosotros - Lolo's Café</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
     <link rel="stylesheet" href="/src/styles/main.css">
 </head>
 
-<body>
-    <!-- Header -->
+<body class="about-us">
     <div id="header-placeholder"></div>
 
-    <!-- Page Title -->
     <section class="section-white">
         <div class="container py-4 py-md-5 d-flex gap-3">
-            <a href="#" class="back-btn">←</a>
+            <a href="/index.html" class="back-btn">←</a>
             <h1>Sobre nosotros</h1>
         </div>
     </section>
 
     <section class="section-padding section-colored">
         <div class="container">
-
             <div class="row align-items-center">
-                <div class="col-12 col-md-6">
-                    <div class="section-content">
-                        <h2 class="section-title mb-4">En Lolo's Café todo se transforma en un momento para compartir.
-                        </h2>
-                        <p class="section-text mb-5 mb-md-0">
-                            Lolo's Café nace en 2023 como un proyecto local construido con cuidado, atención al detalle
-                            y un profundo respeto por las personas. Desde el inicio, buscamos crear un espacio donde el
-                            buen café y la repostería artesanal se disfruten sin prisas, en un ambiente cercano y
-                            acogedor.
-                        </p>
-                    </div>
-                </div>
 
-                <div class="col-12 col-md-6">
-                    <div class="section-image">
-                        <img src="/public/images/about-us/first-section.png" alt="Elaboración de café" class="img-fluid">
-                    </div>
+            <div class="col-12 col-md-6">
+                <div class="section-content">
+                <h2 class="section-title mb-4">
+                    Nuestra historia se cuenta en cada taza.
+                </h2>
+
+                <p class="section-text">
+                    Lolo’s Café abrió sus puertas en 2023 con una idea sencilla: crear un espacio donde el tiempo se detenga un poquito. Lo que comenzó como un proyecto familiar, impulsado por el amor al detalle, partió de la convicción de que el buen café no debería ser un lujo, sino una experiencia auténtica y al alcance de todos en nuestra comunidad.
+                </p>
+
+                <p class="section-text mb-0">
+                    Desde aquel primer día, hemos visto cómo este rincón ha cobrado vida propia. Gracias a quienes nos visitan a diario, hemos florecido y evolucionado, transformando cada rincón entre plantas, luz cálida y música suave en un refugio donde siempre eres bienvenido.
+                </p>
                 </div>
             </div>
 
+            <div class="col-12 col-md-6">
+                <div class="section-image">
+                <img
+                    src="/public/images/about-us/aboutushero.webp"
+                    alt="Elaboración de café en Lolo's Café"
+                    class="img-fluid"
+                >
+                </div>
+            </div>
+
+            </div>
         </div>
     </section>
 
-    <section class="section-padding section-white">
+    <section class="about-us-values">
+
+    <div class="values-intro-wrap">
         <div class="container">
-
-            <div class="row align-items-center">
-                <div class="col-12 col-md-6">
-                    <div class="section-image">
-                        <img src="/public/images/about-us/second-section.png" alt="Máquina de café" class="img-fluid">
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6">
-                    <div class="section-content">
-                        <h2 class="section-title mb-4 mt-4 mt-md-0">Creemos en hacer las cosas bien</h2>
-                        <p class="section-text">
-                            Desde la selección de ingredientes hasta la forma en que servimos cada pedido.
-                        </p>
-                        <p>
-                            Trabajamos con café de origen veracruzano y cuidamos cada bebida y cada postre como parte de
-                            una experiencia completa.
-                        </p>
-                        <p class="mb-5 mb-md-0">
-                            Además, colaboramos con negocios y proveedores de la región porque crecer en comunidad es
-                            parte de lo que somos.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
+        <div class="values-intro">
+            <h2 class="values-heading">El alma de Lolo's</h2>
+            <p class="values-lead">
+            Nuestros pilares no son solo reglas de trabajo; son la base sobre la que construimos cada experiencia,
+            desde el primer trazo de nuestro diseño hasta el último sorbo de tu café.
+            </p>
         </div>
-    </section>
+        </div>
+    </div>
+
+    <!-- Value 1 -->
+    <article class="value-strip value-1">
+        <div class="container value-inner">
+        <div class="value-content">
+            <h2 class="value-title">Calidad sin atajos</h2>
+            <p class="value-text">
+            Creemos que la excelencia está en el origen. Por eso, somos meticulosos con la curaduría de nuestros insumos: desde la selección de granos de especialidad de origen veracruzano, hasta la búsqueda de ingredientes frescos para nuestros postres. No solo seguimos recetas; las cuestionamos y perfeccionamos constantemente.
+            </p>
+        </div>
+
+        <div class="value-media">
+            <img src="/public/images/about-us/value-quality.webp" alt="Calidad sin atajos">
+        </div>
+        </div>
+    </article>
+
+    <!-- Value 2 -->
+    <article class="value-strip value-2">
+        <div class="container value-inner">
+        <div class="value-content">
+            <h2 class="value-title">Atmósfera con propósito</h2>
+            <p class="value-text">
+            Entendemos que el espacio influye en cómo nos sentimos. En Lolo's, nada es casualidad. La iluminación cálida, la acústica de la música, la disposición de las plantas y la ergonomía de nuestras sillas están pensadas para abrazarte. Estamos constantemente trabajando en crear un entorno donde la estética y el confort convergen para crear el refugio perfecto.
+            </p>
+        </div>
+
+        <div class="value-media">
+            <img src="/public/images/about-us/value-design.webp" alt="Diseño con propósito">
+        </div>
+        </div>
+    </article>
+
+    <!-- Value 3 -->
+    <article class="value-strip value-3">
+        <div class="container value-inner">
+        <div class="value-content">
+            <h2 class="value-title">Raíces y comunidad</h2>
+            <p class="value-text">
+            Lolo's no existiría sin el Valle del Carrizo. Nuestra visión de crecimiento va de la mano con nuestro entorno; por eso, priorizamos alianzas con otros negocios locales. Creemos en una economía circular donde el éxito se comparte y donde cada taza servida fortalece los lazos de la comunidad que nos vio nacer.
+            </p>
+        </div>
+
+        <div class="value-media">
+            <img src="/public/images/about-us/value-community.webp" alt="Raíces y comunidad">
+        </div>
+        </div>
+    </article>
 
     <section class="section-padding section-colored">
         <div class="container">
+            <div class="row align-items-center">
 
-            <div class="row align-items-center justify-content-center">
-
-                <div class="col-12 mb-4">
-                    <div class="section-image mx-auto d-flex justify-content-center">
-                        <div class="col-10 col-sm-8 col-md-6 col-lg-5">
-                            <img src="/public/images/about-us/owners.png" alt="Dueños de Lolo's Café"
-                                class="img-fluid d-block mx-auto">
-                        </div>
-                    </div>
+            <div class="col-12 col-md-6 mb-4 mb-md-0">
+                <div class="section-image">
+                <img
+                    src="/public/images/about-us/second-section.webp"
+                    alt="Dueños de Lolo's Café"
+                    class="img-fluid"
+                >
                 </div>
-
-
-                <div class="col-10 col-md-8 col-lg-6 mb-4">
-                    <div class="section-content mx-auto">
-                        <h2 class="section-title mb-4 text-center">Lolo's Café</h2>
-                        <p class="section-text text-center">
-                            Más que una cafetería, Lolo's es un punto de encuentro.
-                        </p>
-                        <p class="text-center">
-                            Un lugar cómodo y seguro para conversar, trabajar, descansar o simplemente disfrutar el
-                            momento.
-                        </p>
-                        <p class="mb-5 mb-md-0 text-center">
-                            Nos encanta recibirte, acompañarte y formar parte de tus días, una taza a la vez.
-                        </p>
-                    </div>
-                </div>
-
             </div>
 
+            <div class="col-12 col-md-6">
+                <div class="section-content">
+                <h2 class="section-title mb-4">Un lugar que sigue creciendo contigo</h2>
+
+                <p class="section-text">
+                    Hoy, miramos hacia adelante con la misma emoción del primer día. Para nosotros, <strong>Lolo's Café</strong> es una historia que aún se está escribiendo; nos entusiasma saber que el futuro nos encontrará perfeccionando cada taza, horneando nuevas ideas y, sobre todo, creciendo de la mano contigo.
+                </p>
+
+                <p class="section-text mb-4">
+                    Ya sea que busques el rincón perfecto para una charla larga entre amigos, o seas un viajero que necesita pausar el camino para recargar energías en un ambiente acogedor, aquí siempre habrá un asiento reservado para ti.
+                </p>
+
+                <a href="menu.html" class="cta-btn d-inline-block" role="button">
+                    EXPLORA NUESTRO MENÚ
+                </a>
+                </div>
+            </div>
+
+            </div>
         </div>
-        <div class="container text-center">
-            <a href="menu.html" class="cta-btn mx-auto d-inline-block" role="button">EXPLORA NUESTRO MENÚ</a>
+    </section>
+
+    <section class="section-padding section-white about-team">
+        <div class="container">
+
+            <div class="row justify-content-center">
+            <div class="col-12 col-lg-8 text-center mb-4">
+                <h2 class="section-title mb-3">El team detrás de este sitio web</h2>
+                <p class="section-text mb-0">
+                Como los productos de Lolo's Café, este sitio también fue hecho con cariño y cuidado: pensando en cada detalle para que navegar se sienta tan acogedor como estar en el café.
+                </p>
+            </div>
+            </div>
+
+            <div class="row g-4 mt-1">
+
+            <!-- Card 1 -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <article class="team-card h-100">
+                <div class="team-photo">
+                    <img src="/public/images/about-us/uriel.webp" alt="Foto de Uriel Cruz" class="img-fluid">
+                </div>
+
+                <div class="team-body">
+                    <h3 class="team-name">Uriel Cruz</h3>
+                    <p class="team-role">Frontend Developer</p>
+
+                    <div class="team-links">
+                    <a href="https://www.linkedin.com/in/urielcruzrosas/" target="_blank" rel="noopener" aria-label="LinkedIn">
+                        <i class="bi bi-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/urielcruzrosas" target="_blank" rel="noopener" aria-label="GitHub">
+                        <i class="bi bi-github"></i>
+                    </a>
+                    </div>
+                </div>
+                </article>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <article class="team-card h-100">
+                <div class="team-photo">
+                    <img src="/public/images/about-us/dafne.webp" alt="Foto de Dafne Hernández" class="img-fluid">
+                </div>
+                <div class="team-body">
+                    <h3 class="team-name">Dafne Hernández</h3>
+                    <p class="team-role">Fullstack Developer / Team Lead</p>
+                    <div class="team-links">
+                    <a href="https://www.linkedin.com/in/dafne-ang%C3%A9lica-hern%C3%A1ndez-v%C3%A1zquez/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                    <a href="https://github.com/dafnehernandez" target="_blank" rel="noopener" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                    </div>
+                </div>
+                </article>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <article class="team-card h-100">
+                <div class="team-photo">
+                    <img src="/public/images/about-us/ro.webp" alt="Foto de Roberto Mayén" class="img-fluid">
+                </div>
+                <div class="team-body">
+                    <h3 class="team-name">Roberto Mayén</h3>
+                    <p class="team-role">Fullstack Developer</p>
+                    <div class="team-links">
+                    <a href="https://www.linkedin.com/in/roberto-carlos-melendez/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                    <a href="https://github.com/ro-98-tech" target="_blank" rel="noopener" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                    </div>
+                </div>
+                </article>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <article class="team-card h-100">
+                <div class="team-photo">
+                    <img src="/public/images/about-us/antonio.webp" alt="Foto de Antonio Amaro" class="img-fluid">
+                </div>
+                <div class="team-body">
+                    <h3 class="team-name">Antonio Amaro</h3>
+                    <p class="team-role">Frontend Developer</p>
+                    <div class="team-links">
+                    <a href="https://www.linkedin.com/in/joseantonioamaro/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                    <a href="https://github.com/Antonio-Amaro" target="_blank" rel="noopener" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                    </div>
+                </div>
+                </article>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <article class="team-card h-100">
+                <div class="team-photo">
+                    <img src="/public/images/about-us/sandra.webp" alt="Foto de Sandra Borboa" class="img-fluid">
+                </div>
+                <div class="team-body">
+                    <h3 class="team-name">Sandra Borboa</h3>
+                    <p class="team-role">Frontend developer / UX </p>
+                    <div class="team-links">
+                    <a href="https://www.linkedin.com/in/sandra-borboa/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                    <a href="https://github.com/sandraborboa" target="_blank" rel="noopener" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                    </div>
+                </div>
+                </article>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <article class="team-card h-100">
+                <div class="team-photo">
+                    <img src="/public/images/about-us/misa.webp" alt="Foto de Misael Valencia" class="img-fluid">
+                </div>
+                <div class="team-body">
+                    <h3 class="team-name">Misael Valencia</h3>
+                    <p class="team-role">Backend Developer</p>
+                    <div class="team-links">
+                    <a href="https://www.linkedin.com/in/misael-valencia-madrigal/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                    <a href="https://github.com/Misavalmad" target="_blank" rel="noopener" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                    </div>
+                </div>
+                </article>
+            </div>
+
+            <!-- Card 7 -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <article class="team-card h-100">
+                <div class="team-photo">
+                    <img src="/public/images/about-us/fancy.webp" alt="Foto de Fancy Encinas" class="img-fluid">
+                </div>
+                <div class="team-body">
+                    <h3 class="team-name">Fancy Encinas</h3>
+                    <p class="team-role">Frontend Developer</p>
+                    <div class="team-links">
+                    <a href="https://www.linkedin.com/in/fancystephania-encinasg/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                    <a href="https://github.com/sthyfa" target="_blank" rel="noopener" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                    </div>
+                </div>
+                </article>
+            </div>
+
+            <!-- Card 8 -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <article class="team-card h-100">
+                <div class="team-photo">
+                    <img src="/public/images/about-us/daniel.webp" alt="Foto de Daniel Martínez" class="img-fluid">
+                </div>
+                <div class="team-body">
+                    <h3 class="team-name">Daniel Martínez</h3>
+                    <p class="team-role">Frontend Developer / SCRUM Master</p>
+                    <div class="team-links">
+                    <a href="https://www.linkedin.com/in/aldo-daniel-mart%C3%ADnez-p%C3%A9rez-063863365/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                    <a href="https://github.com/mttzDan" target="_blank" rel="noopener" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                    </div>
+                </div>
+                </article>
+            </div>
+
+            </div>
         </div>
     </section>
 
@@ -127,8 +320,8 @@
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
     <script type="module" src="/src/js/utils/loadComponents.js"></script>
+    <script type="module" src="/src/js/utils/cartSync.js"></script>
     <script src="https://animatedicons.co/scripts/embed-animated-icons.js"></script>
-
 </body>
 
 </html>

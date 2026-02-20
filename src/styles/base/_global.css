@@ -42,3 +42,6 @@ p {
     line-height: var(--lh-body);
     letter-spacing: var(--ls-body);
 }
+a {
+    text-decoration: none;
+}

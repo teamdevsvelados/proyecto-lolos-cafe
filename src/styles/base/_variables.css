@@ -4,6 +4,11 @@
     --color-secondary: #4D5D3F;
     --color-accent: #9F9172;
 
+    /* Green colors */
+    --green-1: #5a6b43;
+    --green-2: #4f5d3a;
+    --green-3: #3f4a2e;
+
     /* Neutral colors */
     --color-text: #000000;
     --color-muted: #454540;
@@ -33,6 +38,7 @@
     --fs-sm: .875rem;  /* 14px */
     --fs-md: 1rem;  /* 16px */
     --fs-lg: 1.25rem;    /* 20px */
+    --fs-xl: 1.5rem; /* 24px */
 
     /* Display / hero section scale */
     --fs-display-sm: 2.5rem;     /* 40px */
@@ -74,8 +80,8 @@
     -------------------------------- */
 @media (min-width: 992px) {
     :root {
-        --fs-h1: 2rem;         /* 32px */
-        --fs-h2: 1.75rem;      /* 28px */
+        --fs-h1: 2rem;       /* 32px */
+        --fs-h2: 2.375rem;         /* 32px */
         --fs-h3: 1.5rem;       /* 24px */
         --fs-body: 1.125rem;   /* 18px */
     }
