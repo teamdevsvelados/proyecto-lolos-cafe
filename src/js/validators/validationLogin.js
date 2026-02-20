@@ -23,9 +23,9 @@ emailInput.addEventListener("input", () => {
 passwordInput.addEventListener("input", () => {
     const passwordValue = passwordInput.value
     const isValidPassword =
-        passwordValue.length >= 8 &&
-        /[0-9]/.test(passwordValue) &&
-        /[^a-zA-Z0-9]/.test(passwordValue)
+    passwordValue.length >= 8 &&
+    /[a-zA-Z]/.test(passwordValue) && // at least one letter
+    /[0-9]/.test(passwordValue)       // at least one number
 
     if (isValidPassword) {
         passwordInput.classList.add("is-valid")
