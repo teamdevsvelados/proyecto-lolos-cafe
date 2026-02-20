@@ -2,7 +2,7 @@
 // Users page: top-buttons tabs, modal edit/delete
 // Persist single edits; update table immediately
 // ===========================================
-const BASE_URL = 'http://localhost:8080'
+const BASE_URL = 'http://3.132.214.155:8080'
 let apiData
 // --- DOM refs ---
 const searchInput = document.getElementById("searchInput");
