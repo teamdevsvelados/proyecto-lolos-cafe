@@ -4,13 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delivery Method</title>
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
-
-    <link rel="stylesheet" href="/src/styles/layout/_header.css" />
-    <link rel="stylesheet" href="/src/styles/layout/_footer.css" />
+    <title>Forma de entrega - Lolo's Café</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="/src/styles/main.css" />
 </head>
 
 <body>
@@ -18,129 +15,90 @@
     <div id="header-placeholder"></div>
 
     <!-- Content -->
-
     <main class="container my-5">
 
-                <div class="d-flex align-items-center mb-4">
-                    <!-- TODO: Link the future page of "arma tu bebida" when the page is done -->
-                    <a href="#" class="text-decoration-none text-dark me-3 fs-4">
-                        <i class="bi bi-arrow-left"></i> &larr;
-                    </a>
-                    <h2 class="fw-bold m-0">Forma de entrega</h2>
-                </div>
-
-
-                <div class="container mt-5">
-  <div class="row justify-content-center">
-    <div class="col-md-8">
-      <div class="card shadow-sm border-0">
-        <div class="card-header bg-white py-3">
-          <h4 class="fw-bold mb-0 text-uppercase" style="letter-spacing: 1px;">Resumen de tu Orden</h4>
+        <div class="d-flex align-items-center mb-4">
+            <!-- TODO: Link the future page of "arma tu bebida" when the page is done -->
+            <a href="/menu.html" class="text-decoration-none text-dark me-3 fs-4">
+                <i class="bi bi-arrow-left"></i>
+            </a>
+            <h2 class="fw-bold m-0">Forma de entrega</h2>
         </div>
-        <div class="card-body">
-          <div id="listaFinal" class="mb-4"></div>
-          
-          <hr>
-          
-          <div class="d-flex justify-content-between align-items-center mt-3">
-            <span class="text-muted">Subtotal</span>
-            <span id="subtotalFinal" class="fw-bold">$0.00</span>
-          </div>
-          <div class="d-flex justify-content-between align-items-center mb-4">
-            <span class="fs-5 fw-bold">Total a Pagar</span>
-            <span id="totalFinal" class="fs-4 fw-bold text-success">$0.00</span>
-          </div>
-          
-          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-
-
-
-
-                <div class="gap-3 mb-4 d-flex justify-content-center" role="group">
-                    <button type="button" class="btn btn-outline-dark px-4 py-2 rounded-0" data-bs-toggle="collapse"
-                        data-bs-target="#formPickUpOnSite" aria-expanded="false"
-                        aria-controls="formPickUpOnSite">
+        <div class="row">
+            <div class="col-12 col-md-5">
+                <div class="gap-3 my-4 d-flex justify-content-center" role="group">
+                    <button type="button" class="btn btn-outline-dark px-2 py-2 rounded-0" data-bs-toggle="collapse"
+                        data-bs-target="#formPickUpOnSite" aria-expanded="false" aria-controls="formPickUpOnSite">
                         RECOGER EN TIENDA
                     </button>
-
-                    <button type="button" class="btn btn-outline-dark px-4 py-2 rounded-0" data-bs-toggle="collapse"
+                    <button type="button" class="btn btn-outline-dark px-2 py-2 rounded-0" data-bs-toggle="collapse"
                         data-bs-target="#FormDelivery" aria-expanded="false" aria-controls="FormDelivery">
                         ENTREGA A DOMICILIO
                     </button>
                 </div>
-
+        
                 <div id="formGroups">
-
                     <div class="collapse mt-4" id="formPickUpOnSite" data-bs-parent="#formGroups">
-                        <div class="card card-body border-0 p-0">
-
+                        <div class="card card-body border-0 p-0 col-12 mx-auto">
                             <div class="text-center mb-3">
-                                <a href="./contact-details.html" class="text-dark fw-bold">Inicia sesión</a> y obtén beneficios <br> o <br>
+                                <a href="./contact-details.html" class="text-dark fw-bold">Inicia sesión</a> y obtén beneficios
+                                <br> o <br>
                                 Continua sin cuenta
                             </div>
-
+        
                             <form>
                                 <div class="form-floating mb-3">
                                     <input type="text" class="form-control" id="inputNombre" placeholder="Juan Perez">
                                     <label for="inputNombre">Nombre</label>
                                 </div>
-
+        
                                 <div class="form-floating mb-3">
                                     <input type="tel" class="form-control" id="inputTel" placeholder="+52 000 000">
                                     <label for="inputTel">Número de teléfono</label>
                                 </div>
-
+        
                                 <div class="d-flex justify-content-end">
-                                    <button type="button" class="btn btn-dark px-5 py-2 rounded-0"
-                                        data-bs-toggle="modal" data-bs-target="#modalExito">
+                                    <button type="button" class="btn btn-dark px-5 py-2 rounded-0" data-bs-toggle="modal"
+                                        data-bs-target="#modalExito">
                                         ENVIAR PEDIDO
                                     </button>
                                 </div>
                             </form>
                         </div>
                     </div>
-
+        
                     <div class="collapse mt-4" id="FormDelivery" data-bs-parent="#formGroups">
-                        <div class="card card-body border-0 p-0">
-
+                        <div class="card card-body border-0 p-0 col-12 mx-auto">
                             <div class="text-center mb-3">
-                                <a href="./contact-details.html" class="text-dark fw-bold">Inicia sesión</a> y obtén beneficios <br> o <br>
+                                <a href="./contact-details.html" class="text-dark fw-bold">Inicia sesión</a> y obtén beneficios
+                                <br> o <br>
                                 Continua sin cuenta
                             </div>
-
+        
                             <form>
                                 <div class="form-floating mb-3">
                                     <input type="text" class="form-control" id="inputNombre" placeholder="Juan Perez">
                                     <label for="inputNombre">Nombre</label>
                                 </div>
-
+        
                                 <div class="form-floating mb-3">
                                     <input type="tel" class="form-control" id="inputTel" placeholder="+52 000 000">
                                     <label for="inputTel">Número de teléfono</label>
                                 </div>
-
+        
                                 <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="inputDireccion"
-                                        placeholder="Calle y número">
+                                    <input type="text" class="form-control" id="inputDireccion" placeholder="Calle y número">
                                     <label for="inputDireccion">Dirección</label>
                                 </div>
-
+        
                                 <div class="form-floating mb-5">
                                     <input type="text" class="form-control" id="inputRef" placeholder="Referencias">
                                     <label for="inputRef">Referencias</label>
                                 </div>
-
+        
                                 <div class="d-flex justify-content-end">
-                                    <button type="button" class="btn btn-dark px-5 py-2 rounded-0"
-                                        data-bs-toggle="modal" data-bs-target="#modalExito">
+                                    <button type="button" class="btn btn-dark px-5 py-2 rounded-0" data-bs-toggle="modal"
+                                        data-bs-target="#modalExito">
                                         ENVIAR PEDIDO
                                     </button>
                                 </div>
@@ -149,6 +107,32 @@
                     </div>
                 </div>
             </div>
+
+            <div class="col-12 col-md-7">
+                <div class="container ">
+                    <div class="row justify-content-center">
+                            <div class="card shadow-sm border-0">
+                                <div class="card-header bg-white py-3">
+                                    <h4 class="fw-bold mb-0 text-uppercase" style="letter-spacing: 1px;">Resumen de tu Orden
+                                    </h4>
+                                </div>
+                                <div class="card-body">
+                                    <div id="listaFinal" class="mb-4"></div>
+                                    <hr>
+                                    <div class="d-flex justify-content-between align-items-center mt-3">
+                                        <span class="text-muted">Subtotal</span>
+                                        <span id="subtotalFinal" class="fw-bold">$0.00</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center mb-4">
+                                        <span class="fs-5 fw-bold">Total a Pagar</span>
+                                        <span id="totalFinal" class="fs-4 fw-bold text-success">$0.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
     <div class="modal fade" id="modalExito" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
@@ -159,15 +143,14 @@
                     <h3 class="fw-bold mb-3">¡Pedido confirmado con éxito!</h3>
 
                     <div class="mb-3">
-                        <img src="/public/images/delivery-method/coffee.svg"
-                            height="80">
+                        <img class="mx-auto" src="/public/images/delivery-method/coffee.svg" height="80">
                     </div>
 
                     <p class="mb-1">Recibimos tu pedido correctamente</p>
-                    <p class="text-muted small mb-4">Te contactaremos cuando esté listo o en camino.</p>
+                    <p class="text-muted mb-4">Te contactaremos cuando esté listo o en camino.</p>
 
-                    <p class="small text-muted">
-                        Si deseas cancelar tu pedido o hacer una modificación, contáctanos a
+                    <p class="text-muted">
+                        Si deseas cancelar tu pedido o hacer una modificación, contáctanos al
                         <a href="tel:6981123417" class="text-decoration-underline text-dark fw-bold">698 112
                             3417</a>
                     </p>
@@ -180,96 +163,20 @@
             </div>
         </div>
     </div>
-    <!--  -->
-
-    <!-- Footer -->
     <!-- Footer -->
     <div id="footer-placeholder"></div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
     <script type="module" src="/src/js/utils/loadComponents.js"></script>
-    <script src="/src/utils/validationSignup.js"></script>
+    <script type="module" src="/src/js/utils/cartSync.js"></script>
     <script src="https://animatedicons.co/scripts/embed-animated-icons.js"></script>
 
-    <script>
-
-        document.addEventListener('DOMContentLoaded', () => {
-  // Obtenemos los datos guardados
-  const datos = localStorage.getItem('carrito_final');
-
-  if (datos) {
-    const productosParaPagar = JSON.parse(datos);
-    console.log("Datos recibidos con éxito:", productosParaPagar);
-    
-    // Ahora puedes usar 'productosParaPagar' para llenar tu nueva interfaz
-  } else {
-    console.error("No se encontraron productos en el carrito.");
-  }
-});
-    </script>
+    <script type="module" src="/src/js/ui/checkoutDeliveryMethod.js"></script>
+    <script type="module" src="/src/js/ui/showCheckout.js"></script>
 
 
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const listaFinal = document.getElementById('listaFinal');
-  const totalFinal = document.getElementById('totalFinal');
-  const subtotalFinal = document.getElementById('subtotalFinal');
-
-  // 1. Recuperar los datos de LocalStorage
-  const datos = localStorage.getItem('carrito_final');
-
-  if (datos) {
-    const productos = JSON.parse(datos);
-    let totalAcumulado = 0;
-
-    listaFinal.innerHTML = ''; // Limpiar por si acaso
-
-    // 2. Pintar cada producto
-    productos.forEach(item => {
-      const subtotalItem = item.precio * item.cantidad;
-      totalAcumulado += subtotalItem;
-
-      listaFinal.innerHTML += `
-        <div class="d-flex align-items-center justify-content-between py-3 border-bottom">
-          <div class="d-flex align-items-center gap-3">
-            <img src="${item.imagen}" alt="${item.nombre}" style="width: 70px; height: 70px; object-fit: contain;" class="rounded bg-light">
-            <div>
-              <h6 class="mb-0 fw-bold">${item.nombre}</h6>
-              <small class="text-muted">${item.size} x ${item.cantidad}</small>
-              ${item.notas ? `<p class="mb-0 small text-muted font-italic">Nota: ${item.notas}</p>` : ''}
-            </div>
-          </div>
-          <div class="text-end">
-            <span class="fw-bold">$${subtotalItem.toFixed(2)}</span>
-          </div>
-        </div>
-      `;
-    });
-
-    // 3. Actualizar los totales
-    subtotalFinal.innerText = `$${totalAcumulado.toFixed(2)}`;
-    totalFinal.innerText = `$${totalAcumulado.toFixed(2)}`;
-
-  } else {
-    // Si no hay datos, mostrar mensaje de error o redirigir
-    listaFinal.innerHTML = `
-      <div class="text-center py-5">
-        <i class="bi bi-cart-x fs-1 text-muted"></i>
-        <p class="mt-2">No encontramos productos en tu orden.</p>
-        <a href="index.html" class="btn btn-outline-dark btn-sm">Volver al menú</a>
-      </div>
-    `;
-  }
-});
-
-function procesarPago() {
-    alert("¡Pedido procesado con éxito!");
-    // Aquí podrías limpiar el carrito si ya terminó la compra
-    // localStorage.removeItem('carrito_final');
-}
-
-</script>
 </body>
 
 </html>

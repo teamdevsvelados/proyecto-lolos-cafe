@@ -1,5 +1,5 @@
-    .contact-page .active-day {
-      background-color: #5A6B43 !important;
+    .contact-page .list-group-item.active-day {
+      background-color: #5A6B43;
       color: #ffffff;
       border-radius: 0; 
       font-weight: 500;

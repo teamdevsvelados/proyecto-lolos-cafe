@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
             : '<span class="text-muted fw-light">Cerrado</span>';
 
         htmlContent += `
-            <li class="list-group-item d-flex justify-content-between align-items-center bg-transparent border-0 px-3 py-2 ${activeClass}">
+            <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-3 py-2 ${activeClass}">
                 <span class="fw-medium">${item.day} ${isToday ? '<small class="ms-1">(Hoy)</small>' : ""}</span>
                 <span>${displayHours}</span>
             </li>
