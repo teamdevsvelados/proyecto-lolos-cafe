@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
     btnMas.addEventListener('click', function () {
         let valorActual = parseInt(inputCantidad.value);
         inputCantidad.value = valorActual + 1;
-        if(modalDrinks) {
+        if (modalDrinks) {
             updateTotalPrice();
         } else {
             updateTotalPriceDessert()
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
         let valorActual = parseInt(inputCantidad.value);
         if (valorActual > 1) { // Evita que baje de 1
             inputCantidad.value = valorActual - 1;
-            if(modalDrinks) {
+            if (modalDrinks) {
                 updateTotalPrice();
             } else {
                 updateTotalPriceDessert()
@@ -35,13 +35,13 @@ if (modalPostres) {
     modalPostres.addEventListener('show.bs.modal', (event) => {
         const card = event.relatedTarget;
         if (!card || !card.classList.contains('product-card')) return;
-    
+
         const product = JSON.parse(card.dataset.product);
         const productId = parseInt(product.id)
         const currentProduct = desserts.filter(dessert => dessert.id === productId)[0]
 
         basePrice = Number(currentProduct.priceBySize.slice);
-    
+
         const modalImg = modalPostres.querySelector('#modalImg');
         const modalTitle = modalPostres.querySelector('#modalTitle');
         const modalPrice = modalPostres.querySelector('#modalPrice');
@@ -70,45 +70,45 @@ if (modalPostres) {
 }
 
 const modalDrinks = document.getElementById('modalDrinks');
-if(modalDrinks) {
+if (modalDrinks) {
     modalDrinks.addEventListener('show.bs.modal', (event) => {
         // Determinate if we are working with products with or without coffee
         const dataset = document.querySelector("[data-category]").getAttribute('data-category')
         const typeOfProducts = dataset === 'with-coffee' ? drinksWithCoffee : drinksWithoutCoffee
 
         const card = event.relatedTarget;
-    
+
         if (!card || !card.classList.contains('product-card')) return;
-    
+
         const product = JSON.parse(card.dataset.product);
         const productId = parseInt(product.id)
-    
+
         const currentProduct = typeOfProducts.filter(drink => drink.id === productId)[0]
-    
+
         basePrice = Number(currentProduct.priceByTemperature.hot ? currentProduct.priceByTemperature.hot.ch : currentProduct.priceByTemperature.frappe.md);
-    
+
         const modalImg = modalDrinks.querySelector('#modalImg');
         const modalTitle = modalDrinks.querySelector('#modalTitle');
         const modalPrice = modalDrinks.querySelector('#modalPrice');
         const modalDescription = modalDrinks.querySelector('#modalDescription');
         const modalBadge = modalDrinks.querySelector('#modalBadge');
         const inputCantidad = modalDrinks.querySelector('#input-cantidad');
-    
+
         // This data comes from html data-product
         modalImg.src = product.image;
         modalImg.alt = product.name;
         modalTitle.textContent = product.name;
         modalPrice.textContent = `$${product.price}`;
         modalDescription.textContent = product.description;
-    
+
         if (product.badge) {
             modalBadge.textContent = `☆ ${product.badge}`;
             modalBadge.classList.remove('d-none');
         } else {
             modalBadge.classList.add('d-none');
         }
-    
-        
+
+
         inputCantidad.value = '1';
         renderTemperatures(currentProduct)
         updateTotalPrice();
@@ -129,7 +129,7 @@ function updateTotalPriceDessert() {
     let extrasOptions = document.querySelector('input[name="extra"]')
 
     const sizePrice = Number(document.querySelector('input[name="size"]:checked').value)
-    if(milkOptions && extrasOptions) {
+    if (milkOptions && extrasOptions) {
         milkPrice = Number(document.querySelector('input[name="milk"]:checked').value)
         extrasPrice = Number(document.querySelector('input[name="extra"]:checked').value)
     }
@@ -141,7 +141,7 @@ function updateTotalPriceDessert() {
     }
 
     const cantidad = parseInt(inputCantidad.value) || 1;
-    const total = (basePrice * cantidad) + milkPrice + extrasPrice;
+    const total = (basePrice + milkPrice + extrasPrice) * cantidad;
     modalTotalDinamico.textContent = `$ ${total.toFixed(2)}`;
 }
 
@@ -161,7 +161,7 @@ function updateTotalPrice() {
     }
 
     const cantidad = parseInt(inputCantidad.value) || 1;
-    const total = (basePrice * cantidad) + milkPrice + extrasPrice;
+    const total = (basePrice + milkPrice + extrasPrice) * cantidad;
     modalTotalDinamico.textContent = `$ ${total.toFixed(2)}`;
 }
 
@@ -171,7 +171,7 @@ function renderTemperatures(currentProduct) {
 
     Object.keys(currentProduct.priceByTemperature).forEach((temperature, index) => {
         const temperatureData = currentProduct.priceByTemperature[temperature]
-        
+
         const temperatureNames = {
             hot: 'Caliente',
             rocks: 'A las rocas',
@@ -192,7 +192,7 @@ function renderTemperatures(currentProduct) {
         }
     })
     const temperatures = document.querySelectorAll('input[name="temp"]')
-    
+
     renderSizes(currentProduct, document.querySelector('input[name="temp"]:checked').getAttribute('id'))
     temperatures.forEach(temperature => {
         temperature.addEventListener('change', () => renderSizes(currentProduct, document.querySelector('input[name="temp"]:checked').getAttribute('id')))
@@ -203,7 +203,7 @@ function renderSizes(currentProduct, selectedTemperature) {
     const sizeContainer = document.getElementById('size-options');
     sizeContainer.innerHTML = '';
     const sizes = currentProduct.priceByTemperature[selectedTemperature];
-    
+
     if (sizes === null) {
         sizeContainer.innerHTML = '<p class="text-muted">No hay tamaños disponibles para esta temperatura</p>';
         return;
@@ -239,7 +239,7 @@ function renderSizes(currentProduct, selectedTemperature) {
 function renderMilks() {
     const milksContainer = document.getElementById('milks-container')
     milksContainer.innerHTML = '';
-    
+
     milks.forEach((milk, index) => {
         const isChecked = index === 0 ? 'checked' : '';
         const milkHTML = `
@@ -257,7 +257,7 @@ function renderMilks() {
 function renderExtras() {
     const extrasContainer = document.getElementById('extras-container')
     extrasContainer.innerHTML = '';
-    
+
     extras.forEach((extra, index) => {
         const isChecked = index === 0 ? 'checked' : '';
         const extrasHTML = `
