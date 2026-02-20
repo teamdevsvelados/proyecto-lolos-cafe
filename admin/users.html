@@ -5,29 +5,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Usuarios - Lolo's Café (Admin)</title>
-
-  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
-  <!-- Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
-
-  <!-- Your site CSS (optional) -->
   <link rel="stylesheet" href="/src/styles/main.css" />
 
 </head>
-<!-- this is a prove -->
 
 <body>
   <main class="container-fluid">
     <div class="row g-0">
       <!-- Sidebar  -->
-      <section id="sidebar-placeholder" class="admin-sidebar-container col-12 col-md-2 p-2 border-end min-vh-100">
+      <section id="sidebar-placeholder" class="admin-sidebar-container col-md-2 p-2 border-end min-vh-100 d-none d-lg-block">
       </section>
 
       <!-- Content -->
-      <section class="col-12 col-md-10 p-3">
-        <h3 class="page-title">Usuarios</h3>
+      <section class="col-12 col-lg-10 p-3">
+      <h2 class="page-title ps-0 ms-0">Usuarios</h2>
 
         <!-- Search and Admins/Clients tabs -->
         <div class="d-flex align-items-center gap-3 mb-2 flex-wrap users-bar">
@@ -38,7 +32,7 @@
           </div>
 
           <!-- Admins / Clients top-buttons  -->
-          <ul class="nav segmented nav-top-buttons mb-0 flex-nowrap" role="tablist">
+          <ul class="nav segmented nav-top-buttons mb-0 flex-column w-100 flex-sm-row" role="tablist">
             <li class="nav-item" role="presentation" style="min-width: 220px;">
               <button class="nav-link btn btn-outline-dark rounded-0 w-100 active" id="tab-admins" type="button"
                 role="tab" aria-selected="true" data-entity="admins">
@@ -46,16 +40,13 @@
               </button>
             </li>
             <li class="nav-item" role="presentation" style="min-width: 220px;">
-              <button class="nav-link btn btn-outline-dark rounded-0 w-100" id="tab-clients" type="button" role="tab"
+              <button class="nav-link btn btn-outline-dark border rounded-0 w-100" id="tab-clients" type="button" role="tab"
                 aria-selected="false" data-entity="clients">
                 CLIENTES
               </button>
             </li>
           </ul>
         </div>
-
-        <!-- Div for user.js Usuarios API -->
-        <div id="usersApi"></div>
 
         <!-- Table -->
         <div class="card-clean mt-3">
@@ -72,101 +63,41 @@
 
   <!-- Toast  -->
   <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1056">
-    <div id="saveToast" class="toast align-items-center text-bg-dark border-0" role="alert" aria-live="assertive"
+    <div id="dynamicToast" class="toast align-items-center text-bg-dark border-0" role="alert" aria-live="assertive"
       aria-atomic="true">
       <div class="d-flex">
-        <div class="toast-body" id="toastMsg">Cambios guardados.</div>
+        <div class="toast-body" id="toastMessage">Cambios guardados.</div>
         <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
           aria-label="Cerrar"></button>
       </div>
     </div>
   </div>
 
-  <!-- Edit User Modal  -->
-  <div class="modal fade" id="editUserModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <form id="editUserForm" novalidate>
+  <!-- Delete Confirmation -->
+   <div class="modal fade" id="deleteModal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="editModalTitle">Editar usuario</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            <h5 class="modal-title">Confirmar eliminación</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
           </div>
-
           <div class="modal-body">
-            <!-- Hidden state -->
-            <input type="hidden" id="editUserId">
-            <input type="hidden" id="editUserType">
-
-            <!-- Admin fields -->
-            <div id="adminFields" class="d-none">
-              <div class="mb-3">
-                <label for="adminName" class="form-label">Nombre</label>
-                <input type="text" id="adminName" class="form-control" required>
-                <div class="invalid-feedback">Ingresa el nombre.</div>
-              </div>
-              <div class="mb-3">
-                <label for="adminRole" class="form-label">Rol</label>
-                <select id="adminRole" class="form-select" required>
-                  <option value="Administrador">Administrador</option>
-                  <option value="Empleado">Empleado</option>
-                </select>
-                <div class="invalid-feedback">Selecciona un rol.</div>
-              </div>
-              <div class="mb-3">
-                <label for="adminStatus" class="form-label">Estado</label>
-                <select id="adminStatus" class="form-select" required>
-                  <option value="Activo">Activo</option>
-                  <option value="Inactivo">Inactivo</option>
-                  <option value="Suspendido">Suspendido</option>
-                </select>
-                <div class="invalid-feedback">Selecciona un estado.</div>
-              </div>
-            </div>
-
-            <!-- Client fields -->
-            <div id="clientFields" class="d-none">
-              <div class="mb-3">
-                <label for="clientName" class="form-label">Nombre</label>
-                <input type="text" id="clientName" class="form-control" required>
-                <div class="invalid-feedback">Ingresa el nombre.</div>
-              </div>
-              <div class="mb-3">
-                <label for="clientEmail" class="form-label">Correo</label>
-                <input type="email" id="clientEmail" class="form-control" required>
-                <div class="invalid-feedback">Ingresa un correo válido.</div>
-              </div>
-              <div class="mb-3">
-                <label for="clientPhone" class="form-label">Celular</label>
-                <input type="tel" id="clientPhone" class="form-control" placeholder="000 000 0000" required>
-                <div class="invalid-feedback">Ingresa un teléfono.</div>
-              </div>
-            </div>
-
-            <!-- Danger zone -->
-            <div class="border-top pt-3 mt-2">
-              <button type="button" id="deleteUserBtn" class="btn btn-outline-danger w-100 rounded-0">
-                <i class="bi bi-trash3 me-1"></i> Eliminar usuario
-              </button>
-            </div>
+            ¿Estás seguro de que deseas eliminar este usuario? Esta acción no se puede deshacer.
           </div>
-
           <div class="modal-footer">
-            <button type="button" class="btn btn-outline-secondary rounded-0" data-bs-dismiss="modal">Cancelar</button>
-            <button type="submit" class="btn btn-dark rounded-0">Guardar</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-danger" id="confirmDelete">Eliminar</button>
           </div>
-        </form>
+        </div>
       </div>
     </div>
-  </div>
 
   <!-- Bootstrap Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
     crossorigin="anonymous"></script>
-
   <script type="module" src="/src/js/utils/loadComponents.js"></script>
   <script type="module" src="/src/js/utils/cartSync.js"></script>
-
   <script type="module" src="/src/js/admin/users.js"></script>
 </body>
 

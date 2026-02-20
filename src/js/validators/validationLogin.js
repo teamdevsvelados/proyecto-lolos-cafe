@@ -3,7 +3,6 @@ const passwordInput = document.getElementById("password")
 const submitBtn = document.getElementById("submit-btn")
 
 passwordInput.disabled = true
-submitBtn.disabled = true
 
 emailInput.addEventListener("input", () => {
     const emailValue = emailInput.value
@@ -15,7 +14,6 @@ emailInput.addEventListener("input", () => {
         emailInput.classList.add("is-valid")
     } else {
         passwordInput.disabled = true
-        submitBtn.disabled = true
         passwordInput.value = ""
         emailInput.classList.add("is-invalid")
         emailInput.classList.remove("is-valid")
@@ -30,11 +28,9 @@ passwordInput.addEventListener("input", () => {
         /[^a-zA-Z0-9]/.test(passwordValue)
 
     if (isValidPassword) {
-        submitBtn.disabled = false
         passwordInput.classList.add("is-valid")
         passwordInput.classList.remove("is-invalid")
     } else {
-        submitBtn.disabled = true
         passwordInput.classList.add("is-invalid")
         passwordInput.classList.remove("is-valid")
     }
