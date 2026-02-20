@@ -15,8 +15,12 @@ fetch('/src/components/sidebar-nav.html')
     .then(response => response.text())
     .then(html => {
         const sidebar = document.getElementById('sidebar-placeholder')
+        const sidebarMobile = document.getElementById('sidebar-mobile')
         if(sidebar) {
             sidebar.innerHTML = html
+        }
+        if(sidebarMobile) {
+            sidebarMobile.innerHTML = html
         }
     });
 fetch('/src/components/cart-modal.html')
