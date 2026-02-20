@@ -62,8 +62,8 @@
 	// Accessibility: Enter/Space activate
 	dropzone.addEventListener("keydown", (e) => {
 		if (e.key === "Enter" || e.key === " ") {
-     	e.preventDefault();
-     	input.click();
+			e.preventDefault();
+			input.click();
 	}});
 
 	// Changes from the file picker
@@ -72,16 +72,16 @@
   // Drag & drop
 	["dragenter", "dragover"].forEach((evt) =>
 		dropzone.addEventListener(evt, (e) => {
-     		e.preventDefault();
-     		e.stopPropagation();
-     		dropzone.classList.add("dragover");
+			e.preventDefault();
+			e.stopPropagation();
+			dropzone.classList.add("dragover");
 		}),
 	);
 	["dragleave", "drop"].forEach((evt) =>
 		dropzone.addEventListener(evt, (e) => {
-     		e.preventDefault();
-     		e.stopPropagation();
-     		dropzone.classList.remove("dragover");
+			e.preventDefault();
+			e.stopPropagation();
+			dropzone.classList.remove("dragover");
 		}),
 	);
 	dropzone.addEventListener("drop", (e) => {
