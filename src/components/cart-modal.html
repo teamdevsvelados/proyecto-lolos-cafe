@@ -1,0 +1,36 @@
+<!-- Sidebar Shopping Cart Modal -->
+<div class="products">
+  <div class="modal fade" id="modalCarrito" tabindex="-1">
+    <div class="modal-dialog modal-dialog-end modal-full-height">
+      <div class="modal-content">
+
+        <!-- Header -->
+        <div class="modal-header">
+          <h5 class="modal-title">
+            <i class="bi bi-cart"></i> Tu pedido
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+
+        <!-- Body -->
+        <div class="modal-body">
+          <div id="cartItems" class="d-flex flex-column gap-3">
+            <!-- Dynamic items -->
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="modal-footer flex-column">
+          <div class="w-100 d-flex justify-content-between fw-bold mb-2">
+            <span>Total</span>
+            <span id="cartTotal">$0.00</span>
+          </div>
+          <button id="btnFinalizarPedido" type="button" class="btn btn-dark w-100 py-3 text-uppercase fw-bold">
+            Finalizar pedido
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

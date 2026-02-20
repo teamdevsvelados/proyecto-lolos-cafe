@@ -1,0 +1,145 @@
+.products .card img {
+    display: block;
+    margin: 0 auto;
+    max-width: 70%;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+}
+.products .card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+.products .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2)
+}
+
+/* General style for navigation button group */
+.products .custom-nav-group .btn {
+    border-color: #333;
+    color: #333;
+    font-weight: 500;
+    padding: 10px 0;
+}
+
+.top-buttons-menu { /* Space in the top */
+    padding: 20px 20px 40px 20px;
+}
+
+/* Style del carrito */
+
+.products .modal-dialog-end {
+    position: fixed;
+    right: 0;
+    margin: 0;
+    height: 100%;
+}
+
+.products .modal-full-height {
+    height: 100%;
+}
+
+.products #modalCarrito .modal-content {
+    height: 100%;
+    border-radius: 0;
+}
+
+/* Estilo para los botones oscuros de la imagen */
+.products .btn-custom-dark {
+    background-color: #000000;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    /* Bordes ligeramente redondeados como en la captura */
+    font-size: 0.85rem;
+}
+
+.products .btn-custom-dark:hover {
+    background-color: #4a473f;
+}
+
+/* Estilo para el selector de cantidad (+ 0 -) */
+.products .quantity-selector .btn {
+    background-color: #f0f0ed;
+    color: #000000;
+    font-weight: bold;
+}
+
+.products .quantity-selector .form-control {
+    background-color: #ffffff;
+    font-weight: bold;
+    min-width: 20px;
+}
+/* Estilo para el selector de cantidad (+ y -) en el modal principal */
+.products .quantity-selector {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 30%;
+}
+
+.products .quantity-selector .btn {
+    background-color: #f8f9fa;
+    border: none;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+}
+
+.products .quantity-selector input {
+    border: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+/* Customization modal */
+#modalDrinks .modal-footer,
+#modalPostres .modal-footer {
+  background-color: rgba(255,255,255,.90);
+  border-top: 1px solid #c7c8c9;
+}
+
+#modalDrinks #modalPrice,
+#modalPostres #modalPrice,
+#modalDrinks #m-precio,
+#modalPostres #m-precio {
+  font-size: var(--fs-lg);
+}
+#modalDrinks #modalDescription,
+#modalPostres #modalDescription,
+#modalDrinks #m-descripcion,
+#modalPostres #m-descripcion {
+  font-size: var(--fs-md);
+}
+@media (min-width: 998px) {
+    #modalDrinks #modalPrice,
+    #modalPostres #modalPrice,
+    #modalDrinks #m-precio,
+    #modalPostres #m-precio {
+        font-size: var(--fs-xl);
+    }
+    #modalDrinks #modalDescription,
+    #modalPostres #modalDescription,
+    #modalDrinks #m-descripcion,
+    #modalPostres #m-descripcion {
+        font-size: 1.125rem;
+    }
+}
+#modalDrinks .text-end,
+#modalPostres .text-end {
+    font-size: var(--fs-lg);
+}
+@media (min-width: 576px) {
+    #modalDrinks .text-end,
+    #modalPostres .text-end {
+        font-size: var(--fs-xl);
+    }
+}
+.cancel-btn {
+    background-color: white;
+    color: black;
+}
+.cancel-btn:hover {
+    background-color: #c7c8c9;
+}
