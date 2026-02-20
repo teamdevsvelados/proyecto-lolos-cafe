@@ -1,7 +1,7 @@
 const emailInput = document.getElementById("email")
 const passwordInput = document.getElementById("password")
 const submitBtn = document.getElementById("submit-btn")
-const url = 'http://localhost:3000/api/v1/users/'
+const url = 'http://3.132.214.155:8080/api/v1/users/'
 const feedbackMessage = document.querySelector('#message')
 
 const getUsers = () => JSON.parse(localStorage.getItem("users")) || []
