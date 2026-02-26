@@ -110,6 +110,7 @@ if (modalDrinks) {
 
 
         inputCantidad.value = '1';
+        renderCoffeeType(currentProduct);
         renderTemperatures(currentProduct)
         updateTotalPrice();
     });
@@ -163,6 +164,45 @@ function updateTotalPrice() {
     const cantidad = parseInt(inputCantidad.value) || 1;
     const total = (basePrice + milkPrice + extrasPrice) * cantidad;
     modalTotalDinamico.textContent = `$ ${total.toFixed(2)}`;
+}
+
+function renderCoffeeType(currentProduct, isCoffeeCategory) {
+    const coffeeTypeContainer = document.querySelector('#coffee-type-options');
+    const section = document.querySelector('#coffee-type-section'); // El contenedor del título e icono
+
+    const defaultTypes = {
+        withcoffee: 'Regular',
+        withoutcoffee: 'Descafeinado'
+    };
+
+    const coffeeData = currentProduct.priceByCoffeeType || (isCoffeeCategory ? defaultTypes : null);
+
+    if (!coffeeData) {
+        if (section) section.classList.add('d-none');
+        return;
+    }
+
+    if (section) section.classList.remove('d-none');
+    coffeeTypeContainer.innerHTML = '';
+
+    Object.keys(coffeeData).forEach((type, index) => {
+        const isChecked = index === 0 ? 'checked' : '';
+        const labelText = defaultTypes[type] || type;
+
+        const html = `
+            <div class="form-check mb-2">
+                <input class="form-check-input" type="radio" 
+                    name="coffeeType" 
+                    id="coffee-${type}" 
+                    value="${type}" 
+                    ${isChecked}>
+                <label class="form-check-label" for="coffee-${type}">
+                    ${labelText}
+                </label>
+            </div>`;
+        
+        coffeeTypeContainer.insertAdjacentHTML('beforeend', html);
+    });
 }
 
 function renderTemperatures(currentProduct) {

@@ -3,8 +3,12 @@ export const drinksWithCoffee = [
     {
         id: 1,
         name: "Affogato",
+        priceByCoffeeType: {
+            withcoffee: 0, 
+            withoutcoffee: 0
+        },
         priceByTemperature: {
-            hot: { ch: "60.00" }, // Solo existe en chico
+            hot: { ch: "60.00" },
             rocks: { ch: "60.00" },
             frappe: null
         },
@@ -15,6 +19,10 @@ export const drinksWithCoffee = [
     {
         id: 2,
         name: "Americano",
+        priceByCoffeeType: {
+            withcoffee: 0, 
+            withoutcoffee: 0
+        },
         priceByTemperature: {
             hot: { ch: "40.00", md: "45.00", lg: "50.00" },
             rocks: { ch: "40.00", md: "45.00", lg: "50.00" },
@@ -27,6 +35,10 @@ export const drinksWithCoffee = [
     {
         id: 3,
         name: "Americano Limón",
+        priceByCoffeeType: {
+            withcoffee: 0, 
+            withoutcoffee: 0
+        },
         priceByTemperature: {
             hot: { ch: "45.00", md: "50.00", lg: "55.00" },
             rocks: { ch: "45.00", md: "50.00", lg: "55.00" },
@@ -39,6 +51,10 @@ export const drinksWithCoffee = [
     {
         id: 4,
         name: "Coldbrew",
+        priceByCoffeeType: {
+            withcoffee: 0, 
+            withoutcoffee: 0
+        },
         priceByTemperature: {
             hot: { ch: "60.00", md: "65.00", lg: "70.00" },
             rocks: { ch: "60.00", md: "65.00", lg: "70.00" },
@@ -51,6 +67,10 @@ export const drinksWithCoffee = [
     {
         id: 5,
         name: "Dirty Chai",
+        priceByCoffeeType: {
+            withcoffee: 0, 
+            withoutcoffee: 0
+        },
         priceByTemperature: {
             hot: { ch: "70.00", md: "80.00", lg: "90.00" },
             rocks: { ch: "70.00", md: "80.00", lg: "90.00" },
@@ -63,6 +83,10 @@ export const drinksWithCoffee = [
     {
         id: 6,
         name: "Espresso",
+        priceByCoffeeType: {
+            withcoffee: 0, 
+            withoutcoffee: 0
+        },
         priceByTemperature: {
             hot: { ch: "30.00" },
             rocks: { ch: "30.00" },
@@ -75,6 +99,10 @@ export const drinksWithCoffee = [
     {
         id: 7,
         name: "Latte Regular",
+        priceByCoffeeType: {
+            withcoffee: 0, 
+            withoutcoffee: 0
+        },
         priceByTemperature: {
             hot: { ch: "45.00", md: "50.00", lg: "60.00" },
             rocks: { ch: "45.00", md: "50.00", lg: "60.00" },
@@ -87,6 +115,10 @@ export const drinksWithCoffee = [
     {
         id: 8,
         name: "Latte Avellana",
+        priceByCoffeeType: {
+            withcoffee: 0, 
+            withoutcoffee: 0
+        },
         priceByTemperature: {
             hot: { ch: "55.00", md: "60.00", lg: "70.00" },
             rocks: { ch: "55.00", md: "60.00", lg: "70.00" },
@@ -99,6 +131,10 @@ export const drinksWithCoffee = [
     {
         id: 9,
         name: "Latte Caramelo Machiatto",
+        priceByCoffeeType: {
+            withcoffee: 0, 
+            withoutcoffee: 0
+        },
         priceByTemperature: {
             hot: { ch: "55.00", md: "60.00", lg: "70.00" },
             rocks: { ch: "55.00", md: "60.00", lg: "70.00" },
@@ -111,6 +147,10 @@ export const drinksWithCoffee = [
     {
         id: 10,
         name: "Latte Coco",
+        priceByCoffeeType: {
+            withcoffee: 0, 
+            withoutcoffee: 0
+        },
         priceByTemperature: {
             hot: { ch: "55.00", md: "60.00", lg: "70.00" },
             rocks: { ch: "55.00", md: "60.00", lg: "70.00" },
@@ -123,6 +163,10 @@ export const drinksWithCoffee = [
     {
         id: 11,
         name: "Latte Crema de Avellanas",
+        priceByCoffeeType: {
+            withcoffee: 0, 
+            withoutcoffee: 0
+        },
         priceByTemperature: {
             hot: { ch: "55.00", md: "65.00", lg: "75.00" },
             rocks: { ch: "55.00", md: "65.00", lg: "75.00" },
@@ -135,6 +179,10 @@ export const drinksWithCoffee = [
     {
         id: 12,
         name: "Latte Crema Irlandesa",
+        priceByCoffeeType: {
+            withcoffee: 0, 
+            withoutcoffee: 0
+        },
         priceByTemperature: {
             hot: { ch: "55.00", md: "60.00", lg: "70.00" },
             rocks: { ch: "55.00", md: "60.00", lg: "70.00" },
@@ -147,6 +195,10 @@ export const drinksWithCoffee = [
     {
         id: 13,
         name: "Latte Miel Canela",
+        priceByCoffeeType: {
+            withcoffee: 0, 
+            withoutcoffee: 0
+        },
         priceByTemperature: {
             hot: { ch: "55.00", md: "60.00", lg: "70.00" },
             rocks: { ch: "55.00", md: "60.00", lg: "70.00" },
@@ -159,6 +211,10 @@ export const drinksWithCoffee = [
     {
         id: 14,
         name: "Latte Moka",
+        priceByCoffeeType: {
+            withcoffee: 0, 
+            withoutcoffee: 0
+        },
         priceByTemperature: {
             hot: { ch: "55.00", md: "60.00", lg: "70.00" },
             rocks: { ch: "55.00", md: "60.00", lg: "70.00" },
@@ -171,6 +227,10 @@ export const drinksWithCoffee = [
     {
         id: 15,
         name: "Latte Moka Blanco",
+        priceByCoffeeType: {
+            withcoffee: 0, 
+            withoutcoffee: 0
+        },
         priceByTemperature: {
             hot: { ch: "55.00", md: "65.00", lg: "75.00" },
             rocks: { ch: "55.00", md: "65.00", lg: "75.00" },
@@ -183,6 +243,10 @@ export const drinksWithCoffee = [
     {
         id: 16,
         name: "Latte Tres Leches",
+        priceByCoffeeType: {
+            withcoffee: 0, 
+            withoutcoffee: 0
+        },
         priceByTemperature: {
             hot: { ch: "55.00", md: "60.00", lg: "70.00" },
             rocks: { ch: "55.00", md: "60.00", lg: "70.00" },
@@ -195,6 +259,10 @@ export const drinksWithCoffee = [
     {
         id: 17,
         name: "Latte Vainilla",
+        priceByCoffeeType: {
+            withcoffee: 0, 
+            withoutcoffee: 0
+        },
         priceByTemperature: {
             hot: { ch: "55.00", md: "60.00", lg: "70.00" },
             rocks: { ch: "55.00", md: "60.00", lg: "70.00" },
