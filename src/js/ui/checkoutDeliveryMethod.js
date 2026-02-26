@@ -1,5 +1,3 @@
-const VALID_MXN_BILLS = [20, 50, 100, 200, 500, 1000];
-
 document.addEventListener('DOMContentLoaded', () => {
   const listaFinal = document.getElementById('listaFinal');
   const totalFinal = document.getElementById('totalFinal');
@@ -73,10 +71,21 @@ function setupDeliveryForm(orderTotal) {
   const direccionInput = document.getElementById('inputDireccionDelivery');
   const refInput = document.getElementById('inputRefDelivery');
   const pagoExactoRadio = document.getElementById('pagoExacto');
-  const pagoBilleteRadio = document.getElementById('pagoBillete');
-  const montoInput = document.getElementById('inputMontoPago');
-  const montoError = document.getElementById('montoPagoError');
+  const pagoOtroRadio = document.getElementById('pagoOtro');
+  const detallePagoInput = document.getElementById('inputDetallePago');
+  const detallePagoMinimo = document.getElementById('detallePagoMinimo');
+  const detallePagoError = document.getElementById('detallePagoError');
+  const submitButton = deliveryForm.querySelector('button[type="submit"]');
   const modalExitoEl = document.getElementById('modalExito');
+  const orderTotalRounded = Number(orderTotal.toFixed(2));
+
+  if (detallePagoMinimo) {
+    detallePagoMinimo.innerText = `$${orderTotalRounded.toFixed(2)}`;
+  }
+
+  if (detallePagoInput) {
+    detallePagoInput.min = orderTotalRounded.toFixed(2);
+  }
 
   const resetValidation = (input) => {
     if (!input) return;
@@ -88,24 +97,56 @@ function setupDeliveryForm(orderTotal) {
     input.classList.add('is-invalid');
   };
 
-  const toggleAmountInput = () => {
-    const isBill = pagoBilleteRadio?.checked;
-    montoInput.disabled = !isBill;
+  const getPaymentAmount = () => Number.parseFloat(detallePagoInput.value);
 
-    if (!isBill) {
-      montoInput.value = '';
-      montoInput.classList.remove('is-invalid');
-      montoInput.removeAttribute('required');
-    } else {
-      montoInput.setAttribute('required', 'required');
-    }
+  const isPaymentAmountValid = () => {
+    const amount = getPaymentAmount();
+    return Number.isFinite(amount) && amount >= orderTotalRounded;
   };
 
-  const clearAmountError = () => {
-    montoInput.classList.remove('is-invalid');
-    if (montoError) {
-      montoError.innerText = 'Ingresa un billete válido.';
+  const syncSubmitButtonState = () => {
+    if (!submitButton) return;
+    submitButton.disabled = pagoOtroRadio?.checked ? !isPaymentAmountValid() : false;
+  };
+
+  const togglePaymentDetailInput = () => {
+    const isOtherPayment = pagoOtroRadio?.checked;
+    detallePagoInput.disabled = !isOtherPayment;
+
+    if (!isOtherPayment) {
+      detallePagoInput.value = '';
+      detallePagoInput.classList.remove('is-invalid');
+      detallePagoInput.removeAttribute('required');
+      if (detallePagoError) {
+        detallePagoError.innerText = 'Ingresa un monto válido.';
+      }
+    } else {
+      detallePagoInput.setAttribute('required', 'required');
     }
+
+    syncSubmitButtonState();
+  };
+
+  const validatePaymentDetailInput = () => {
+    if (!pagoOtroRadio?.checked) {
+      detallePagoInput.classList.remove('is-invalid');
+      syncSubmitButtonState();
+      return;
+    }
+
+    if (isPaymentAmountValid()) {
+      detallePagoInput.classList.remove('is-invalid');
+      if (detallePagoError) {
+        detallePagoError.innerText = 'Ingresa un monto válido.';
+      }
+    } else {
+      detallePagoInput.classList.add('is-invalid');
+      if (detallePagoError) {
+        detallePagoError.innerText = 'El monto debe ser mayor o igual al total del pedido.';
+      }
+    }
+
+    syncSubmitButtonState();
   };
 
   const phonePattern = /^(\+?52)?\d{10}$/;
@@ -114,11 +155,18 @@ function setupDeliveryForm(orderTotal) {
     input?.addEventListener('input', () => resetValidation(input));
   });
 
-  montoInput?.addEventListener('input', clearAmountError);
-  pagoExactoRadio?.addEventListener('change', toggleAmountInput);
-  pagoBilleteRadio?.addEventListener('change', toggleAmountInput);
+  detallePagoInput?.addEventListener('input', validatePaymentDetailInput);
+  pagoExactoRadio?.addEventListener('change', () => {
+    togglePaymentDetailInput();
+    validatePaymentDetailInput();
+  });
+  pagoOtroRadio?.addEventListener('change', () => {
+    togglePaymentDetailInput();
+    validatePaymentDetailInput();
+  });
 
-  toggleAmountInput();
+  togglePaymentDetailInput();
+  validatePaymentDetailInput();
 
   deliveryForm.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -146,26 +194,22 @@ function setupDeliveryForm(orderTotal) {
     }
 
     let paymentType = 'exacto';
-    let paymentAmount = Number(orderTotal.toFixed(2));
+    let paymentDetail = 'Pago exacto';
+    let paymentAmount = orderTotalRounded;
 
-    if (pagoBilleteRadio?.checked) {
-      paymentType = 'billete';
-      const monto = Number(montoInput.value);
+    if (pagoOtroRadio?.checked) {
+      paymentType = 'otro';
+      const pagoDetalle = getPaymentAmount();
 
-      if (!VALID_MXN_BILLS.includes(monto)) {
-        setInvalid(montoInput);
-        if (montoError) {
-          montoError.innerText = 'Solo se aceptan billetes de $20, $50, $100, $200, $500 o $1000.';
-        }
-        isValid = false;
-      } else if (monto < orderTotal) {
-        setInvalid(montoInput);
-        if (montoError) {
-          montoError.innerText = 'El monto debe ser mayor o igual al total del pedido.';
+      if (!isPaymentAmountValid()) {
+        setInvalid(detallePagoInput);
+        if (detallePagoError) {
+          detallePagoError.innerText = 'El monto debe ser mayor o igual al total del pedido.';
         }
         isValid = false;
       } else {
-        paymentAmount = monto;
+        paymentDetail = `Monto con el que paga: $${pagoDetalle.toFixed(2)}`;
+        paymentAmount = Number(pagoDetalle.toFixed(2));
       }
     }
 
@@ -181,10 +225,11 @@ function setupDeliveryForm(orderTotal) {
       },
       payment: {
         type: paymentType,
+        detail: paymentDetail,
         amount: paymentAmount,
         currency: 'MXN'
       },
-      orderTotal: Number(orderTotal.toFixed(2)),
+      orderTotal: orderTotalRounded,
       createdAt: new Date().toISOString()
     };
 
