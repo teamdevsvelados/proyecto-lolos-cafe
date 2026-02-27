@@ -17,7 +17,7 @@ async function initAdmin() {
         controller = new ProductsController();
         controller.loadFromStorage();
         
-        const modalEl = document.getElementById("modal-drink");
+        const modalEl = document.getElementById("modal-product");
         if (!modalEl) return;
         modal = new bootstrap.Modal(modalEl);
         
@@ -74,7 +74,7 @@ function setupEventListeners() {
     }
     
     // Botón Agregar +
-    const addNewBtn = document.querySelector('button[data-bs-target="#modal-drink"]');
+    const addNewBtn = document.querySelector('button[data-bs-target="#modal-product"]');
     if (addNewBtn) {
         addNewBtn.addEventListener("click", () => {
             editingProductId = null;
@@ -88,15 +88,21 @@ function setupEventListeners() {
     }
     
     // Configurar botones de categoría
-    const container = document.querySelector(".row.g-4");
+    const container = document.getElementById("products-container");
     if (container) {
         setupCategoryButtons(container, controller, filterProductsByCategory);
     }
 }
 
+// FUNCTION THAT CONTROLS THE MODAL BASED OFF CATEGORY GOES HERE
+
+function initDynamicModalBehavior() {
+    
+}
+
 
 function loadInitialProducts() {
-    const container = document.querySelector(".row.g-4");
+    const container = document.getElementById("products-container");
     if (!container) return;
     
     // Activar categoría POSTRES por defecto
@@ -113,7 +119,7 @@ function loadInitialProducts() {
 }
 
 function renderAllProducts() {
-    const container = document.querySelector(".row.g-4");
+    const container = document.getElementById("products-container");
     if (!container || !controller) return;
     
     container.innerHTML = "";
@@ -283,7 +289,7 @@ function renderProductCard(product, container) {
 }
 
 function filterProductsByCategory(categoryName) {
-    const container = document.querySelector(".row.g-4");
+    const container = document.getElementById("products-container");
     if (!container || !controller) return;
     
     container.innerHTML = "";
