@@ -33,14 +33,6 @@ export function setupCategoryButtons(container, controller, filterProductsByCate
       }
     });
   });
-  
-  // Activar 'POSTRES' por defecto si existe
-  const postresBtn = Array.from(categoryButtons).find(btn => 
-    btn.textContent.trim() === 'POSTRES'
-  );
-  if (postresBtn) {
-    setTimeout(() => postresBtn.click(), 100);
-  }
 }
 
 // Obtener categoría activa
@@ -80,7 +72,7 @@ export function resetForm() {
   resetCheckboxes();
   
   // Mostrar campos de bebida por defecto
-  showDrinkFieldsByDefault();
+  // showDrinkFieldsByDefault();
   
   // Reiniciar campos de postre
   resetDessertFields();
@@ -152,15 +144,11 @@ function showDrinkFieldsByDefault() {
 
 // Reiniciar campos de postre
 function resetDessertFields() {
-  const hasSlice = document.getElementById("has-slice-price");
   const slice = document.getElementById("slice-price");
-  const hasWhole = document.getElementById("has-whole-price");
   const whole = document.getElementById("whole-price");
 
-  if (hasSlice) hasSlice.checked = false;
-  if (slice) { slice.value = ""; slice.classList.add("d-none"); slice.required = false; }
-  if (hasWhole) hasWhole.checked = false;
-  if (whole) { whole.value = ""; whole.classList.add("d-none"); whole.required = false; }
+  if (whole) { whole.value = ""; whole.required = false; }
+  if (slice) { slice.value = ""; slice.required = false; }
 }
 
 // ========== FUNCIÓN PARA CARGAR PRODUCTO EN MODAL (EDICIÓN) ==========
@@ -293,25 +281,19 @@ function setupDessertForm(product) {
   dessertSection?.classList.remove("d-none");
   blockSection?.classList.add("d-none"); 
 
-  const hasWhole = document.getElementById("has-whole-price");
   const whole = document.getElementById("whole-price");
-  const hasSlice = document.getElementById("has-slice-price");
   const slice = document.getElementById("slice-price");
   
   const wholeVal = Number(product.price ?? 0);
-  if (whole && hasWhole) {
-    hasWhole.checked = wholeVal > 0;
-    whole.classList.toggle("d-none", !(wholeVal > 0));
-    whole.required = wholeVal > 0;
+  if (whole) {
     whole.value = wholeVal > 0 ? wholeVal : "";
+    whole.required = wholeVal > 0;
   }
 
   const sliceVal = Number(product.slicePrice ?? 0);
-  if (slice && hasSlice) {
-    hasSlice.checked = sliceVal > 0;
-    slice.classList.toggle("d-none", !(sliceVal > 0));
-    slice.required = sliceVal > 0;
+  if (slice) {
     slice.value = sliceVal > 0 ? sliceVal : "";
+    slice.required = sliceVal > 0;
   }
 }
 
@@ -446,43 +428,11 @@ export function initImageDropzone() {
 
 // ========== FUNCIÓN PARA ACTUALIZAR BOTONES DEL MODAL ==========
 
-export function updateModalButton(editingProductId, onSubmit, onCancel) {
-  const modalFooter = document.querySelector('.modal .row.m-4');
-  if (!modalFooter) return;
-  
-  const buttonContainer = modalFooter.querySelector('.d-flex');
-  if (!buttonContainer) return;
-  
-  // Limpiar botones existentes
-  buttonContainer.innerHTML = '';
-  
-  if (editingProductId) {
-    // Botón Actualizar cuando se está editando
-    const updateBtn = document.createElement('button');
-    updateBtn.className = 'btn btn-primary px-4';
-    updateBtn.type = 'button';
-    updateBtn.textContent = 'Actualizar producto';
-    updateBtn.addEventListener('click', onSubmit);
-    
-    // Botón Cancelar
-    const cancelBtn = document.createElement('button');
-    cancelBtn.className = 'btn btn-outline-secondary px-4 ms-2';
-    cancelBtn.type = 'button';
-    cancelBtn.textContent = 'Cancelar';
-    cancelBtn.addEventListener('click', onCancel);
-    
-    buttonContainer.appendChild(updateBtn);
-    buttonContainer.appendChild(cancelBtn);
-  } else {
-    // Botón Agregar por defecto
-    const addBtn = document.createElement('button');
-    addBtn.className = 'btn btn-dark px-4';
-    addBtn.type = 'button';
-    addBtn.textContent = 'Agregar producto';
-    addBtn.addEventListener('click', onSubmit);
-    
-    buttonContainer.appendChild(addBtn);
-  }
+export function updateModalButton(editingProductId) {
+  const btn = document.querySelector('#product-form button[type="submit"]');
+  if (!btn) return;
+  btn.textContent = editingProductId ? 'Actualizar producto' : 'Agregar producto';
+  btn.className = editingProductId ? 'btn btn-primary px-4' : 'btn btn-dark px-4';
 }
 
 // ========== INICIALIZACIÓN DE EVENTOS ==========
@@ -559,7 +509,7 @@ export function initAdminUI() {
     // Configurar toggle de tipo de producto
     setupProductTypeToggle();
 
-    setupDessertPriceToggles();
+    // setupDessertPriceToggles();
     
     // Configurar checkboxes de tamaño
     setupSizeCheckboxes();
@@ -625,6 +575,51 @@ function setupSidebarNavigation() {
       a.classList.add('active');
     });
   });
+}
+
+export function setModalModeByCategory(categoryName) {
+  const cat = (categoryName || "").trim().toUpperCase();
+
+  const drinkOnly = document.getElementById("drink-only");
+  const dessertOnly = document.getElementById("dessert-only");
+  const blockSection = document.getElementById("block-section");
+
+  const drinkRadio = document.querySelector('input[name="product-type"][value="drink"]');
+  const dessertRadio = document.querySelector('input[name="product-type"][value="dessert"]');
+
+  const sectionSelect = document.getElementById("product-section");
+
+  if (!drinkOnly || !dessertOnly || !blockSection || !drinkRadio || !dessertRadio) return;
+
+  const isDessert = (cat === "POSTRES");
+
+  if (isDessert) dessertRadio.checked = true;
+  else drinkRadio.checked = true;
+
+  // Toggle blocks
+  drinkOnly.classList.toggle("d-none", isDessert);
+  dessertOnly.classList.toggle("d-none", !isDessert);
+  blockSection.classList.toggle("d-none", isDessert);
+
+  // Auto-set section for drinks
+  if (!isDessert && sectionSelect) {
+    if (cat === "SIN CAFÉ" || cat === "SIN CAFE") sectionSelect.value = "Sin café";
+    if (cat === "CON CAFÉ" || cat === "CON CAFE") sectionSelect.value = "Con café";
+  }
+
+  if (isDessert) {
+    // turn off drink requireds
+    ["price-ch", "price-m", "price-g"].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) { el.required = false; el.value = ""; }
+    });
+  } else {
+    // turn off dessert requireds
+    const slice = document.getElementById("slice-price");
+    const whole = document.getElementById("whole-price");
+    if (slice) { slice.required = false; slice.value = ""; }
+    if (whole) { whole.required = false; whole.value = ""; }
+  }
 }
 
 // ========== FUNCIONES AUXILIARES ==========

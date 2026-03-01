@@ -1,7 +1,7 @@
 // js/admin/main.js - Punto de entrada principal para admin/productos
 import { ProductsController } from "../controllers/productController.js";
 import { handleFormSubmit as handleServiceSubmit } from "../services/productService.js";
-import { initAdminUI, setupCategoryButtons, resetForm, loadProductForEditing, updateModalButton, getActiveCategory  } from "../ui/adminUI.js";
+import { initAdminUI, setupCategoryButtons, resetForm, loadProductForEditing, updateModalButton, getActiveCategory, setModalModeByCategory } from "../ui/adminUI.js";
 
 let editingProductId = null;
 let controller = null;
@@ -23,6 +23,7 @@ async function initAdmin() {
         
         // ✅ Esto ya configura todo el UI
         await initAdminUI();
+        initDynamicModalBehavior();
         
         setupEventListeners();
         loadInitialProducts();
@@ -43,47 +44,31 @@ async function onFormSubmit(e) {
         null //no render aquí
     );
 
-    // if (result?.success) {
-    //     editingProductId = null;
-    //     modal?.hide();
-    //     resetForm();
-    //     updateModalButton();
-
-    //     const activeCategory = getActiveCategory(); //render
-    //     filterProductsByCategory(activeCategory);
-    // }
-
     if (result?.success) {
         editingProductId = null;
-        modal.hide();
+        modal?.hide();
         resetForm();
+        updateModalButton(null);
 
-        updateModalButton(null, onFormSubmit);
-
-        const activeCategory = getActiveCategory();
+        const activeCategory = getActiveCategory(); //render
         filterProductsByCategory(activeCategory);
     }
 }
 
 function setupEventListeners() {
-    // Formulario de producto
     const form = document.getElementById("product-form");
     if (form) {
-        // form.addEventListener("submit", handleFormSubmit);
         form.addEventListener("submit", onFormSubmit);
     }
     
-    // Botón Agregar +
-    const addNewBtn = document.querySelector('button[data-bs-target="#modal-product"]');
+    const addNewBtn = document.querySelector('[data-mode="create"]');
     if (addNewBtn) {
         addNewBtn.addEventListener("click", () => {
             editingProductId = null;
             resetForm();
-
-            updateModalButton(
-                null,
-                onFormSubmit
-            );
+            const activeCategory = getActiveCategory();
+            setModalModeByCategory(activeCategory);
+            updateModalButton(null);
         });
     }
     
@@ -97,9 +82,77 @@ function setupEventListeners() {
 // FUNCTION THAT CONTROLS THE MODAL BASED OFF CATEGORY GOES HERE
 
 function initDynamicModalBehavior() {
-    
+const modalEl = document.getElementById("modal-product");
+  if (!modalEl) return;
+
+  modalEl.addEventListener("show.bs.modal", () => {
+    if (editingProductId) return;
+
+    // Always start clean
+    resetForm();
+
+    const activeCategory = getActiveCategory();
+
+    if (activeCategory.trim().toUpperCase() === "EXTRAS") {
+      const instance = bootstrap.Modal.getInstance(modalEl);
+      instance?.hide();
+      return;
+    }
+
+    setModalModeByCategory(activeCategory);
+
+    updateModalButton(null);
+  });
 }
 
+/* function forceDrinkMode(sectionValue) {
+  // lock radio
+  const drinkRadio = document.querySelector('input[name="product-type"][value="drink"]');
+  const dessertRadio = document.querySelector('input[name="product-type"][value="dessert"]');
+
+  if (drinkRadio) drinkRadio.checked = true;
+  if (dessertRadio) dessertRadio.checked = false;
+
+  // show drink UI, hide dessert UI
+  document.getElementById("drink-only")?.classList.remove("d-none");
+  document.getElementById("dessert-only")?.classList.add("d-none");
+  document.getElementById("block-section")?.classList.remove("d-none");
+
+  // set section
+  const sectionSelect = document.getElementById("product-section");
+  if (sectionSelect) sectionSelect.value = sectionValue;
+
+  // ensure dessert inputs aren't required
+  document.getElementById("slice-price") && (document.getElementById("slice-price").required = false);
+  document.getElementById("whole-price") && (document.getElementById("whole-price").required = false);
+}
+
+function forceDessertMode(categoryValue) {
+  const drinkRadio = document.querySelector('input[name="product-type"][value="drink"]');
+  const dessertRadio = document.querySelector('input[name="product-type"][value="dessert"]');
+
+  if (dessertRadio) dessertRadio.checked = true;
+  if (drinkRadio) drinkRadio.checked = false;
+
+  // shows dessert ui, hides drink ui
+  document.getElementById("drink-only")?.classList.add("d-none");
+  document.getElementById("dessert-only")?.classList.remove("d-none");
+  document.getElementById("block-section")?.classList.add("d-none");
+
+  // set hidden category
+  const cat = document.getElementById("dessert-category");
+  if (cat) cat.value = categoryValue;
+
+  // ensure drink inputs aren't required
+  ["price-ch", "price-m", "price-g"].forEach(id => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.required = false;
+    el.value = "";
+    el.classList.add("d-none");
+  });
+}
+*/
 
 function loadInitialProducts() {
     const container = document.getElementById("products-container");
@@ -230,16 +283,7 @@ function renderProductCard(product, container) {
         editingProductId = product.id;
         loadProductForEditing(product, modal);
         
-        updateModalButton(
-            editingProductId,
-            onFormSubmit,
-            () => {
-                editingProductId = null;
-                modal.hide();
-                resetForm();
-                updateModalButton(null, onFormSubmit);
-            }
-        );
+        updateModalButton(editingProductId);
     });
 
     

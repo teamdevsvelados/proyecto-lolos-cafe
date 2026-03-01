@@ -238,19 +238,21 @@
                                 </div>
                                 
                                 <!-- Choose if you add a dessert or drink -->
+                                <div id="block-type" class="d-none">
                                 <fieldset class="mb-4 mt-5">
                                     <legend class="h5 fw-bold mb-2">Tipo de producto</legend>
                                     <div class="d-flex gap-4">
                                         <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="product-type" value="drink" checked>
+                                        <input class="form-check-input" type="radio" name="product-type" value="drink" checked disabled>
                                         <label class="form-check-label">Bebida</label>
                                         </div>
                                         <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="product-type" value="dessert">
+                                        <input class="form-check-input" type="radio" name="product-type" value="dessert" disabled>
                                         <label class="form-check-label">Postre</label>
                                         </div>
                                     </div>
                                 </fieldset>
+                                </div>
 
                                 <div id="block-section">
                                     <label class="form-label"><strong>Sección</strong></label>
@@ -440,41 +442,18 @@
                                 </div> <!-- drink only options closes -->
 
                                 <div id="dessert-only" class="d-none">
-                                    <div class="container-fluid pt-1 px-0">
-                                        <div class="row g-4">
+                                  <input type="hidden" id="dessert-category" name="dessertCategory" value="Postres">
 
-                                            <!-- price per slice -->
-                                             <div class="col-12 col-lg-6" id="block-slice-price">
-                                                <div class="card border-0 shadow-sm h-100">
-                                                    <div class="card-body">
-                                                        <label class="form-label fw-bold">Precio por rebanada</label>
-                                                        <div class="form-check d-flex align-items-center gap-2">
-                                                            <input class="form-check-input" type="checkbox" id="has-slice-price" checked>
-                                                            <label class="form-check-label" for="has-slice-price">Habilitar</label>
-                                                        </div>
-
-                                                        <input type="number" class="form-control mt-2 d-none" id="slice-price" name="slicePrice" placeholder="$0.00" min="0" step="0.1"/>
-
-                                                    </div>
-                                                </div>
-                                             </div>
-
-                                             <!-- whole dessert price-->
-                                              <div class="col-12 col-lg-6" id="block-whole-price">
-                                                <div class="card border-0 shadow-sm h-100">
-                                                    <div class="card-body">
-                                                        <label class="form-label fw-bold">Precio pieza completa</label>
-
-                                                        <div class="form-check d-flex align-items-center gap-2"> 
-                                                            <input class="form-check-input" type="checkbox" id="has-whole-price">
-                                                            <label class="form-check-label" for="has-whole-price">Habilitar</label>
-                                                    </div>
-                                                    <input type="number" class="form-control mt-2 d-none" id="whole-price" name="price" placeholder="$0.00" min="0" step="0.1"/>
-                                                </div>
-                                              </div>
-                                            </div>
-                                        </div>
+                                    <div class="mb-3">
+                                        <label class="form-label fw-bold">Precio pieza completa</label>
+                                        <input type="number" class="form-control" id="whole-price" placeholder="$0.00" min="0" step="0.01" required>
                                     </div>
+
+                                    <div class="mb-3">
+                                        <label class="form-label fw-bold">Precio por rebanada (opcional)</label>
+                                        <input type="number" class="form-control" id="slice-price" placeholder="$0.00" min="0" step="0.01">
+                                    </div>  
+
                                 </div> <!-- dessert only options closes -->
                                 <!-- Additional notes -->
                                 <hr class="m-4">
