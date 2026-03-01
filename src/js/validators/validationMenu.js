@@ -58,40 +58,28 @@ export function validateDrinkForm() {
     errors.push("Selecciona al menos un tipo de leche");
   }
   
-  // 4. Validar extras
-  const extraChecks = document.querySelectorAll('input[name="extras[]"]:checked');
-  if (extraChecks.length === 0) {
-    isValid = false;
-    errors.push("Indica si deseas algún extra y cuál");
-  }
   
   return { isValid, errors };
 }
 
 // Validación para postres
 export function validateDessertForm() {
-  const type = document.querySelector('input[name="product-type"]:checked').value;
-  
-  if (type !== "dessert") return { isValid: true, errors: [] };
-  
-  let isValid = true;
-  let errors = [];
-  
-  const price = parseFloat(document.getElementById("dessert-price").value);
-  const slicePriceInput = document.getElementById("dessert-slice-price");
-  const slicePrice = slicePriceInput ? parseFloat(slicePriceInput.value) : 0;
-  
-  if (isNaN(price) || price <= 0) {
-    isValid = false;
-    errors.push("Debes ingresar un precio válido (mayor que 0) para el postre");
-  }
-  
-  if (!isNaN(slicePrice) && slicePrice < 0) {
-    isValid = false;
-    errors.push("El precio por rebanada no puede ser negativo");
-  }
-  
-  return { isValid, errors };
+  const errors = [];
+
+  const wholeEl = document.getElementById("whole-price");
+  const sliceEl = document.getElementById("slice-price");
+
+  const whole = parseFloat(wholeEl?.value) || 0;
+  const slice = parseFloat(sliceEl?.value) || 0;
+
+  // whole is required
+  if (!wholeEl) errors.push("Falta el input de precio pieza completa");
+  else if (whole <= 0) errors.push("Ingresa un precio válido para pieza completa.");
+
+  // slice is optional, but if exists must be >= 0
+  if (sliceEl && slice < 0) errors.push("El precio por rebanada no puede ser negativo.");
+
+  return { isValid: errors.length === 0, errors };
 }
 
 // Validación básica para ambos tipos

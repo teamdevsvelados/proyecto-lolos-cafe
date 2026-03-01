@@ -64,9 +64,10 @@ export function getDessertFormData(imageData) {
   const description = document.getElementById("product-description").value.trim();
   const isPromo = document.getElementById("prodPromo").checked;
   const isActive = document.getElementById("product-active").checked;
-  const category = document.getElementById("dessert-category").value;
-  const price = parseFloat(document.getElementById("dessert-price").value) || 0;
-  const slicePrice = parseFloat(document.getElementById("dessert-slice-price").value) || 0;
+  const category = document.getElementById("dessert-category")?.value || "Postres";
+
+  const price = parseFloat(document.getElementById("whole-price")?.value) || 0;
+  const slicePrice = parseFloat(document.getElementById("slice-price")?.value) || 0;
 
   return {
     title,

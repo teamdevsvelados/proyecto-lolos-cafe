@@ -33,14 +33,6 @@ export function setupCategoryButtons(container, controller, filterProductsByCate
       }
     });
   });
-  
-  // Activar 'POSTRES' por defecto si existe
-  const postresBtn = Array.from(categoryButtons).find(btn => 
-    btn.textContent.trim() === 'POSTRES'
-  );
-  if (postresBtn) {
-    setTimeout(() => postresBtn.click(), 100);
-  }
 }
 
 // Obtener categoría activa
@@ -80,7 +72,7 @@ export function resetForm() {
   resetCheckboxes();
   
   // Mostrar campos de bebida por defecto
-  showDrinkFieldsByDefault();
+  // showDrinkFieldsByDefault();
   
   // Reiniciar campos de postre
   resetDessertFields();
@@ -130,35 +122,33 @@ function resetCheckboxes() {
 function setDefaultCheckboxValues() {
   const calienteCheck = document.getElementById("temp-caliente");
   const regularCheck = document.getElementById("milk-regular");
-  const sinExtrasCheck = document.getElementById("extra-no");
   
   if (calienteCheck) calienteCheck.checked = true;
   if (regularCheck) regularCheck.checked = true;
-  if (sinExtrasCheck) sinExtrasCheck.checked = true;
+  // Extras: no default (ninguno marcado = sin extras)
+
 }
 
 // Mostrar campos de bebida por defecto
 function showDrinkFieldsByDefault() {
-  const drinkSection = document.getElementById("drink-section");
-  const dessertSection = document.getElementById('dessert-section');
-  const drinkOptionsSection = document.querySelector('.container-fluid.pt-1.px-0');
+  const drinkSection = document.getElementById("drink-only");
+  const dessertSection = document.getElementById('dessert-only');
+  const blockSection = document.getElementById("block-section");
   const drinkRadio = document.querySelector('input[name="product-type"][value="drink"]');
   
   if (drinkRadio) drinkRadio.checked = true;
-  if (drinkSection) drinkSection.style.display = "block";
-  if (dessertSection) dessertSection.style.display = "none";
-  if (drinkOptionsSection) drinkOptionsSection.style.display = "block";
+  drinkSection?.classList.remove("d-none");
+  dessertSection?.classList.add("d-none");
+  blockSection?.classList.remove("d-none");
 }
 
 // Reiniciar campos de postre
 function resetDessertFields() {
-  const dessertPriceInput = document.getElementById("dessert-price");
-  const dessertSlicePriceInput = document.getElementById("dessert-slice-price");
-  const dessertCategoryInput = document.getElementById("dessert-category");
-  
-  if (dessertPriceInput) dessertPriceInput.value = '';
-  if (dessertSlicePriceInput) dessertSlicePriceInput.value = '';
-  if (dessertCategoryInput) dessertCategoryInput.value = "Postres";
+  const slice = document.getElementById("slice-price");
+  const whole = document.getElementById("whole-price");
+
+  if (whole) { whole.value = ""; whole.required = false; }
+  if (slice) { slice.value = ""; slice.required = false; }
 }
 
 // ========== FUNCIÓN PARA CARGAR PRODUCTO EN MODAL (EDICIÓN) ==========
@@ -213,29 +203,26 @@ function loadProductImage(product) {
 // Configurar formulario para bebida
 function setupDrinkForm(product) {
   const drinkRadio = document.querySelector('input[name="product-type"][value="drink"]');
-  const drinkSection = document.getElementById("drink-section");
-  const dessertSection = document.getElementById('dessert-section');
-  const drinkOptionsSection = document.querySelector('.container-fluid.pt-1.px-0');
+  const drinkSection = document.getElementById("drink-only");
+  const dessertSection = document.getElementById("dessert-only");
+  const blockSection = document.getElementById("block-section");
   
-  if (drinkRadio) {
-    drinkRadio.checked = true;
-    if (drinkSection) drinkSection.style.display = "block";
-    if (dessertSection) dessertSection.style.display = "none";
-    if (drinkOptionsSection) drinkOptionsSection.style.display = "block";
-  }
-  
-  // Cargar sección
+  if (drinkRadio) drinkRadio.checked = true;
+  drinkSection?.classList.remove("d-none");
+  dessertSection?.classList.add("d-none");
+  blockSection?.classList.remove("d-none");
+
   const sectionSelect = document.getElementById("product-section");
-  if (sectionSelect) {
-    sectionSelect.value = product.section || "Con café";
-  }
-  
+  if (sectionSelect) sectionSelect.value = product.section || "Con café";
+
   // Cargar tamaños y precios
   loadDrinkSizes(product);
   
   // Cargar opciones de bebida
   loadDrinkOptions(product);
-}
+  }
+  
+
 
 // Cargar tamaños de bebida
 function loadDrinkSizes(product) {
@@ -285,33 +272,28 @@ function loadDrinkOptions(product) {
 // Configurar formulario para postre
 function setupDessertForm(product) {
   const dessertRadio = document.querySelector('input[name="product-type"][value="dessert"]');
-  const drinkSection = document.getElementById("drink-section");
-  const dessertSection = document.getElementById('dessert-section');
-  const drinkOptionsSection = document.querySelector('.container-fluid.pt-1.px-0');
+  const drinkSection = document.getElementById("drink-only");
+  const dessertSection = document.getElementById("dessert-only");
+  const blockSection = document.getElementById("block-section");
   
-  if (dessertRadio) {
-    dessertRadio.checked = true;
-    if (drinkSection) drinkSection.style.display = "none";
-    if (dessertSection) dessertSection.style.display = "block";
-    if (drinkOptionsSection) drinkOptionsSection.style.display = "none";
+  if (dessertRadio) dessertRadio.checked = true;
+  drinkSection?.classList.add("d-none");
+  dessertSection?.classList.remove("d-none");
+  blockSection?.classList.add("d-none"); 
+
+  const whole = document.getElementById("whole-price");
+  const slice = document.getElementById("slice-price");
+  
+  const wholeVal = Number(product.price ?? 0);
+  if (whole) {
+    whole.value = wholeVal > 0 ? wholeVal : "";
+    whole.required = wholeVal > 0;
   }
-  
-  // Cargar categoría
-  const categorySelect = document.getElementById("dessert-category");
-  if (categorySelect) {
-    categorySelect.value = product.category || "Postres";
-  }
-  
-  // Cargar precios
-  const priceInput = document.getElementById("dessert-price");
-  const slicePriceInput = document.getElementById("dessert-slice-price");
-  
-  if (priceInput) {
-    priceInput.value = product.price || 0;
-  }
-  
-  if (slicePriceInput) {
-    slicePriceInput.value = product.slicePrice || 0;
+
+  const sliceVal = Number(product.slicePrice ?? 0);
+  if (slice) {
+    slice.value = sliceVal > 0 ? sliceVal : "";
+    slice.required = sliceVal > 0;
   }
 }
 
@@ -446,63 +428,29 @@ export function initImageDropzone() {
 
 // ========== FUNCIÓN PARA ACTUALIZAR BOTONES DEL MODAL ==========
 
-export function updateModalButton(editingProductId, onSubmit, onCancel) {
-  const modalFooter = document.querySelector('.modal .row.m-4');
-  if (!modalFooter) return;
-  
-  const buttonContainer = modalFooter.querySelector('.d-flex');
-  if (!buttonContainer) return;
-  
-  // Limpiar botones existentes
-  buttonContainer.innerHTML = '';
-  
-  if (editingProductId) {
-    // Botón Actualizar cuando se está editando
-    const updateBtn = document.createElement('button');
-    updateBtn.className = 'btn btn-primary px-4';
-    updateBtn.type = 'button';
-    updateBtn.textContent = 'Actualizar producto';
-    updateBtn.addEventListener('click', onSubmit);
-    
-    // Botón Cancelar
-    const cancelBtn = document.createElement('button');
-    cancelBtn.className = 'btn btn-outline-secondary px-4 ms-2';
-    cancelBtn.type = 'button';
-    cancelBtn.textContent = 'Cancelar';
-    cancelBtn.addEventListener('click', onCancel);
-    
-    buttonContainer.appendChild(updateBtn);
-    buttonContainer.appendChild(cancelBtn);
-  } else {
-    // Botón Agregar por defecto
-    const addBtn = document.createElement('button');
-    addBtn.className = 'btn btn-dark px-4';
-    addBtn.type = 'button';
-    addBtn.textContent = 'Agregar producto';
-    addBtn.addEventListener('click', onSubmit);
-    
-    buttonContainer.appendChild(addBtn);
-  }
+export function updateModalButton(editingProductId) {
+  const btn = document.querySelector('#product-form button[type="submit"]');
+  if (!btn) return;
+  btn.textContent = editingProductId ? 'Actualizar producto' : 'Agregar producto';
+  btn.className = editingProductId ? 'btn btn-primary px-4' : 'btn btn-dark px-4';
 }
 
 // ========== INICIALIZACIÓN DE EVENTOS ==========
 
 export function setupProductTypeToggle() {
-  const drinkSection = document.getElementById("drink-section");
-  const dessertSection = document.getElementById("dessert-section");
-  const drinkOptionsSection = document.querySelector('.container-fluid.pt-1.px-0');
+  const drinkSection = document.getElementById("drink-only");
+  const dessertSection = document.getElementById("dessert-only");
+  const blockSection = document.getElementById("block-section");
+
+  if (!drinkSection || !dessertSection || !blockSection) return;
 
   document.querySelectorAll('input[name="product-type"]').forEach(radio => {
     radio.addEventListener("change", (e) => {
-      if (e.target.value === "drink") {
-        drinkSection.style.display = "block";
-        dessertSection.style.display = "none";
-        drinkOptionsSection.style.display = "block";
-      } else {
-        drinkSection.style.display = "none";
-        dessertSection.style.display = "block";
-        drinkOptionsSection.style.display = "none";
-      }
+        const isDrink = e.target.value === "drink";
+        drinkSection.classList.toggle("d-none", !isDrink);
+        dessertSection.classList.toggle("d-none", isDrink);
+
+        blockSection.classList.toggle("d-none", !isDrink);
     });
   });
 }
@@ -526,6 +474,26 @@ export function setupSizeCheckboxes() {
   });
 }
 
+export function setupDessertPriceToggles() {
+  const hasSlice = document.getElementById("has-slice-price");
+  const sliceInput = document.getElementById("slice-price");
+
+  const hasWhole = document.getElementById("has-whole-price");
+  const wholeInput = document.getElementById("whole-price");
+
+  function bindToggle(check, input) {
+    if (!check || !input) return;
+    check.addEventListener("change", () => {
+      input.classList.toggle("d-none", !check.checked);
+      input.required = check.checked;
+      if (!check.checked) input.value="";
+    });
+  }
+
+  bindToggle(hasSlice, sliceInput);
+  bindToggle(hasWhole, wholeInput);
+}
+
 // ========== INICIALIZACIÓN COMPLETA ==========
 
 export function initAdminUI() {
@@ -536,10 +504,12 @@ export function initAdminUI() {
     initImageDropzone();
     
     // Crear sección de postres dinámicamente si no existe
-    createDessertSectionIfNeeded();
+    // createDessertSectionIfNeeded();
 
     // Configurar toggle de tipo de producto
     setupProductTypeToggle();
+
+    // setupDessertPriceToggles();
     
     // Configurar checkboxes de tamaño
     setupSizeCheckboxes();
@@ -556,12 +526,12 @@ export function initAdminUI() {
 }
 
 // Crear sección de postres si no existe
-function createDessertSectionIfNeeded() {
+/* function createDessertSectionIfNeeded() {
   let dessertSection = document.getElementById('dessert-section');
   if (dessertSection) return; // Ya existe
   
-  // Buscar drink-section como referencia
-  const drinkSection = document.getElementById("drink-section");
+  // Buscar drink-only como referencia
+  const drinkSection = document.getElementById("drink-only");
   if (!drinkSection) return;
   
   // Crear sección de postres
@@ -588,10 +558,11 @@ function createDessertSectionIfNeeded() {
       <input type="number" id="dessert-slice-price" class="form-control" placeholder="$0.00" min="0" step="0.01">
     </div>
   `;
-  
-  // Insertar después de drink-section
+
+  // Insertar después de drink-only
   drinkSection.parentNode.insertBefore(dessertSection, drinkSection.nextSibling);
 }
+*/
 
 // Configurar navegación de barra lateral
 function setupSidebarNavigation() {
@@ -604,6 +575,51 @@ function setupSidebarNavigation() {
       a.classList.add('active');
     });
   });
+}
+
+export function setModalModeByCategory(categoryName) {
+  const cat = (categoryName || "").trim().toUpperCase();
+
+  const drinkOnly = document.getElementById("drink-only");
+  const dessertOnly = document.getElementById("dessert-only");
+  const blockSection = document.getElementById("block-section");
+
+  const drinkRadio = document.querySelector('input[name="product-type"][value="drink"]');
+  const dessertRadio = document.querySelector('input[name="product-type"][value="dessert"]');
+
+  const sectionSelect = document.getElementById("product-section");
+
+  if (!drinkOnly || !dessertOnly || !blockSection || !drinkRadio || !dessertRadio) return;
+
+  const isDessert = (cat === "POSTRES");
+
+  if (isDessert) dessertRadio.checked = true;
+  else drinkRadio.checked = true;
+
+  // Toggle blocks
+  drinkOnly.classList.toggle("d-none", isDessert);
+  dessertOnly.classList.toggle("d-none", !isDessert);
+  blockSection.classList.toggle("d-none", isDessert);
+
+  // Auto-set section for drinks
+  if (!isDessert && sectionSelect) {
+    if (cat === "SIN CAFÉ" || cat === "SIN CAFE") sectionSelect.value = "Sin café";
+    if (cat === "CON CAFÉ" || cat === "CON CAFE") sectionSelect.value = "Con café";
+  }
+
+  if (isDessert) {
+    // turn off drink requireds
+    ["price-ch", "price-m", "price-g"].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) { el.required = false; el.value = ""; }
+    });
+  } else {
+    // turn off dessert requireds
+    const slice = document.getElementById("slice-price");
+    const whole = document.getElementById("whole-price");
+    if (slice) { slice.required = false; slice.value = ""; }
+    if (whole) { whole.required = false; whole.value = ""; }
+  }
 }
 
 // ========== FUNCIONES AUXILIARES ==========
@@ -649,9 +665,9 @@ export function validateRequiredElements() {
     '#product-form',
     '#product-title',
     '#product-description',
-    '#drink-section',
+    '#drink-only',
     '.row.g-4',
-    '#modal-drink'
+    '#modal-product'
   ];
   
   const missingElements = [];

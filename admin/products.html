@@ -55,7 +55,7 @@
                     <a href="#" class="flex-fill btn btn-outline-dark rounded-0">SIN CAFÉ</a>
                     <a href="#" class="flex-fill btn btn-outline-dark rounded-0">POSTRES</a>
                     <a href="#" class="flex-fill btn btn-outline-dark rounded-0">EXTRAS</a>
-                    <a href="#" class="flex-fill btn btn-outline-dark rounded-0">PROMOCIONES</a>
+                    <!--  <a href="#" class="flex-fill btn btn-outline-dark rounded-0">PROMOCIONES</a> -->
                 </div>
                 <!-- Section title + Add button -->
                 <div class="pt-5 px-0 pb-1">
@@ -67,7 +67,7 @@
                         <!-- Add new item -->
                         <div class="col-12 col-md-2 d-flex justify-content-md-end">
                             <button type="button" class="btn btn-outline-dark rounded-0 w-100 w-md-auto"
-                                data-bs-toggle="modal" data-bs-target="#modal-drink">
+                                data-bs-toggle="modal" data-bs-target="#modal-product" data-mode="create">
                                 AGREGAR +
                             </button>
                         </div>
@@ -78,7 +78,7 @@
                     <div class="row g-4" id="products-container">
                         <!-- Product card -->
                         <div class="col-6 col-sm-4 col-md-3 mb-4 drink">
-                            <div class="card" data-bs-toggle="modal" data-bs-target="#modal-drink"
+                            <div class="card" data-bs-toggle="modal" data-bs-target="#modal-product"
                                 style="cursor: pointer;">
                                 <p class="new-drink col-12 text-center pt-1 pb-0">Nuevo</p>
                                 <img src="/public/images/index/pay-lotus.png" class="card-img-top" alt="Pay Lotus">
@@ -92,7 +92,7 @@
                         </div>
                         <!-- Product card -->
                         <div class="col-6 col-sm-4 col-md-3 mb-4 drink">
-                            <div class="card" data-bs-toggle="modal" data-bs-target="#modal-drink"
+                            <div class="card" data-bs-toggle="modal" data-bs-target="#modal-product"
                                 style="cursor: pointer;">
                                 <p class="new-drink col-12 text-center pt-1 pb-0">Nuevo</p>
                                 <img src="/public/images/index/rol-de-canela.png" class="card-img-top"
@@ -107,7 +107,7 @@
                         </div>
                         <!-- Product card -->
                         <div class="col-6 col-sm-4 col-md-3 mb-4 drink">
-                            <div class="card" data-bs-toggle="modal" data-bs-target="#modal-drink"
+                            <div class="card" data-bs-toggle="modal" data-bs-target="#modal-product"
                                 style="cursor: pointer;">
                                 <p class="new-drink col-12 text-center pt-1 pb-0">Nuevo</p>
                                 <img src="/public/images/index/pay-lotus.png" class="card-img-top" alt="Pay Lotus">
@@ -121,7 +121,7 @@
                         </div>
                         <!-- Product card -->
                         <div class="col-6 col-sm-4 col-md-3 mb-4 drink">
-                            <div class="card" data-bs-toggle="modal" data-bs-target="#modal-drink"
+                            <div class="card" data-bs-toggle="modal" data-bs-target="#modal-product"
                                 style="cursor: pointer;">
                                 <p class="new-drink col-12 text-center pt-1 pb-0">Nuevo</p>
                                 <img src="/public/images/index/cheescake.png" class="card-img-top" alt="Cheesecake">
@@ -136,7 +136,7 @@
                     </div>
                 </div>
                 <!-- New product modal -->
-                <div class="modal fade" id="modal-drink" tabindex="-1" aria-hidden="true">
+                <div class="modal fade" id="modal-product" tabindex="-1" aria-hidden="true">
                     <form id="product-form">
                         <div class="modal-dialog modal-lg">
                             <div class="modal-content">
@@ -210,7 +210,7 @@
                                         <!-- Product name -->
                                         <div class="mb-2">
                                             <label for="product-title" class="form-label"><strong>Nombre</strong></label>
-                                            <input type="text" id="product-title" class="form-control"
+                                            <input type="text" id="product-title" name="title" class="form-control"
                                                 placeholder="Ej. Capuchino" value="" required />
                                         </div>
                                         
@@ -218,55 +218,57 @@
                                         <div class="mb-2">
                                             <label for="product-description"
                                                 class="form-label"><strong>Descripción</strong></label>
-                                            <textarea id="product-description" class="form-control" rows="2"
+                                            <textarea id="product-description" name="description" class="form-control" rows="2"
                                                 placeholder="Descripción del producto que explica los ingredientes básicos."
                                                 required></textarea>
                                         </div>
                                         <!-- Promo -->
                                         <div class="form-check mb-2">
-                                            <input class="form-check-input" type="checkbox" id="prodPromo">
+                                            <input class="form-check-input" type="checkbox" name="promo" id="prodPromo">
                                             <label class="form-check-label" for="prodPromo">
                                                 Marcar como <strong>PROMO</strong>
                                             </label>
                                         </div>
                                         <!-- Active -->
                                         <div class="form-check mb-3">
-                                            <input class="form-check-input" type="checkbox" id="product-active" checked>
+                                            <input class="form-check-input" type="checkbox" name="available" id="product-active" checked>
                                             <label class="form-check-label" for="product-active">Producto activo</label>
                                         </div>
                                     </div>
                                 </div>
                                 
                                 <!-- Choose if you add a dessert or drink -->
+                                <div id="block-type" class="d-none">
                                 <fieldset class="mb-4 mt-5">
                                     <legend class="h5 fw-bold mb-2">Tipo de producto</legend>
                                     <div class="d-flex gap-4">
                                         <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="product-type" value="drink" checked>
+                                        <input class="form-check-input" type="radio" name="product-type" value="drink" checked disabled>
                                         <label class="form-check-label">Bebida</label>
                                         </div>
                                         <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="product-type" value="dessert">
+                                        <input class="form-check-input" type="radio" name="product-type" value="dessert" disabled>
                                         <label class="form-check-label">Postre</label>
                                         </div>
                                     </div>
                                 </fieldset>
+                                </div>
 
-                                <div id="drink-section">
+                                <div id="block-section">
                                     <label class="form-label"><strong>Sección</strong></label>
                                     <!-- <select class="form-select mb-3"> -->
-                                        <select id="product-section" class="form-select mb-3">
-                                        <option>Con café</option>
-                                        <option>Sin café</option>
-                                        <option>Postres</option>
+                                        <select id="product-section" name="section" class="form-select mb-3">
+                                        <option value="Con café">Con café</option>
+                                        <option value="Sin café">Sin café</option>
                                     </select>
                                 </div>
 
+                                <div id="drink-only">
                                 <!-- Product selection option 2×2 -->
                                 <div class="container-fluid pt-1 px-0">
                                     <div class="row g-4">
                                         <!-- Temperature -->
-                                        <div class="col-12 col-lg-6">
+                                        <div class="col-12 col-lg-6" id="block-temperature">
                                             <div class="card border-0 shadow-sm h-100">
                                                 <div class="card-body">
                                                     <fieldset>
@@ -299,7 +301,7 @@
                                             </div>
                                         </div>
                                         
-                                        <div class="col-12 col-lg-6">
+                                        <div class="col-12 col-lg-6" id="block-sizes">
                                             <div class="card border-0 shadow-sm h-100">
                                                 <div class="card-body">
                                                     <fieldset>
@@ -331,7 +333,7 @@
                                         </div>
 
                                         <!-- Milk types  -->
-                                        <div class="col-12 col-lg-6">
+                                        <div class="col-12 col-lg-6" id="block-milks">
                                             <div class="card border-0 shadow-sm h-100">
                                                 <div class="card-body">
                                                     <fieldset>
@@ -383,20 +385,13 @@
                                             </div>
                                         </div>
                                         <!-- Extras -->
-                                        <div class="col-12 col-lg-6">
+                                        <div class="col-12 col-lg-6" id="block-extras">
                                             <div class="card border-0 shadow-sm h-100">
                                                 <div class="card-body">
                                                     <fieldset>
                                                         <legend class="h5 fw-bold mb-2"><i
                                                                 class="bi bi-plus-circle"></i> Extras</legend>
                                                         <div class="ps-1 mt-2">
-                                                            <div class="form-check mb-2">
-                                                                <input class="form-check-input" type="checkbox"
-                                                                    name="extras[]" id="extra-no" value="Sin extras"
-                                                                    checked>
-                                                                <label class="form-check-label" for="extra-no">Sin
-                                                                    extras</label>
-                                                            </div>
                                                             <div class="form-check mb-2">
                                                                 <input class="form-check-input" type="checkbox"
                                                                     name="extras[]" id="extra-espresso"
@@ -444,6 +439,22 @@
                                         </div>
                                     </div>
                                 </div>
+                                </div> <!-- drink only options closes -->
+
+                                <div id="dessert-only" class="d-none">
+                                  <input type="hidden" id="dessert-category" name="dessertCategory" value="Postres">
+
+                                    <div class="mb-3">
+                                        <label class="form-label fw-bold">Precio pieza completa</label>
+                                        <input type="number" class="form-control" id="whole-price" placeholder="$0.00" min="0" step="0.01" required>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label class="form-label fw-bold">Precio por rebanada (opcional)</label>
+                                        <input type="number" class="form-control" id="slice-price" placeholder="$0.00" min="0" step="0.01">
+                                    </div>  
+
+                                </div> <!-- dessert only options closes -->
                                 <!-- Additional notes -->
                                 <hr class="m-4">
                             
