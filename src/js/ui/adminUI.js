@@ -45,8 +45,8 @@ export function setupCategoryButtons(container, controller, filterProductsByCate
 
 // Obtener categoría activa
 export function getActiveCategory() {
-   const activeButton = document.querySelector('.top-buttons .btn.active');
-   return activeButton ? activeButton.textContent.trim() : 'POSTRES';
+  const activeButton = document.querySelector('.top-buttons .btn.active');
+  return activeButton ? activeButton.textContent.trim() : 'POSTRES';
 }
 
 // Mostrar estado vacío

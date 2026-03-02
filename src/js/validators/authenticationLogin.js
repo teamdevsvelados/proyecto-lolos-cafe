@@ -18,6 +18,7 @@ submitBtn.addEventListener("click", e => {
 
     const users = getUsers()
     const existingUser = users.find(user => user.email === email)
+    console.log(existingUser)
 
     if (existingUser) {
         if (existingUser.password === password) {
