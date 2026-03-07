@@ -9,10 +9,25 @@
     integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="/src/styles/main.css" />
-
 </head>
 
 <body>
+    <div class="container-fluid pt-4">
+    <!-- Botón solo visible en móvil -->
+      <button class="btn btn-dark d-lg-none m-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileSidebar">
+        <i class="bi bi-list"></i> Menú
+      </button>
+    
+      <!-- Offcanvas para móvil -->
+      <div class="offcanvas offcanvas-start d-lg-none" tabindex="-1" id="mobileSidebar">
+        <div class="offcanvas-header">
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body p-0" id="sidebar-mobile">
+          <!-- Se llena con JS igual que el otro -->
+        </div>
+      </div>
+  </div>
   <main class="container-fluid">
     <div class="row g-0">
       <!-- Sidebar  -->
@@ -20,7 +35,7 @@
       </section>
 
       <!-- Content -->
-      <section class="col-12 col-lg-10 p-3">
+      <section class="col-12 col-lg-10 p-2 p-lg-3">
       <h2 class="page-title ps-0 ms-0">Usuarios</h2>
 
         <!-- Search and Admins/Clients tabs -->
@@ -96,6 +111,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
     crossorigin="anonymous"></script>
+  <script src="https://animatedicons.co/scripts/embed-animated-icons.js"></script>
   <script type="module" src="/src/js/utils/loadComponents.js"></script>
   <script type="module" src="/src/js/utils/cartSync.js"></script>
   <script type="module" src="/src/js/admin/users.js"></script>
