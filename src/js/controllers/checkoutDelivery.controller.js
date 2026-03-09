@@ -1,99 +1,11 @@
-import { getFinalCart, saveCheckoutDeliveryData } from '../services/cartStorage.service.js';
+import { getFinalCart, saveCheckoutDeliveryData } from '../core/storage/cartStorage.js';
 import { renderCheckoutSummary, renderEmptyCheckoutSummary } from '../ui/checkoutSummary.ui.js';
+import { initPaymentInputUI } from '../ui/paymentInput.ui.js';
 import { validateDeliveryForm } from '../validators/delivery.validator.js';
 
 function setValidationState(input, isInvalid) {
   if (!input) return;
   input.classList.toggle('is-invalid', isInvalid);
-}
-
-function setupPaymentInput({
-  orderTotal,
-  paymentExactRadio,
-  paymentOtherRadio,
-  paymentDetailInput,
-  paymentMinimumEl,
-  paymentErrorEl,
-  submitButton
-}) {
-  const orderTotalRounded = Number(orderTotal.toFixed(2));
-
-  if (paymentMinimumEl) {
-    paymentMinimumEl.innerText = `$${orderTotalRounded.toFixed(2)}`;
-  }
-
-  if (paymentDetailInput) {
-    paymentDetailInput.min = orderTotalRounded.toFixed(2);
-  }
-
-  const getPaymentAmount = () => Number.parseFloat(paymentDetailInput?.value || '');
-
-  const isPaymentAmountValid = () => {
-    const amount = getPaymentAmount();
-    return Number.isFinite(amount) && amount >= orderTotalRounded;
-  };
-
-  const syncSubmitButtonState = () => {
-    if (!submitButton) return;
-    submitButton.disabled = paymentOtherRadio?.checked ? !isPaymentAmountValid() : false;
-  };
-
-  const togglePaymentInput = () => {
-    const usesOtherAmount = Boolean(paymentOtherRadio?.checked);
-    if (!paymentDetailInput) return;
-
-    paymentDetailInput.disabled = !usesOtherAmount;
-
-    if (!usesOtherAmount) {
-      paymentDetailInput.value = '';
-      setValidationState(paymentDetailInput, false);
-      paymentDetailInput.removeAttribute('required');
-      if (paymentErrorEl) {
-        paymentErrorEl.innerText = 'Ingresa un monto válido.';
-      }
-    } else {
-      paymentDetailInput.setAttribute('required', 'required');
-    }
-
-    syncSubmitButtonState();
-  };
-
-  const validatePaymentInput = () => {
-    if (!paymentOtherRadio?.checked || !paymentDetailInput) {
-      setValidationState(paymentDetailInput, false);
-      syncSubmitButtonState();
-      return;
-    }
-
-    const isInvalid = !isPaymentAmountValid();
-    setValidationState(paymentDetailInput, isInvalid);
-
-    if (paymentErrorEl) {
-      paymentErrorEl.innerText = isInvalid
-        ? 'El monto debe ser mayor o igual al total del pedido.'
-        : 'Ingresa un monto válido.';
-    }
-
-    syncSubmitButtonState();
-  };
-
-  paymentDetailInput?.addEventListener('input', validatePaymentInput);
-  paymentExactRadio?.addEventListener('change', () => {
-    togglePaymentInput();
-    validatePaymentInput();
-  });
-  paymentOtherRadio?.addEventListener('change', () => {
-    togglePaymentInput();
-    validatePaymentInput();
-  });
-
-  togglePaymentInput();
-  validatePaymentInput();
-
-  return {
-    getPaymentAmount,
-    isPaymentAmountValid
-  };
 }
 
 export function initCheckoutDeliveryPage() {
@@ -128,14 +40,15 @@ export function initCheckoutDeliveryPage() {
   const paymentErrorEl = document.getElementById('detallePagoError');
   const submitButton = deliveryForm.querySelector('button[type="submit"]');
 
-  const paymentControls = setupPaymentInput({
+  const paymentControls = initPaymentInputUI({
     orderTotal,
     paymentExactRadio,
     paymentOtherRadio,
     paymentDetailInput,
     paymentMinimumEl,
     paymentErrorEl,
-    submitButton
+    submitButton,
+    setValidationState
   });
 
   [nameInput, phoneInput, addressInput].forEach((input) => {
