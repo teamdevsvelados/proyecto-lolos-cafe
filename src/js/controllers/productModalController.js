@@ -45,20 +45,16 @@ export class ProductModalController {
 
             this.viewDrinks.renderHeader(productHTMLData); // Usamos los datos HTML como en el original para texto
 
-            this.viewDrinks.renderCoffeeType(productData, category === 'with-coffee');
+            this.viewDrinks.renderCoffeeType(productData);
 
             this.viewDrinks.renderTemperatures(productData, (selectedTemp) => {
-                this.viewDrinks.renderSizes(this.currentProduct, selectedTemp);
                 this.calculateTotal(this.viewDrinks);
             });
 
-            const firstTempAvailable = Object.keys(productData.priceByTemperature).find(t => productData.priceByTemperature[t] !== null);
-            if (firstTempAvailable) {
-                this.viewDrinks.renderSizes(productData, firstTempAvailable);
-            }
+            this.viewDrinks.renderSizes(productData);
 
-            this.viewDrinks.renderMilks(milks);
-            this.viewDrinks.renderExtras(extras);
+            this.viewDrinks.renderMilks(milks, productData.allowsMilk);
+            this.viewDrinks.renderExtras(extras, productData.allowsExtras);
 
             this.calculateTotal(this.viewDrinks);
 

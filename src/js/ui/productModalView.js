@@ -10,6 +10,7 @@ export class ProductModalView {
             total: sel('#modal-total-dinamico'), size: sel('#size-options'), temp: sel('#temperature-options'),
             coffeeType: sel('#coffee-type-options'), coffeeTypeSection: sel('#coffee-type-section'),
             milks: sel('#milks-container'), extras: sel('#extras-container'),
+            milksSection: sel('#milks-container')?.parentElement, extrasSection: sel('#extras-container')?.parentElement,
             btnMas: sel('#btn-mas') || document.getElementById('btn-mas'),
             btnMenos: sel('#btn-menos') || document.getElementById('btn-menos')
         };
@@ -49,10 +50,10 @@ export class ProductModalView {
         this._attachChangeEvents(`.${cls}`);
     }
 
-    renderCoffeeType(pData, isCoffee) {
+    renderCoffeeType(pData) {
         if (!this.els.coffeeType) return;
         const defaults = { withcoffee: 'Regular', withoutcoffee: 'Descafeinado' };
-        const data = pData.priceByCoffeeType || (isCoffee ? defaults : null);
+        const data = pData.priceByCoffeeType || (pData.requiresCoffeeType ? defaults : null);
 
         if (this.els.coffeeTypeSection) this.els.coffeeTypeSection.classList.toggle('d-none', !data);
         if (!data) return;
@@ -67,8 +68,7 @@ export class ProductModalView {
         const names = { hot: 'Caliente', rocks: 'A las rocas', frappe: 'Frappé' };
         let hasChecked = this.modal.querySelector('input[name="temp"]:checked');
 
-        this.els.temp.innerHTML = Object.keys(pData.priceByTemperature)
-            .filter(k => pData.priceByTemperature[k] !== null)
+        this.els.temp.innerHTML = pData.temperatures
             .map(k => {
                 let check = !hasChecked; hasChecked = true;
                 return this._radioHtml('temp', k, k, names[k], check);
@@ -79,13 +79,13 @@ export class ProductModalView {
         );
     }
 
-    renderSizes(pData, selectedTemp) {
+    renderSizes(pData) {
         if (!this.els.size) return;
-        const sizes = pData.priceByTemperature[selectedTemp];
+        const sizes = pData.priceBySize;
         if (!sizes) return this.els.size.innerHTML = '<p class="text-muted">No tamaños</p>';
 
         const names = { ch: 'Chico (14 oz.)', md: 'Mediano (16 oz.)', lg: 'Grande (20 oz.)' };
-        this.els.size.innerHTML = Object.keys(sizes).map((k, i) =>
+        this.els.size.innerHTML = pData.sizes.map((k, i) =>
             this._radioHtml('size', k, sizes[k], `${names[k]} - $${sizes[k]}`, i === 0, 'size-input')
         ).join('');
         this._attachChangeEvents('.size-input');
@@ -100,8 +100,28 @@ export class ProductModalView {
         this._attachChangeEvents('.size-input');
     }
 
-    renderMilks(milks) { this._renderList(this.els.milks, milks, 'milk', 'add-on-input'); }
-    renderExtras(extras) { this._renderList(this.els.extras, extras, 'extra', 'add-on-input'); }
+    renderMilks(milks, allowsMilk) {
+        if (this.els.milksSection) {
+            this.els.milksSection.classList.toggle('d-none', !allowsMilk);
+            this.els.milksSection.previousElementSibling?.classList.toggle('d-none', !allowsMilk);
+        }
+        if (!allowsMilk) {
+            if (this.els.milks) this.els.milks.innerHTML = '';
+            return;
+        }
+        this._renderList(this.els.milks, milks, 'milk', 'add-on-input');
+    }
+    renderExtras(extras, allowsExtras) {
+        if (this.els.extrasSection) {
+            this.els.extrasSection.classList.toggle('d-none', !allowsExtras);
+            this.els.extrasSection.previousElementSibling?.classList.toggle('d-none', !allowsExtras);
+        }
+        if (!allowsExtras) {
+            if (this.els.extras) this.els.extras.innerHTML = '';
+            return;
+        }
+        this._renderList(this.els.extras, extras, 'extra', 'add-on-input');
+    }
 
     bindChangeEvents(cb) {
         this.onChangeCb = cb;

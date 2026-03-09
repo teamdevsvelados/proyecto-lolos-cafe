@@ -1,4 +1,4 @@
-import { desserts, drinksWithCoffee, drinksWithoutCoffee, extras, milks } from "../db/db.js";
+import { desserts, drinks, extras, milks } from "../db/db.js";
 
 export class ProductModel {
 
@@ -7,9 +7,9 @@ export class ProductModel {
             setTimeout(() => {
                 let productList = [];
                 if (category === 'with-coffee') {
-                    productList = drinksWithCoffee;
+                    productList = drinks.filter(d => d.category === 'coffee');
                 } else if (category === 'without-coffee') {
-                    productList = drinksWithoutCoffee;
+                    productList = drinks.filter(d => d.category === 'no-coffee');
                 } else {
                     productList = desserts;
                 }

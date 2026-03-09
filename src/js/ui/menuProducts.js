@@ -1,13 +1,13 @@
-import { desserts, drinksWithCoffee, drinksWithoutCoffee } from "../db/db.js";
+import { desserts, drinks } from "../db/db.js";
 
 function renderMenu() {
     let products
     const typeOfProducts = document.querySelector("[data-category]").getAttribute('data-category')
 
     if (typeOfProducts === "with-coffee") {
-        products = drinksWithCoffee
+        products = drinks.filter(d => d.category === 'coffee')
     } else if (typeOfProducts === "without-coffee") {
-        products = drinksWithoutCoffee
+        products = drinks.filter(d => d.category === 'no-coffee')
     } else {
         products = desserts
     }
@@ -23,7 +23,7 @@ function renderMenu() {
                         data-product='{
                         "id": "${product.id}",
                         "name": "${product.name}",
-                        "price": "${product.priceByTemperature.hot ? product.priceByTemperature.hot.ch : product.priceByTemperature.frappe.md}",
+                        "price": "${product.priceBySize.ch || product.priceBySize.md || product.priceBySize.lg}",
                         "description": "${product.description}",
                         "image": "${product.image}",
                         "badge": "${product.badge}"
@@ -42,7 +42,7 @@ function renderMenu() {
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-start mb-2">
                                 <h6 class="card-title mb-0 fw-bold">${product.name}</h6>
-                                <span class="price fw-bold">$${Number(product.priceByTemperature.hot?.ch || product.priceByTemperature.frappe?.md || product.priceByTemperature.frappe?.lg).toFixed(2)}</span>
+                                <span class="price fw-bold">$${Number(product.priceBySize?.ch || product.priceBySize?.md || product.priceBySize?.lg).toFixed(2)}</span>
                             </div>
                             <p class="card-text text-muted small">${product.description}</p>
                         </div>
