@@ -18,8 +18,12 @@ export class ProductModalController {
             modalPostresEl.addEventListener('show.bs.modal', (event) => this.handleDessertModalOpen(event));
         }
 
-        this.viewDrinks.bindChangeEvents(() => this.calculateTotal(this.viewDrinks));
-        this.viewDesserts.bindChangeEvents(() => this.calculateTotal(this.viewDesserts));
+        if (this.viewDrinks.els) {
+            this.viewDrinks.bindChangeEvents(() => this.calculateTotal(this.viewDrinks));
+        }
+        if (this.viewDesserts.els) {
+            this.viewDesserts.bindChangeEvents(() => this.calculateTotal(this.viewDesserts));
+        }
     }
 
     async handleDrinkModalOpen(event) {
