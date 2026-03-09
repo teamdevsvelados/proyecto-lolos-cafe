@@ -35,7 +35,6 @@ function fetchFromAPI() {
       renderUsersTable(data)
     })
     .catch(error => {
-      usersInfo.innerHTML = `<p>Error al cargar los usuarios.</p>`;
       console.error(error);
     });
 }
