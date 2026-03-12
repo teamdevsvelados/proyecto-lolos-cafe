@@ -37,26 +37,6 @@ const hashPassword = async password => {
     .map(b => b.toString(16).padStart(2, "0"))
     .join("")
 }
-// const registerUser = async (user) => {
-//     try {
-//         const response = await fetch(url+'/new-user', {
-//             method: 'POST',
-//             headers: {
-//                 'Content-Type': 'application/json',
-//             },
-//             body: JSON.stringify(user),
-//         });
-
-//         if(!response.ok) {
-//             throw new Error(`HTTP error: ${response.status}`)        
-//         }
-
-//         return await response.json()
-//     } catch (error) {
-//         console.error('Fetch error: ', error)
-//     }
-// }
-
 
 submitBtn.addEventListener("click", async e => {
     e.preventDefault()
@@ -100,17 +80,11 @@ submitBtn.addEventListener("click", async e => {
             }, 3000);
         }
     } else {
-        // Functions to register users without form
-        // const registeredUser = await registerUser(user)
-        // console.log(registeredUser)
         feedbackMessage.textContent = 'El email ingresado aún no tiene una cuenta asociada'
         setTimeout(() => {
             feedbackMessage.textContent = ''
         }, 3000);
     }
-
-    // emailInput.value = ""
-    // passwordInput.value = ""
 })
 
 if(userLoggedIn) {
@@ -119,6 +93,4 @@ if(userLoggedIn) {
     } else {
         window.location.href = "/ui/account.html"
     }
-} else {
-    window.location.href = '/'
 }
