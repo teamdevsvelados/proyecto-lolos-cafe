@@ -1,0 +1,65 @@
+.faq-page .accordion-button::after {
+  display: none;
+}
+
+.faq-page .accordion-button,
+.faq-page .accordion-button:not(.collapsed),
+.faq-page .accordion-button:focus {
+  color: inherit;
+  background: transparent;
+  box-shadow: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.faq-page .accordion-button:hover {
+  opacity: .75;
+}
+
+.faq-page .accordion-collapse {
+  border-top: none;
+}
+
+.faq-page .faq-toggle-icon {
+    font-size: 1.1rem;
+  flex-shrink: 0;
+  line-height: 1;
+  transition: transform .2s ease, color .2s ease;
+  transform-origin: center;
+  display: inline-flex;
+}
+
+.faq-page .accordion-button:not(.collapsed) .faq-toggle-icon {
+  transform: rotate(45deg);
+}
+
+.faq-page .faq-icon {
+  font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+  color: var(--color-primary);
+  flex-shrink: 0;
+  line-height: 1;
+  width: 2.5rem;        /* reserve space so text doesn't shift */
+  text-align: center;
+}
+
+.faq-page .accordion-button:not(.collapsed) .faq-toggle-icon,
+.faq-page .accordion-button:not(.collapsed) .faq-icon,
+.faq-page .accordion-button:not(.collapsed) h3 {
+  color: var(--color-secondary);
+  font-weight: 600;
+}
+
+.faq-page .accordion-button h3 {
+  margin: 0;
+  font-weight: 500;
+}
+
+.faq-page .accordion-body {
+  padding-right: 0;
+  padding-left: calc(2.5rem + 1rem);
+}
+
+/* removes divider line for the last faq accordion */
+.faq-page .accordion-item:last-child {
+  border-bottom: none !important;
+}

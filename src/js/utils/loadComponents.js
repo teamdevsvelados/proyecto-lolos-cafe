@@ -1,0 +1,33 @@
+fetch('/src/components/header.html')
+    .then(response => response.text())
+    .then(html => {
+        document.getElementById('header-placeholder').innerHTML = html;
+    });
+fetch('/src/components/footer.html')
+    .then(response => response.text())
+    .then(html => {
+        const footer = document.getElementById('footer-placeholder')
+        if(footer) {
+            footer.innerHTML = html
+        }
+    });
+fetch('/src/components/sidebar-nav.html')
+    .then(response => response.text())
+    .then(html => {
+        const sidebar = document.getElementById('sidebar-placeholder')
+        const sidebarMobile = document.getElementById('sidebar-mobile')
+        if(sidebar) {
+            sidebar.innerHTML = html
+        }
+        if(sidebarMobile) {
+            sidebarMobile.innerHTML = html
+        }
+    });
+fetch('/src/components/cart-modal.html')
+    .then(response => response.text())
+    .then(html => {
+        const body = document.body;
+        const cartModalDiv = document.createElement('div');
+        cartModalDiv.innerHTML = html;
+        body.appendChild(cartModalDiv.firstElementChild);
+    });

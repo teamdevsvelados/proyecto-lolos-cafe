@@ -1,0 +1,15 @@
+    .contact-page .list-group-item.active-day {
+      background-color: #5A6B43;
+      color: #ffffff;
+      border-radius: 0; 
+      font-weight: 500;
+    }
+
+    .contact-page .effect-contact {
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
+    }
+
+    .contact-page .effect-contact:hover {
+      transform: translateY(-8px);/
+    }

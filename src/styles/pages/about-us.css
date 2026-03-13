@@ -1,0 +1,236 @@
+.about-us{
+  --values-on-green: rgba(255,255,255,.92);
+  --values-on-green-dim: rgba(255,255,255,.80);
+
+  --values-on-white: #111;
+  --values-on-white-dim: rgba(0,0,0,.72);
+
+  --values-border: rgba(255,255,255,.12);
+}
+
+/* Values styles */
+.about-us .about-us-values{
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.about-us .about-us-values .values-intro-wrap{
+  background: var(--green-1);
+}
+
+.about-us .about-us-values .values-intro{
+  padding: 56px 0 26px;
+  color: var(--values-on-green);
+}
+
+.about-us .about-us-values .values-heading{
+  color: #fff;
+}
+
+.about-us .about-us-values .values-lead{
+  color: var(--values-on-green-dim);
+}
+
+.about-us .about-us-values .values-intro{
+  padding: 56px 0 26px;
+  text-align: left;
+  max-width: none;
+}
+
+.about-us .about-us-values .values-heading{
+  margin: 0 0 12px;
+}
+
+.about-us .about-us-values .values-lead{
+  margin: 0;
+  opacity: .92;
+}
+
+.about-us .about-us-values .value-strip{
+  width: 100%;
+  margin: 0;
+  padding: 26px 0;
+  transition: background-color .25s ease, color .25s ease, transform .18s ease;
+}
+
+.about-us .about-us-values .value-1{ background: var(--green-1); }
+.about-us .about-us-values .value-2{ background: var(--green-2); }
+.about-us .about-us-values .value-3{ background: var(--green-3); }
+
+.about-us .about-us-values .value-inner{
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(180px, 260px);
+  gap: 18px;
+  align-items: center;
+}
+
+.about-us .about-us-values .value-title{
+  margin: 0 0 6px;
+  color: #fff;
+}
+
+.about-us .about-us-values .value-text{
+  margin: 0;
+  color: var(--values-on-green);
+  max-width: 80ch;
+  line-height: 1.5;
+}
+
+/* image */
+.about-us .about-us-values .value-media{
+  display: grid;
+  place-items: center;
+  justify-self: center;
+  align-self: center;
+  padding-left: 8px;
+}
+
+.about-us .about-us-values .value-media img{
+  width: clamp(180px, 22vw, 260px);
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+  filter: grayscale(1) contrast(1.05);
+  transition: filter .25s ease, transform .25s ease;
+}
+
+@media (any-hover: hover){
+  .about-us .about-us-values .value-strip:hover{
+    background: #fff;
+    transform: translateY(-1px);
+  }
+
+  .about-us .about-us-values .value-strip:hover .value-title{
+    color: var(--values-on-white);
+  }
+
+  .about-us .about-us-values .value-strip:hover .value-text{
+    color: var(--values-on-white-dim);
+  }
+
+  .about-us .about-us-values .value-strip:hover .value-media img{
+    filter: grayscale(0) contrast(1.05);
+    transform: translateY(-1px);
+  }
+}
+
+/* Mobile */
+@media (max-width: 576px){
+  .about-us .about-us-values .values-intro{
+    padding: 44px 0 18px;
+    text-align: left;
+  }
+
+  .about-us .about-us-values .value-inner{
+    grid-template-columns: 1fr;
+  }
+
+  .about-us .about-us-values .value-media{
+    place-items: start center;
+    margin-top: 12px;
+    padding-left: 0;
+  }
+
+  .about-us .about-us-values .value-media img{
+    width: clamp(140px, 55vw, 220px);
+  }
+
+  .about-us .about-us-values .value-text{
+    max-width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .about-us .about-us-values .value-strip,
+  .about-us .about-us-values .value-media img{
+    transition: none !important;
+  }
+}
+
+/* Dev team section */
+
+.about-us .about-team .section-text{
+  opacity: .92;
+}
+
+/* card */
+.about-us .about-team .team-card{
+  background: #fff;
+  border: 1px solid rgba(0,0,0,.08);
+  overflow: hidden;
+  box-shadow: 0 10px 22px rgba(0,0,0,.06);
+  transform: translateY(0);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+@media (any-hover: hover){
+  .about-us .about-team .team-card:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 16px 34px rgba(0,0,0,.10);
+  }
+}
+
+/* photo */
+.about-us .about-team .team-photo{
+  aspect-ratio: 4 / 5;
+  background: #f3f3f3;
+}
+
+.about-us .about-team .team-photo img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.about-us .about-team .team-body{
+  padding: 14px 14px 16px;
+}
+
+.about-us .about-team .team-name{
+  margin: 0 0 6px;
+  font-size: 1.05rem;
+  line-height: 1.2;
+}
+
+.about-us .about-team .team-role{
+  margin: 0 0 12px;
+  color: rgba(0,0,0,.72);
+  font-size: .95rem;
+}
+
+/* icons */
+.about-us .about-team .team-links{
+  display: flex;
+  gap: 12px;
+}
+
+.about-us .about-team .team-links a{
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  color: #111;
+  background: #fff;
+  transition: transform .18s ease, background-color .18s ease;
+}
+
+.about-us .about-team .team-links a i{
+  font-size: 1.15rem;
+  line-height: 1;
+}
+
+@media (any-hover: hover){
+  .about-us .about-team .team-links a:hover{
+    transform: translateY(-1px);
+      color: var(--green-1)
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .about-us .about-team .team-card,
+  .about-us .about-team .team-links a{
+    transition: none !important;
+  }
+}

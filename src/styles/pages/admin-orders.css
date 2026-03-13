@@ -1,0 +1,127 @@
+/* ========== Visual tuning ========== */
+.page-title {
+  font-weight: 700;
+}
+.page-subtitle {
+  color: #6c757d;
+}
+
+/* Section headers with counters */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  margin-bottom: 0.25rem;
+  font-weight: 700;
+}
+.section-counter {
+  font-size: 0.85rem;
+  background: #efefef;
+  padding: 0.1rem 0.5rem;
+  border-radius: 0.2rem;
+  min-width: 2rem;
+  text-align: center;
+}
+.section-divider {
+  height: 1px;
+  background: #cfcfcf;
+  margin: 0.5rem 0 1rem;
+}
+
+/* Order row (list item) */
+.order-row {
+  display: grid;
+  grid-template-columns: 140px 1fr 140px 120px 40px;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 0.5rem 0.75rem;
+  background: #f6f6f6;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+}
+.order-row:hover {
+  background: #ececec;
+}
+.order-id {
+  font-weight: 700;
+}
+.order-customer {
+  color: #7a7a7a;
+}
+.order-items {
+  text-align: center;
+}
+.order-time {
+  text-align: right;
+  color: #555;
+}
+.order-gear {
+  text-align: center;
+  opacity: 0.75;
+}
+.order-gear .bi {
+  pointer-events: none;
+}
+
+/* Headers row  */
+.orders-head {
+  display: grid;
+  grid-template-columns: 140px 1fr 140px 120px 40px;
+  gap: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  background: #efefef;
+  font-weight: 600;
+}
+
+/* Card-like container per board section */
+.board-card {
+  border: 1px solid #e9ecef;
+  border-radius: 0.25rem;
+  overflow: hidden;
+}
+
+/* Toolbar */
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 260px;
+}
+
+/* Modal look tweaks */
+.modal-content {
+  border-radius: 0;
+}
+.modal .form-control,
+.modal .btn {
+  border-radius: 0;
+}
+
+/* Utility: monospaced total */
+.price {
+  font-variant-numeric: tabular-nums;
+}
+
+/*  Highlighting search matches */
+mark.search-hit {
+  background: #ff8a8a;
+  padding: 0 0.15rem;
+  border-radius: 0.15rem;
+}
+
+@media (max-width: 768px) {
+  .orders-head,
+  .order-row {
+    grid-template-columns: 110px 1fr 110px 90px 36px;
+  }
+}
+@media (max-width: 576px) {
+  .orders-head,
+  .order-row {
+    grid-template-columns: 90px 1fr 100px 70px 36px;
+  }
+  .order-items {
+    display: none;
+  }
+}
