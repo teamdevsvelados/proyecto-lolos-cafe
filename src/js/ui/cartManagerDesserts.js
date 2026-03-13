@@ -117,14 +117,16 @@ document.addEventListener('click', (e) => {
 
     // Recolecta datos usando los IDs que pusimos anteriormente
     const nombre = safeText(modal.querySelector('#modalTitle')) || 'Producto';
-    const precioText = safeText(modal.querySelector('#modalPrice')) || '$0.00';
-    const precio = Number(precioText.replace(/[^0-9.]/g, '')) || 0;
-
 
     // CAPTURA DE IMAGEN Y CANTIDAD
     const imagen = modal.querySelector('#modalImg')?.src || '';
 
     const cantidad = parseInt(modal.querySelector('#input-cantidad')?.value) || 1;
+
+    // Lee el total ya calculado (incluye tamaño + leche + extras) y obtiene precio unitario
+    const totalText = safeText(modal.querySelector('#modal-total-dinamico')) || '$ 0.00';
+    const totalCalculado = Number(totalText.replace(/[^0-9.]/g, '')) || 0;
+    const precio = totalCalculado / cantidad;
 
 
 

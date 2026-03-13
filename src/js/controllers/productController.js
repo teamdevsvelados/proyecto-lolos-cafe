@@ -34,7 +34,11 @@ export class ProductsController {
   }
 
   saveToStorage() {
-    localStorage.setItem(PRODUCTS_KEY, JSON.stringify(this.products));
+    const productsToSave = this.products.map(p => {
+    const { image, ...rest } = p;
+    return rest;
+  });
+    localStorage.setItem(PRODUCTS_KEY, JSON.stringify(productsToSave));
     localStorage.setItem(ID_KEY, String(this.currentId));
   }
 
